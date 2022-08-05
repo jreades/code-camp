@@ -1,0 +1,26 @@
+# To install/reinstall the environment:
+#   conda-env create -f conda.install.yml
+#
+name: code-camp-minim 
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - dash
+  - pip 
+  - geopandas
+  - holoviews
+  - ipyleaflet 
+  - ipympl 
+  - ipyparallel 
+  - ipywidgets 
+  - nbclient
+  - palettable 
+  - pandas
+  - seaborn
+  - tabulate 
+  - xlsxwriter
+  - pip:
+    - matplotlib-scalebar 
+    - unidecode
+    - wordcloud
