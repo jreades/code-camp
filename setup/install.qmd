@@ -1,0 +1,62 @@
+---
+title: "Installing Python"
+---
+
+Installing Python or R (see [Tools of the Trade](../lessons/Tools_of_the_Trade.qmd)) is fairly straightforward nowdays, but be warned: what you will see _after_ installing them ain't pretty. By default, Python and R code is simply the black-and-white text output of an 'interpreter' (something that processes lines of code by 'interpreting' our code into instructions to the computer, and back). People who code all the time will _always_ install an [IDE](../lessons/Tools_of_the_Trade.qmd) like RStudio or VSCode because it 'prettifies' the code that they run, making it easier to spot mistakes and track links between files containing code that interact. 
+
+You can complete a _lot_ of Code Camp using just the basic Python interpreter, but you might find it _easier_ to look at the [no install options](./no_install.qmd) since these automatically include tools for beautifying your Python code. However, if you're sure that you want to install Python on your computer then here's what you do... 
+
+## 'System' Python
+
+Many computers (especially Macs and Linux systems) will come with Python pre-installed. To find out if you have Python installed:
+
+1. On a Mac, open up the Terminal (under `Applications` > `Utilities`) and then type `python↩︎`.
+2. On a Windows machine, open the Command Prompt  (either run `cmd.exe` or search for `Command Prompt` from the Windows menu) and then type `python↩︎`.
+
+::: {.callout-tip}
+`↩︎` means hit `Enter` or `Return` on your keyboard. **Don't** try to paste the symbol into the Terminal or Command Prompt.
+:::
+
+In both cases, if Python is already installed then you will see something like the following:
+
+```bash
+Python 3.8.3 (default, Jul  2 2020, 11:26:31)
+[Clang 10.0.0 ] :: Anaconda, Inc. on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+If you see this kind output then, congratulations, you have Python installed!
+
+::: {.callout-tip}
+## Versions
+
+Don't worry too much about what version of Python you see listed (in the example above it's 3.8.3) as long as you have _at least_ verion 3.6.0. Earlier versions that are _still_ Python3 are fine, but you should _not_ use Python2 (e.g. 2.7.6).
+
+:::
+
+### If You Don't Have System Python 
+
+On a Windows machine you install Python for free from the Microsoft Store, or you can follow the instructions below for installing 'Reference' Python, but you should end up with roughly the same version of Python.
+
+On a Mac you should install X-Code command line tools by typing `xcode-select --install↩︎` into the Terminal as detailed [here](https://www.freecodecamp.org/news/install-xcode-command-line-tools/). 
+
+## 'Reference' Python
+
+The 'reference' version of Python is the one produced by the Python Software Foundation. Whatever operating system you're using, you should start from the [downloads page](https://www.python.org/downloads/) and follow the instructions from there. You will want a **Stable Release**, _not_ a Pre-release version of Python.
+
+Once it's installed, you just use the Terminal or Command Prompt as above.
+
+## Anaconda Python
+
+Anaconda Python is just 'Reference' Python packaged up by a commercial firm with some useful utilities (and a graphical installer) to help make your Python-life a little easier to manage. You can [download](https://www.anaconda.com/products/distribution) Anaconda Python for free.
+
+Once it's installed, you *can* use the Terminal or Command Prompt as above, or you may find you've got some additional options (e.g. Anaconda Prompt on Windows) that are more slightly more user-friendly.
+
+## Virtualised Python
+
+When you start the programme we'll introduce you to [Docker](https://hub.docker.com/_/python?tab=tags) and the ability to run Python in a 'Virtual Machine' without having to know anything about where the machine came from or how it was created. But we'd suggest not worrying about that for now.
+
+## Our Recommendation
+
+You will need to have 'Reference' Python installed anyway to [make the most of QGIS](https://gis.stackexchange.com/a/351290/62754), so we'd use that one. And getting used to the Terminal/Command Prompt is no bad thing since you'll be using it a lot in the future. 

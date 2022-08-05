@@ -1,19 +1,13 @@
-# Getting Started
+---
+title: "Getting Started"
+---
 
-In order to get you started on your data science 'journey' you will need to follow the guidance provided on the pages we've linked to below. These are divided into three sections: 
+We've tried to keep Code Camp as simple as possible so that you can get started as quickly as possible. We will present you with some _options_ (and some _recommendations_), but it's up to you to choose the option that feels most natural to you. When classes begin we'll have some more strict requirements, but let's keep it simple for now.
 
-1. Requirements: these are the things we'll need you to do (or try to do) *before* you get started on trying to set up the programming environment and related services.
-2. Installation: these are the things you'll need to sign up for/install/configure *once* you know that your computer is up-to-date and ready to have the environment and related services installed.
-3. No Install: these provide options for running code *without* installing anything on your own computer; they represent a compromise in terms of performance but constitute a good 'backup' plan.
+## Prerequisites
 
-## Requirements
+Beyond finding a way to run Python code (see below), there are _no_ requirements or prerequisites for Code Camp. However, you might find it useful to complete the basic computer [health check](./health.qmd); that page also includes some *recommendations* if you are considering buying a new computer on which to run code. Once you know that your machine and operating system are up-to-date, you should install the [basic utilities](./base.qmd) that will enable you to complete installation of the programming environment.
 
-Before trying to do anything else please complete the basic [health check](./health.qmd), which also includes our *recommendations* if you are considering buying a new computer when you start your studies. Once you know that your machine and operating system are up-to-date, you should install the [basic utilities](./base.qmd) that will enable you to complete installation of the programming environment. We also provide information about [Code Camp](./code_camp.qmd) which is a self-paced introduction to the fundamentals of programming in Python.
+## Running Python
 
-## Installation
-
-Once you've ticked off the Requirements, you can start installing the tools that you will use to write and run both code and documentation. You will need set up [Git and GitHub](./git.qmd) in order to manage, share, and version code. To write documentation and comments on code you will be want a [Markdown](./markdown.qmd) editor and to familiarise yourself with Markdown's syntax. And, finally, you will need to install the [programming environment](./env.qmd).
-
-## No Install
-
-If you are unable to get your hands on a machine that meets the basic requirements or on to which you can install the necessary tools, then you should look at the [no install options](./no_install.qmd). These are generally cloud-based options and are necessarily a 'second best' since limitations imposed by the provider mean that you probably won't be able to process the full data set with which we'll be working, but as a stop-gap they are perfectly useable.
+You are welcome to run Code Camp code on your own computer (see: [install options](./install.qmd)), but you should look at the [no install options](./no_install.qmd). These are generally cloud-based options and are necessarily a 'second best' since limitations imposed by the provider mean that you probably won't be able to process the full data set with which we'll be working, but as a stop-gap they are perfectly useable.

@@ -1,0 +1,6 @@
+
+Prior to (re)joining CASA from the [Department of Geography](https://www.kcl.ac.uk/geography) at [King's College London](htts://www.kcl.ac.uk/), [Dr. Mic Ferretti](https://mobile.twitter.com/miccferr/) and [I](https://twitter.com/jreades) developed the first iteration of [Code Camp](https://kingsgeocomputation.org/teaching/code-camp/code-camp-python/) with input from [Dr. James Millington](https://twitter.com/jamesmillington). Subsequently, a great deal of hard work has been undertaken by [Dr. Zara Shabrina](https://twitter.com/zarashabrina), to improve the content and provide more videos and self-testing features. 
+
+The original purpose of Code Camp was to help prepare 2nd year Geography undergraduates at King's College London for the Geocomputation pathway, but it was written to try to appeal to students from all kinds of backgrounds and has subsequently been adapted for use at UCL's Centre for Advanced Spatial Analysis.
+
+Students from both CASA and King's have repeatedly said that completing Code Camp helped them to feel more ready for the *Foundations of Spatial Data Science* module, enabling them to do better on assessments and on the programme as a whole.

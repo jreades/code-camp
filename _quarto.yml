@@ -8,7 +8,7 @@ project:
     - "*.qmd"
     - "!notebooks/"
   resources:
-    - "practicals"
+    - "notebooks"
 
 website:
   title: "Code Camp"
@@ -40,6 +40,8 @@ website:
         href: index.qmd
       - sidebar:setup
       - sidebar:lessons
+      - text: "About"
+        href: about.qmd
 
   sidebar:
     - id: setup
@@ -50,26 +52,14 @@ website:
       contents:
         - text: "Getting Started"
           href: setup/index.qmd
-        - section: "Requirements"
-          title: "Requirements"
-          contents:
-          - text: "Health Check"
-            href: setup/health.qmd
-          - text: "Base Utilities"
-            href: setup/base.qmd
-        - section: "Installation"
-          contents:
-          - setup/markdown.qmd
-          - setup/env.qmd
+        - text: "Health Check"
+          href: setup/health.qmd
+        - text: "Installing Python"
+          href: setup/install.qmd
         - text: "No Install Options"
           href: setup/no_install.qmd
-        - section: "Meta Skills"
-          contents:
-          - text: "Your Attention Please"
-            href: attention.qmd
-          - text: "Getting Help"
-            href: help.qmd
-      
+        - text: "Getting Help"
+          href: help.qmd
     - id: lessons
       title: "Lessons"
       contents:
@@ -117,7 +107,6 @@ format:
       - css/web.scss
     code-copy: true
     code-link: true
-    #cover-image: cover.png
     toc: true
     toc-title: "On this page"
     toc-depth: 2

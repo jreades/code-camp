@@ -1,39 +1,45 @@
-# Computer Health Check
+---
+title: Computer Health Check
+---
 
-When answering the questions below, 'your computer' is the machine on which you plan to do the programming. You will also have some ability to run code remotely on UCL's JupyterHub or on Google Collab (see [No Install](./no_install.qmd)), but you will find that limitations in processing power on these cloud platforms can make this a frustrating experience.
+This is intended to help you gauge whether your computer is likely to encounter issues doing spatial analysis once term starts. In the meantime, 'cloud-based' [no installation](./no_install.qmd)) options will also work well for Code Camp.
+
+::: {.callout-note}
+When answering the questions below, 'your computer' is the machine on which you plan to do the programming. 
+::: 
 
 ## Hardware Requirements
 
-We try to support as many different configurations as possible, but there is *no* programming environment that installs and runs seamlessly on *all* computers. However, in our experience the students **most likely to encounter problems** share one or more of the following:
+In our experience, the students **most likely to encounter problems** share one or more of the following characteristics:
 
-1. Your computer 8GB or less of RAM.
-2. Your computer has less than 20GB of free disk space remaining.
+1. Their computer 8GB or less of RAM.
+2. Their computer has less than 20GB of free disk space remaining.
 
-Read on below to check what specification you have...
+Read on below to check what _your_ situation is...
 
 ### MacOS
 
 You will need to look up:
 
-- How much RAM does your _main_ computer have? [Help for Mac](https://www.macworld.co.uk/how-to/mac/much-ram-need-more-3793418/).
-- How much free disk space does your _main_ computer have? [Help for Mac](https://www.macworld.com/article/2972775/how-to-check-a-mac-free-hard-drive-space.html).
+- How much RAM does your computer have? [Help for Mac](https://www.macworld.co.uk/how-to/mac/much-ram-need-more-3793418/).
+- How much free disk space does your computer have? [Help for Mac](https://www.macworld.com/article/2972775/how-to-check-a-mac-free-hard-drive-space.html).
 
 ### Windows
 
 You will need to look up:
 
-- How much RAM does your _main_ computer have? [Help for Windows](https://www.howtogeek.com/435644how-to-see-how-much-ram-is-in-your-pc-and-its-speed/).
-- How much free disk space does your _main_ computer have? [Help for Windows](https://www.lifewire.com/how-to-check-free-hard-drive-space-in-windows-2619187).
+- How much RAM does your computer have? [Help for Windows](https://www.howtogeek.com/435644how-to-see-how-much-ram-is-in-your-pc-and-its-speed/).
+- How much free disk space does your computer have? [Help for Windows](https://www.lifewire.com/how-to-check-free-hard-drive-space-in-windows-2619187).
 
 ### Linux
 
-We're going to assume that you know what you're doing. If you want a recommendation, we'd probably go with the latest Ubuntu desktop release.
+We're going to assume that you know what you're doing (`df -h`). If you want a recommendation, we'd probably go with the latest Ubuntu desktop release.
 
 ### Recommendations
 
 If you are looking for a recommendation as to what to buy:
 
-1. Don't worry about getting the fastest chip, get as much RAM as you can. You should aim for 32GB of RAM, but get more if you can afford it.
+1. Don't worry about getting the fastest chip, get as much RAM as you can. You should aim for 32GB of RAM, but get more if you can afford it and your system will take it.
 2. Don't worry about getting the biggest hard drive, get the fastest one you can. You should get a SSD (Solid State Drive), but get a M2 type SSD if you can afford it and it's available for your system.
 3. Only after you've sorted this out should you look for the fastest chipset that's still within your budget.
 
@@ -51,10 +57,10 @@ Two easy things to do to save money on a new machine are:
 
 ## Software Requirements
 
-We try to support as many different configurations as possible, but there is *no* programming environment that installs and runs seamlessly on *all* computers. However, in our experience the students **most likely to encounter problems** share one or more of the following:
+In our experience the students **most likely to encounter problems** share one or more of the following characteristics:
 
-1. Your computer runs Windows 10 Home or older, or 
-2. Your computer runs MacOS 10.13 (High Sierra) or older.
+1. Their computer runs Windows 10 Home or older, or 
+2. Their computer runs MacOS 10.13 (High Sierra) or older.
 
 As long as your computer is running one of the last two major releases of the Operating System you should encounter few issues.
 
@@ -62,19 +68,19 @@ As long as your computer is running one of the last two major releases of the Op
 
 You will need to look up:
 
-- What Operating System and Version is your _main_ computer running? [Help for Mac](https://support.apple.com/en-gb/HT201260).
+- What Operating System and Version is your computer running? [Help for Mac](https://support.apple.com/en-gb/HT201260).
 
 ### Windows
 
 You will need to look up:
 
-- What Operating System and Version is your _main_ computer running? [Help for Windows](https://support.microsoft.com/en-gb/help/13443/windows-which-version-am-i-running).
+- What Operating System and Version is your computer running? [Help for Windows](https://support.microsoft.com/en-gb/help/13443/windows-which-version-am-i-running).
 
 ### Recommendations
 
-If you are using a Mac then your system should have the option to update to the latest version of the MacOS at no charge. If you are unable to update then it is likely that you have an older machine that is not fully supported by the most recent Operating System and, in all probability, you will also encounter issues running the programming environment.
+If you are using a Mac then your system should have the option to update to the latest version of the MacOS at no charge. If you are unable to update then it is likely that you have an older machine that is not fully supported by the most recent Operating System and, in all probability, you will also encounter issues running the programming environment _locally_ (i.e. not in the cloud).
 
-If you are using a Windows PC then try to update to either Windows 11 or to Windows 10 Pro as this will 'unlock' additional features that are useful for supporting the programming environment. As a student you are likely to qualify for significantly cheaper/free updates, so make sure you do this when you have access to a discount.
+If you are using a Windows PC then try to update to either Windows 11 or to Windows 10 Pro as this will 'unlock' additional features that are useful for supporting the programming environment. Some of that unlocking process *can* require mucking about with the BIOS. As a student you are likely to qualify for significantly cheaper/free updates, so make sure you do this when you have access to the discount.
 
 ## System Updates
 
