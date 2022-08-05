@@ -1,0 +1,410 @@
+---
+jupyter: python3
+---
+
+<div style="text-align:center">
+<h1>Recap 1</h1>
+</div>
+
+## First Checkpoint
+
+After a whirlwind introduction to Python you've made it to the first checkpoint. This isn't about us checking up on you, but rather about you having a chance to check your _own_ understanding of the foundational concepts covered so far. It is really _easy_ to click through the coding cells, become a bit flummoxed, look at the answer quickly 'just to check', and then come away with the impression that you've _understood_ what you are doing: "Yeah, yeah, I made a little mistake there but it's fine because I was close enough..."
+
+We _know_ that's the case because we've _done_ it before you. 
+
+The challenge with coding is that, as the code becomes more complex, so do the issues. And if you haven't learned to be careful with the basics and to _fix them yourself_ then fixing the more subtle 'mistakes' will be _that much harder_. And you don't want this to be any harder than it alreay is!
+
+### Remember: You _Will_ Make Mistakes
+
+Everyone makes mistakes. We do it all the time because, in programming, it is very easy to make errors. Computers are stupid and do _exactly_ what we tell them, so even tiny mistakes (`aVariable` vs `avariable`, for example) can cause a piece of code or a program to fail to run. Errors in a program are often called bugs. 
+
+Fun fact: the [origin of the term bug](https://en.wikipedia.org/wiki/Software_bug#:~:text=The%20term%20%22bug%22%20was%20used,in%20an%20early%20electromechanical%20computer.&text=Operators%20traced%20an%20error%20in,taped%20to%20the%20log%20book.) was an _actual_ bug (a moth) caught up in the mechanical relay of an early computer.
+
+Bugs today are rarely of the insectile variety, and we now distinguish between three general types of error: 
+1. **Syntax errors** are when the ‘grammar’ rules of Python (known as the syntax) have been violated, making it impossible for the code to be parsed (i.e. understood by Python); 
+2. **Logic errors** have good syntax but there is an error in the order of statements or how they relate to one another;
+3. **Semantic errors** make programs do something other than what the programmer intended.
+Actually, not all programmers would distinguish between \#2 and \#3, but we'll make a case for these being different beasts below.
+
+Here's a nice little video on this topic...
+
+[![Video about Types of Errors](https://img.youtube.com/vi/ToPP5UGgJUM/0.jpg)](https://www.youtube.com/watch?v=ToPP5UGgJUM)
+
+When you first learn to code, syntax errors are the most common type of error because you are still learning the 'rules' of the language: indentation, the difference between `=` and `==`, the need for a colon (`:`) on the end of some types of code... Python is _fairly_ good at telling you what has caused a syntax error when it's trivial and happens on a single line of code, but it will get quite a bit harder as your code becomes more complex!
+
+The other types of errors are ones that you learn to spot over time through experience and developing skills. Learning to spot logic errors is one of those wonderful transferrable skills that you can _also_ use in everyday life: by learning to think through challenges at a higher level and then address them iteratively you are likely to become both a more careful thinker (i.e. _how_ should I go about solving this issue?), and a more flexible and resilient thinker (i.e. ok, so _that_ didn't work out as I expected, what should do I do now?). 
+
+> _“A good example of a logic error might be, 'take a drink from your water bottle, put it in your backpack, walk to the library, and then put the top back on the bottle.'”_ Severance (2014, p.14)
+
+Many sites don't even discuss the concept of a semantic error or treat it as the equivalent of a logic error, but we think it's useful to set a bar _beyond_ 'basic' logic errors: these arise from _interactions_ between parts of a program, or between a programming language and the underlying computer/operating system. So the code can (and usually does) run successfully but the output is a long way from what you expected, or the failures that you're seeing _don't make sense_. We'd suggest that spotting semantic errors is a sign that you are well on your way to _thinking_ computationally. In short, you understand why your code is triggering strange and unexpected behaviour even though it _looks_ like it should do exactly what you intended. 
+
+## Exercises
+
+#### 1.1 Variables and Assignment
+
+Without running the code below, calculate what the values of `x`, `y` and `z` would be after all lines of code in the code block have been executed.
+
+```python
+#| geopyter: {Contributors: James Millington (james.millington@kcl.ac.uk), git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-08-17 19:06:58', committed_date: '2017-08-17 19:06:58', committer.name: Jon Reades, sha: 5e3b396ae18a982d693c4bfd86c721c7e1e21051}}
+x = 12
+y = 10
+
+z = x + y
+x = x + y
+y = z + y
+```
+
+Once you have calculated what you think `x`, `y` and `z` are, add print statements to the code above and run it to check. Make sure you understand the results you find. 
+
+#### 1.2 Operator Precedence
+
+Without running the code below, calculate what the values of `x`, `y` and `z` would be after all lines of code in the code block have been executed.
+
+```python
+#| geopyter: {Contributors: James Millington (james.millington@kcl.ac.uk), git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-08-17 19:06:58', committed_date: '2017-08-17 19:06:58', committer.name: Jon Reades, sha: 5e3b396ae18a982d693c4bfd86c721c7e1e21051}}
+x = 1 + 2 * 3 / 4
+y = (1 + 2) * (3 / 4)
+z = 1 + 2 * (3 / 4)
+
+print(x)
+print(y)
+print(z)
+```
+
+Once you have calculated what you think `x`, `y` and `z` are, add print statements to the code above and run it to check.
+
+#### 1.3 Thinking Abstractly
+
+*Hint*: to solve the following problems assume `pi = 3.141592653589793`
+
+Given a sphere of diameter 12cm, calculate its volume (use Google to find the formula for this):
+
+
+```python
+#| solution2: hidden
+pi = 3.141592653589793
+r = 12 / 2
+vol = (4/3) * pi * (r**3)
+print(vol)
+```
+
+Given a sphere of volume 14,137cm3 calculate its radius to the closest **whole number** (this will involve rearranging the formula and you may need to good how to find a cube root with python):
+
+
+```python
+#| solution2: hidden
+vol=14137
+r3 = vol / ((4/3) * pi)
+r = r3**(1/3)
+print(round(r))
+```
+
+#### 2.1 Working with Conditions
+
+**This is not a loop question, we just want you to change the value of _hours_ so that for each of the cases below (_hours_ is set to 10, 2, 0 in turn) you get the right output.**
+
+Using the code below as a starting point, add two lines of code so that your output is as follows:
+1. Code prints `Hours are greater than zero` when `hours=10`
+2. Code prints `Hours are greater than zero` _and_ `Hours are less than 10` when `hours=2` 
+3. Code prints `Hours are less than 10` when `hours=0`
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+hours=10
+
+if hours > 0:
+    print(" ")
+```
+
+```python
+#| solution2: hidden
+hours=2
+
+if hours > 0:
+    print("Hours are greater than zero")
+if hours < 10:
+    print("Hours are less than 10")
+```
+
+#### 2.2 Flow Control
+
+In the code cell below, enter code to execute the flow chart shown in the image below. You will need to assign values to `a` and `b` on lines 1 and 2 before using the flow chart to complete the code such that it produces the following:
+1. When `a = 2` and `b = 2` four lines of output will be written
+2. When `a = 1` and `b = 2` one line of output will be written
+
+<img src=https://kingsgeocomputation.files.wordpress.com/2016/09/geocompweek2_task3_3.jpg width = 600>
+
+
+```python
+#| solution2: hidden
+a = 1
+b = 2
+
+x = a
+if x == b:
+    print("inside 1")
+    print("inside 2")
+    print("inside 3")
+print("after condition")
+```
+
+#### 3.1 It's All Quite Logical
+
+Read the code in the code cell below. 
+
+```python
+#| geopyter: {Contributors: James Millington (james.millington@kcl.ac.uk), git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-08-17 19:06:58', committed_date: '2017-08-17 19:06:58', committer.name: Jon Reades, sha: 5e3b396ae18a982d693c4bfd86c721c7e1e21051}}
+x = 1
+if x > 0 and x < 5:
+    print("Joe")
+    
+if x > 0 or x < 5:
+    print("Aled")
+    
+if not(x > 0):
+    print("Sarah")
+```
+
+Assume that the code executes for a given value of `x` and answer the following questions. Only test the code **AFTER** you have worked out the answers and typed them below.
+
+1.	What names are name(s) are printed when `x = 5`? 
+2.	What value(s) can `x` be when the names `Joe` and `Aled` are printed?  
+3.	What name(s) are printed when `x = -1`?
+4.	Is there any value for which all three names will be printed?
+
+**Answers** _Edit this cell!_
+
+To edit this cell just double click on it (right _here_ ). When you're finished, click the _run cell_ button in the toolbar just below the menu near the top of the window.
+
+1.
+
+2.
+
+3.
+
+4.
+
+1. Aled
+
+2. 1, 2, 3, 4
+
+3. Aled, Sarah
+
+4. No
+
+#### 3.2 Logic (Cont'd)
+
+Study the flow chart below.
+
+<img src=https://kingsgeocomputation.files.wordpress.com/2016/09/geocompweek2_task3_5.jpg width = 600>
+
+In the cell below, use the for loop already set up to execute the alternative execution shown by the flow chart for values of `x` between 0 and 9. Check your code works. Also check you understand why the Modulo `%` allows us to find odd vs even numbers. 
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+for x in range(0,9):
+    # ... do something ...
+```
+
+```python
+#| solution2: hidden
+for x in range(0,9):
+    print(x)
+    if(x%2 == 0):
+        print("x is even")
+    else:
+        print("x is odd")
+    print(x)
+```
+
+#### 3.3 Nested Conditions
+
+Conditional statements can be nested within one another. That is, once one conditional statement has been evaluated others may subsequently be evaluated (or not) depending on the result of the initial conditional statement. The code below shows an example of this. 
+
+```python
+#| geopyter: {Contributors: James Millington (james.millington@kcl.ac.uk), git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-08-17 19:06:58', committed_date: '2017-08-17 19:06:58', committer.name: Jon Reades, sha: 5e3b396ae18a982d693c4bfd86c721c7e1e21051}}
+if x != y:                                 #line 1
+    print("x is not equal to y")
+    
+    if(x > y):                             #line 4
+        print("x is greater than y")
+        
+    else:                                  #line 7
+        print("x is less than y")
+
+else:
+    print("insert conclusion here")
+```
+
+Note how the indentation makes it easier to work out which ‘level’ the code is operating on. In the code above, lines 4 and 7 are at the same indentation meaning that both will be skipped if the initial condition (on line 1) is `False`. 
+
+To check you understand how the code above works:
+1. Change `insert conclusion here` in the code above to a string that helps to explain the condition of `x` and `y`
+2. **Before running the code** for `x = 2` and `y = 3`, type below what line(s) will be output 
+
+Output for `x = 2` and `y = 3` is:
+
+```python
+#| solution2: hidden
+x = 2
+y = 3
+if x != y:                                 #line 1
+    print("x is not equal to y")
+    
+    if(x > y):                             #line 4
+        print("x is greater than y")
+        
+    else:                                  #line 7
+        print("x is less than y")
+
+else:
+    print("x is equal to y")
+```
+
+#### 4.1. Alterative Execution
+In the code cell below, enter code that reports whether person A is older than person B or not. Whole numbers should be used as ages in years and these ages should be specified on the first two lines of code. Either “Person A is older than Person B” or “Person A is not older than Person B” should be reported to the user.
+
+
+```python
+#| solution2: hidden
+ageA = 20
+ageB = 19
+
+if ageA > ageB:
+    print("Person A is older than Person B")
+else:
+    print("Person A is not older than Person B")
+```
+
+#### 4.2. Conditional Execution
+Copy your final code from the previous exercise into the code block below. Now build on this code to check if Person A is older than Person B, but also whether they are the same age. One of following three responses should be reported to the user:
+1.	“Person A is older than Person B”
+2.	“Person B is older than Person A”
+3.	“Person A and Person B are the same age”
+
+
+```python
+#| solution2: hidden
+ageA = 20
+ageB = 20
+
+if ageA > ageB:
+    print("Person A is older than Person B")
+elif ageA < ageB:
+    print("Person B is older than Person A")
+else:
+    print("Person A and Person B are the same age")
+```
+
+#### 4.3. Nested Execution
+Copy your final code from the previous exercise into the code block below. Build on this code with a nested execution structure to report if Person A is much younger, a little younger, the same age, a little older or much older than Person B. Write your code with a nested structure so that first it evaluates whether one person is older than the other, and then, if so, whether there is a large difference in age or a small difference in age. You should create a variable to specify what the number of years is that indicates a ‘large difference’ in age. One of the following five responses should be reported to the user:
+1.	“Person A is much younger than Person B” [if age difference > ‘large difference’]
+2.	“Person A is a little younger than Person B” [if age difference <= ‘large difference’]
+3.	“Person A is the same age as Person B”
+4.	“Person A is a little older than Person B” [if age difference <= ‘large difference’]
+5.	“Person A is a much older than Person B” [if age difference > ‘large difference’]
+
+
+```python
+#| solution2: hidden
+ageA = 25
+ageB = 30
+largeD = 20
+
+diff = ageA - ageB
+
+if diff <= (largeD * -1):
+    print("Person A is much younger than Person B")
+elif diff < 0 and diff > (largeD * -1):
+    print("Person A is a little younger than Person B")
+elif diff == 0:
+    print("Person A is the same age as Person B")
+elif diff >= (largeD * 1):
+    print("Person A is much older than Person B")
+elif diff > 0 and diff < (largeD * 1):  
+    print("Person A is a little older than Person B")
+```
+
+#### 4.4a Bonus! Managing Errors
+
+Python provides tools to 'handle exceptions' (i.e. manage errors). [For example](read more at https://docs.python.org/3/tutorial/errors.html#handling-exceptions) you can use combinations of `try`, `except`, `else` and `finally` keywords. 
+
+Read the link above (and maybe Google yourself for some other examples) and use the information gained to handle an exception in which the user an age as a `string` rather than a integer (e.g. print "Invalid Input" if `diff` cannot be calculated):
+
+
+```python
+#| solution2: hidden
+ageA = "five"
+ageB = 30
+largeD = 20
+
+try:
+    diff = ageA - ageB
+except:
+    print("Invalid Input")
+else: 
+    if diff <= (largeD * -1):
+        print("Person A is much younger than Person B")
+    elif diff < 0 and diff > (largeD * -1):
+        print("Person A is a little younger than Person B")
+    elif diff == 0:
+        print("Person A is the same age as Person B")
+    elif diff >= (largeD * 1):
+        print("Person A is much older than Person B")
+    elif diff > 0 and diff < (largeD * 1):  
+        print("Person A is a little older than Person B")
+    
+#read more at https://docs.python.org/3/tutorial/errors.html#handling-exceptions
+```
+
+#### 4.4b Bonus! Managing Errors
+
+Another way to trap errors is by 'raising exceptions'. [This requires](https://docs.python.org/3/tutorial/errors.html#raising-exceptions) using the `raise` keyword. 
+
+Read the link above (and maybe Google yourself for some other examples) and use the information gained to raise an exception if the user provide a negative age (outputing "Invalid Age" in the error mmessage):
+
+
+```python
+#| solution2: hidden
+ageA = -1
+ageB = 30
+largeD = 20
+
+diff = ageA - ageB
+
+if ageA < 0 or ageB < 0:
+    raise Exception("Invalid Age") 
+else:    
+    if diff <= (largeD * -1):
+        print("Person A is much younger than Person B")
+    elif diff < 0 and diff > (largeD * -1):
+        print("Person A is a little younger than Person B")
+    elif diff == 0:
+        print("Person A is the same age as Person B")
+    elif diff >= (largeD * 1):
+        print("Person A is much older than Person B")
+    elif diff > 0 and diff < (largeD * 1):  
+        print("Person A is a little older than Person B")
+        
+#read more at https://docs.python.org/3/tutorial/errors.html#raising-exceptions
+```
+
+### Credits!
+
+#### Contributors:
+The following individuals have contributed to these teaching materials: 
+- [James Millington](https://github.com/jamesdamillington)
+- [Jon Reades](https://github.com/jreades)
+- [Michele Ferretti](https://github.com/miccferr)
+
+#### License
+The content and structure of this teaching project itself is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/), and the contributing source code is licensed under [The MIT License](https://opensource.org/licenses/mit-license.php).
+
+#### Acknowledgements:
+Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
+
+#### Potential Dependencies:
+This notebook may depend on the following libraries: None
+

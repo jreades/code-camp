@@ -2,5 +2,8 @@
 .ipython
 .jupyter
 .local
+.DS_Store
 *.geojson
 *.cache
+
+/.quarto/

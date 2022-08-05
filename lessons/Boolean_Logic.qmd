@@ -1,0 +1,730 @@
+---
+jupyter: python3
+---
+
+# Notebook-5: Truth & Conditions
+
+### Lesson Content 
+
+- Comparisons
+    - Booleans
+    - "Not equal" operator
+    - "< > <= >=" operators
+- Conditions pt.1
+    - IF       
+    - ELSE 
+    - ELIF
+- Boolean Logic
+    - AND
+    - OR
+    - NOT
+
+In this lesson we'll learn how to compare stuff (like numerical quantities but also words and strings) via *Comparison Operators*. 
+
+We'll also see how to express logical concepts like: " `if` this condition is `True`, then do something...". These concepts will enable your code account for different possibilities and let it run to accordingly. They will also serve to perform assertions and to test if certain conditions have been met or not.
+
+# Comparisons
+----
+
+
+## Booleans
+
+The most basic form of comparison is to test if something is `True` of `False`. To do so we'll have to quickly introduce another *data type*, the **boolean**. 
+
+Booleans are different from the numerical (*floats* and *integers*) or textual (*strings*) types we have seen so far because they have only two possible values once they are set: `True` or `False`.
+
+```python
+myBoolean = True
+print(myBoolean)
+print("This statement is: '" + str(myBoolean) + "'")
+```
+
+Note: did you see the `str()` around the `myBoolean` variable on the second `print` line? That's so that we can print out its value as part of a string.
+
+## Comparison Operators
+
+How do we use booleans? Well, what is the 'answer' if I ask you "Is it true or false than an elephant is bigger than a mouse?" And remember too that in an early notebook we looked at how a computer 'thinks' -- it's all in terms of things being `True` or `False`. 
+
+Note: just so that you know, sometimes people will use `1` and `0` in place of `True` and `False` because that's what's actually happening behind the scenes. It's the same thing _logically_ , but Python views sees `True` and `False` differently from `1` and `0` because the latter are numbers, while the former are _boolean_ data type.
+
+You will need these set of operators:
+
+| Operator  | Meaning            | Example                                                        |
+|:----------|:-------------------|:---------------------------------------------------------------|
+| `>`        | Greater Than       | `A>B` This returns `True` if value in `A` is larger than value in `B` |
+| `<`         | Less Than          | `A<B` This returns `True` if value in `A` is smaller than value in `B`|
+| `>=`        | Greater Equal Than | `A>=B` This returns `True` if value in `A` is larger than or equal to value in `B` |
+| `<=`        | Less Equal Than    | `A<=B` This returns `True` if avlue in `A` is smaller than or equal to value in `B`  |
+
+Here's an initial example (without a print statement)
+
+```python
+25 >  7
+```
+
+And further examples (with print statements)
+
+```python
+print(7  >= 7)
+print(7  >  7)
+print(25 <= 7)
+print(25 <= 25.0)
+print(25 <  25.0)
+print(25 <  25.1)
+```
+
+Numerical comparisons are fairly straightforward, and you'll see that Python automatically does fairly sensible things:
+- Because it converts automatically between integers and floats, `25` and `25.0` are evaluated properly
+- As are 25 and 25.1 because the 'casting' of integers to floats turns `25` into `25.0` automatically
+
+But here are some slightly more complicated examples involving _string_ comparisons:
+
+```python
+print("simple comparison:")
+print("A" > "B")
+print("B" > "A")
+
+print("something slightly trickier")
+print("A" >  "a")
+print("A" >= "a")
+print("A" <  "a")
+
+print("trickier again")
+print("ab" < "abc")
+
+print("hmmmm...")
+print("James" < "Jane")
+```
+
+_Why does Python think 'A' is less than 'a', and 'Aardvark' is less than 'Ant'?_
+
+When comparing `str` objects, Python uses character _unicodes_. [Unicode](https://www.unicode.org/) is a specification that aims to list every character used by human languages and give each character its own unique code. In Python, these codes are of type `int`. 
+
+To see this in action, we can use the `ord` function to get Python to show us the unicode for a single character:
+
+```python
+print(ord("A"))
+print(ord("a"))
+```
+
+Hopefully this output helps you to see why `print("A" >  "a")` returns `False`
+
+When there are multiple characters in a `string` object, Python compares each character in order. Suppose, as we do above, we have `str1` as "James"  and `str2` as "Jane". The first two characters from `str1`  and `str2` (J and J) are compared. Because they are equal, the second two characters are compared. Because they are also equal, the third two characters (m and n) are compared. And because m has smaller unicode value than n, `str1` is less than `str2`.
+
+```python
+str1 = "James"
+str2 = "Jane"
+
+#compare
+print(str1 < str2)
+
+#proof
+print(ord("m"))
+print(ord("n"))
+```
+
+Hopefully this helps you to see why `print("James" < "Jane")` returns `True`
+
+#### A challenge for you!
+
+In the next two challenges, we've deliberately left out or broken some code that _you_ need to fix!
+
+Fix this code so that it returns `True`
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+first_variable = 87.0
+second_variable = 9
+
+print(first_variable % 80 ??? second_variable)
+```
+
+```python
+#| solution2: hidden
+first_variable = 87.0
+second_variable = 9
+
+print(first_variable % 80 < second_variable)
+
+#proof
+print(first_variable % 80)
+print(second_variable)
+```
+
+Fix this code so that it returns `False`
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+print("Aardvark" ??? "Ant")
+```
+
+```python
+#| solution2: hidden
+print("Aardvark" > "Ant")
+
+#proof
+print(ord("a"))
+print(ord("n"))
+```
+
+## Testing for Equality
+
+So we've seen the comparison operators that you probably still remember from high-school maths. But sometimes we don't want to test for _difference_, we want to test if two things are _the same_. In your maths class you probably just wrote $$x = y$$ and moved on to the next problem, but remember: one equals sign is already being used to assign values to variables! As in:
+
+```python
+my_var = 1
+```
+
+To test if something is exactly equal we can use the *equality comparison operator*, which is two equals signs together (*==*). This equality comparison returns `True` if the contents of two variables/results of two calculations are equal. That's a bit of a mouthful, but all we're saying is that we compare the left-hand side (LHS) of the equality operator (`==`) with the right-hand side (RHS) to see if they evaluate to the same answer.
+
+A _lot_ of new programmers make th mistake of writing `=` in their code when they wanted `==`, and it can be hard to track this one down. So always ask yourself: am I comparing two things, or assigning one to the other?
+
+Run the following code and check you understand why the output produced is as it is.
+
+```python
+# This (=) assigns a value to a variable
+british_capital = "London"
+french_capital  = "Paris"
+
+# This (==) compares two variables
+print(british_capital == french_capital)
+
+# This is probably a mistake
+british_capital = french_capital
+print(british_capital)
+```
+
+#### A challenge for you!
+
+Before you run the code in each cell, try to think through what _you_ expect each one to print out!
+
+```python
+# Is this True?
+2 == 34
+```
+
+```python
+# How about this?
+7 == 7
+```
+
+```python
+# How about this?
+"Foo" == "Foo"
+```
+
+```python
+# And this?
+"Foo" == "Bar"
+```
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+# And this?
+10 % 3 == 3 / 3
+```
+
+```python
+#| solution2: hidden
+#this may help interpret the result here
+print(10 % 3)
+print(3 / 3)
+```
+
+### Testing for Inequality
+
+What if you want to check if two things are *different* rather than equal? Well then you'll need to use the *Not Equal (!=)* operator, which returns `True` when there's no equality between the conditons you are comparing. 
+
+Check you understand the output when running the following code
+
+```python
+# Reset the variables to their 'defaults'
+british_capital = "London"
+french_capital  = "Paris"
+
+# This time python is going to print True,
+# since we are comparing different things
+# using the Not Equal operator!
+print(british_capital != french_capital)
+```
+
+----
+# Conditions
+
+OK, so now we've seen comparisons and booleans, but why? Where are we going with this? Think back to the first notebook and the example of what is happening inside a computer: _if_ the user has clicked on the mouse _then_ we need to do something (e.g. change the colour of the button, open the web link, etc.). Everything that we've done up until now basically happened on a single line: _set_ this variable, _set_ that variable, print out the result of the _comparison_. 
+
+Now we're going to step it up a level.
+
+To check a condition you will need to use a *statement* (i.e. [everything that makes up one or more lines of code line](https://stackoverflow.com/questions/4728073/what-is-the-difference-between-an-expression-and-a-statement-in-python) ) to see `if` that condition is True/False, in which case do one thing, or `else` do something else...
+
+Let's see that in action!
+
+## IF condition
+
+Let's start with a basic `if` statement. In Python you write it:
+
+```python
+if conditon-to-check:
+   statement
+```
+
+So an `if` condition starts with the word `if` and ends with a colon (`:`).
+
+The statement is the code that we want the computer to run _if_ the `condition-to-check` comes out `True`. **However**, notice that the next line – the `statement` line – is indendented. This is Python's way to define a *block of code*. 
+
+A **block of code** means that we can run several lines of code _if_ the condition is True. As long as the code is indented then Python will treat it as code to run _only_ if the condition is True.
+
+Let's see a few examples. Run the following code cell and see if you can understand the output produced (given the code in the cell).
+
+```python
+# Condition 1
+if 2 > 1:
+    print("> Condition #1")
+    
+# Condition 2
+if 1 > 2: 
+    print("> Condition #2")
+    
+# Condition 3
+if "Foo" == "Foo":
+    print("> Condition #3")
+    myVar = 1 + 5
+    print("     My var: " + str(myVar))
+    
+# Condition 4
+if "Foo" != "Foo":
+    print("> Condition #4")
+    myVar = 1 + 5
+    print("     My var: " + str(myVar))
+    
+print("Done.")
+```
+
+See how that works? Only conditions \#1 and \#3 were printed out, \#2 and \#4 were skipped over entirely!
+
+Let's take these in order:
+1. 2 _is_ greater than 1, so the `condition-to-check` returns True and Python then looks at the next line to see what it should do next.
+2. 1 _is not_ greater than 2, so the `condition-to-check` returns False. Python then skips the next _two_ indented lines which form part of the _code block_. It's the indentation that tells Python they're still part of the same code block. That _entire code block_ would only be executed _if_ the `condition-to-check` had been True.
+3. "Foo" is the same as "Foo", so this condition is True. Python then runs the next three lines because the indentation tells Python that they are all part of the same code block. Notice that we can even do things like set new variables in a code block.
+4. "Foo" is _still_ the same as "Foo", but we were testing if they were _not equal_ (`!=`) and so this condition is False. This time Python skips over the three lines and moves straight to the last print statement.
+5. Notice that the last print (`"Done."`) always runs, no matter what the previous conditions were, because it is _not indented_ and so is not part of a _code block_.
+
+Let's see another example (run the code and check you understand the result)
+
+```python
+london_population = 8600000
+paris_population  = 2200000 
+
+if london_population > paris_population:
+    print("London is larger than Paris")
+```
+
+Note: Other languages such as C/C++ use curly braces `{...}` around a block, just in case you find other languages in examples when Googling for help.
+
+Sidenote: How much should you indent? Although the [official specification](https://www.python.org/dev/peps/pep-0008/#tabs-or-spaces) specifies *4 spaces*, quite a few people indent using *one tab* instead. Technically, there is no difference _as long as you are consistent_ (See [this discussion](http://stackoverflow.com/questions/1125653/python-4-whitespaces-indention-why)). This apparently trivial issue is the sort of thing that leads to all kinds of heated argument (like whether you prefer Mac OSX or Windows; OSX is better, obviously). It's such a famous aspect of the programming world that it even featured in an episode of the sit-com [Silicon Valley](https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)): 
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=cowtgmZuai0" target="_blank"><img src="http://img.youtube.com/vi/cowtgmZuai0/0.jpg" 
+alt="Silicon Valley" width="480" height="360" border="10" /></a>
+
+#### A challenge for you!
+
+Think about what the following code will print, _before_ running it:
+
+```python
+london_population = 8600000
+
+if london_population > 2000000:
+    print(str(london_population) + " is more than 2 million people")
+
+if london_population < 10000000:
+    print(str(london_population) + " is less than 10 million people")
+```
+
+Complete the missing code, while also fixing the broken bits (_HINT:_ Remember the position of colons and indentation is important in Python!):
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+if (london_population % 8000000) == 600000 ???
+print("Good job")
+```
+
+```python
+#| solution2: hidden
+if (london_population % 8000000) == 600000:
+    print("Good job")
+```
+
+## ELSE condition
+
+Of course, only being able to use _if_ would be pretty limiting. Wouldn't it be handy to be able to say "_if_ x is True: do one thing; otherwise do something else". Well you can! When you want to run a different block of code depending on whether something is True or not, then you can use the `else` statement (_only_ following a first `if`).
+
+Here's an example:
+
+```python
+newyork_population = 8400000 
+
+if london_population < newyork_population:
+    largest_city = "New York" 
+else:
+    largest_city = "London"
+    
+print("The largest city is " + largest_city)
+```
+
+As you can see from the example above, the `if: else:` statement allows us to account for multiple outcomes when checking the _logic_ of a condition.
+
+Notice how the `else` syntax is similar to the `if` statement: use the colon, and indent.
+
+Also pay attention to the fact that not *all* of our code has run. Only the block after the `else` was run. So:
+- _if_ returned False (London's population is not less than that of New York)
+- So the _else_ block ran instead.
+
+This is why the `largestCity` variable was set to "London" and not "New York". After the `if: else:` sequence the code goes back to its normal flow, and all the remaining lines will be executed.
+
+The `if: else:` statement is like a fork in the road: you can take one road, or the other, but not both at the same time.
+
+#### A challenge for you!
+
+Fix the code below so that it prints out `London's population is above my threshold`.
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+mythreshold = 1000000
+if london_population <= mythreshold ???
+    print("London's population is below my threshold")
+???:
+    print("London's popuation is above my threshold")
+```
+
+```python
+#| solution2: hidden
+mythreshold = 1000000
+if london_population <= mythreshold:
+    print("London's population is below my threshold")
+else:
+    print("London's popuation is above my threshold")
+```
+
+## ELIF condition
+
+Once again: so far, so good. But what if you need to have multiple forks? Well, then you can use a sequence of *statements* that sounds like "IF this happens do this, ELSE IF this second condition holds do that, ELSE IF a third condition is true perform this other ELSE do finally this..."
+
+The operator we are going to use is `elif`, the lazy version of `ELSE IF`.
+
+```python
+# Like so:
+myUpperBoundary = 12000000
+myLowerBoundary = 2000000
+
+if london_population < myUpperBoundary:
+    print("London is below my upper threshold.")
+
+elif london_population > myLowerBoundary:
+    print("London is above my lower threshold.")
+
+elif london_population != 340000: 
+    print("London population is not equal to 340,000.")
+    
+else:
+    print("How did I get here?")
+    
+print("And now back to normal code execution.")
+```
+
+Why didn't the output look like this:
+<pre>
+London is below my upper threshold.
+London population is not equal to 340,000.
+How did I get here?
+And now back to normal code execution.
+</pre>
+
+This a tricky one: the _first_ thing that evaluates to `True` (that London is below the upper threshold) is the one that 'wins'. Computers are also lazy in their own way: since it found that the answer to the first `elif` was True it didn't bother to look at the second `elif` and the `else`, it _only_ ran the _one_ code block.
+
+#### A challenge for you!
+
+Complete the missing bits so that the logically correct print statement is output:
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+london_population = 10
+??? london_population <= 9:
+    print("First case is true")
+??? london_population > 99: 
+    print("Second case is true")
+??? london_population == 4:
+    print("Third case is true")
+??? print("Well, looks like none of the above statements were true!")
+
+print("And now back to normal code execution.")
+```
+
+```python
+#| solution2: hidden
+london_population = 10
+if london_population <= 9:
+    print("First case is true")
+elif london_population > 99: 
+    print("Second case is true")
+elif london_population == 4:
+    print("Third case is true")
+else: print("Well, looks like none of the above statements were true!")
+
+print("And now back to normal code execution.")
+```
+
+# Boolean Logic
+----
+
+The very logical Prof. George Boole, circa 1860:
+
+![Photo of Boole](https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg "Boole")
+
+Boolean logic and [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra) have to do with _set theory_ but also lie at the heart of the modern computer! Remember that in notebook 1 we saw that a computer works by combining `AND`, `OR`, `XOR` and `NAND` circuits to produce ever more complex calculations? Well, we also use this a lot in programming!
+
+In Python there are [three boolean logic opertors](https://docs.python.org/2/library/stdtypes.html#boolean-operations-and-or-not), these are (in ascending order of priority): `or`, `and`, and `not`.
+
+We'll look at these in more detail in a second, but here's the 'cheat sheet':
+- OR: _if either A OR B are True_ then run the following code block...
+- AND: _if A AND B are True_ then run the following code block...
+- NOT: _if NOT(A) is True_ (where A is _False_) then run the following code block...
+
+It might help you to take a look at these Venn diagrams (source: [Wikimedia Commons](https://en.wikipedia.org/wiki/File:Vennandornot.svg)) that express the same three operations in graphical form. Imagine that _x_ and _y_ are both `conditions-to-test`... The left one is _AND_ because it is only the combination of _x AND y_ that is red; the centre one is _OR_ because it represents any combination of _x OR y_ being red; the rightmost is _NOT_ because it is the opposite of _x_ that iss red.
+
+![Venn](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Vennandornot.svg/640px-Vennandornot.svg.png "Venn Diagram")
+
+OK, let's look at it in Python.
+
+## AND 
+
+The `and` operator (just like in plain English!) is used when two conditions must both be True at the same time. So it has _two_ arguments and returns `True` if, and only if, both of them are `True`. Otherwise it returns `False`.
+
+```python
+condition1 = 2 < 4 # True
+condition2 = (6/3) == 2 # Also True
+
+if (condition1) and (condition2): # Both are true
+    print("1. Both conditions are true!")
+else:
+    print("1. Mmm... something's wrong!")
+    
+if condition1 and 6.0/5 == 1:
+    print("2. Both conditions are true!")
+else:
+    print("2. Mmm... something's wrong!")
+```
+
+## OR 
+
+The `or` operator is used when we don't care which condition is True, as long as one of them is! So if *either* (or *both*!) conditions are `True`, then the operator returns `True`. Only if _both_ are `False` does it evalute to  `False`.
+
+```python
+condition1 = 2 < 4 # True
+condition2 = (6/3) != 2 # False
+
+if (condition1) or (condition2):
+    print("1. Both conditions are true!")
+else:
+    print("1. Mmm... something's wrong!")
+
+if 2 > 4 and 6.0/5 == 1:
+    print("2. Both conditions are true!")
+else:
+    print("2. Mmm... something's wrong!")
+```
+
+#### A challenge for you!
+
+Try to change the values of conditions and see the different outcomes, but first you'll need to fix the Syntax Errors and the Exceptions!
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+condition1 = 2 < 4
+condition2 ??? (6/3) != 2
+
+if (condition1) ??? (condition2):
+    print("Either one or two conditions are true!")
+elif:
+print("mmh..they must both be false"")
+```
+
+```python
+#| solution2: hidden
+condition1 = 2 < 4
+condition2 = (6/3) != 2
+
+if (condition1) or (condition2):
+    print("Either one or two conditions are true!")
+else:
+    print("mmh..they must both be false")
+```
+
+## NOT 
+
+Lastly, the `not` operator allows you to reverse (or invert, if you prefer) the value of a Boolean. So it turns a `True` into a `False` and vice-versa.
+
+```python
+# Like so:
+conditionInverted = not (2 == 2) # not turns True into False
+print(conditionInverted)
+
+# And:
+conditionInverted = not ("Foo" == "Bar") # not turns False into True
+print(conditionInverted)
+```
+
+#### A challenge for you!
+
+Can you guess the result of this code _before_ you run it?
+
+```python
+if not conditionInverted:
+   print("I'm True")
+elif not (4%3  != 1):
+   print("2")
+else:
+   print("99" == str(99)+1)
+```
+
+# Code (Applied Geo-Example)
+---
+
+The aim of the excercise is to build a program that allows a user to choose a given London borough from a list, and get in return both its total population and a link to a OpenStreetMap that pin points its location.
+
+We are going to introduce a function called `input` that, as the name implies, takes an input from the user (interactively, that is!). We'll use it to interact with the user of our program. The input is going to be saved in a variable called `user_input`.
+
+I've provided a basic scaffolding of the code. It covers the case where the user choses the City borough, or provides an invalid input. Complete the script so that the three other boroughs can be found by the user.
+
+HINT: You will need to use `elif` statements to check for the various cases that use user might input.
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+# variable with the City borough's total population (in thousands)
+city_of_London = 7.375
+# City borough's map marker
+city_coords = "http://www.openstreetmap.org/?mlat=51.5151&mlon=-0.0933#map=14/51.5151/-0.0933"
+
+# Other boroughs
+# camden = 220.338
+# camden_coords = "http://www.openstreetmap.org/?mlat=51.5424&mlon=-0.2252#map=12/51.5424/-0.2252"
+# hackney = 246.270
+# hackney_coords = "http://www.openstreetmap.org/?mlat=51.5432&mlon=-0.0709#map=13/51.5432/-0.0709"
+# lambeth = 303.086
+# lambeth_coords = http://www.openstreetmap.org/?mlat=51.5013&mlon=-0.1172#map=13/51.5013/-0.1172
+
+# Let's ask the user for some input
+# and store his answer
+user_input = input("""
+Choose a neighbourhood by type the corresponding number:
+1- City of London
+2- Lambeth
+3- Camden
+4- Hackney
+""")
+
+# Arbitrarily assign case 1 to City of London borough
+
+if (user_input == '1'):    
+    choosen_borough = city_of_London
+    borough_coordinates = city_coords 
+    # print the output
+    # notice we are casting the user answer to string
+    print("You have choosen number : "+ str(user_input))
+    print("The corresponding borough has a population of "+ str(choosen_borough) +" thousand people")
+    print("Visit the borough clicking here: " + borough_coordinates)
+    # ---------------
+    # add more cases here...
+    # ---------------
+else:
+    print("That's not in my system. Please try again!")
+```
+
+```python
+#| solution2: hidden
+# variable with the City borough's total population (in thousands)
+city_of_London = 7.375
+# City borough's map marker
+city_coords = "http://www.openstreetmap.org/?mlat=51.5151&mlon=-0.0933#map=14/51.5151/-0.0933"
+
+# Other boroughs
+camden = 220.338
+camden_coords = "http://www.openstreetmap.org/?mlat=51.5424&mlon=-0.2252#map=12/51.5424/-0.2252"
+hackney = 246.270
+hackney_coords = "http://www.openstreetmap.org/?mlat=51.5432&mlon=-0.0709#map=13/51.5432/-0.0709"
+lambeth = 303.086
+lambeth_coords = "http://www.openstreetmap.org/?mlat=51.5013&mlon=-0.1172#map=13/51.5013/-0.1172"
+
+# Let's ask the user for some input
+# and store his answer
+user_input = input("""
+Choose a neighbourhood by type the corresponding number:
+1- City of London
+2- Lambeth
+3- Camden
+4- Hackney
+""")
+
+# Arbitrarily assign case 1 to City of London borough
+
+if (user_input == '1'):    
+    choosen_borough = city_of_London
+    borough_coordinates = city_coords 
+    # print the output
+    # notice we are casting the user answer to string
+    print("You have choosen number : "+ str(user_input))
+    print("The corresponding borough has a population of "+ str(choosen_borough) +" thousand people")
+    print("Visit the borough clicking here: " + borough_coordinates)
+elif(user_input == '2'):    
+    choosen_borough = lambeth
+    borough_coordinates = lambeth_coords 
+    # print the output
+    # notice we are casting the user answer to string
+    print("You have choosen number : "+ str(user_input))
+    print("The corresponding borough has a population of "+ str(choosen_borough) +" thousand people")
+    print("Visit the borough clicking here: " + borough_coordinates)
+elif(user_input == '3'):    
+    choosen_borough = camden
+    borough_coordinates = camden_coords 
+    # print the output
+    # notice we are casting the user answer to string
+    print("You have choosen number : "+ str(user_input))
+    print("The corresponding borough has a population of "+ str(choosen_borough) +" thousand people")
+    print("Visit the borough clicking here: " + borough_coordinates)
+elif(user_input == '4'):    
+    choosen_borough = hackney
+    borough_coordinates = hackney_coords 
+    # print the output
+    # notice we are casting the user answer to string
+    print("You have choosen number : "+ str(user_input))
+    print("The corresponding borough has a population of "+ str(choosen_borough) +" thousand people")
+    print("Visit the borough clicking here: " + borough_coordinates)    
+    
+else:
+    print("That's not in my system. Please try again!")
+```
+
+### Credits!
+
+#### Contributors:
+The following individuals have contributed to these teaching materials: 
+- [James Millington](https://github.com/jamesdamillington)
+- [Jon Reades](https://github.com/jreades)
+- [Michele Ferretti](https://github.com/miccferr)
+
+#### License
+The content and structure of this teaching project itself is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/) , and the contributing source code is licensed under [The MIT License](https://opensource.org/licenses/mit-license.php).
+
+#### Acknowledgements:
+Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
+
+#### Potential Dependencies:
+This notebook may depend on the following libraries: None
+

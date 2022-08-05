@@ -1,0 +1,81 @@
+---
+title: Welcome
+filters:
+  - lightbox
+lightbox:
+  match: auto
+  effect: fade
+  desc-position: right
+  loop: false
+---
+
+Well hi there! Are you a Computer Scientist? If so, this site _probably_ isn't for you.
+
+This site is for everyone _else_---especially our [future MSc Urban Spatial Science](https://www.ucl.ac.uk/bartlett/casa/study/msc-urban-spatial-science) students---looking to learn some basic Python, together with a bit about the other tools that we think people should know, before the start of term.
+
+## What will you learn?
+
+So what can you expect to learn? By the end of the course, we hope that you will have a basic understanding of:
+
+1. The rationale behind the usage of computers and computational methodologies for urban spatial science (and the social sciences more generally).
+2. The range of tools that we use to _do_ urban spatial science, a sense of _why_ we use them, and _how_ they connect with tools used by practicing researchers and programmers. 
+3. The fundamental concepts of programming used in Python so that you can 'read' Python code and begin to recognise how to do things using Python.
+4. How programs and libraries are structured so that you code remains manageable and, above all, legible.
+5. How your newly acquired coding skills can help you be _usefully_ lazy because that, ultimately, is what computers do: they make tedious, repetitive problems 'go away', though they often create or reveal much more complex, novel problems in turn.
+
+Code Camp is all about building blocks: helping you to learn the fundamentals so that when classes start you (hopefully) feel a _little_ less lost and _lot_ less stressed. We can't make learning to code _easy_ any more than learning to speak French or Chinese (or English!) easy, but if you work your way through these lessons it will be _easier_ to hit the ground running in Week 1.
+
+## How will you learn?
+
+We've tried to break everything down into manageable 'units' of learning that you can follow at your own speed in the run-up to the start of term. We'd _strongly_ recommend that you don't try to cram Code Camp into the last week before classes start; instead, you should aim to complete two or three lessons a week (and allow time to go back and test yourself!) so that you complete it over the course of four to eight weeks (1-2 months).
+
+Each lesson will contain a mix of explanation and code that can be run interactively in a variety of ways (see [Setting Up](./setup/index.qmd)). Some code will run first-time (you just copy+paste), some code will require you to 'fill in the blanks' (though the blanks, in this case, are marked by `??`), and some code will be deliberately broken so that you have to _debug_ it and work out what's wrong^[Fun fact: the term 'debugging' was coined by the rather impressive Grace Hopper, who found an _actual_ bug in the computer she was working with that was causing programs to fail.].
+
+So rather than throw you in at the deep end with examples taken from computer science classes (e.g. 'This is _just_ like the C construct...'), we've tried to give you _real world_ examples whenever possible in the hopes that it will seem a little less abstract and a little more relevant to _your_ needs. Of course, the early examples are also very basic so the payoff might not be obvious right away, but trust us: if you stick with it you will learn how to speak a new language that gives you superpowers for dealing with data!^[Unfortunately, no other superpowers are likely to be uncovered.]
+
+## Lessons
+
+The lessons are organised to build from the general and basic, to the specific and advanced. You need to learn about variables and operators before you can learn about functions and classes. But along the way we also try to introduce _other_ ideas and tools (such as working with the Terminal and how to write Markdown) that will support your coding skills. While there are some important differences, a lot of what makes a _good_ programmer is the same as what makes a good _anything_: persistence, attention to detail, and communicating clearly and succinctly.
+
+```{python}
+#| echo: false
+#| label: lesson-plan
+#| tbl-cap: "Lesson Plan"
+#| tbl-colwidths: [8,16,66,10]
+
+import re
+from datetime import time
+
+sequencing = [
+  [str(time(0,10,0)), 'Doing Urban Spatial Science'],
+  [str(time(0,25,0)), 'Background: *Why* We Do What We Do'],
+  [str(time(0,45,0)), 'Tools of the Trade: *How* We Do What We Do'],
+  [str(time(0,45,0)), 'The Basics: Variables, Operators & Precedence'],
+  [str(time(0,45,0)), 'Exceptions: What to Do When Things Go Wrong'],
+  [str(time(0,45,0)), 'Writing Code: A Matter of Style'],
+  [str(time(0,45,0)), 'Boolean Logic: Comparisons, Conditions & George Boole'],
+  [str(time(0,45,0)), 'Recap 1'],
+  [str(time(0,45,0)), 'Lists: Making a List (and Checking it Twice)'],
+  [str(time(0,45,0)), 'Dicts: Look it up in the Dictionary'],
+  [str(time(0,45,0)), 'Loops: Let\'s Iterate This'],
+  [str(time(0,45,0)), 'Recap 2'],
+  [str(time(0,45,0)), 'Functions: Automate All the Things'],
+  [str(time(0,45,0)), 'Packages: Giving Yourself a Present'],
+  [str(time(0,45,0)), 'Classes: How to Objectify Things in Python'],
+  [str(time(0,45,0)), 'The Terminal: No More Buttons to Press'],
+]
+
+table = []
+for i, elem in enumerate(sequencing):
+  elem.insert(0,i) # Insert Lesson Number
+  elem.append(f"[Lesson](./lessons/{re.sub(r' ','_',re.search(r'([^:]+)',elem[2]).group(1))}.qmd)")
+  table.append(elem)
+
+from IPython.display import Markdown
+from tabulate import tabulate
+Markdown(tabulate(
+  table,
+  headers=["Lesson","Time Needed","Covers","Link"],
+  colalign=('left','left','left','left'),
+))
+```

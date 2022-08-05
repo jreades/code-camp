@@ -1,0 +1,126 @@
+# https://quarto.org/docs/books/book-output.html
+project:
+  type: website
+  output-dir: docs
+  preview:
+    port: 4201
+  render:
+    - "*.qmd"
+    - "!notebooks/"
+  resources:
+    - "practicals"
+
+website:
+  title: "Code Camp"
+  author: "Jon Reades et al."
+  image: "img/CASA_Logo_no_text.png"
+  date: "6/1/2022"
+  repo-url: https://github.com/jreades/code-camp/
+  repo-actions: [issue]
+  number-depth: 2
+  favicon: "/img/favicon.ico"
+  page-navigation: true
+  reader-mode: true
+  page-footer: 
+    left: "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 2022, J. Reades, Z. Shabrina, J. Millington & M. Ferretti"
+    center: "![](/img/favicon-16x16.png){.height:10px} Code Camp"
+    right: 
+      - icon: github
+        href: https://github.com/jreades/code-camp/
+      - icon: twitter 
+        href: https://twitter.com/jreades
+  navbar:
+    background: primary
+    search: true
+    logo: "/img/CASA_Logo_no_text.png"
+    collapse: true
+    collapse-below: md
+    left:
+      - text: "Welcome"
+        href: index.qmd
+      - sidebar:setup
+      - sidebar:lessons
+
+  sidebar:
+    - id: setup
+      title: "Setting Up"
+      style: "docked"
+      collapse-level: 2
+      background: light
+      contents:
+        - text: "Getting Started"
+          href: setup/index.qmd
+        - section: "Requirements"
+          title: "Requirements"
+          contents:
+          - text: "Health Check"
+            href: setup/health.qmd
+          - text: "Base Utilities"
+            href: setup/base.qmd
+        - section: "Installation"
+          contents:
+          - setup/markdown.qmd
+          - setup/env.qmd
+        - text: "No Install Options"
+          href: setup/no_install.qmd
+        - section: "Meta Skills"
+          contents:
+          - text: "Your Attention Please"
+            href: attention.qmd
+          - text: "Getting Help"
+            href: help.qmd
+      
+    - id: lessons
+      title: "Lessons"
+      contents:
+        - text: "Introduction"
+          href: lessons/Doing_Urban_Spatial_Science.qmd
+        - text: "Background"
+          href: lessons/Background.qmd
+        - text: "Tools of the Trade"
+          href: lessons/Tools_of_the_Trade.qmd
+        - text: "The Basics"
+          href: lessons/The_Basics.qmd
+        - text: "Exceptions"
+          href: lessons/Exceptions.qmd
+        - text: "Writing Code"
+          href: lessons/Writing_Code.qmd
+        - text: "Boolean Logic"
+          href: lessons/Boolean_Logic.qmd
+        - text: "Recap 1"
+          href: lessons/Recap_1.qmd
+        - text: "Lists"
+          href: lessons/Lists.qmd
+        - text: "Dictionaries"
+          href: lessons/Dicts.qmd
+        - text: "Loops"
+          href: lessons/Loops.qmd
+        - text: "Recap 2"
+          href: lessons/Recap_2.qmd
+        - text: "Functions"
+          href: lessons/Functions.qmd
+        - text: "Packages"
+          href: lessons/Packages.qmd
+        - text: "Classes"
+          href: lessons/Classes.qmd
+        - text: "The Terminal"
+          href: lessons/The_Terminal.qmd
+
+#bibliography: bib/Readings.bib
+#csl: bib/chicago-author-date.csl
+
+highlight-style: pygments
+format:
+  html:
+    theme: 
+      - minty
+      - css/web.scss
+    code-copy: true
+    code-link: true
+    #cover-image: cover.png
+    toc: true
+    toc-title: "On this page"
+    toc-depth: 2
+    toc_float: 
+      collapsed: false
+      smooth_scroll: true

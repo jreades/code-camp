@@ -1,0 +1,572 @@
+---
+jupyter: python3
+---
+
+# Notebook-11: Introduction to Functions
+
+### Lesson Content 
+
+- Function Anatomy 101
+    - Function definiton & call
+    - Arguments
+    - Return statement
+- Function calling!
+    - Assign a function to a variable
+    - Function as a parameter to another function
+
+In this lesson we'll cover *functions* in Python, a concept that you've already encountered but to which you've not yet been formally introduced. Now we're going to dig into this a little bit more because writing functions is where lazy programmers become good programmers.
+
+In other words, as we saw with the concept of *iteration*, programmers are lazy and they tend want to avoid doing boring tasks over and over again. The idea is to avoid "wasting time re-inventing the wheel" and programmers have abbreviated this idea to the acronym **D.R.Y.** (Do not Repeat Yourself): if you are doing something more than once or twice, ask yourself if there's a way to encapsulate what you are doing in a function: you write the function _once_, and then _call_ it whenever you need to complete that task.
+
+![automate](img/automate_all_the_things.jpeg)
+
+Naturally, **D.R.Y.** has its opposite: **W.E.T.** (We Enjoy Typing or Write Everything Twice). Dry is nearly always better than wet.
+
+Encapsulating regularly-used bits of code in functions has several advantages:
+* Your code is more readable: because you only have to write a function once and can then re-use it as many times as you like, your files are shorter.
+* Your code is easier to maintain: because you only have to write a function once, if you find a mistake in your code, you also only have to fix it in one place.
+* Your can code more quickly: things that you do a _lot_ can even be stuck in a separate file that you _import_ into your code so that your most-used functions are immediately available.
+
+Basically, a function is a way to _do_ something _to_ something in a portable, easy-to-use little bundle of code.
+
+## Functions 101
+
+We've already met and used some functions, especially when we dealt with lists and dictionaries:
+
+```python
+myList = [1,"two", False, 9.99]
+len(myList) # A function
+```
+
+```python
+print(myList) # A different function!
+```
+
+## Layout of a Function
+
+As we briefly mentioned in another notebook, any 'word' followed by a set of parenthesis is a function. The 'word' is the function's *name*, and anything that you write within the parantheses are the function's inputs (also known as *parameters*). Like so:
+
+```python
+
+function_name(optional_parameter_1, optional_parameter_2, ...)
+
+```
+
+So how do we create (*instantiate* in programming terms) a new function? Like everything else in Python, functions have specific rules that you have to follow for the computer to understand what you want it to do. In this case there are two separate steps: the *function definition* and the *function call*.
+
+### Function Definition
+
+This is a function definition:
+```python
+def myFirstFunc():
+    print("Nice to meet you!")
+```
+Let's see what happened there:
+- We indicated that we wanted to _define_ (lazy version: `def`) a new function.
+- Right after `def` we gave the function a name: `myFirstFunc`.
+- After the new function's name there's the set of parenthesis and a colon.
+- The line(s) of the function are indented (just like a loop).
+
+The reason for the indenting is the same as for a `while` loop or an `if` condition! It indicates to the Python interpreter that whatever is indented *belongs* to the function. Is like saying: "Look man, I'm going to define this `myFirstFunc` function, and whatever is indented afterwards is part of the function". That is what we call the *function's body*, and it's the full package of instructions that we want the computer to run every time we *call* the function. 
+
+### Function Call
+
+Cool, now that we have defined a function how do we use it? 
+
+The same that we do with 'built-in' functions like `print` and `len`; we *call* it by just typing:
+```python
+myFirstFunct()
+```
+Try it yourself in the code cell below!
+
+```python
+# the function definition
+def myFirstFunc():
+    print("Nice to meet you!")
+
+# the function call
+myFirstFunc()
+```
+
+Notice that the sequence of function **definiton** (`def`) *and then* function **call** (`function_name()`) is important! Think about it: how would Python know what we are referring to (i.e. what is the `myFirstFunc` it has to call?), if we haven't yet specified it?
+
+It's the same as with variables: try to `print` one before you've defined it and Python will complain!
+
+```python
+print(myVariable)
+myVariable = "Hallo Hallo!"
+```
+
+Reading (out loud!) the error message hopefully makes the error obvious...  Quite explicit, isn't it? :)
+
+```python
+myVariable = "Hallo Hallo!"
+print(myVariable)
+```
+
+#### A challenge for you!
+
+Define a new function called "sunnyDay" that prints the string "What a lovely day!" 
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+#your code here
+```
+
+```python
+#| solution2: hidden
+def sunnyDay():
+    print("What a lovely day!")
+```
+
+Now define a function named "gloomyDay" that prints "I hate rainy days!" 
+
+```python
+#your code here
+```
+
+Finally, call the two functions you have defined so that "I hate rainy days!" is printed before "What a lovely day!"
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+#your code here
+```
+
+```python
+#| solution2: hidden
+gloomyDay()
+sunnyDay()
+```
+
+## Arguments
+
+Those are pretty basic functions, and as you might have noticed they all kind of do the same thing but are no shorter than the thing they replaced (a single print command). You will definetely need them though whenever you are using a function to process some *input* and *return* some *output*. In that case the paramters are inputs that you are *passing* to the function.
+
+```python
+def myFunction( input_parameter ):
+# do something to the input
+    return input_parameter
+```
+
+```python
+def printMyName( name ):
+    print("Hi! My name is: " + name)
+
+printMyName("Gerardus")
+```
+
+#### A challenge for you!
+
+We've already defined `printMyName`, so you don't need to do that again. Just ask the function to print _your_ name!
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+#your code here
+```
+
+```python
+#| solution2: hidden
+printMyName("James")
+```
+
+A *little* more useful, right? If we had to print out name badges for a big conference, rather than typing "Hi! My name is ..." hundreds of times, if we had a list of people's names, we could just use a `for` loop to print out each one in turn using this function. The function adds the part that *is the same* for every name badge and all we need to do is pass it the input parameters. In fact, why don't we try that now?
+
+```python
+for name in ["Jon Reades", "James Millington", "Chen Zhong", "Naru Shiode"]:
+    printMyName(name)
+```
+
+In the function `printMyName` we used just one parameter as an input, but we are not constrained to just one. We can input many parameters *separated by commas*; let's _redefine_ the `printMyName` function:
+
+```python
+def printMyName(name, surname):
+    print("Hi! My name is "+ name + " " + surname)
+
+printMyName("Gerardus", "Merkatoor")
+```
+
+And now can pass input parameters to a function dynamically from a data structure within a loop: 
+
+```python
+britishProgrammers = [
+    ["Babbage", "Charles"],
+    ["Lovelace", "Ada"], 
+    ["Turing", "Alan"],
+]
+
+for p in britishProgrammers:
+    printMyName(p[1], p[0])
+```
+
+Neat right? We've simplified things to that we can focus only on what's important: we have our 'data structure' (the list-of-lists) and we have our printing function (`printMyName`). And now we just use a `for` loop to do the hard work. If we had 1,000 british programmers to print out it would be the *same* level of effort.
+
+See what we mean about it being like Lego? We've combined a new concept with a concept covered in the last notebook to simplify the process of printing out nametags.
+
+#### A challenge for you!
+
+Define and use a function that takes as input parameters a `<name>` (String) and `<age>` (Integer) and then prints out the phrase: `<name> + "is" + <age> +" years old"`
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+#your code here
+```
+
+```python
+#| solution2: hidden
+def printMyAge(name, age):
+    print(name + " is " + str(age) + " years old.")
+    
+printMyAge('Jon',25)
+```
+
+There's actually another way to do this that is quite helpful because it's easier to read:
+
+```python
+#| solution2: hidden
+def printMyAge(name, age):
+    print(f"{name} is {age} years old.") # This is called a 'f-string' and we use {...} to add variables
+    
+printMyAge('Jon',25)
+```
+
+## Scoping
+
+Now I'd like you to focus on a particuarly important concept: something called 'scoping'. Notice that the names we are using for the parameters are *de facto* creating new variables that we then use in the *function body* (the indented block of code). In the example below, 'name' and 'surname' are _scoped_ to the body of the funciton. Outside of that block (outside of that scope) they don't exit!
+
+Here's the proof:
+
+```python
+def whoAmI(myname, mysurname):
+    if not myname:
+        myname = 'Charles'
+    if not mysurname:
+        mysurname = 'Babbage'
+    print("Hi! My name is "+ myname + " " + mysurname + "!")
+
+print(myname) # myname _only_ exists 'inside' the function definition
+```
+
+Notice how the ErrorMessage is the same as before when we tried to `print` a variable that wasn't defined yet? It's the same concept: the variables defined as parameters exist only in the indented code block of the function (the [function *scope*](http://python-textbok.readthedocs.io/en/latest/Variables_and_Scope.html) ).
+
+But notice too that if you replace `print name` with `whoAmI("Ada", "Lovelace")` then the error disappears and you will see the output: "Hi! My name is Ada Lovelace." So to reiterate: parameters to a function exist as variables **only within the function scope**.
+
+```python
+whoAmI('Ada','Lovelace')
+```
+
+## Default Parameters
+
+Let's say that your namebade printing function is a worldwide hit, and while most conferences take place in English, in some cases they might need to say 'Hello' in a different languages. In this case, we might like to have a parameter with a _default_ value ("Hi") but allow the programmer to override that with a _different_ value (e.g. "Bonjour").
+
+Here's how that works:
+
+```python
+def printInternational(name, surname, greeting="Hi"):
+    print(greeting + "! My name is "+ name + " " + surname)
+
+printInternational("Ada", "Lovelace")
+printInternational("Charles", "Babbage")
+printInternational("Laurent", "Ribardière", "Bonjour")
+printInternational("François", "Lionet", "Bonjour")
+printInternational("Alan", "Turing")
+printInternational("Harsha","Suryanarayana", "Namaste")
+```
+
+So we only have to provide a value for a parameter with a default setting if we want to change it for some reason.
+
+## Return statement
+
+Up to here we've only had a function that printed out whatever we told it to. Of course, that's pretty limited and there are a lot of cases where we would want the function to do something and then come back to us with an answer! And remember that the problem of variable scoping means that variables declared inside a function aren't visible to the rest of the program.
+
+So if you want to access a value calculated inside a function then you have to explicitely return it using the *reserved keyword* `return`:
+
+```python
+def sumOf(firstQuantity, secondQuantity):
+    return firstQuantity + secondQuantity
+
+print(sumOf(1,2))
+print(sumOf(109845309234.30945098345,223098450985698054902309342.43598723900923489))
+```
+
+### Assigning to a Variable
+
+The `return` keyword, somewhat obviously, returns whatever you tell it to so that that 'thing' become accessible outside of the function's scope. You can do whatever you want with the returned value, like assign it to a new variable:
+
+```python
+returnedValue = sumOf(4, 3)
+
+# Notice the casting from int to str!
+print(f"This is the returned value: {returnedValue}")
+```
+
+One important thing to remember is that `return` always marks the end of the list of instructions in a function. So whatever code is written below `return` *and yet still indented in the function scope* won't be executed:
+
+```python
+def genericFunc(parameter):
+    # do something to parameter
+    # ...
+    # do something else..
+    # ...
+    return 
+    print("this line won't be ever executed! how sad!")
+    print("nope. this won't either, sorry.")
+```
+    
+
+#### A challenge for you!
+
+Guess which will be the highest number to be printed from this function (**think about your guess _before_ you execute the code)**:
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+def printNumbers():
+    print(2)
+    print(5)
+    return
+    print(9999)
+    print(800000)
+
+printNumbers()
+```
+
+5 is the last value printed becayse a `return` statement ends the execution of the function, regardless of whether a result (i.e. a value following the `return` keyword _on the same line_ ) to the caller.
+
+Now that you have seen a bit more what is happening in a function, we can combine some concepts that we have seen in previous notebooks to produce interesting bits of code. Take a look at how I've combined the `range` function, and the `for in` loop to print only the odd numbers for a given range.
+
+```python
+def oddNumbers(inputRange):
+    """
+    A function that prints only the odd numbers for a given range from 0 to inputRange.
+      inputRange - an integer representing the maximum of the range
+    """
+    for i in range(inputRange):
+        if i%2 != 0:
+            print(i)
+
+oddNumbers(10)
+
+print("And...")
+
+oddNumbers(15)
+
+help(oddNumbers)
+```
+
+Let's take a closer look at what's happening above...
+```python
+def oddNumbers(inputRange):
+    """
+    A function that prints only the odd numbers for a given range from 0 to inputRange.
+      inputRange - an integer representing the maximum of the range
+    """
+    for i in range(inputRange):
+        if i%2 != 0:
+            print(i)
+```
+This defines a new function called `oddNumbers` which takes one parameter – it's not immediately clear what type of variable `inputRange` is, but we can guess it pretty quickly from what happens next.
+
+You'll notice that there's are some lines immediately _after_ the function definition (between the triple-quotes) that aren't printed or obviously used, but that look like documentation of some sort. We'll come back to that in a minute.
+
+The next line is a simple `for` loop: `for i in range(inputRange)`. The `range` function [generates](https://www.pythoncentral.io/pythons-range-function-explained/) a list of numbers from 0 to the input parameter passed to it. So we are going to be running a loop from 0 to *n* (where *n*=`inputRange`) and assigning the result of that to `i`.
+
+The next line is nested inside the for loop: so we take _each_ `i` in turn and perform the modulo calculation on it: if `i%2` is `0` then `i` is divisble by 2. It's even. If it's not equal to `0` then it's not an even number, and in that case we'll print it out.
+
+Which is exactly what happens with:
+```python
+oddNumbers(10)
+oddNumbers(15)
+```
+
+The last line is something new:
+```python
+help(oddNumbers)
+```
+If you look at the output of this, you'll see that it prints out the content we wrote into the triple-quotes in the function definition. So if you want to give your function some documentation that others can access, this is how you do it. In fact, this is how _every_ function in Python should be documented. 
+
+Try these (and others) in the empty code block below:
+```python
+help(len)
+help(str)
+myList = [1,2,3]
+help(myList.append)
+```
+
+```python
+help(len)
+myList = [1,2,3]
+help(myList.append)
+```
+
+#### A Challenge for you!
+
+Now modify the oddNumbers function so that it _also_ prints "Yuck, an even number!" for every even number...
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+#your code here
+```
+
+```python
+#| solution2: hidden
+def oddNumbers(inputRange):
+    for i in range(inputRange):
+        if i%2 != 0:
+            print(i)
+        else:
+            print("Yuck, an even number!")
+
+oddNumbers(8)
+```
+
+## Functions as Parameters of Other Functions
+
+This leads us to another intersting idea: since moving around functions is so easy, what happens when we use them as inputs to other functions?
+
+```python
+def addTwo(param1):
+    return param1 + 2
+
+def multiplyByThree(param1): # Note: this is a *separate* variable from the param1 in addTwo() because of scoping!
+    return param1 * 3
+
+# you can use multiplyByThree
+# with a regular argument as input     
+print(multiplyByThree(2))
+
+# but also with a function as input
+print(multiplyByThree(addTwo(2)))
+
+# And then
+print(addTwo(multiplyByThree(2)))
+```
+
+# Code (Applied Geo-example)
+
+For the last Geo-Example, let's revisit a couple of old exercises, combining them and making them a bit more sophisticated with the help of our newly acquired concept of functions.
+
+First, let's define some variables to contain data that we will then use with the functions.
+
+```python
+# London's total population
+london_pop = 7375000
+
+# list with some of London's borough. Feel free to add more! 
+london_boroughs = {
+    "City of London": {
+     "population": 8072,
+     "coordinates" : [-0.0933, 51.5151]
+    },
+    "Camden": {
+     "population": 220338,
+     "coordinates" : [-0.2252,1.5424]
+    },
+    "Hackney": {
+     "population": 220338,
+     "coordinates" : [-0.0709, 51.5432]
+    },
+    "Lambeth": {
+     "population": 303086,
+     "coordinates" : [-0.1172,51.5013]
+    }
+}
+```
+
+Now, fix the code in the next cell to use the variables defined in the last cell. The `calcProportion` function should return the proportion of the population that the `boro` borough composes of London.  The `getLocation` function should return the coordinates of the `boro` borough. 
+
+```python
+#| solution2: hidden
+#| solution2_first: true
+def calcProportion(boro,city_pop=???):
+    return ???['population']/???
+
+def getLocation(???):
+    return boro[???]
+```
+
+```python
+#| solution2: hidden
+#in this function definition we provide a default value for city_pop
+#this makes sense here because we are only dealing with london
+def calcProportion(boro,city_pop=7375000):
+    return boro['population']/city_pop
+
+def getLocation(boro):
+    return boro['coordinates'] #returns the value for the `coordinates` key from the value for the `Lambeth` key
+```
+
+Write some code to print the **longitude of Lambeth**. This could be done in a single line but don't stress if you need to use more lines... 
+
+
+```python
+#| solution2: hidden
+#one-liner (see if you can understand how it works)
+print(getLocation(london_boroughs['Lambeth'])[0])
+
+# A longer but possibly more user-friendly way:
+coord = getLocation(london_boroughs['Lambeth'])
+long  = coord[0]
+print(long)
+```
+
+Write some code to print the **proportion of the London population that lives in the City of London**. Using the function defined above, this should take only one line of code.
+
+
+```python
+#| solution2: hidden
+print(calcProportion(london_boroughs['City of London']))
+```
+
+Write code to loop over the `london_boroughs` dictionary, use the `calcProportion` and `getLocation` functions to then print proportions and locations of all the boroughs. 
+
+
+```python
+#| solution2: hidden
+for boro, data in london_boroughs.items():
+    prop = calcProportion(data)
+    location = getLocation(data)
+    
+    print(prop)
+    print(location)
+    print("")
+    
+    #to print more nicely you could use string formatting:
+    #print("Proportion is {0:3.3f}%".format(prop*100))
+    #print("Location of " + boro + " is " + str(location))
+```
+
+
+### Further references:
+
+General list or resources
+- [Awesome list of resources](https://github.com/vinta/awesome-python)
+- [Python Docs](https://docs.python.org/2.7/tutorial/introduction.html)
+- [HitchHiker's guide to Python](http://docs.python-guide.org/en/latest/intro/learning/)
+- [Python for Informatics](http://www.pythonlearn.com/book_007.pdf)
+- [Learn Python the Hard Way - Lists](http://learnpythonthehardway.org/book/ex32.html)
+- [Learn Python the Hard Way - Dictionaries](http://learnpythonthehardway.org/book/ex39.html)
+- [CodeAcademy](https://www.codecademy.com/courses/python-beginner-en-pwmb1/0/1)
+
+
+### Credits!
+
+#### Contributors:
+The following individuals have contributed to these teaching materials: 
+- [James Millington](https://github.com/jamesdamillington)
+- [Jon Reades](https://github.com/jreades)
+- [Michele Ferretti](https://github.com/miccferr)
+
+#### License
+The content and structure of this teaching project itself is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/), and the contributing source code is licensed under [The MIT License](https://opensource.org/licenses/mit-license.php).
+
+#### Acknowledgements:
+Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
+
+#### Potential Dependencies:
+This notebook may depend on the following libraries: None
+
