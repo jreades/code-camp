@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Code Camp – recap_1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../lessons/Lists.html" rel="next">
+<link href="../lessons/Boolean_Logic.html" rel="prev">
+<link href="..//img/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../index.html">
+    <img src="../img/CASA_Logo_no_text.png" alt="">
+    <span class="navbar-title">Code Camp</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">Welcome</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-setting-up" role="button" data-bs-toggle="dropdown" aria-expanded="false">Setting Up</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-setting-up">    
+        <li>
+    <a class="dropdown-item" href="../setup/index.html">
+ <span class="dropdown-text">Getting Started</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Requirements</li>
+        <li>
+    <a class="dropdown-item" href="../setup/health.html">
+ <span class="dropdown-text">Health Check</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../setup/base.html">
+ <span class="dropdown-text">Base Utilities</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Installation</li>
+        <li>
+    <a class="dropdown-item" href="../setup/markdown.html">
+ <span class="dropdown-text">Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../setup/env.html">
+ <span class="dropdown-text">Programming Environment</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../setup/no_install.html">
+ <span class="dropdown-text">No Install Options</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Meta Skills</li>
+        <li>
+    <a class="dropdown-item" href="../attention.html">
+ <span class="dropdown-text">Your Attention Please</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../help.html">
+ <span class="dropdown-text">Getting Help</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lessons" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lessons</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lessons">    
+        <li>
+    <a class="dropdown-item" href="../lessons/Doing_Urban_Spatial_Science.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Background.html">
+ <span class="dropdown-text">Background</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Tools_of_the_Trade.html">
+ <span class="dropdown-text">Tools of the Trade</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/The_Basics.html">
+ <span class="dropdown-text">The Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Exceptions.html">
+ <span class="dropdown-text">Exceptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Writing_Code.html">
+ <span class="dropdown-text">Writing Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Boolean_Logic.html">
+ <span class="dropdown-text">Boolean Logic</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Recap_1.html">
+ <span class="dropdown-text">Recap 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Lists.html">
+ <span class="dropdown-text">Lists</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Dicts.html">
+ <span class="dropdown-text">Dictionaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Loops.html">
+ <span class="dropdown-text">Loops</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Recap_2.html">
+ <span class="dropdown-text">Recap 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Functions.html">
+ <span class="dropdown-text">Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Packages.html">
+ <span class="dropdown-text">Packages</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Classes.html">
+ <span class="dropdown-text">Classes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/The_Terminal.html">
+ <span class="dropdown-text">The Terminal</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Doing_Urban_Spatial_Science.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Background.html" class="sidebar-item-text sidebar-link">Background</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Tools_of_the_Trade.html" class="sidebar-item-text sidebar-link">Tools of the Trade</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/The_Basics.html" class="sidebar-item-text sidebar-link">The Basics</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Exceptions.html" class="sidebar-item-text sidebar-link">Exceptions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Writing_Code.html" class="sidebar-item-text sidebar-link">Writing Code</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Boolean_Logic.html" class="sidebar-item-text sidebar-link">Boolean Logic</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Recap_1.html" class="sidebar-item-text sidebar-link active">Recap 1</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Lists.html" class="sidebar-item-text sidebar-link">Lists</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Dicts.html" class="sidebar-item-text sidebar-link">Dictionaries</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Loops.html" class="sidebar-item-text sidebar-link">Loops</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Recap_2.html" class="sidebar-item-text sidebar-link">Recap 2</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Functions.html" class="sidebar-item-text sidebar-link">Functions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Packages.html" class="sidebar-item-text sidebar-link">Packages</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Classes.html" class="sidebar-item-text sidebar-link">Classes</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/The_Terminal.html" class="sidebar-item-text sidebar-link">The Terminal</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#first-checkpoint" id="toc-first-checkpoint" class="nav-link active" data-scroll-target="#first-checkpoint">First Checkpoint</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<div style="text-align:center">
+<h1>
+Recap 1
+</h1>
+</div>
+<section id="first-checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="first-checkpoint">First Checkpoint</h2>
+<p>After a whirlwind introduction to Python you’ve made it to the first checkpoint. This isn’t about us checking up on you, but rather about you having a chance to check your <em>own</em> understanding of the foundational concepts covered so far. It is really <em>easy</em> to click through the coding cells, become a bit flummoxed, look at the answer quickly ‘just to check’, and then come away with the impression that you’ve <em>understood</em> what you are doing: “Yeah, yeah, I made a little mistake there but it’s fine because I was close enough…”</p>
+<p>We <em>know</em> that’s the case because we’ve <em>done</em> it before you.</p>
+<p>The challenge with coding is that, as the code becomes more complex, so do the issues. And if you haven’t learned to be careful with the basics and to <em>fix them yourself</em> then fixing the more subtle ‘mistakes’ will be <em>that much harder</em>. And you don’t want this to be any harder than it alreay is!</p>
+<section id="remember-you-will-make-mistakes" class="level3">
+<h3 class="anchored" data-anchor-id="remember-you-will-make-mistakes">Remember: You <em>Will</em> Make Mistakes</h3>
+<p>Everyone makes mistakes. We do it all the time because, in programming, it is very easy to make errors. Computers are stupid and do <em>exactly</em> what we tell them, so even tiny mistakes (<code>aVariable</code> vs <code>avariable</code>, for example) can cause a piece of code or a program to fail to run. Errors in a program are often called bugs.</p>
+<p>Fun fact: the <a href="https://en.wikipedia.org/wiki/Software_bug#:~:text=The%20term%20%22bug%22%20was%20used,in%20an%20early%20electromechanical%20computer.&amp;text=Operators%20traced%20an%20error%20in,taped%20to%20the%20log%20book.">origin of the term bug</a> was an <em>actual</em> bug (a moth) caught up in the mechanical relay of an early computer.</p>
+<p>Bugs today are rarely of the insectile variety, and we now distinguish between three general types of error: 1. <strong>Syntax errors</strong> are when the ‘grammar’ rules of Python (known as the syntax) have been violated, making it impossible for the code to be parsed (i.e.&nbsp;understood by Python); 2. <strong>Logic errors</strong> have good syntax but there is an error in the order of statements or how they relate to one another; 3. <strong>Semantic errors</strong> make programs do something other than what the programmer intended. Actually, not all programmers would distinguish between #2 and #3, but we’ll make a case for these being different beasts below.</p>
+<p>Here’s a nice little video on this topic…</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.youtube.com/watch?v=ToPP5UGgJUM"><img src="https://img.youtube.com/vi/ToPP5UGgJUM/0.jpg" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">Video about Types of Errors</figcaption><p></p>
+</figure>
+</div>
+<p>When you first learn to code, syntax errors are the most common type of error because you are still learning the ‘rules’ of the language: indentation, the difference between <code>=</code> and <code>==</code>, the need for a colon (<code>:</code>) on the end of some types of code… Python is <em>fairly</em> good at telling you what has caused a syntax error when it’s trivial and happens on a single line of code, but it will get quite a bit harder as your code becomes more complex!</p>
+<p>The other types of errors are ones that you learn to spot over time through experience and developing skills. Learning to spot logic errors is one of those wonderful transferrable skills that you can <em>also</em> use in everyday life: by learning to think through challenges at a higher level and then address them iteratively you are likely to become both a more careful thinker (i.e.&nbsp;<em>how</em> should I go about solving this issue?), and a more flexible and resilient thinker (i.e.&nbsp;ok, so <em>that</em> didn’t work out as I expected, what should do I do now?).</p>
+<blockquote class="blockquote">
+<p><em>“A good example of a logic error might be, ‘take a drink from your water bottle, put it in your backpack, walk to the library, and then put the top back on the bottle.’”</em> Severance (2014, p.14)</p>
+</blockquote>
+<p>Many sites don’t even discuss the concept of a semantic error or treat it as the equivalent of a logic error, but we think it’s useful to set a bar <em>beyond</em> ‘basic’ logic errors: these arise from <em>interactions</em> between parts of a program, or between a programming language and the underlying computer/operating system. So the code can (and usually does) run successfully but the output is a long way from what you expected, or the failures that you’re seeing <em>don’t make sense</em>. We’d suggest that spotting semantic errors is a sign that you are well on your way to <em>thinking</em> computationally. In short, you understand why your code is triggering strange and unexpected behaviour even though it <em>looks</em> like it should do exactly what you intended.</p>
+</section>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<section id="variables-and-assignment" class="level4">
+<h4 class="anchored" data-anchor-id="variables-and-assignment">1.1 Variables and Assignment</h4>
+<p>Without running the code below, calculate what the values of <code>x</code>, <code>y</code> and <code>z</code> would be after all lines of code in the code block have been executed.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| geopyter: {Contributors: James Millington (james.millington@kcl.ac.uk), git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-08-17 19:06:58', committed_date: '2017-08-17 19:06:58', committer.name: Jon Reades, sha: 5e3b396ae18a982d693c4bfd86c721c7e1e21051}}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> x <span class="op">+</span> y</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> x <span class="op">+</span> y</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> z <span class="op">+</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once you have calculated what you think <code>x</code>, <code>y</code> and <code>z</code> are, add print statements to the code above and run it to check. Make sure you understand the results you find.</p>
+</section>
+<section id="operator-precedence" class="level4">
+<h4 class="anchored" data-anchor-id="operator-precedence">1.2 Operator Precedence</h4>
+<p>Without running the code below, calculate what the values of <code>x</code>, <code>y</code> and <code>z</code> would be after all lines of code in the code block have been executed.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| geopyter: {Contributors: James Millington (james.millington@kcl.ac.uk), git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-08-17 19:06:58', committed_date: '2017-08-17 19:06:58', committer.name: Jon Reades, sha: 5e3b396ae18a982d693c4bfd86c721c7e1e21051}}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> <span class="dv">3</span> <span class="op">/</span> <span class="dv">4</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span>) <span class="op">*</span> (<span class="dv">3</span> <span class="op">/</span> <span class="dv">4</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> (<span class="dv">3</span> <span class="op">/</span> <span class="dv">4</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once you have calculated what you think <code>x</code>, <code>y</code> and <code>z</code> are, add print statements to the code above and run it to check.</p>
+</section>
+<section id="thinking-abstractly" class="level4">
+<h4 class="anchored" data-anchor-id="thinking-abstractly">1.3 Thinking Abstractly</h4>
+<p><em>Hint</em>: to solve the following problems assume <code>pi = 3.141592653589793</code></p>
+<p>Given a sphere of diameter 12cm, calculate its volume (use Google to find the formula for this):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="fl">3.141592653589793</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="dv">12</span> <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>vol <span class="op">=</span> (<span class="dv">4</span><span class="op">/</span><span class="dv">3</span>) <span class="op">*</span> pi <span class="op">*</span> (r<span class="op">**</span><span class="dv">3</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Given a sphere of volume 14,137cm3 calculate its radius to the closest <strong>whole number</strong> (this will involve rearranging the formula and you may need to good how to find a cube root with python):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>vol<span class="op">=</span><span class="dv">14137</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>r3 <span class="op">=</span> vol <span class="op">/</span> ((<span class="dv">4</span><span class="op">/</span><span class="dv">3</span>) <span class="op">*</span> pi)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> r3<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">round</span>(r))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="working-with-conditions" class="level4">
+<h4 class="anchored" data-anchor-id="working-with-conditions">2.1 Working with Conditions</h4>
+<p><strong>This is not a loop question, we just want you to change the value of <em>hours</em> so that for each of the cases below (<em>hours</em> is set to 10, 2, 0 in turn) you get the right output.</strong></p>
+<p>Using the code below as a starting point, add two lines of code so that your output is as follows: 1. Code prints <code>Hours are greater than zero</code> when <code>hours=10</code> 2. Code prints <code>Hours are greater than zero</code> <em>and</em> <code>Hours are less than 10</code> when <code>hours=2</code> 3. Code prints <code>Hours are less than 10</code> when <code>hours=0</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>hours<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> hours <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>hours<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> hours <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hours are greater than zero"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> hours <span class="op">&lt;</span> <span class="dv">10</span>:</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hours are less than 10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="flow-control" class="level4">
+<h4 class="anchored" data-anchor-id="flow-control">2.2 Flow Control</h4>
+<p>In the code cell below, enter code to execute the flow chart shown in the image below. You will need to assign values to <code>a</code> and <code>b</code> on lines 1 and 2 before using the flow chart to complete the code such that it produces the following: 1. When <code>a = 2</code> and <code>b = 2</code> four lines of output will be written 2. When <code>a = 1</code> and <code>b = 2</code> one line of output will be written</p>
+<p><img src="https://kingsgeocomputation.files.wordpress.com/2016/09/geocompweek2_task3_3.jpg" width="600"></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> a</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">==</span> b:</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"inside 1"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"inside 2"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"inside 3"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"after condition"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="its-all-quite-logical" class="level4">
+<h4 class="anchored" data-anchor-id="its-all-quite-logical">3.1 It’s All Quite Logical</h4>
+<p>Read the code in the code cell below.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| geopyter: {Contributors: James Millington (james.millington@kcl.ac.uk), git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-08-17 19:06:58', committed_date: '2017-08-17 19:06:58', committer.name: Jon Reades, sha: 5e3b396ae18a982d693c4bfd86c721c7e1e21051}}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Joe"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">or</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Aled"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span>(x <span class="op">&gt;</span> <span class="dv">0</span>):</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Sarah"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Assume that the code executes for a given value of <code>x</code> and answer the following questions. Only test the code <strong>AFTER</strong> you have worked out the answers and typed them below.</p>
+<ol type="1">
+<li>What names are name(s) are printed when <code>x = 5</code>?</li>
+<li>What value(s) can <code>x</code> be when the names <code>Joe</code> and <code>Aled</code> are printed?<br>
+</li>
+<li>What name(s) are printed when <code>x = -1</code>?</li>
+<li>Is there any value for which all three names will be printed?</li>
+</ol>
+<p><strong>Answers</strong> <em>Edit this cell!</em></p>
+<p>To edit this cell just double click on it (right <em>here</em> ). When you’re finished, click the <em>run cell</em> button in the toolbar just below the menu near the top of the window.</p>
+<ol type="1">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li><p>Aled</p></li>
+<li><p>1, 2, 3, 4</p></li>
+<li><p>Aled, Sarah</p></li>
+<li><p>No</p></li>
+</ol>
+</section>
+<section id="logic-contd" class="level4">
+<h4 class="anchored" data-anchor-id="logic-contd">3.2 Logic (Cont’d)</h4>
+<p>Study the flow chart below.</p>
+<p><img src="https://kingsgeocomputation.files.wordpress.com/2016/09/geocompweek2_task3_5.jpg" width="600"></p>
+<p>In the cell below, use the for loop already set up to execute the alternative execution shown by the flow chart for values of <code>x</code> between 0 and 9. Check your code works. Also check you understand why the Modulo <code>%</code> allows us to find odd vs even numbers.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">9</span>):</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... do something ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">9</span>):</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(x)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(x<span class="op">%</span><span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>):</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x is even"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x is odd"</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="nested-conditions" class="level4">
+<h4 class="anchored" data-anchor-id="nested-conditions">3.3 Nested Conditions</h4>
+<p>Conditional statements can be nested within one another. That is, once one conditional statement has been evaluated others may subsequently be evaluated (or not) depending on the result of the initial conditional statement. The code below shows an example of this.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| geopyter: {Contributors: James Millington (james.millington@kcl.ac.uk), git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-08-17 19:06:58', committed_date: '2017-08-17 19:06:58', committer.name: Jon Reades, sha: 5e3b396ae18a982d693c4bfd86c721c7e1e21051}}</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">!=</span> y:                                 <span class="co">#line 1</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is not equal to y"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(x <span class="op">&gt;</span> y):                             <span class="co">#line 4</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x is greater than y"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:                                  <span class="co">#line 7</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x is less than y"</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"insert conclusion here"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note how the indentation makes it easier to work out which ‘level’ the code is operating on. In the code above, lines 4 and 7 are at the same indentation meaning that both will be skipped if the initial condition (on line 1) is <code>False</code>.</p>
+<p>To check you understand how the code above works: 1. Change <code>insert conclusion here</code> in the code above to a string that helps to explain the condition of <code>x</code> and <code>y</code> 2. <strong>Before running the code</strong> for <code>x = 2</code> and <code>y = 3</code>, type below what line(s) will be output</p>
+<p>Output for <code>x = 2</code> and <code>y = 3</code> is:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">!=</span> y:                                 <span class="co">#line 1</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is not equal to y"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(x <span class="op">&gt;</span> y):                             <span class="co">#line 4</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x is greater than y"</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:                                  <span class="co">#line 7</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x is less than y"</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is equal to y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="alterative-execution" class="level4">
+<h4 class="anchored" data-anchor-id="alterative-execution">4.1. Alterative Execution</h4>
+<p>In the code cell below, enter code that reports whether person A is older than person B or not. Whole numbers should be used as ages in years and these ages should be specified on the first two lines of code. Either “Person A is older than Person B” or “Person A is not older than Person B” should be reported to the user.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ageA <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ageB <span class="op">=</span> <span class="dv">19</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ageA <span class="op">&gt;</span> ageB:</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Person A is older than Person B"</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Person A is not older than Person B"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="conditional-execution" class="level4">
+<h4 class="anchored" data-anchor-id="conditional-execution">4.2. Conditional Execution</h4>
+<p>Copy your final code from the previous exercise into the code block below. Now build on this code to check if Person A is older than Person B, but also whether they are the same age. One of following three responses should be reported to the user: 1. “Person A is older than Person B” 2. “Person B is older than Person A” 3. “Person A and Person B are the same age”</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ageA <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ageB <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ageA <span class="op">&gt;</span> ageB:</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Person A is older than Person B"</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> ageA <span class="op">&lt;</span> ageB:</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Person B is older than Person A"</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Person A and Person B are the same age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="nested-execution" class="level4">
+<h4 class="anchored" data-anchor-id="nested-execution">4.3. Nested Execution</h4>
+<p>Copy your final code from the previous exercise into the code block below. Build on this code with a nested execution structure to report if Person A is much younger, a little younger, the same age, a little older or much older than Person B. Write your code with a nested structure so that first it evaluates whether one person is older than the other, and then, if so, whether there is a large difference in age or a small difference in age. You should create a variable to specify what the number of years is that indicates a ‘large difference’ in age. One of the following five responses should be reported to the user: 1. “Person A is much younger than Person B” [if age difference &gt; ‘large difference’] 2. “Person A is a little younger than Person B” [if age difference &lt;= ‘large difference’] 3. “Person A is the same age as Person B” 4. “Person A is a little older than Person B” [if age difference &lt;= ‘large difference’] 5. “Person A is a much older than Person B” [if age difference &gt; ‘large difference’]</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ageA <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ageB <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>largeD <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>diff <span class="op">=</span> ageA <span class="op">-</span> ageB</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> diff <span class="op">&lt;=</span> (largeD <span class="op">*</span> <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Person A is much younger than Person B"</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> diff <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">and</span> diff <span class="op">&gt;</span> (largeD <span class="op">*</span> <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Person A is a little younger than Person B"</span>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> diff <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Person A is the same age as Person B"</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> diff <span class="op">&gt;=</span> (largeD <span class="op">*</span> <span class="dv">1</span>):</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Person A is much older than Person B"</span>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> diff <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> diff <span class="op">&lt;</span> (largeD <span class="op">*</span> <span class="dv">1</span>):  </span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Person A is a little older than Person B"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="a-bonus-managing-errors" class="level4">
+<h4 class="anchored" data-anchor-id="a-bonus-managing-errors">4.4a Bonus! Managing Errors</h4>
+<p>Python provides tools to ‘handle exceptions’ (i.e.&nbsp;manage errors). <a href="read%20more%20at%20https://docs.python.org/3/tutorial/errors.html#handling-exceptions">For example</a> you can use combinations of <code>try</code>, <code>except</code>, <code>else</code> and <code>finally</code> keywords.</p>
+<p>Read the link above (and maybe Google yourself for some other examples) and use the information gained to handle an exception in which the user an age as a <code>string</code> rather than a integer (e.g.&nbsp;print “Invalid Input” if <code>diff</code> cannot be calculated):</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ageA <span class="op">=</span> <span class="st">"five"</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>ageB <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>largeD <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    diff <span class="op">=</span> ageA <span class="op">-</span> ageB</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Invalid Input"</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>: </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> diff <span class="op">&lt;=</span> (largeD <span class="op">*</span> <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Person A is much younger than Person B"</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> diff <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">and</span> diff <span class="op">&gt;</span> (largeD <span class="op">*</span> <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Person A is a little younger than Person B"</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> diff <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Person A is the same age as Person B"</span>)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> diff <span class="op">&gt;=</span> (largeD <span class="op">*</span> <span class="dv">1</span>):</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Person A is much older than Person B"</span>)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> diff <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> diff <span class="op">&lt;</span> (largeD <span class="op">*</span> <span class="dv">1</span>):  </span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Person A is a little older than Person B"</span>)</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="co">#read more at https://docs.python.org/3/tutorial/errors.html#handling-exceptions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="b-bonus-managing-errors" class="level4">
+<h4 class="anchored" data-anchor-id="b-bonus-managing-errors">4.4b Bonus! Managing Errors</h4>
+<p>Another way to trap errors is by ‘raising exceptions’. <a href="https://docs.python.org/3/tutorial/errors.html#raising-exceptions">This requires</a> using the <code>raise</code> keyword.</p>
+<p>Read the link above (and maybe Google yourself for some other examples) and use the information gained to raise an exception if the user provide a negative age (outputing “Invalid Age” in the error mmessage):</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ageA <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ageB <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>largeD <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>diff <span class="op">=</span> ageA <span class="op">-</span> ageB</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ageA <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">or</span> ageB <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">"Invalid Age"</span>) </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:    </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> diff <span class="op">&lt;=</span> (largeD <span class="op">*</span> <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Person A is much younger than Person B"</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> diff <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">and</span> diff <span class="op">&gt;</span> (largeD <span class="op">*</span> <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Person A is a little younger than Person B"</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> diff <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Person A is the same age as Person B"</span>)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> diff <span class="op">&gt;=</span> (largeD <span class="op">*</span> <span class="dv">1</span>):</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Person A is much older than Person B"</span>)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> diff <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> diff <span class="op">&lt;</span> (largeD <span class="op">*</span> <span class="dv">1</span>):  </span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Person A is a little older than Person B"</span>)</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="co">#read more at https://docs.python.org/3/tutorial/errors.html#raising-exceptions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="credits" class="level3">
+<h3 class="anchored" data-anchor-id="credits">Credits!</h3>
+<section id="contributors" class="level4">
+<h4 class="anchored" data-anchor-id="contributors">Contributors:</h4>
+<p>The following individuals have contributed to these teaching materials: - <a href="https://github.com/jamesdamillington">James Millington</a> - <a href="https://github.com/jreades">Jon Reades</a> - <a href="https://github.com/miccferr">Michele Ferretti</a></p>
+</section>
+<section id="license" class="level4">
+<h4 class="anchored" data-anchor-id="license">License</h4>
+<p>The content and structure of this teaching project itself is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license</a>, and the contributing source code is licensed under <a href="https://opensource.org/licenses/mit-license.php">The MIT License</a>.</p>
+</section>
+<section id="acknowledgements" class="level4">
+<h4 class="anchored" data-anchor-id="acknowledgements">Acknowledgements:</h4>
+<p>Supported by the <a href="https://www.rgs.org/HomePage.htm">Royal Geographical Society</a> (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.</p>
+</section>
+<section id="potential-dependencies" class="level4">
+<h4 class="anchored" data-anchor-id="potential-dependencies">Potential Dependencies:</h4>
+<p>This notebook may depend on the following libraries: None</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lessons/Boolean_Logic.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Boolean Logic</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lessons/Lists.html" class="pagination-link">
+        <span class="nav-page-text">Lists</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 2022, J. Reades, Z. Shabrina, J. Millington &amp; M. Ferretti</div>   
+      <div class="nav-footer-center"><img src="../img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jreades/code-camp/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/jreades">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

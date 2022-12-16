@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Code Camp - Installing Python</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../setup/no_install.html" rel="next">
+<link href="../setup/health.html" rel="prev">
+<link href="..//img/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../index.html">
+    <img src="../img/CASA_Logo_no_text.png" alt="">
+    <span class="navbar-title">Code Camp</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">Welcome</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-setting-up" role="button" data-bs-toggle="dropdown" aria-expanded="false">Setting Up</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-setting-up">    
+        <li>
+    <a class="dropdown-item" href="../setup/index.html">
+ <span class="dropdown-text">Getting Started</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../setup/health.html">
+ <span class="dropdown-text">Health Check</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../setup/install.html">
+ <span class="dropdown-text">Installing Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../setup/no_install.html">
+ <span class="dropdown-text">No Install Options</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../help.html">
+ <span class="dropdown-text">Getting Help</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lessons" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lessons</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lessons">    
+        <li>
+    <a class="dropdown-item" href="../lessons/Doing_Urban_Spatial_Science.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Background.html">
+ <span class="dropdown-text">Background</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Tools_of_the_Trade.html">
+ <span class="dropdown-text">Tools of the Trade</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/The_Basics.html">
+ <span class="dropdown-text">The Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Exceptions.html">
+ <span class="dropdown-text">Exceptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Writing_Code.html">
+ <span class="dropdown-text">Writing Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Boolean_Logic.html">
+ <span class="dropdown-text">Boolean Logic</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Recap_1.html">
+ <span class="dropdown-text">Recap 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Lists.html">
+ <span class="dropdown-text">Lists</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Dicts.html">
+ <span class="dropdown-text">Dictionaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Loops.html">
+ <span class="dropdown-text">Loops</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Recap_2.html">
+ <span class="dropdown-text">Recap 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Functions.html">
+ <span class="dropdown-text">Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Packages.html">
+ <span class="dropdown-text">Packages</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Classes.html">
+ <span class="dropdown-text">Classes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/The_Terminal.html">
+ <span class="dropdown-text">The Terminal</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">About</a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Installing Python</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../setup/index.html" class="sidebar-item-text sidebar-link">Getting Started</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../setup/health.html" class="sidebar-item-text sidebar-link">Health Check</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../setup/install.html" class="sidebar-item-text sidebar-link active">Installing Python</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../setup/no_install.html" class="sidebar-item-text sidebar-link">No Install Options</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../help.html" class="sidebar-item-text sidebar-link">Getting Help</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#system-python" id="toc-system-python" class="nav-link active" data-scroll-target="#system-python">‘System’ Python</a></li>
+  <li><a href="#reference-python" id="toc-reference-python" class="nav-link" data-scroll-target="#reference-python">‘Reference’ Python</a></li>
+  <li><a href="#anaconda-python" id="toc-anaconda-python" class="nav-link" data-scroll-target="#anaconda-python">Anaconda Python</a></li>
+  <li><a href="#virtualised-python" id="toc-virtualised-python" class="nav-link" data-scroll-target="#virtualised-python">Virtualised Python</a></li>
+  <li><a href="#our-recommendation" id="toc-our-recommendation" class="nav-link" data-scroll-target="#our-recommendation">Our Recommendation</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Installing Python</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Installing Python or R (see <a href="../lessons/Tools_of_the_Trade.html">Tools of the Trade</a>) is fairly straightforward nowdays, but be warned: what you will see <em>after</em> installing them ain’t pretty. By default, Python and R code is simply the black-and-white text output of an ‘interpreter’ (something that processes lines of code by ‘interpreting’ our code into instructions to the computer, and back). People who code all the time will <em>always</em> install an <a href="../lessons/Tools_of_the_Trade.html">IDE</a> like RStudio or VSCode because it ‘prettifies’ the code that they run, making it easier to spot mistakes and track links between files containing code that interact.</p>
+<p>You can complete a <em>lot</em> of Code Camp using just the basic Python interpreter, but you might find it <em>easier</em> to look at the <a href="../setup/no_install.html">no install options</a> since these automatically include tools for beautifying your Python code. However, if you’re sure that you want to install Python on your computer then here’s what you do…</p>
+<section id="system-python" class="level2">
+<h2 class="anchored" data-anchor-id="system-python">‘System’ Python</h2>
+<p>Many computers (especially Macs and Linux systems) will come with Python pre-installed. To find out if you have Python installed:</p>
+<ol type="1">
+<li>On a Mac, open up the Terminal (under <code>Applications</code> &gt; <code>Utilities</code>) and then type <code>python↩︎</code>.</li>
+<li>On a Windows machine, open the Command Prompt (either run <code>cmd.exe</code> or search for <code>Command Prompt</code> from the Windows menu) and then type <code>python↩︎</code>.</li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>↩︎</code> means hit <code>Enter</code> or <code>Return</code> on your keyboard. <strong>Don’t</strong> try to paste the symbol into the Terminal or Command Prompt.</p>
+</div>
+</div>
+<p>In both cases, if Python is already installed then you will see something like the following:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Python</span> 3.8.3 <span class="er">(</span><span class="ex">default,</span> Jul  2 2020, 11:26:31<span class="kw">)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[Clang</span> 10.0.0 ] :: Anaconda, Inc. on darwin</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Type</span> <span class="st">"help"</span>, <span class="st">"copyright"</span>, <span class="st">"credits"</span> or <span class="st">"license"</span> for more information.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you see this kind output then, congratulations, you have Python installed!</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Versions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Don’t worry too much about what version of Python you see listed (in the example above it’s 3.8.3) as long as you have <em>at least</em> verion 3.6.0. Earlier versions that are <em>still</em> Python3 are fine, but you should <em>not</em> use Python2 (e.g.&nbsp;2.7.6).</p>
+</div>
+</div>
+<section id="if-you-dont-have-system-python" class="level3">
+<h3 class="anchored" data-anchor-id="if-you-dont-have-system-python">If You Don’t Have System Python</h3>
+<p>On a Windows machine you install Python for free from the Microsoft Store, or you can follow the instructions below for installing ‘Reference’ Python, but you should end up with roughly the same version of Python.</p>
+<p>On a Mac you should install X-Code command line tools by typing <code>xcode-select --install↩︎</code> into the Terminal as detailed <a href="https://www.freecodecamp.org/news/install-xcode-command-line-tools/">here</a>.</p>
+</section>
+</section>
+<section id="reference-python" class="level2">
+<h2 class="anchored" data-anchor-id="reference-python">‘Reference’ Python</h2>
+<p>The ‘reference’ version of Python is the one produced by the Python Software Foundation. Whatever operating system you’re using, you should start from the <a href="https://www.python.org/downloads/">downloads page</a> and follow the instructions from there. You will want a <strong>Stable Release</strong>, <em>not</em> a Pre-release version of Python.</p>
+<p>Once it’s installed, you just use the Terminal or Command Prompt as above.</p>
+</section>
+<section id="anaconda-python" class="level2">
+<h2 class="anchored" data-anchor-id="anaconda-python">Anaconda Python</h2>
+<p>Anaconda Python is just ‘Reference’ Python packaged up by a commercial firm with some useful utilities (and a graphical installer) to help make your Python-life a little easier to manage. You can <a href="https://www.anaconda.com/products/distribution">download</a> Anaconda Python for free.</p>
+<p>Once it’s installed, you <em>can</em> use the Terminal or Command Prompt as above, or you may find you’ve got some additional options (e.g.&nbsp;Anaconda Prompt on Windows) that are more slightly more user-friendly.</p>
+</section>
+<section id="virtualised-python" class="level2">
+<h2 class="anchored" data-anchor-id="virtualised-python">Virtualised Python</h2>
+<p>When you start the programme we’ll introduce you to <a href="https://hub.docker.com/_/python?tab=tags">Docker</a> and the ability to run Python in a ‘Virtual Machine’ without having to know anything about where the machine came from or how it was created. But we’d suggest not worrying about that for now.</p>
+</section>
+<section id="our-recommendation" class="level2">
+<h2 class="anchored" data-anchor-id="our-recommendation">Our Recommendation</h2>
+<p>You will need to have ‘Reference’ Python installed anyway to <a href="https://gis.stackexchange.com/a/351290/62754">make the most of QGIS</a>, so we’d use that one. And getting used to the Terminal/Command Prompt is no bad thing since you’ll be using it a lot in the future.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../setup/health.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Health Check</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../setup/no_install.html" class="pagination-link">
+        <span class="nav-page-text">No Install Options</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 2022, J. Reades, Z. Shabrina, J. Millington &amp; M. Ferretti</div>   
+      <div class="nav-footer-center"><img src="../img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jreades/code-camp/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/jreades">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

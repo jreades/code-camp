@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Code Camp – dicts</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../lessons/Loops.html" rel="next">
+<link href="../lessons/Lists.html" rel="prev">
+<link href="..//img/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../index.html">
+    <img src="../img/CASA_Logo_no_text.png" alt="">
+    <span class="navbar-title">Code Camp</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">Welcome</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-setting-up" role="button" data-bs-toggle="dropdown" aria-expanded="false">Setting Up</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-setting-up">    
+        <li>
+    <a class="dropdown-item" href="../setup/index.qmd">
+ <span class="dropdown-text">Getting Started</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Requirements</li>
+        <li>
+    <a class="dropdown-item" href="../setup/health.qmd">
+ <span class="dropdown-text">Health Check</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../setup/base.qmd">
+ <span class="dropdown-text">Base Utilities</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Installation</li>
+        <li>
+    <a class="dropdown-item" href="../setup/no_install.qmd">
+ <span class="dropdown-text">No Install Options</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Meta Skills</li>
+        <li>
+    <a class="dropdown-item" href="../attention.qmd">
+ <span class="dropdown-text">Your Attention Please</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../help.qmd">
+ <span class="dropdown-text">Getting Help</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lessons" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lessons</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lessons">    
+        <li>
+    <a class="dropdown-item" href="../lessons/Doing_Urban_Spatial_Science.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Background.html">
+ <span class="dropdown-text">Background</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Tools_of_the_Trade.qmd">
+ <span class="dropdown-text">Tools of the Trade</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/The_Basics.html">
+ <span class="dropdown-text">The Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Exceptions.html">
+ <span class="dropdown-text">Exceptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Writing_Code.html">
+ <span class="dropdown-text">Writing Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Boolean_Logic.html">
+ <span class="dropdown-text">Boolean Logic</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Recap_1.html">
+ <span class="dropdown-text">Recap 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Lists.html">
+ <span class="dropdown-text">Lists</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Dicts.html">
+ <span class="dropdown-text">Dictionaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Loops.html">
+ <span class="dropdown-text">Loops</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Recap_2.html">
+ <span class="dropdown-text">Recap 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Functions.html">
+ <span class="dropdown-text">Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Packages.html">
+ <span class="dropdown-text">Packages</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Classes.html">
+ <span class="dropdown-text">Classes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/The_Terminal.qmd">
+ <span class="dropdown-text">The Terminal</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Doing_Urban_Spatial_Science.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Background.html" class="sidebar-item-text sidebar-link">Background</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Tools_of_the_Trade.qmd" class="sidebar-item-text sidebar-link">Tools of the Trade</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/The_Basics.html" class="sidebar-item-text sidebar-link">The Basics</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Exceptions.html" class="sidebar-item-text sidebar-link">Exceptions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Writing_Code.html" class="sidebar-item-text sidebar-link">Writing Code</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Boolean_Logic.html" class="sidebar-item-text sidebar-link">Boolean Logic</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Recap_1.html" class="sidebar-item-text sidebar-link">Recap 1</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Lists.html" class="sidebar-item-text sidebar-link">Lists</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Dicts.html" class="sidebar-item-text sidebar-link active">Dictionaries</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Loops.html" class="sidebar-item-text sidebar-link">Loops</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Recap_2.html" class="sidebar-item-text sidebar-link">Recap 2</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Functions.html" class="sidebar-item-text sidebar-link">Functions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Packages.html" class="sidebar-item-text sidebar-link">Packages</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Classes.html" class="sidebar-item-text sidebar-link">Classes</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/The_Terminal.qmd" class="sidebar-item-text sidebar-link">The Terminal</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#notebook-8-dictionaries" id="toc-notebook-8-dictionaries" class="nav-link active" data-scroll-target="#notebook-8-dictionaries">Notebook-8: Dictionaries</a>
+  <ul class="collapse">
+  <li><a href="#dictionaries" id="toc-dictionaries" class="nav-link" data-scroll-target="#dictionaries"># Dictionaries</a></li>
+  <li><a href="#accessing-dictionaries" id="toc-accessing-dictionaries" class="nav-link" data-scroll-target="#accessing-dictionaries">Accessing Dictionaries</a></li>
+  <li><a href="#creating-a-simple-phone-book" id="toc-creating-a-simple-phone-book" class="nav-link" data-scroll-target="#creating-a-simple-phone-book">Creating a Simple Phone Book</a></li>
+  <li><a href="#useful-dictionary-methods" id="toc-useful-dictionary-methods" class="nav-link" data-scroll-target="#useful-dictionary-methods">Useful Dictionary Methods</a></li>
+  <li><a href="#lists-of-lists-dictionaries-of-lists-dictionaries-of-dictionaries-oh-my" id="toc-lists-of-lists-dictionaries-of-lists-dictionaries-of-dictionaries-oh-my" class="nav-link" data-scroll-target="#lists-of-lists-dictionaries-of-lists-dictionaries-of-dictionaries-oh-my">Lists of Lists, Dictionaries of Lists, Dictionaries of Dictionaries… Oh my!</a></li>
+  </ul></li>
+  <li><a href="#code-applied-geo-example" id="toc-code-applied-geo-example" class="nav-link" data-scroll-target="#code-applied-geo-example">Code (Applied Geo-example)</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="notebook-8-dictionaries" class="level1">
+<h1>Notebook-8: Dictionaries</h1>
+<section id="lesson-content" class="level3">
+<h3 class="anchored" data-anchor-id="lesson-content">Lesson Content</h3>
+<p>In this lesson, we’ll continue our exploration of more advanced data structures. Last time we took a peek at a way to represent ordered collections of items via <strong>lists</strong>.</p>
+<p>This time we’ll use <strong>dictionaries</strong> to create collections of unordered items (this is just an easy distinction - there’s much more to it - but it’s a good way to start wrapping your head around the subject).</p>
+</section>
+<section id="in-this-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="in-this-notebook">In this Notebook</h3>
+<ul>
+<li>Creating dictionaries</li>
+<li>Accessing elements of dictionaries</li>
+<li>Methods of dictionaries</li>
+</ul>
+</section>
+<section id="dictionaries" class="level2">
+<h2 class="anchored" data-anchor-id="dictionaries"># Dictionaries</h2>
+<p>Dictionaries are another data type in Python that, like lists, contains multiple items. The difference is that while lists use an index to access <em>ordered</em> items, dictionaries use ‘keys’ to access <em>unordered</em> values.</p>
+<p>You can go back to our short video that talks about dictionaries:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://youtu.be/UDNtW3sy-og?t=613"><img src="http://img.youtube.com/vi/UDNtW3sy-og/0.jpg" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">The Basics</figcaption><p></p>
+</figure>
+</div>
+<p>Like lists, dictionaries are also found in other programming languages, often under a different name. For instance, Python dictionaries might be referred to elsewhere as “maps”, “hashes”, or “associative arrays”).</p>
+<p>According to the <a href="https://docs.python.org/2/tutorial/datastructures.html#dictionaries">Official Docs</a>:</p>
+<blockquote class="blockquote">
+<p>It is best to think of a dictionary as an unordered set of key-value pairs, with the requirement that the keys are unique (within one dictionary). A pair of braces creates an empty dictionary: {}</p>
+</blockquote>
+<p>In other words, dictionaries are not lists: instead of just a checklist, we now have a <em>key</em> and a <em>value</em>. We use the key to find the value. So a generic dictionary looks like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>theDictionary <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    key1: value1,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    key2: value2,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    key3: value3,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Each key/value <em>pair</em> is linked by a ‘:’, and each pair is separated by a ‘,’. It doesn’t really matter if you put everything on newlines (as we do here) or all on the same line. We’re just doing it this way to make it easier to read.</p>
+<p>Here’s a more useful implementation of a dictionary:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>myDict <span class="op">=</span> {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"key1"</span>: <span class="st">"Value 1"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: <span class="st">"3rd Value"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"key2"</span>: <span class="st">"2nd Value"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fourth Key"</span>: [<span class="fl">4.0</span>, <span class="st">'Jon'</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myDict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>At the danger of repeating ourselves (but to make the point!): an important difference between <code>dictionaries</code> and <code>lists</code> is that dictionaries are unordered. Always remember that you have no idea where things are stored in a <code>dictionary</code> and you can’t rely on indexing like you can with a <code>list</code>. From this perspective, a Python dictionary is <em>not</em> like a real dictionary (as a real dictionary presents the keys, i.e.&nbsp;words, in alphabetical order).</p>
+<p>And notice too that every type of data can go into a dictionary: strings, integers, and floats. There’s even a <code>list</code> in this dictionary (<code>[4.0, 'Jon']</code>)! The <em>only</em> constraint is that the <strong>key must be <em>immutable</em></strong>; this means that it is a simple, static identifier and that can’t change.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this will result in an error</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>myFaultyDict <span class="op">=</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"key1"</span>, <span class="dv">1</span>]: <span class="st">"Value 1"</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"key2"</span>: <span class="st">"2nd Value"</span>, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: <span class="st">"3rd Value"</span>, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fl">8.0</span>: [<span class="dv">5</span>, <span class="st">'jon'</span>]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This doesn’t work because you can’t use a list (<code>["key1",1]</code>) as a key, though as you saw above you can use a list as a <em>value</em>. For more on the subject of (im)mutability checkout <a href="http://stackoverflow.com/a/8059504">this SO answer</a> ).</p>
+</section>
+<section id="accessing-dictionaries" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-dictionaries">Accessing Dictionaries</h2>
+<p>Like lists, we access an element in a dictionary using a ‘location’ marked out by a pair of square brackets (<em>[…]</em>). The difference is that the index is no longer an integer indicating the position of the item that we want to access, but is a <em>key</em> in the <em>key:value</em> pair:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myDict[<span class="st">"key1"</span>])</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myDict[<span class="st">"Fourth Key"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Notice how now we just jump straight to the item we want? We don’t need to think about “Was that the fourth item on the list? Or the fifth?” We just use a sensible key, and we can ask for the associated value directly.</p>
+<section id="a-challenge-for-you" class="level4">
+<h4 class="anchored" data-anchor-id="a-challenge-for-you">A challenge for you!</h4>
+<p>How would you print out “2nd Value” from <code>myDict</code>?</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(???)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myDict[<span class="st">"key2"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When it comes to error messages, <code>dict</code>s and <code>list</code>s behave in similar ways. If you try to access a dictionary using a key that doesn’t exist then Python raises an <em>exception</em>.</p>
+<p>What is the name of the exception generated by the following piece of code? Can you find it the <a href="https://docs.python.org/2/library/exceptions.html">Official Docs</a>?</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myDict[<span class="dv">99</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Handy, no? Again, Python’s error messages are giving you helpful clues about where the problem it’s encountering might be! Up above we had a <code>TypeError</code> when we tried to create a key using a list. Here, we have a <code>KeyError</code> that tells us something must be wrong with using <code>99</code> as a key in <code>myDict</code>. In this case, it’s that there is no key 99!</p>
+</section>
+<section id="a-challenge-for-you-1" class="level4">
+<h4 class="anchored" data-anchor-id="a-challenge-for-you-1">A challenge for you</h4>
+<p>Can you turn these lists into dictionary called <code>capitalDict</code>?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>country <span class="op">=</span> [<span class="st">'Costa Rica'</span>,<span class="st">'Croatia'</span>,<span class="st">'Cuba'</span>] <span class="co">#keys</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>capital_city <span class="op">=</span> [<span class="st">'San Jose'</span>,<span class="st">'Zagreb'</span>,<span class="st">'Havana'</span>] <span class="co">#values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We already found out that we can easily convert between different types. Dictionary is also a data type, so we can convert these lists to dictionary just like we convert strings into integers using <code>str</code> and <code>int</code>. However, since we need to pair them, we need an additional function called <code>zip</code> to pair the keys and values.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>capitalDict <span class="op">=</span> ???(<span class="bu">zip</span>(???,???))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>capitalDict <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(country,capital_city))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>capitalDict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>How would you print out the capital city of Croatia from <code>capitalDict</code>?</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(???)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(capitalDict[<span class="st">'Croatia'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="creating-a-simple-phone-book" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-simple-phone-book">Creating a Simple Phone Book</h2>
+<p>One of the simplest uses of a dictionary is as a phone book! (If you’re not sure what a phone book is <a href="https://www.youtube.com/watch?v=QtntnfgIyUg">here’s a handy guide</a> and <a href="https://www.youtube.com/watch?v=updE5LVe6tg">here’s an example of someone using one</a>).</p>
+<p>So here are some useful contact numbers: 1. American Emergency Number: 911 2. British Emergency Number: 999 3. Icelandic Emergency Number: 112 4. French Emergency Number: 112 5. Russian Emergency Number: 102</p>
+<p>Now, how would you create a dictionary that allowed us to look up and print out an emergency phone number based on the <a href="http://www.nationsonline.org/oneworld/country_code_list.htm">two-character ISO country code</a>? It’s going to look a little like this:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>eNumbers <span class="op">=</span> {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The Icelandic emergency number is "</span> <span class="op">+</span> eNumbers[<span class="st">'IS'</span>])</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The American emergency number is "</span> <span class="op">+</span> eNumbers[<span class="st">'US'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>eNumbers <span class="op">=</span> {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"IS"</span>: <span class="st">'112'</span>, <span class="co"># It's not very important here whether we use single- or double-quotes</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"US"</span>: <span class="st">'911'</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The Icelandic emergency number is "</span> <span class="op">+</span> eNumbers[<span class="st">'IS'</span>])</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The American emergency number is "</span> <span class="op">+</span> eNumbers[<span class="st">'US'</span>]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="useful-dictionary-methods" class="level2">
+<h2 class="anchored" data-anchor-id="useful-dictionary-methods">Useful Dictionary Methods</h2>
+<p>We are going to see in the next couple of notebooks how to systematically access values in a dictionary (amongst other things). For now, let’s also take in the fact the dictionaries <em>also</em> have utility <em>methods</em> similar to what we saw with the <code>list</code>. And as with the list, these methods are functions that only make sense <em>when</em> you’re working with a dictionary, so they’re bundled up in a way that makes them easy to use.</p>
+<p>Let’s say that you have forgotten what <em>keys</em> you put in your dictionary…</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>programmers <span class="op">=</span> {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Charles"</span>: <span class="st">"Babbage"</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Ada"</span>: <span class="st">"Lovelace"</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Alan"</span>: <span class="st">"Turing"</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(programmers.keys())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or maybe you just need to access all of the values without troubling to ask for each key:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(programmers.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or maybe you even need to get them as pairs:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output is a list of key-value pairs!</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(programmers.items())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="a-challenge-for-you-2" class="level4">
+<h4 class="anchored" data-anchor-id="a-challenge-for-you-2">A challenge for you</h4>
+<p>Can you access all the values of <code>capitalDict</code> from the previous challenge?</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(???)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(capitalDict.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="are-you-on-the-list-part-2" class="level3">
+<h3 class="anchored" data-anchor-id="are-you-on-the-list-part-2">Are You On the List? (Part 2)</h3>
+<p>As with the <code>list</code> data type, you can check the presence or absence of a key in a dictionary, using the <em>in</em> / <em>not in</em> operators… but note that they only work on keys.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Charles"</span> <span class="kw">in</span> programmers)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Babbage"</span> <span class="kw">in</span> programmers)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="va">True</span>  <span class="kw">not</span> <span class="kw">in</span> programmers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="what-do-you-do-if-youre-not-on-the-list" class="level3">
+<h3 class="anchored" data-anchor-id="what-do-you-do-if-youre-not-on-the-list">What Do You Do if You’re Not On the List?</h3>
+<p>One challenge with dictionaries is that sometimes we have no real idea if a key exists or not. With a list, it’s pretty easy to figure out whether or not an index exists because we can just ask Python to tell us the <em>length</em> of the list. So that makes it fairly easy to avoid having the list ‘blow up’ by throwing an exception.</p>
+<p>It’s rather harder for a dictionary though, so that’s why we have the dedicated <strong><code>get()</code></strong> method: it not only allows us to fetch the <em>value</em> associated with a <em>key</em>, it also allows us to specify a default value in case the key does not exist:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(programmers.get(<span class="st">"Lady Ada"</span>, <span class="st">"Are you sure you spelled that right?"</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>See how this works: the key doesn’t exist, but unlike what happened when we asked for <code>myDict[99]</code> we don’t get an exception, we get the default value specified as the <em>second</em> input to the method <code>get</code>.</p>
+<p>So you’ve learned two things here: that functions can take more than one input (this one takes both the key that we’re looking for, and value to return if Python can’t find the key); and that different types (or classes) of data have different methods (there’s no <code>get</code> for lists).</p>
+</section>
+</section>
+<section id="lists-of-lists-dictionaries-of-lists-dictionaries-of-dictionaries-oh-my" class="level2">
+<h2 class="anchored" data-anchor-id="lists-of-lists-dictionaries-of-lists-dictionaries-of-dictionaries-oh-my">Lists of Lists, Dictionaries of Lists, Dictionaries of Dictionaries… Oh my!</h2>
+<p>OK, this is where it’s going to get a little weird but you’re also going to see how programming is a little like Lego: once you get the building blocks, you can make lots of cool/strange/useful contraptions from some pretty simple concepts.</p>
+<p>Remember that a list or dictionary can store <em>anything</em>: so the first item in your list could itself <em>be</em> a list! For most people starting out on programming, this is the point where their brain starts hurting (it happened to us) and you might want to throw up your hands in frustration thinking “I’m never going to understand this!” But if you stick with it, you will.</p>
+<p>And this is really the start of the power of computation.</p>
+<section id="a-data-set-of-city-attributes" class="level3">
+<h3 class="anchored" data-anchor-id="a-data-set-of-city-attributes">A Data Set of City Attributes</h3>
+<p>Let’s start out with what some (annoying) people would call a ‘trivial’ example of how a list-of-lists (LoLs, though most people aren’t laughing) can be useful. Let’s think through what’s going on below: what happens if we write <code>cityData[0]</code>?</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Format: city, country, population, area (km^2)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>cityData <span class="op">=</span> [</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'London'</span>,<span class="st">'U.K.'</span>,<span class="dv">8673713</span>,<span class="dv">1572</span>],</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Paris'</span>,<span class="st">'France'</span>,<span class="dv">2229621</span>,<span class="dv">105</span>],</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Washington, D.C.'</span>,<span class="st">'U.S.A.'</span>,<span class="dv">672228</span>,<span class="dv">177</span>],</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Abuja'</span>,<span class="st">'Nigeria'</span>,<span class="dv">1235880</span>,<span class="dv">1769</span>],</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Beijing'</span>,<span class="st">'China'</span>,<span class="dv">21700000</span>,<span class="dv">16411</span>],</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So how would we access something inside the list returned from <code>cityData[0]</code>?</p>
+<p>Why not try:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>cityData[<span class="dv">0</span>][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>See if you can figure out how to retrieve and print the following from <code>cityData</code>: 1. France 2. 16411 3. Washington, D.C.</p>
+<p>Type the code into the coding area below…</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData[<span class="dv">1</span>][<span class="dv">1</span>])</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData[<span class="dv">4</span>][<span class="dv">3</span>])</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData[<span class="dv">2</span>][<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="a-challenge-for-you-3" class="level4">
+<h4 class="anchored" data-anchor-id="a-challenge-for-you-3">A challenge for you</h4>
+<p>Can you retrieve and print the following from <code>cityData</code>: 1. Nigeria 2. 8673713 3. 177</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(???)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(???)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(???) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData[<span class="dv">3</span>][<span class="dv">1</span>])</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData[<span class="dv">0</span>][<span class="dv">2</span>])</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData[<span class="dv">2</span>][<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="a-phonebook" class="level3">
+<h3 class="anchored" data-anchor-id="a-phonebook">A Phonebook+</h3>
+<p>So that’s an LoL (list-of-lists). Let’s extend this idea to what we’ll call Phonebook+ which will be a DoL (dictionary-of-lists). In other words, a phonebook that can <em>do more</em> than just give us phone numbers! We’re going to build on the emergency phonebook example above.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># American Emergency Number: 911</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># British Emergency Number: 999</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Icelandic Emergency Number: 112</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># French Emergency Number: 112</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Russian Emergency Number: 102</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>eNumbers <span class="op">=</span> {</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'IS'</span>: [<span class="st">'Icelandic'</span>,<span class="dv">112</span>],</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'US'</span>: [<span class="st">'American'</span>,<span class="dv">911</span>],</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'FR'</span>: [<span class="st">'French'</span>,<span class="dv">112</span>],</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RU'</span>: [<span class="st">'Russian'</span>,<span class="dv">102</span>],</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'UK'</span>: [<span class="st">'British'</span>,<span class="dv">999</span>]</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The "</span> <span class="op">+</span> eNumbers[<span class="st">'IS'</span>][<span class="dv">0</span>] <span class="op">+</span> <span class="st">" emergency number is "</span> <span class="op">+</span> <span class="bu">str</span>(eNumbers[<span class="st">'IS'</span>][<span class="dv">1</span>]))</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The "</span> <span class="op">+</span> eNumbers[<span class="st">'US'</span>][<span class="dv">0</span>] <span class="op">+</span> <span class="st">" emergency number is "</span> <span class="op">+</span> <span class="bu">str</span>(eNumbers[<span class="st">'US'</span>][<span class="dv">1</span>]))</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The "</span> <span class="op">+</span> eNumbers[<span class="st">'FR'</span>][<span class="dv">0</span>] <span class="op">+</span> <span class="st">" emergency number is "</span> <span class="op">+</span> <span class="bu">str</span>(eNumbers[<span class="st">'FR'</span>][<span class="dv">1</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="a-challenge-for-you-4" class="level4">
+<h4 class="anchored" data-anchor-id="a-challenge-for-you-4">A Challenge for you</h4>
+<p>See if you can create the rest of the <code>eNumbers</code> dictionary and then print out the Russian and British emergency numbers.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The "</span> <span class="op">+</span> ??? <span class="op">+</span> <span class="st">" emergency number is "</span> <span class="op">+</span> ???)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The "</span> <span class="op">+</span> ??? <span class="op">+</span> <span class="st">" emergency number is "</span> <span class="op">+</span> ???) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The "</span> <span class="op">+</span> eNumbers[<span class="st">'RU'</span>][<span class="dv">0</span>] <span class="op">+</span> <span class="st">" emergency number is "</span> <span class="op">+</span> <span class="bu">str</span>(eNumbers[<span class="st">'RU'</span>][<span class="dv">1</span>]))</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The "</span> <span class="op">+</span> eNumbers[<span class="st">'UK'</span>][<span class="dv">0</span>] <span class="op">+</span> <span class="st">" emergency number is "</span> <span class="op">+</span> <span class="bu">str</span>(eNumbers[<span class="st">'UK'</span>][<span class="dv">1</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="dictionary-of-dictionaries" class="level3">
+<h3 class="anchored" data-anchor-id="dictionary-of-dictionaries">Dictionary-of-Dictionaries</h3>
+<p>OK, this is the last thing we’re going to throw at you today – getting your head around ‘nested’ lists and dictionaries is <em>hard</em>. Really hard. But it’s the all-important first step to thinking about data the way that computer ‘thinks’ about it. This is really abstract: something that you access by keys, which in turn gives you access to other keys… it’s got a name: recursion. And it’s probably one of the cleverest things about computing.</p>
+<p>Here’s a bit of a complex DoD, combined with a DoL, and other nasties:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>cityData2 <span class="op">=</span> {</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'London'</span> : {</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">'population'</span>: <span class="dv">8673713</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'area'</span>: <span class="dv">1572</span>, </span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'location'</span>: [<span class="fl">51.507222</span>, <span class="op">-</span><span class="fl">0.1275</span>],</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'country'</span>: {</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">'ISO2'</span>: <span class="st">'UK'</span>,</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Full'</span>: <span class="st">'United Kingdom'</span>,</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Paris'</span> : {</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">'population'</span>: <span class="dv">2229621</span>,</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">'area'</span>: <span class="fl">105.4</span>,</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">'location'</span>: [<span class="fl">48.8567</span>, <span class="fl">2.3508</span>],</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">'country'</span>: {</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">'ISO2'</span>: <span class="st">'FR'</span>,</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Full'</span>: <span class="st">'France'</span>,</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Try the following code in the code cell below:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData2[<span class="st">'Paris'</span>])</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData2[<span class="st">'Paris'</span>][<span class="st">'country'</span>][<span class="st">'ISO2'</span>])</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData2[<span class="st">'Paris'</span>][<span class="st">'location'</span>][<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co">#your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData2[<span class="st">'Paris'</span>])</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData2[<span class="st">'Paris'</span>][<span class="st">'country'</span>][<span class="st">'ISO2'</span>])</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cityData2[<span class="st">'Paris'</span>][<span class="st">'location'</span>][<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, figure out how to print: <code>The population of Paris, the capital of France (FR), is 2229621.</code></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The population of Paris, the capital of "</span> <span class="op">+</span> <span class="bu">str</span>(cityData2[<span class="st">'Paris'</span>][<span class="st">'country'</span>][<span class="st">'Full'</span>]) <span class="op">+</span> <span class="st">" "</span> \</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>      <span class="op">+</span> <span class="st">"("</span> <span class="op">+</span> ??? <span class="op">+</span> <span class="st">") "</span> <span class="op">+</span> <span class="st">"is "</span><span class="op">+</span> ??? <span class="op">+</span> <span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The population of Paris, the capital of "</span> <span class="op">+</span> <span class="bu">str</span>(cityData2[<span class="st">'Paris'</span>][<span class="st">'country'</span>][<span class="st">'Full'</span>]) <span class="op">+</span> <span class="st">" "</span> \</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>      <span class="op">+</span> <span class="st">"("</span> <span class="op">+</span> <span class="bu">str</span>(cityData2[<span class="st">'Paris'</span>][<span class="st">'country'</span>][<span class="st">'ISO2'</span>]) <span class="op">+</span> <span class="st">") "</span> <span class="op">+</span> <span class="st">"is "</span><span class="op">+</span> <span class="bu">str</span>(cityData2[<span class="st">'Paris'</span>][<span class="st">'population'</span>]) <span class="op">+</span> <span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And print <code>It has a density of 21153.899 persons per square km.</code> <strong>Hint</strong>: to calculate density, divide population with area.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"It has a density of "</span> <span class="op">+</span> ???)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"It has a density of "</span> <span class="op">+</span> <span class="bu">str</span>(cityData2[<span class="st">'Paris'</span>][<span class="st">'population'</span>] <span class="op">/</span> cityData2[<span class="st">'Paris'</span>][<span class="st">'area'</span>] ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Do the same for London.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(???)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that we can tweak the formatting a bit: Python is smart </span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># enough to understand that if you have a '+' on the end of a</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># string and there next line is also a string then it'll </span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># continue to concatenate the string...</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The population of "</span> <span class="op">+</span> <span class="st">'London'</span> <span class="op">+</span> <span class="st">", the capital of "</span> <span class="op">+</span> </span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>      cityData2[<span class="st">'London'</span>][<span class="st">'country'</span>][<span class="st">'Full'</span>] <span class="op">+</span> <span class="st">" ("</span> <span class="op">+</span> cityData2[<span class="st">'London'</span>][<span class="st">'country'</span>][<span class="st">'ISO2'</span>] <span class="op">+</span> <span class="st">"), is "</span> <span class="op">+</span> </span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>      <span class="bu">str</span>(cityData2[<span class="st">'London'</span>][<span class="st">'population'</span>]) <span class="op">+</span> <span class="st">". It has a density of "</span> <span class="op">+</span> </span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>      <span class="bu">str</span>(cityData2[<span class="st">'London'</span>][<span class="st">'population'</span>]<span class="op">/</span>cityData2[<span class="st">'London'</span>][<span class="st">'area'</span>]) <span class="op">+</span> <span class="st">" persons per square km"</span>)</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="co"># But a _better_ way to do this might be one in which we don't</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="co"># hard-code 'London' into the output -- by changing the variable</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 'c' to Paris we can change the output completely...</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>c  <span class="op">=</span> <span class="st">'Paris'</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>cd <span class="op">=</span> cityData2[c]</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The population of "</span> <span class="op">+</span> c <span class="op">+</span> <span class="st">", the capital of "</span> <span class="op">+</span> </span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>      cd[<span class="st">'country'</span>][<span class="st">'Full'</span>] <span class="op">+</span> <span class="st">" ("</span> <span class="op">+</span> cd[<span class="st">'country'</span>][<span class="st">'ISO2'</span>] <span class="op">+</span> <span class="st">"), is "</span> <span class="op">+</span> </span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>      <span class="bu">str</span>(cd[<span class="st">'population'</span>]) <span class="op">+</span> <span class="st">". It has a density of "</span> <span class="op">+</span> </span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">"</span><span class="sc">{0:8.1f}</span><span class="st">"</span>.<span class="bu">format</span>(cd[<span class="st">'population'</span>]<span class="op">/</span>cd[<span class="st">'area'</span>]) <span class="op">+</span> <span class="st">" persons per square km"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="code-applied-geo-example" class="level1">
+<h1>Code (Applied Geo-example)</h1>
+<p>Let’s continue our trips around the world! This time though, we’ll do things better, and instead of using a simple URL, we are going to use a real-word geographic data type, that you can use on a web-map or in your favourite GIS software.</p>
+<p>If you look down below at the <code>KCL_position</code> variable you’ll see that we’re assigning it a complex and scary data structure. Don’t be afraid! If you look closely enough you will notice that is just made out the “building blocks” that we’ve seen so far: <code>floats</code>, <code>lists</code>, <code>strings</code>..all wrapped comfortably in a cosy <code>dictionary</code>!</p>
+<p>This is simply a formalised way to represent a <em>geographic marker</em> (a pin on the map!) in a format called <code>GeoJSON</code>.</p>
+<p>According to the awesome <a href="https://twitter.com/lyzidiamond?lang=en-gb">Lizy Diamond</a></p>
+<blockquote class="blockquote">
+<p><a href="http://geojson.org/geojson-spec.html">GeoJSON</a> is an open and popular geographic data format commonly used in web applications. It is an extension of a format called <a href="http://json.org">JSON</a>, which stands for <em>JavaScript Object Notation</em>. Basically, JSON is a table turned on its side. GeoJSON extends JSON by adding a section called “geometry” such that you can define coordinates for the particular object (point, line, polygon, multi-polygon, etc). A point in a GeoJSON file might look like this:</p>
+</blockquote>
+<pre><code>{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -122.65335738658904,
+      45.512083676585156
+    ]
+  },
+  "properties": {
+    "name": "Hungry Heart Cupcakes",
+    "address": "1212 SE Hawthorne Boulevard",
+    "website": "http://www.hungryheartcupcakes.com",
+    "gluten free": "no"
+  }
+}</code></pre>
+<blockquote class="blockquote">
+<p>GeoJSON files have to have both a <code>"geometry"</code> section and a <code>"properties"</code> section. The <code>"geometry"</code> section houses the geographic information of the feature (its location and type) and the <code>"properties"</code> section houses all of the descriptive information about the feature (like fields in an attribute table). <a href="https://github.com/lyzidiamond/learn-geojson">Source</a></p>
+</blockquote>
+<p>Now, in order to have our first “webmap”, we have to re-create such <code>GeoJSON</code> structure.</p>
+<p>As you can see there are two variables containing King’s College Longitude/Latitude coordinate position. Unfortunately, they are in the wrong data type. Also, the variable <code>longitude</code> is not included in the list <code>KCLCoords</code> and the list itself is not assigned as a value to the <code>KCLGeometry</code>dictionary.</p>
+<p>Take all the necessary steps to fix the code, using the functions we’ve seen so far.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Don't worry about the following lines</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># I'm simply requesting some modules to</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># have additional functions at my disposal</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># which usually are not immediately available</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipyleaflet <span class="im">import</span> Map, GeoJSON, basemaps</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="co"># King's College coordinates</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="co"># What format are they in? Does it seem appropriate?</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="co"># How would you convert them back to numbers?</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>longitude <span class="op">=</span> <span class="op">-</span><span class="fl">0.11596798896789551</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>latitude <span class="op">=</span> <span class="fl">51.51130657591914</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Set this up as a coordinate pair </span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>KCL_Coords <span class="op">=</span> [longitude, latitude ]</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a><span class="co"># How can you assign KCLCoords to </span></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a><span class="co"># the key KCLGeometry["coordinates"]?</span></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>KCL_Geometry <span class="op">=</span> {</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"type"</span>: <span class="st">"Point"</span>,</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"coordinates"</span>: KCL_Coords</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>KCL_Position <span class="op">=</span> {</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">"type"</span>: <span class="st">"FeatureCollection"</span>,</span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>  <span class="st">"features"</span>: [</span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a>      <span class="st">"type"</span>: <span class="st">"Feature"</span>,</span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a>      <span class="st">"properties"</span>: {</span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a>        <span class="st">"marker-color"</span>: <span class="st">"#7e7e7e"</span>,</span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">"marker-size"</span>: <span class="st">"medium"</span>,</span>
+<span id="cb41-33"><a href="#cb41-33" aria-hidden="true" tabindex="-1"></a>        <span class="st">"marker-symbol"</span>: <span class="st">"building"</span>,</span>
+<span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">"name"</span>: <span class="st">"KCL"</span></span>
+<span id="cb41-35"><a href="#cb41-35" aria-hidden="true" tabindex="-1"></a>      },</span>
+<span id="cb41-36"><a href="#cb41-36" aria-hidden="true" tabindex="-1"></a>      <span class="st">"geometry"</span>: KCL_Geometry</span>
+<span id="cb41-37"><a href="#cb41-37" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb41-38"><a href="#cb41-38" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb41-39"><a href="#cb41-39" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb41-40"><a href="#cb41-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-41"><a href="#cb41-41" aria-hidden="true" tabindex="-1"></a><span class="co"># OUTPUT</span></span>
+<span id="cb41-42"><a href="#cb41-42" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------------------------------------</span></span>
+<span id="cb41-43"><a href="#cb41-43" aria-hidden="true" tabindex="-1"></a><span class="co"># I'm justing using the "imported" module to print the output</span></span>
+<span id="cb41-44"><a href="#cb41-44" aria-hidden="true" tabindex="-1"></a><span class="co"># in a nice and formatted way</span></span>
+<span id="cb41-45"><a href="#cb41-45" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(KCL_Position, indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can also show this in Jupyter directly </span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (it won't show up in the PDF version though)</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> Map(center <span class="op">=</span> (<span class="fl">51.51</span>, <span class="op">-</span><span class="fl">0.10</span>), zoom<span class="op">=</span><span class="dv">12</span>, min_zoom<span class="op">=</span><span class="dv">5</span>, max_zoom<span class="op">=</span><span class="dv">20</span>, </span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>   basemap<span class="op">=</span>basemaps.OpenTopoMap)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>geo <span class="op">=</span> GeoJSON(data<span class="op">=</span>KCL_Position)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>m.add_layer(geo)</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And here we request a remote GeoJSON file (from <code>url</code>), convert to a dictionary, and place it in a map as a new layer.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipyleaflet <span class="im">import</span> Map, GeoJSON</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://github.com/jupyter-widgets/ipyleaflet/raw/master/examples/europe_110.geo.json'</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>r   <span class="op">=</span> requests.get(url)</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>d   <span class="op">=</span> r.content.decode(<span class="st">"utf-8"</span>)</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>j   <span class="op">=</span> json.loads(d)</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_color(feature):</span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">'color'</span>: <span class="st">'black'</span>,</span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">'fillColor'</span>: random.choice([<span class="st">'red'</span>, <span class="st">'yellow'</span>, <span class="st">'green'</span>, <span class="st">'orange'</span>]),</span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> Map(center<span class="op">=</span>(<span class="fl">50.6252978589571</span>, <span class="fl">0.34580993652344</span>), zoom<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a>geo_json <span class="op">=</span> GeoJSON(</span>
+<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>j,</span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a>    style<span class="op">=</span>{</span>
+<span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'opacity'</span>: <span class="dv">1</span>, <span class="st">'dashArray'</span>: <span class="st">'9'</span>, <span class="st">'fillOpacity'</span>: <span class="fl">0.1</span>, <span class="st">'weight'</span>: <span class="dv">1</span></span>
+<span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb43-25"><a href="#cb43-25" aria-hidden="true" tabindex="-1"></a>    hover_style<span class="op">=</span>{</span>
+<span id="cb43-26"><a href="#cb43-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">'color'</span>: <span class="st">'white'</span>, <span class="st">'dashArray'</span>: <span class="st">'0'</span>, <span class="st">'fillOpacity'</span>: <span class="fl">0.5</span></span>
+<span id="cb43-27"><a href="#cb43-27" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb43-28"><a href="#cb43-28" aria-hidden="true" tabindex="-1"></a>    style_callback<span class="op">=</span>random_color</span>
+<span id="cb43-29"><a href="#cb43-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb43-30"><a href="#cb43-30" aria-hidden="true" tabindex="-1"></a>m.add_layer(geo_json)</span>
+<span id="cb43-31"><a href="#cb43-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-32"><a href="#cb43-32" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As proof that behind this all is just a dictionary:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(j, indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After you’ve run the code, Python will have saved a file called <code>my-first-marker.geojson</code> in the folder where you are running the notebook. Try to upload it on <a href="http://geojson.io/#map=2/20.0/0.0">this website (Geojson.io)</a> and check it shows a marker <em>somewhere</em> in central London…</p>
+<section id="further-references" class="level3">
+<h3 class="anchored" data-anchor-id="further-references">Further references:</h3>
+<p>General list or resources - <a href="https://github.com/vinta/awesome-python">Awesome list of resources</a> - <a href="https://docs.python.org/2.7/tutorial/introduction.html">Python Docs</a> - <a href="http://docs.python-guide.org/en/latest/intro/learning/">HitchHiker’s guide to Python</a> - <a href="http://www.pythonlearn.com/book_007.pdf">Python for Informatics</a> - <a href="http://learnpythonthehardway.org/book/ex32.html">Learn Python the Hard Way - Lists</a> - <a href="http://learnpythonthehardway.org/book/ex39.html">Learn Python the Hard Way - Dictionaries</a> - <a href="https://www.codecademy.com/courses/python-beginner-en-pwmb1/0/1">CodeAcademy</a></p>
+</section>
+<section id="credits" class="level3">
+<h3 class="anchored" data-anchor-id="credits">Credits!</h3>
+<section id="contributors" class="level4">
+<h4 class="anchored" data-anchor-id="contributors">Contributors:</h4>
+<p>The following individuals have contributed to these teaching materials: - <a href="https://github.com/jamesdamillington">James Millington</a> - <a href="https://github.com/jreades">Jon Reades</a> - <a href="https://github.com/miccferr">Michele Ferretti</a> - <a href="https://github.com/zarashabrina">Zahratu Shabrina</a></p>
+</section>
+<section id="license" class="level4">
+<h4 class="anchored" data-anchor-id="license">License</h4>
+<p>The content and structure of this teaching project itself is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license</a>, and the contributing source code is licensed under <a href="https://opensource.org/licenses/mit-license.php">The MIT License</a>.</p>
+</section>
+<section id="acknowledgements" class="level4">
+<h4 class="anchored" data-anchor-id="acknowledgements">Acknowledgements:</h4>
+<p>Supported by the <a href="https://www.rgs.org/HomePage.htm">Royal Geographical Society</a> (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.</p>
+</section>
+<section id="potential-dependencies" class="level4">
+<h4 class="anchored" data-anchor-id="potential-dependencies">Potential Dependencies:</h4>
+<p>This notebook may depend on the following libraries: None</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lessons/Lists.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lists</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lessons/Loops.html" class="pagination-link">
+        <span class="nav-page-text">Loops</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 2022, J. Reades, Z. Shabrina, J. Millington &amp; M. Ferretti</div>   
+      <div class="nav-footer-center"><img src="../img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jreades/code-camp/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/jreades">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

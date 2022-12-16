@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Code Camp – boolean_logic</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../lessons/Recap_1.html" rel="next">
+<link href="../lessons/Writing_Code.html" rel="prev">
+<link href="..//img/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../index.html">
+    <img src="../img/CASA_Logo_no_text.png" alt="">
+    <span class="navbar-title">Code Camp</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">Welcome</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-setting-up" role="button" data-bs-toggle="dropdown" aria-expanded="false">Setting Up</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-setting-up">    
+        <li>
+    <a class="dropdown-item" href="../setup/index.qmd">
+ <span class="dropdown-text">Getting Started</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Requirements</li>
+        <li>
+    <a class="dropdown-item" href="../setup/health.qmd">
+ <span class="dropdown-text">Health Check</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../setup/base.qmd">
+ <span class="dropdown-text">Base Utilities</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Installation</li>
+        <li>
+    <a class="dropdown-item" href="../setup/no_install.qmd">
+ <span class="dropdown-text">No Install Options</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Meta Skills</li>
+        <li>
+    <a class="dropdown-item" href="../attention.qmd">
+ <span class="dropdown-text">Your Attention Please</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../help.qmd">
+ <span class="dropdown-text">Getting Help</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lessons" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lessons</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lessons">    
+        <li>
+    <a class="dropdown-item" href="../lessons/Doing_Urban_Spatial_Science.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Background.html">
+ <span class="dropdown-text">Background</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Tools_of_the_Trade.qmd">
+ <span class="dropdown-text">Tools of the Trade</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/The_Basics.html">
+ <span class="dropdown-text">The Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Exceptions.html">
+ <span class="dropdown-text">Exceptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Writing_Code.html">
+ <span class="dropdown-text">Writing Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Boolean_Logic.html">
+ <span class="dropdown-text">Boolean Logic</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Recap_1.html">
+ <span class="dropdown-text">Recap 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Lists.html">
+ <span class="dropdown-text">Lists</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Dicts.html">
+ <span class="dropdown-text">Dictionaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Loops.html">
+ <span class="dropdown-text">Loops</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Recap_2.html">
+ <span class="dropdown-text">Recap 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Functions.html">
+ <span class="dropdown-text">Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Packages.html">
+ <span class="dropdown-text">Packages</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/Classes.html">
+ <span class="dropdown-text">Classes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lessons/The_Terminal.qmd">
+ <span class="dropdown-text">The Terminal</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Doing_Urban_Spatial_Science.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Background.html" class="sidebar-item-text sidebar-link">Background</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Tools_of_the_Trade.qmd" class="sidebar-item-text sidebar-link">Tools of the Trade</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/The_Basics.html" class="sidebar-item-text sidebar-link">The Basics</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Exceptions.html" class="sidebar-item-text sidebar-link">Exceptions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Writing_Code.html" class="sidebar-item-text sidebar-link">Writing Code</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Boolean_Logic.html" class="sidebar-item-text sidebar-link active">Boolean Logic</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Recap_1.html" class="sidebar-item-text sidebar-link">Recap 1</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Lists.html" class="sidebar-item-text sidebar-link">Lists</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Dicts.html" class="sidebar-item-text sidebar-link">Dictionaries</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Loops.html" class="sidebar-item-text sidebar-link">Loops</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Recap_2.html" class="sidebar-item-text sidebar-link">Recap 2</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Functions.html" class="sidebar-item-text sidebar-link">Functions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Packages.html" class="sidebar-item-text sidebar-link">Packages</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/Classes.html" class="sidebar-item-text sidebar-link">Classes</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/The_Terminal.qmd" class="sidebar-item-text sidebar-link">The Terminal</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#notebook-5-truth-conditions" id="toc-notebook-5-truth-conditions" class="nav-link active" data-scroll-target="#notebook-5-truth-conditions">Notebook-5: Truth &amp; Conditions</a>
+  <ul class="collapse">
+  <li><a href="#comparisons" id="toc-comparisons" class="nav-link" data-scroll-target="#comparisons"># Comparisons</a></li>
+  <li><a href="#booleans" id="toc-booleans" class="nav-link" data-scroll-target="#booleans">Booleans</a></li>
+  <li><a href="#comparison-operators" id="toc-comparison-operators" class="nav-link" data-scroll-target="#comparison-operators">Comparison Operators</a></li>
+  <li><a href="#testing-for-equality" id="toc-testing-for-equality" class="nav-link" data-scroll-target="#testing-for-equality">Testing for Equality</a></li>
+  <li><a href="#and" id="toc-and" class="nav-link" data-scroll-target="#and">AND</a></li>
+  <li><a href="#or" id="toc-or" class="nav-link" data-scroll-target="#or">OR</a></li>
+  <li><a href="#not" id="toc-not" class="nav-link" data-scroll-target="#not">NOT</a></li>
+  </ul></li>
+  <li><a href="#code-applied-geo-example" id="toc-code-applied-geo-example" class="nav-link" data-scroll-target="#code-applied-geo-example">Code (Applied Geo-Example)</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="notebook-5-truth-conditions" class="level1">
+<h1>Notebook-5: Truth &amp; Conditions</h1>
+<section id="lesson-content" class="level3">
+<h3 class="anchored" data-anchor-id="lesson-content">Lesson Content</h3>
+<ul>
+<li>Comparisons
+<ul>
+<li>Booleans</li>
+<li>“Not equal” operator</li>
+<li>“&lt; &gt; &lt;= &gt;=” operators</li>
+</ul></li>
+<li>Conditions pt.1
+<ul>
+<li>IF<br>
+</li>
+<li>ELSE</li>
+<li>ELIF</li>
+</ul></li>
+<li>Boolean Logic
+<ul>
+<li>AND</li>
+<li>OR</li>
+<li>NOT</li>
+</ul></li>
+</ul>
+<p>In this lesson we’ll learn how to compare stuff (like numerical quantities but also words and strings) via <em>Comparison Operators</em>.</p>
+<p>We’ll also see how to express logical concepts like: ” <code>if</code> this condition is <code>True</code>, then do something…“. These concepts will enable your code account for different possibilities and let it run to accordingly. They will also serve to perform assertions and to test if certain conditions have been met or not.</p>
+</section>
+<section id="comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons"># Comparisons</h2>
+</section>
+<section id="booleans" class="level2">
+<h2 class="anchored" data-anchor-id="booleans">Booleans</h2>
+<p>The most basic form of comparison is to test if something is <code>True</code> of <code>False</code>. To do so we’ll have to quickly introduce another <em>data type</em>, the <strong>boolean</strong>.</p>
+<p>Booleans are different from the numerical (<em>floats</em> and <em>integers</em>) or textual (<em>strings</em>) types we have seen so far because they have only two possible values once they are set: <code>True</code> or <code>False</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>myBoolean <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myBoolean)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"This statement is: '"</span> <span class="op">+</span> <span class="bu">str</span>(myBoolean) <span class="op">+</span> <span class="st">"'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note: did you see the <code>str()</code> around the <code>myBoolean</code> variable on the second <code>print</code> line? That’s so that we can print out its value as part of a string.</p>
+</section>
+<section id="comparison-operators" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-operators">Comparison Operators</h2>
+<p>How do we use booleans? Well, what is the ‘answer’ if I ask you “Is it true or false than an elephant is bigger than a mouse?” And remember too that in an early notebook we looked at how a computer ‘thinks’ – it’s all in terms of things being <code>True</code> or <code>False</code>.</p>
+<p>Note: just so that you know, sometimes people will use <code>1</code> and <code>0</code> in place of <code>True</code> and <code>False</code> because that’s what’s actually happening behind the scenes. It’s the same thing <em>logically</em> , but Python views sees <code>True</code> and <code>False</code> differently from <code>1</code> and <code>0</code> because the latter are numbers, while the former are <em>boolean</em> data type.</p>
+<p>You will need these set of operators:</p>
+<table class="table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 21%">
+<col style="width: 67%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operator</th>
+<th style="text-align: left;">Meaning</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>&gt;</code></td>
+<td style="text-align: left;">Greater Than</td>
+<td style="text-align: left;"><code>A&gt;B</code> This returns <code>True</code> if value in <code>A</code> is larger than value in <code>B</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>&lt;</code></td>
+<td style="text-align: left;">Less Than</td>
+<td style="text-align: left;"><code>A&lt;B</code> This returns <code>True</code> if value in <code>A</code> is smaller than value in <code>B</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&gt;=</code></td>
+<td style="text-align: left;">Greater Equal Than</td>
+<td style="text-align: left;"><code>A&gt;=B</code> This returns <code>True</code> if value in <code>A</code> is larger than or equal to value in <code>B</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>&lt;=</code></td>
+<td style="text-align: left;">Less Equal Than</td>
+<td style="text-align: left;"><code>A&lt;=B</code> This returns <code>True</code> if avlue in <code>A</code> is smaller than or equal to value in <code>B</code></td>
+</tr>
+</tbody>
+</table>
+<p>Here’s an initial example (without a print statement)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">25</span> <span class="op">&gt;</span>  <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And further examples (with print statements)</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">7</span>  <span class="op">&gt;=</span> <span class="dv">7</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">7</span>  <span class="op">&gt;</span>  <span class="dv">7</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">25</span> <span class="op">&lt;=</span> <span class="dv">7</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">25</span> <span class="op">&lt;=</span> <span class="fl">25.0</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">25</span> <span class="op">&lt;</span>  <span class="fl">25.0</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">25</span> <span class="op">&lt;</span>  <span class="fl">25.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Numerical comparisons are fairly straightforward, and you’ll see that Python automatically does fairly sensible things: - Because it converts automatically between integers and floats, <code>25</code> and <code>25.0</code> are evaluated properly - As are 25 and 25.1 because the ‘casting’ of integers to floats turns <code>25</code> into <code>25.0</code> automatically</p>
+<p>But here are some slightly more complicated examples involving <em>string</em> comparisons:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"simple comparison:"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A"</span> <span class="op">&gt;</span> <span class="st">"B"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"B"</span> <span class="op">&gt;</span> <span class="st">"A"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"something slightly trickier"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A"</span> <span class="op">&gt;</span>  <span class="st">"a"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A"</span> <span class="op">&gt;=</span> <span class="st">"a"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A"</span> <span class="op">&lt;</span>  <span class="st">"a"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"trickier again"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ab"</span> <span class="op">&lt;</span> <span class="st">"abc"</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"hmmmm..."</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"James"</span> <span class="op">&lt;</span> <span class="st">"Jane"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Why does Python think ‘A’ is less than ‘a’, and ‘Aardvark’ is less than ‘Ant’?</em></p>
+<p>When comparing <code>str</code> objects, Python uses character <em>unicodes</em>. <a href="https://www.unicode.org/">Unicode</a> is a specification that aims to list every character used by human languages and give each character its own unique code. In Python, these codes are of type <code>int</code>.</p>
+<p>To see this in action, we can use the <code>ord</code> function to get Python to show us the unicode for a single character:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"A"</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"a"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Hopefully this output helps you to see why <code>print("A" &gt;  "a")</code> returns <code>False</code></p>
+<p>When there are multiple characters in a <code>string</code> object, Python compares each character in order. Suppose, as we do above, we have <code>str1</code> as “James” and <code>str2</code> as “Jane”. The first two characters from <code>str1</code> and <code>str2</code> (J and J) are compared. Because they are equal, the second two characters are compared. Because they are also equal, the third two characters (m and n) are compared. And because m has smaller unicode value than n, <code>str1</code> is less than <code>str2</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>str1 <span class="op">=</span> <span class="st">"James"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>str2 <span class="op">=</span> <span class="st">"Jane"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#compare</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(str1 <span class="op">&lt;</span> str2)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#proof</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"m"</span>))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"n"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Hopefully this helps you to see why <code>print("James" &lt; "Jane")</code> returns <code>True</code></p>
+<section id="a-challenge-for-you" class="level4">
+<h4 class="anchored" data-anchor-id="a-challenge-for-you">A challenge for you!</h4>
+<p>In the next two challenges, we’ve deliberately left out or broken some code that <em>you</em> need to fix!</p>
+<p>Fix this code so that it returns <code>True</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>first_variable <span class="op">=</span> <span class="fl">87.0</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>second_variable <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(first_variable <span class="op">%</span> <span class="dv">80</span> ??? second_variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>first_variable <span class="op">=</span> <span class="fl">87.0</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>second_variable <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(first_variable <span class="op">%</span> <span class="dv">80</span> <span class="op">&lt;</span> second_variable)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#proof</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(first_variable <span class="op">%</span> <span class="dv">80</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(second_variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Fix this code so that it returns <code>False</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Aardvark"</span> ??? <span class="st">"Ant"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Aardvark"</span> <span class="op">&gt;</span> <span class="st">"Ant"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#proof</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"a"</span>))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"n"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="testing-for-equality" class="level2">
+<h2 class="anchored" data-anchor-id="testing-for-equality">Testing for Equality</h2>
+<p>So we’ve seen the comparison operators that you probably still remember from high-school maths. But sometimes we don’t want to test for <em>difference</em>, we want to test if two things are <em>the same</em>. In your maths class you probably just wrote <span class="math display">\[x = y\]</span> and moved on to the next problem, but remember: one equals sign is already being used to assign values to variables! As in:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>my_var <span class="op">=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To test if something is exactly equal we can use the <em>equality comparison operator</em>, which is two equals signs together (<em>==</em>). This equality comparison returns <code>True</code> if the contents of two variables/results of two calculations are equal. That’s a bit of a mouthful, but all we’re saying is that we compare the left-hand side (LHS) of the equality operator (<code>==</code>) with the right-hand side (RHS) to see if they evaluate to the same answer.</p>
+<p>A <em>lot</em> of new programmers make th mistake of writing <code>=</code> in their code when they wanted <code>==</code>, and it can be hard to track this one down. So always ask yourself: am I comparing two things, or assigning one to the other?</p>
+<p>Run the following code and check you understand why the output produced is as it is.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This (=) assigns a value to a variable</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>british_capital <span class="op">=</span> <span class="st">"London"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>french_capital  <span class="op">=</span> <span class="st">"Paris"</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This (==) compares two variables</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(british_capital <span class="op">==</span> french_capital)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># This is probably a mistake</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>british_capital <span class="op">=</span> french_capital</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(british_capital)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="a-challenge-for-you-1" class="level4">
+<h4 class="anchored" data-anchor-id="a-challenge-for-you-1">A challenge for you!</h4>
+<p>Before you run the code in each cell, try to think through what <em>you</em> expect each one to print out!</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Is this True?</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">==</span> <span class="dv">34</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How about this?</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> <span class="op">==</span> <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How about this?</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">"Foo"</span> <span class="op">==</span> <span class="st">"Foo"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># And this?</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">"Foo"</span> <span class="op">==</span> <span class="st">"Bar"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># And this?</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">3</span> <span class="op">/</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#this may help interpret the result here</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">%</span> <span class="dv">3</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">3</span> <span class="op">/</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="testing-for-inequality" class="level3">
+<h3 class="anchored" data-anchor-id="testing-for-inequality">Testing for Inequality</h3>
+<p>What if you want to check if two things are <em>different</em> rather than equal? Well then you’ll need to use the <em>Not Equal (!=)</em> operator, which returns <code>True</code> when there’s no equality between the conditons you are comparing.</p>
+<p>Check you understand the output when running the following code</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset the variables to their 'defaults'</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>british_capital <span class="op">=</span> <span class="st">"London"</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>french_capital  <span class="op">=</span> <span class="st">"Paris"</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This time python is going to print True,</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># since we are comparing different things</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># using the Not Equal operator!</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(british_capital <span class="op">!=</span> french_capital)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td># Conditions</td>
+</tr>
+<tr class="even">
+<td>OK, so now we’ve seen comparisons and booleans, but why? Where are we going with this? Think back to the first notebook and the example of what is happening inside a computer: <em>if</em> the user has clicked on the mouse <em>then</em> we need to do something (e.g.&nbsp;change the colour of the button, open the web link, etc.). Everything that we’ve done up until now basically happened on a single line: <em>set</em> this variable, <em>set</em> that variable, print out the result of the <em>comparison</em>.</td>
+</tr>
+<tr class="odd">
+<td>Now we’re going to step it up a level.</td>
+</tr>
+<tr class="even">
+<td>To check a condition you will need to use a <em>statement</em> (i.e.&nbsp;<a href="https://stackoverflow.com/questions/4728073/what-is-the-difference-between-an-expression-and-a-statement-in-python">everything that makes up one or more lines of code line</a> ) to see <code>if</code> that condition is True/False, in which case do one thing, or <code>else</code> do something else…</td>
+</tr>
+<tr class="odd">
+<td>Let’s see that in action!</td>
+</tr>
+<tr class="even">
+<td>## IF condition</td>
+</tr>
+<tr class="odd">
+<td>Let’s start with a basic <code>if</code> statement. In Python you write it:</td>
+</tr>
+<tr class="even">
+<td><code>python if conditon-to-check: statement</code></td>
+</tr>
+<tr class="odd">
+<td>So an <code>if</code> condition starts with the word <code>if</code> and ends with a colon (<code>:</code>).</td>
+</tr>
+<tr class="even">
+<td>The statement is the code that we want the computer to run <em>if</em> the <code>condition-to-check</code> comes out <code>True</code>. <strong>However</strong>, notice that the next line – the <code>statement</code> line – is indendented. This is Python’s way to define a <em>block of code</em>.</td>
+</tr>
+<tr class="odd">
+<td>A <strong>block of code</strong> means that we can run several lines of code <em>if</em> the condition is True. As long as the code is indented then Python will treat it as code to run <em>only</em> if the condition is True.</td>
+</tr>
+<tr class="even">
+<td>Let’s see a few examples. Run the following code cell and see if you can understand the output produced (given the code in the cell).</td>
+</tr>
+<tr class="odd">
+<td>```python # Condition 1 if 2 &gt; 1: print(“&gt; Condition #1”)</td>
+</tr>
+<tr class="even">
+<td># Condition 2 if 1 &gt; 2: print(“&gt; Condition #2”)</td>
+</tr>
+<tr class="odd">
+<td># Condition 3 if “Foo” == “Foo”: print(“&gt; Condition #3”) myVar = 1 + 5 print(” My var: ” + str(myVar))</td>
+</tr>
+<tr class="even">
+<td># Condition 4 if “Foo” != “Foo”: print(“&gt; Condition #4”) myVar = 1 + 5 print(” My var: ” + str(myVar))</td>
+</tr>
+<tr class="odd">
+<td>print(“Done.”) ```</td>
+</tr>
+<tr class="even">
+<td>See how that works? Only conditions #1 and #3 were printed out, #2 and #4 were skipped over entirely!</td>
+</tr>
+<tr class="odd">
+<td>Let’s take these in order: 1. 2 <em>is</em> greater than 1, so the <code>condition-to-check</code> returns True and Python then looks at the next line to see what it should do next. 2. 1 <em>is not</em> greater than 2, so the <code>condition-to-check</code> returns False. Python then skips the next <em>two</em> indented lines which form part of the <em>code block</em>. It’s the indentation that tells Python they’re still part of the same code block. That <em>entire code block</em> would only be executed <em>if</em> the <code>condition-to-check</code> had been True. 3. “Foo” is the same as “Foo”, so this condition is True. Python then runs the next three lines because the indentation tells Python that they are all part of the same code block. Notice that we can even do things like set new variables in a code block. 4. “Foo” is <em>still</em> the same as “Foo”, but we were testing if they were <em>not equal</em> (<code>!=</code>) and so this condition is False. This time Python skips over the three lines and moves straight to the last print statement. 5. Notice that the last print (<code>"Done."</code>) always runs, no matter what the previous conditions were, because it is <em>not indented</em> and so is not part of a <em>code block</em>.</td>
+</tr>
+<tr class="even">
+<td>Let’s see another example (run the code and check you understand the result)</td>
+</tr>
+<tr class="odd">
+<td>```python london_population = 8600000 paris_population = 2200000</td>
+</tr>
+<tr class="even">
+<td>if london_population &gt; paris_population: print(“London is larger than Paris”) ```</td>
+</tr>
+<tr class="odd">
+<td>Note: Other languages such as C/C++ use curly braces <code>{...}</code> around a block, just in case you find other languages in examples when Googling for help.</td>
+</tr>
+<tr class="even">
+<td>Sidenote: How much should you indent? Although the <a href="https://www.python.org/dev/peps/pep-0008/#tabs-or-spaces">official specification</a> specifies <em>4 spaces</em>, quite a few people indent using <em>one tab</em> instead. Technically, there is no difference <em>as long as you are consistent</em> (See <a href="http://stackoverflow.com/questions/1125653/python-4-whitespaces-indention-why">this discussion</a>). This apparently trivial issue is the sort of thing that leads to all kinds of heated argument (like whether you prefer Mac OSX or Windows; OSX is better, obviously). It’s such a famous aspect of the programming world that it even featured in an episode of the sit-com <a href="https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)">Silicon Valley</a>:</td>
+</tr>
+<tr class="odd">
+<td><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=cowtgmZuai0" target="_blank"><img src="http://img.youtube.com/vi/cowtgmZuai0/0.jpg" alt="Silicon Valley" width="480" height="360" border="10"></a></td>
+</tr>
+<tr class="even">
+<td>#### A challenge for you!</td>
+</tr>
+<tr class="odd">
+<td>Think about what the following code will print, <em>before</em> running it:</td>
+</tr>
+<tr class="even">
+<td>```python london_population = 8600000</td>
+</tr>
+<tr class="odd">
+<td>if london_population &gt; 2000000: print(str(london_population) + ” is more than 2 million people”)</td>
+</tr>
+<tr class="even">
+<td>if london_population &lt; 10000000: print(str(london_population) + ” is less than 10 million people”) ```</td>
+</tr>
+<tr class="odd">
+<td>Complete the missing code, while also fixing the broken bits (<em>HINT:</em> Remember the position of colons and indentation is important in Python!):</td>
+</tr>
+<tr class="even">
+<td><code>python #| solution2: hidden #| solution2_first: true if (london_population % 8000000) == 600000 ??? print("Good job")</code></td>
+</tr>
+<tr class="odd">
+<td><code>python #| solution2: hidden if (london_population % 8000000) == 600000: print("Good job")</code></td>
+</tr>
+<tr class="even">
+<td>## ELSE condition</td>
+</tr>
+<tr class="odd">
+<td>Of course, only being able to use <em>if</em> would be pretty limiting. Wouldn’t it be handy to be able to say “<em>if</em> x is True: do one thing; otherwise do something else”. Well you can! When you want to run a different block of code depending on whether something is True or not, then you can use the <code>else</code> statement (<em>only</em> following a first <code>if</code>).</td>
+</tr>
+<tr class="even">
+<td>Here’s an example:</td>
+</tr>
+<tr class="odd">
+<td>```python newyork_population = 8400000</td>
+</tr>
+<tr class="even">
+<td>if london_population &lt; newyork_population: largest_city = “New York” else: largest_city = “London”</td>
+</tr>
+<tr class="odd">
+<td>print(“The largest city is” + largest_city) ```</td>
+</tr>
+<tr class="even">
+<td>As you can see from the example above, the <code>if: else:</code> statement allows us to account for multiple outcomes when checking the <em>logic</em> of a condition.</td>
+</tr>
+<tr class="odd">
+<td>Notice how the <code>else</code> syntax is similar to the <code>if</code> statement: use the colon, and indent.</td>
+</tr>
+<tr class="even">
+<td>Also pay attention to the fact that not <em>all</em> of our code has run. Only the block after the <code>else</code> was run. So: - <em>if</em> returned False (London’s population is not less than that of New York) - So the <em>else</em> block ran instead.</td>
+</tr>
+<tr class="odd">
+<td>This is why the <code>largestCity</code> variable was set to “London” and not “New York”. After the <code>if: else:</code> sequence the code goes back to its normal flow, and all the remaining lines will be executed.</td>
+</tr>
+<tr class="even">
+<td>The <code>if: else:</code> statement is like a fork in the road: you can take one road, or the other, but not both at the same time.</td>
+</tr>
+<tr class="odd">
+<td>#### A challenge for you!</td>
+</tr>
+<tr class="even">
+<td>Fix the code below so that it prints out <code>London's population is above my threshold</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>python #| solution2: hidden #| solution2_first: true mythreshold = 1000000 if london_population &lt;= mythreshold ??? print("London's population is below my threshold") ???: print("London's popuation is above my threshold")</code></td>
+</tr>
+<tr class="even">
+<td><code>python #| solution2: hidden mythreshold = 1000000 if london_population &lt;= mythreshold: print("London's population is below my threshold") else: print("London's popuation is above my threshold")</code></td>
+</tr>
+<tr class="odd">
+<td>## ELIF condition</td>
+</tr>
+<tr class="even">
+<td>Once again: so far, so good. But what if you need to have multiple forks? Well, then you can use a sequence of <em>statements</em> that sounds like “IF this happens do this, ELSE IF this second condition holds do that, ELSE IF a third condition is true perform this other ELSE do finally this…”</td>
+</tr>
+<tr class="odd">
+<td>The operator we are going to use is <code>elif</code>, the lazy version of <code>ELSE IF</code>.</td>
+</tr>
+<tr class="even">
+<td>```python # Like so: myUpperBoundary = 12000000 myLowerBoundary = 2000000</td>
+</tr>
+<tr class="odd">
+<td>if london_population &lt; myUpperBoundary: print(“London is below my upper threshold.”)</td>
+</tr>
+<tr class="even">
+<td>elif london_population &gt; myLowerBoundary: print(“London is above my lower threshold.”)</td>
+</tr>
+<tr class="odd">
+<td>elif london_population != 340000: print(“London population is not equal to 340,000.”)</td>
+</tr>
+<tr class="even">
+<td>else: print(“How did I get here?”)</td>
+</tr>
+<tr class="odd">
+<td>print(“And now back to normal code execution.”) ```</td>
+</tr>
+<tr class="even">
+<td>Why didn’t the output look like this:</td>
+</tr>
+<tr class="odd">
+<td>This a tricky one: the <em>first</em> thing that evaluates to <code>True</code> (that London is below the upper threshold) is the one that ‘wins’. Computers are also lazy in their own way: since it found that the answer to the first <code>elif</code> was True it didn’t bother to look at the second <code>elif</code> and the <code>else</code>, it <em>only</em> ran the <em>one</em> code block.</td>
+</tr>
+<tr class="even">
+<td>#### A challenge for you!</td>
+</tr>
+<tr class="odd">
+<td>Complete the missing bits so that the logically correct print statement is output:</td>
+</tr>
+<tr class="even">
+<td>```python #| solution2: hidden #| solution2_first: true london_population = 10 ??? london_population &lt;= 9: print(“First case is true”) ??? london_population &gt; 99: print(“Second case is true”) ??? london_population == 4: print(“Third case is true”) ??? print(“Well, looks like none of the above statements were true!”)</td>
+</tr>
+<tr class="odd">
+<td>print(“And now back to normal code execution.”) ```</td>
+</tr>
+<tr class="even">
+<td>```python #| solution2: hidden london_population = 10 if london_population &lt;= 9: print(“First case is true”) elif london_population &gt; 99: print(“Second case is true”) elif london_population == 4: print(“Third case is true”) else: print(“Well, looks like none of the above statements were true!”)</td>
+</tr>
+<tr class="odd">
+<td>print(“And now back to normal code execution.”) ```</td>
+</tr>
+<tr class="even">
+<td># Boolean Logic</td>
+</tr>
+</tbody>
+</table>
+<p>The very logical Prof.&nbsp;George Boole, circa 1860:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figure class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg" title="Boole" class="img-fluid figure-img">
+</figure>
+<p></p><figcaption class="figure-caption">Photo of Boole</figcaption><p></p>
+</figure>
+</div>
+<p>Boolean logic and <a href="https://en.wikipedia.org/wiki/Boolean_algebra">Boolean algebra</a> have to do with <em>set theory</em> but also lie at the heart of the modern computer! Remember that in notebook 1 we saw that a computer works by combining <code>AND</code>, <code>OR</code>, <code>XOR</code> and <code>NAND</code> circuits to produce ever more complex calculations? Well, we also use this a lot in programming!</p>
+<p>In Python there are <a href="https://docs.python.org/2/library/stdtypes.html#boolean-operations-and-or-not">three boolean logic opertors</a>, these are (in ascending order of priority): <code>or</code>, <code>and</code>, and <code>not</code>.</p>
+<p>We’ll look at these in more detail in a second, but here’s the ‘cheat sheet’: - OR: <em>if either A OR B are True</em> then run the following code block… - AND: <em>if A AND B are True</em> then run the following code block… - NOT: <em>if NOT(A) is True</em> (where A is <em>False</em>) then run the following code block…</p>
+<p>It might help you to take a look at these Venn diagrams (source: <a href="https://en.wikipedia.org/wiki/File:Vennandornot.svg">Wikimedia Commons</a>) that express the same three operations in graphical form. Imagine that <em>x</em> and <em>y</em> are both <code>conditions-to-test</code>… The left one is <em>AND</em> because it is only the combination of <em>x AND y</em> that is red; the centre one is <em>OR</em> because it represents any combination of <em>x OR y</em> being red; the rightmost is <em>NOT</em> because it is the opposite of <em>x</em> that iss red.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figure class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Vennandornot.svg/640px-Vennandornot.svg.png" title="Venn Diagram" class="img-fluid figure-img">
+</figure>
+<p></p><figcaption class="figure-caption">Venn</figcaption><p></p>
+</figure>
+</div>
+<p>OK, let’s look at it in Python.</p>
+</section>
+</section>
+<section id="and" class="level2">
+<h2 class="anchored" data-anchor-id="and">AND</h2>
+<p>The <code>and</code> operator (just like in plain English!) is used when two conditions must both be True at the same time. So it has <em>two</em> arguments and returns <code>True</code> if, and only if, both of them are <code>True</code>. Otherwise it returns <code>False</code>.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>condition1 <span class="op">=</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">4</span> <span class="co"># True</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>condition2 <span class="op">=</span> (<span class="dv">6</span><span class="op">/</span><span class="dv">3</span>) <span class="op">==</span> <span class="dv">2</span> <span class="co"># Also True</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition1) <span class="kw">and</span> (condition2): <span class="co"># Both are true</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"1. Both conditions are true!"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"1. Mmm... something's wrong!"</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> condition1 <span class="kw">and</span> <span class="fl">6.0</span><span class="op">/</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"2. Both conditions are true!"</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"2. Mmm... something's wrong!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="or" class="level2">
+<h2 class="anchored" data-anchor-id="or">OR</h2>
+<p>The <code>or</code> operator is used when we don’t care which condition is True, as long as one of them is! So if <em>either</em> (or <em>both</em>!) conditions are <code>True</code>, then the operator returns <code>True</code>. Only if <em>both</em> are <code>False</code> does it evalute to <code>False</code>.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>condition1 <span class="op">=</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">4</span> <span class="co"># True</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>condition2 <span class="op">=</span> (<span class="dv">6</span><span class="op">/</span><span class="dv">3</span>) <span class="op">!=</span> <span class="dv">2</span> <span class="co"># False</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition1) <span class="kw">or</span> (condition2):</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"1. Both conditions are true!"</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"1. Mmm... something's wrong!"</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">4</span> <span class="kw">and</span> <span class="fl">6.0</span><span class="op">/</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"2. Both conditions are true!"</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"2. Mmm... something's wrong!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="a-challenge-for-you-2" class="level4">
+<h4 class="anchored" data-anchor-id="a-challenge-for-you-2">A challenge for you!</h4>
+<p>Try to change the values of conditions and see the different outcomes, but first you’ll need to fix the Syntax Errors and the Exceptions!</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>condition1 <span class="op">=</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">4</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>condition2 ??? (<span class="dv">6</span><span class="op">/</span><span class="dv">3</span>) <span class="op">!=</span> <span class="dv">2</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition1) ??? (condition2):</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Either one or two conditions are true!"</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span>:</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"mmh..they must both be false"")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>condition1 <span class="op">=</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">4</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>condition2 <span class="op">=</span> (<span class="dv">6</span><span class="op">/</span><span class="dv">3</span>) <span class="op">!=</span> <span class="dv">2</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition1) <span class="kw">or</span> (condition2):</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Either one or two conditions are true!"</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"mmh..they must both be false"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="not" class="level2">
+<h2 class="anchored" data-anchor-id="not">NOT</h2>
+<p>Lastly, the <code>not</code> operator allows you to reverse (or invert, if you prefer) the value of a Boolean. So it turns a <code>True</code> into a <code>False</code> and vice-versa.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Like so:</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>conditionInverted <span class="op">=</span> <span class="kw">not</span> (<span class="dv">2</span> <span class="op">==</span> <span class="dv">2</span>) <span class="co"># not turns True into False</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(conditionInverted)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># And:</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>conditionInverted <span class="op">=</span> <span class="kw">not</span> (<span class="st">"Foo"</span> <span class="op">==</span> <span class="st">"Bar"</span>) <span class="co"># not turns False into True</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(conditionInverted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="a-challenge-for-you-3" class="level4">
+<h4 class="anchored" data-anchor-id="a-challenge-for-you-3">A challenge for you!</h4>
+<p>Can you guess the result of this code <em>before</em> you run it?</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> conditionInverted:</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">"I'm True"</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="kw">not</span> (<span class="dv">4</span><span class="op">%</span><span class="dv">3</span>  <span class="op">!=</span> <span class="dv">1</span>):</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">"2"</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">"99"</span> <span class="op">==</span> <span class="bu">str</span>(<span class="dv">99</span>)<span class="op">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="code-applied-geo-example" class="level1">
+<h1>Code (Applied Geo-Example)</h1>
+<hr>
+<p>The aim of the excercise is to build a program that allows a user to choose a given London borough from a list, and get in return both its total population and a link to a OpenStreetMap that pin points its location.</p>
+<p>We are going to introduce a function called <code>input</code> that, as the name implies, takes an input from the user (interactively, that is!). We’ll use it to interact with the user of our program. The input is going to be saved in a variable called <code>user_input</code>.</p>
+<p>I’ve provided a basic scaffolding of the code. It covers the case where the user choses the City borough, or provides an invalid input. Complete the script so that the three other boroughs can be found by the user.</p>
+<p>HINT: You will need to use <code>elif</code> statements to check for the various cases that use user might input.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># variable with the City borough's total population (in thousands)</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>city_of_London <span class="op">=</span> <span class="fl">7.375</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># City borough's map marker</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>city_coords <span class="op">=</span> <span class="st">"http://www.openstreetmap.org/?mlat=51.5151&amp;mlon=-0.0933#map=14/51.5151/-0.0933"</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Other boroughs</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co"># camden = 220.338</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co"># camden_coords = "http://www.openstreetmap.org/?mlat=51.5424&amp;mlon=-0.2252#map=12/51.5424/-0.2252"</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co"># hackney = 246.270</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co"># hackney_coords = "http://www.openstreetmap.org/?mlat=51.5432&amp;mlon=-0.0709#map=13/51.5432/-0.0709"</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co"># lambeth = 303.086</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co"># lambeth_coords = http://www.openstreetmap.org/?mlat=51.5013&amp;mlon=-0.1172#map=13/51.5013/-0.1172</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's ask the user for some input</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="co"># and store his answer</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>user_input <span class="op">=</span> <span class="bu">input</span>(<span class="st">"""</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="st">Choose a neighbourhood by type the corresponding number:</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="st">1- City of London</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="st">2- Lambeth</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="st">3- Camden</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="st">4- Hackney</span></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span>)</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Arbitrarily assign case 1 to City of London borough</span></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (user_input <span class="op">==</span> <span class="st">'1'</span>):    </span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>    choosen_borough <span class="op">=</span> city_of_London</span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>    borough_coordinates <span class="op">=</span> city_coords </span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print the output</span></span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># notice we are casting the user answer to string</span></span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You have choosen number : "</span><span class="op">+</span> <span class="bu">str</span>(user_input))</span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The corresponding borough has a population of "</span><span class="op">+</span> <span class="bu">str</span>(choosen_borough) <span class="op">+</span><span class="st">" thousand people"</span>)</span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Visit the borough clicking here: "</span> <span class="op">+</span> borough_coordinates)</span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------</span></span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># add more cases here...</span></span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------</span></span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"That's not in my system. Please try again!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># variable with the City borough's total population (in thousands)</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>city_of_London <span class="op">=</span> <span class="fl">7.375</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># City borough's map marker</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>city_coords <span class="op">=</span> <span class="st">"http://www.openstreetmap.org/?mlat=51.5151&amp;mlon=-0.0933#map=14/51.5151/-0.0933"</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Other boroughs</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>camden <span class="op">=</span> <span class="fl">220.338</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>camden_coords <span class="op">=</span> <span class="st">"http://www.openstreetmap.org/?mlat=51.5424&amp;mlon=-0.2252#map=12/51.5424/-0.2252"</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>hackney <span class="op">=</span> <span class="fl">246.270</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>hackney_coords <span class="op">=</span> <span class="st">"http://www.openstreetmap.org/?mlat=51.5432&amp;mlon=-0.0709#map=13/51.5432/-0.0709"</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>lambeth <span class="op">=</span> <span class="fl">303.086</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>lambeth_coords <span class="op">=</span> <span class="st">"http://www.openstreetmap.org/?mlat=51.5013&amp;mlon=-0.1172#map=13/51.5013/-0.1172"</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's ask the user for some input</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="co"># and store his answer</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>user_input <span class="op">=</span> <span class="bu">input</span>(<span class="st">"""</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="st">Choose a neighbourhood by type the corresponding number:</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="st">1- City of London</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="st">2- Lambeth</span></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="st">3- Camden</span></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="st">4- Hackney</span></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span>)</span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Arbitrarily assign case 1 to City of London borough</span></span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (user_input <span class="op">==</span> <span class="st">'1'</span>):    </span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>    choosen_borough <span class="op">=</span> city_of_London</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>    borough_coordinates <span class="op">=</span> city_coords </span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print the output</span></span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># notice we are casting the user answer to string</span></span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You have choosen number : "</span><span class="op">+</span> <span class="bu">str</span>(user_input))</span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The corresponding borough has a population of "</span><span class="op">+</span> <span class="bu">str</span>(choosen_borough) <span class="op">+</span><span class="st">" thousand people"</span>)</span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Visit the borough clicking here: "</span> <span class="op">+</span> borough_coordinates)</span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span>(user_input <span class="op">==</span> <span class="st">'2'</span>):    </span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>    choosen_borough <span class="op">=</span> lambeth</span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>    borough_coordinates <span class="op">=</span> lambeth_coords </span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print the output</span></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># notice we are casting the user answer to string</span></span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You have choosen number : "</span><span class="op">+</span> <span class="bu">str</span>(user_input))</span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The corresponding borough has a population of "</span><span class="op">+</span> <span class="bu">str</span>(choosen_borough) <span class="op">+</span><span class="st">" thousand people"</span>)</span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Visit the borough clicking here: "</span> <span class="op">+</span> borough_coordinates)</span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span>(user_input <span class="op">==</span> <span class="st">'3'</span>):    </span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a>    choosen_borough <span class="op">=</span> camden</span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a>    borough_coordinates <span class="op">=</span> camden_coords </span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print the output</span></span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># notice we are casting the user answer to string</span></span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You have choosen number : "</span><span class="op">+</span> <span class="bu">str</span>(user_input))</span>
+<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The corresponding borough has a population of "</span><span class="op">+</span> <span class="bu">str</span>(choosen_borough) <span class="op">+</span><span class="st">" thousand people"</span>)</span>
+<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Visit the borough clicking here: "</span> <span class="op">+</span> borough_coordinates)</span>
+<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span>(user_input <span class="op">==</span> <span class="st">'4'</span>):    </span>
+<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a>    choosen_borough <span class="op">=</span> hackney</span>
+<span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a>    borough_coordinates <span class="op">=</span> hackney_coords </span>
+<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print the output</span></span>
+<span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># notice we are casting the user answer to string</span></span>
+<span id="cb27-56"><a href="#cb27-56" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You have choosen number : "</span><span class="op">+</span> <span class="bu">str</span>(user_input))</span>
+<span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The corresponding borough has a population of "</span><span class="op">+</span> <span class="bu">str</span>(choosen_borough) <span class="op">+</span><span class="st">" thousand people"</span>)</span>
+<span id="cb27-58"><a href="#cb27-58" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Visit the borough clicking here: "</span> <span class="op">+</span> borough_coordinates)    </span>
+<span id="cb27-59"><a href="#cb27-59" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-60"><a href="#cb27-60" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb27-61"><a href="#cb27-61" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"That's not in my system. Please try again!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="credits" class="level3">
+<h3 class="anchored" data-anchor-id="credits">Credits!</h3>
+<section id="contributors" class="level4">
+<h4 class="anchored" data-anchor-id="contributors">Contributors:</h4>
+<p>The following individuals have contributed to these teaching materials: - <a href="https://github.com/jamesdamillington">James Millington</a> - <a href="https://github.com/jreades">Jon Reades</a> - <a href="https://github.com/miccferr">Michele Ferretti</a></p>
+</section>
+<section id="license" class="level4">
+<h4 class="anchored" data-anchor-id="license">License</h4>
+<p>The content and structure of this teaching project itself is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license</a> , and the contributing source code is licensed under <a href="https://opensource.org/licenses/mit-license.php">The MIT License</a>.</p>
+</section>
+<section id="acknowledgements" class="level4">
+<h4 class="anchored" data-anchor-id="acknowledgements">Acknowledgements:</h4>
+<p>Supported by the <a href="https://www.rgs.org/HomePage.htm">Royal Geographical Society</a> (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.</p>
+</section>
+<section id="potential-dependencies" class="level4">
+<h4 class="anchored" data-anchor-id="potential-dependencies">Potential Dependencies:</h4>
+<p>This notebook may depend on the following libraries: None</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lessons/Writing_Code.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Writing Code</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lessons/Recap_1.html" class="pagination-link">
+        <span class="nav-page-text">Recap 1</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 2022, J. Reades, Z. Shabrina, J. Millington &amp; M. Ferretti</div>   
+      <div class="nav-footer-center"><img src="../img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jreades/code-camp/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/jreades">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
