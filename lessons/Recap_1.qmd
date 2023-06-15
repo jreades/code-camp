@@ -329,7 +329,7 @@ elif diff > 0 and diff < (largeD * 1):
 
 #### 4.4a Bonus! Managing Errors
 
-Python provides tools to 'handle exceptions' (i.e. manage errors). [For example](read more at https://docs.python.org/3/tutorial/errors.html#handling-exceptions) you can use combinations of `try`, `except`, `else` and `finally` keywords. 
+Python provides tools to 'handle exceptions' (i.e. manage errors). For example, [read more at](https://docs.python.org/3/tutorial/errors.html#handling-exceptions) you can use combinations of `try`, `except`, `else` and `finally` keywords. 
 
 Read the link above (and maybe Google yourself for some other examples) and use the information gained to handle an exception in which the user an age as a `string` rather than a integer (e.g. print "Invalid Input" if `diff` cannot be calculated):
 
