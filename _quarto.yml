@@ -6,18 +6,15 @@ project:
     port: 4201
   render:
     - "*.qmd"
-    - "!notebooks/"
+    - "!notebooks"
   resources:
     - "notebooks"
 
 website:
   title: "Code Camp"
-  author: "Jon Reades et al."
   image: "img/CASA_Logo_no_text.png"
-  date: "6/1/2022"
   repo-url: https://github.com/jreades/code-camp/
   repo-actions: [issue]
-  number-depth: 2
   favicon: "/img/favicon.ico"
   page-navigation: true
   reader-mode: true
