@@ -3,3 +3,4 @@
 - nbconda
 - nb_conda_kernels
 - tabulate
+# Then: quarto add quarto-ext/lightbox
