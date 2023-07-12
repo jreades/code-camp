@@ -47,7 +47,7 @@ import re
 from datetime import time
 
 sequencing = [
-  [str(time(0,10,0)), 'Doing Urban Spatial Science'],
+  [str(time(0,10,0)), 'Introduction: Doing Urban Spatial Science'],
   [str(time(0,25,0)), 'Background: *Why* We Do What We Do'],
   [str(time(0,45,0)), 'Tools of the Trade: *How* We Do What We Do'],
   [str(time(0,45,0)), 'The Basics: Variables, Operators & Precedence'],
@@ -75,7 +75,7 @@ from IPython.display import Markdown
 from tabulate import tabulate
 Markdown(tabulate(
   table,
-  headers=["Lesson","Time Needed","Covers","Link"],
+  headers=["Lesson","Time Needed","Title & topic","Link"],
   colalign=('left','left','left','left'),
 ))
 ```

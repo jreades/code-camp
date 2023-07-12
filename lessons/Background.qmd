@@ -5,9 +5,7 @@ jupyter: python3
 
 Computational approaches to understanding and managing cities -- which is to say, approaches using computers and code -- differ in important ways from the quantitative skills taught in traditional geography ‘methods’ classes: computational geography is underpinned by algorithms that employ concepts such as *iteration* and *recursion*, and we use these to tackle everything from a data processing problem to an entire research question. 
 
-<img src="https://archive.data.cdrc.ac.uk/uploads/group/2015-08-13-085820.634829productdefault.png" alt="Open Atlas Logo" width="350px"/>
-
-For example, Alex Singleton’s OpenAtlas (available for free from the [Consumer Data Research Centre](https://data.cdrc.ac.uk/product/cdrc-2011-census-open-atlas)) contains 134,567 maps. Alex designed and wrote a script to _iterate_ over the Census areas (i.e. to ‘visit’ each area in turn when creating a map), and to _recurse_ into smaller sub-regions from larger regions (i.e. to keep drilling down into smaller and smaller geographies) in order to generate maps at, literally, every conceivable scale. Then he let the computer do the ‘boring bit’ of actually creating each and every map. 
+For example, Alex Singleton’s [OpenAtlas](https://github.com/alexsingleton/Open-Atlas) contains 134,567 maps. Alex designed and wrote a script to _iterate_ over the Census areas (i.e. to ‘visit’ each area in turn when creating a map), and to _recurse_ into smaller sub-regions from larger regions (i.e. to keep drilling down into smaller and smaller geographies) in order to generate maps at, literally, every conceivable scale. Then he let the computer do the ‘boring bit’ of actually creating each and every map. 
 
 ### Thinking Algorithmically
 
@@ -95,7 +93,7 @@ Another useful idea comes from [Larry Wall](https://en.wikipedia.org/wiki/Larry_
 Some of the reasons that these are virtues in programming (but not in your studies!) are as follows:
 
 1. **Laziness** makes you want to put in the effort _now_ to reduce the amount of effort you'll have to put in _later_. It might be a lot of work to produce a map of _one_ US State automatically using code, but once you've worked out how to do it for one state, then you've also figured out how to do it for _all 50_! That is useful laziness.
-2. **Hubris** makes you want to write code that other people won't want to "say bad things about". Over time you'll come to understand more intuitively what makes 'good' code in more detail (and we cover it a bit in the last notebook), but the short version is: it's efficient, it's easy to read, and it's clever.
+2. **Hubris** makes you want to write code that other people won't want to "say bad things about". Over time you'll come to understand more intuitively what makes 'good' code in more detail (and we cover it a bit in the last lesson), but the short version is: it's efficient, it's easy to read, and it's clever.
 3. **Impatience** is about wanting the answer _now_ and looking for ways to get _there_ as quickly as possible. Being impatient doesn't mean just jumping into writing code, it means that you _first_ look too see whether and how other people have solved similar problems before starting work on your own code. Rather than reinventing the wheel, we try to stand on the shoulder of giants.
 
 **_Hint_**: you'll see a lot of laziness when you start trying to write code. Programmers don't like writing **`remove`** when they could just write **`rm`**, nor do they like writing **`define`** when they could just write **`def`**. Keep an eye out for these mnemonics as they can be pretty daunting at first.
@@ -104,7 +102,7 @@ Some of the reasons that these are virtues in programming (but not in your studi
 
 Larry also pointed out that these virtues had three mirror-image false virtues:
 
-1. **False laziness** happens when you leave something working but half-finished and, most likely, about to break. When you start using [StackOverflow](http://www.stackoverflow.com/) you may find that it makes it easy to copy+paste answers into your notebook and then you can glue it together messily. This isn't the same as _understanding_ and _adapting_ the solution that you found online to _your_ problem, so it's false laziness. To really develop a learning mindset, [don't copy+paste code, type it out](https://medium.freecodecamp.com/the-benefits-of-typing-instead-of-copying-54ed734ad849#.es5mw1j0z). 
+1. **False laziness** happens when you leave something working but half-finished and, most likely, about to break. When you start using [StackOverflow](http://www.stackoverflow.com/) you may find that it makes it easy to copy+paste answers into your script and then you can glue it together messily. This isn't the same as _understanding_ and _adapting_ the solution that you found online to _your_ problem, so it's false laziness. To really develop a learning mindset, [don't copy+paste code, type it out](https://medium.freecodecamp.com/the-benefits-of-typing-instead-of-copying-54ed734ad849#.es5mw1j0z). 
 2. **False hubris** is thinking that no one else's code is 'good enough' for you. Sometimes copy+paste is false laziness, but refusing to recognise when copy+paste (or importing a library, more on this later) _is_ the right thing to do is false hubris.
 3. **False impatience** is getting started on coding your answer to a problem when you don't yet understand what the problem actually _is_. One thing that a lot of programmers do is half-listen to what someone has asked them to do and then go haring off without sitting down to make any kind of plan. It's like writing an essay without having done the readings. Nudge, nudge.
 
@@ -133,7 +131,7 @@ Modern programmers call this: garbage in, garbage out. GIGO, for short.
 
 **_The single most important thing that you can learn is how to frame your problem in a way that you can communicate to a computer._** Crucially, the real power of the computer isn't figuring out how to tell it to add `1, 2, 3, 4` together and calculate the mean (average), it's figuring out how to tell it to add _any possible set of numbers_ together and work out the mean. It's when you start to see ways to do this for sets of _hard_ problems (for you) that you know you've started to understand the language. 
 
-So these notebooks are intended to help you start learning a new language -- a programming language -- but you should always remember this: you're not stupid if you don't know how to explain things to the computer so that it can help you find the answer. You're learning the basics of how to communicate with computers; there are only two things that _are_ silly: the first is expecting to be able to run before you can walk; the second is copying and pasting answers without trying to understand _why_ they are answers.
+So these lessons are intended to help you start learning a new language -- a programming language -- but you should always remember this: you're not stupid if you don't know how to explain things to the computer so that it can help you find the answer. You're learning the basics of how to communicate with computers; there are only two things that _are_ silly: the first is expecting to be able to run before you can walk; the second is copying and pasting answers without trying to understand _why_ they are answers.
 
 Actually, there is a third silly thing: not asking for help. In the same way that learning a new human language is easier if you immerse yourself in the culture and make friends with some native speakers, learning a new computer lanugage is easier if you immerse yourself in the culture of computing and make friends with some more proficient speakers. But just as your French- or Chinese-speaking friends will get tried of answering your questions if you don't make it obvious that you're working _hard_ to learn, most programmers won't be very impressed if you just ask for 'the answer' and then come back two days later with the _same question_.
 
@@ -173,13 +171,13 @@ Or as some swag once put it:
 > Computers are tools for making very fast, accurate mistakes.
 
 ```python
-#| solution2: hidden
+# Solution 2:
 (1 + 2 + 3 + 4) / 4 
 ```
 
 If you are using Python version 3 (which you _should_ be), you should have got the result `2.5`
 
-If you got the result `2`, you are using Python version 2 and will need to check (and change) your installation of Python (go back to the [Python Setup page](https://kingsgeocomputation.org/teaching/code-camp/code-camp-python/setup/), or try posting a query on Slack for help).  
+If you got the result `2`, you are using Python version 2 and will need to check (and change) your installation of Python (go back to the [Python Setup page](../setup/install.qmd), or try posting a query on Slack for help).  
 
 ## Silly is not stupid (learning languages is hard)
 
@@ -191,7 +189,7 @@ So why would you expect to sit down at a computer and be able to hold a conversa
 
 ## Practice makes perfect
 
-Your language class (assuming that you took one) probably had a 'lab' where you practised your new language and you probably made a lot of mistakes when you were getting started. It's the same for programming: the reason you got a 'silly' answer is that we haven't taught you how to ask the right question yet! For a language like Python "`4`" is not always the same as "`4.0`"... and sometimes the way ahead is unclear, but don't worry if you can't get the right answer _yet_, how to 'talk numbers' is the main topic in the _next_ notebook and we'll show you the answer at the end of this notebook.
+Your language class (assuming that you took one) probably had a 'lab' where you practised your new language and you probably made a lot of mistakes when you were getting started. It's the same for programming: the reason you got a 'silly' answer is that we haven't taught you how to ask the right question yet! For a language like Python "`4`" is not always the same as "`4.0`"... and sometimes the way ahead is unclear, but don't worry if you can't get the right answer _yet_, how to 'talk numbers' is the main topic in the _next_ lesson and we'll show you the answer at the end of this lesson.
 
 So, we want you to remember that there are no stupid questions when it comes to programming. We have _all_ been lost at one point or another! Your lecturers and instructors _frequently_ still ask for help (often by asking Google!), it's just that we do it for harder questions. And that's only because we have had a lot more practice in the language of programming. So the _only_ silly thing you can do in this course is to assume that you can speed through the questions and don't have to practice or think through the technical aspects of coding. 
 
@@ -218,18 +216,17 @@ In other words, code is [scalable](https://en.wikipedia.org/wiki/Scalability) in
 Here's a trivial example of when computers start to get better and faster than brains:
 
 ```python
-#| geopyter: {Contributors: ['Michele Ferretti (https://github.com/miccferr)', 'Jon Reades (https://github.com/jreades)', 'James Millington (https://github.com/jamesdamillington)', 'Michele Ferretti (https://github.com/miccferr)', 'Jon Reades (https://github.com/jreades)', 'James Millington (https://github.com/jamesdamillington)'], git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-06-05 16:12:59', committed_date: '2017-06-05 16:12:59', committer.name: Jon Reades, sha: 2fce1fab4c3c28acabee493a24302e5ee1e8a1eb}}
 (23495.23 + 9238832.657 + 2 + 12921)/4
 ```
 
-*Remember*: click in the cell and then hit `Ctrl+Enter` to 'run' the cell and get the answer.
+*Remember*: copy (clicking on the clipboard icon on the right) and paste the code in the cell above in whatever Python environment you are using (either [online](../setup/no_install.qmd) or on [your machine](../setup/install.qmd)) and 'run' the code cell and get the answer.
 
 # Programming in Python
 
 
 ## Computer Languages
 
-In these notebooks we will be using the Python programming language. As with human languages, there are _many_ [programming languages](http://www.computerhope.com/jargon/p/proglang.htm) in the world, each with their own advantages and disadvantages, and each with their own vocabulary (allowed words) and grammar (syntax). We use Python. 
+In these lessons we will be using the Python programming language. As with human languages, there are _many_ [programming languages](https://en.wikipedia.org/wiki/List_of_programming_languages) in the world, each with their own advantages and disadvantages, and each with their own vocabulary (allowed words) and grammar (syntax). We use Python. 
 
 ### Python vs R
 
@@ -242,10 +239,11 @@ So why have we chosen to use Python here? Of the two languages, we think that Py
 3. It is the one most-used as part of a *geographical workflow* – what we mean by this is that you can find Python buried inside of ESRI's ArcGIS and the open-source QGIS applications, and it also sits behind (or talks to) a number of other tools that allow us to work flexibly and scalably with geo-data. 
 4. It is easier to operationalise – Python offers more services/tools to enable you to turn something from a 'hack' ([which doesn't mean what you think it means](https://en.wikipedia.org/wiki/Hacks_at_the_Massachusetts_Institute_of_Technology) into a 'service'.
 
-However, if you have been told R is the way to go then don't worry, the concepts covered here still translate. And many of the contributors to these notebooks use both languages... it just depends on the problem. 
+However, if you have been told R is the way to go then don't worry, the concepts covered here still translate. And many of the contributors to these lessons use both languages... it just depends on the problem. 
 
 ### Python what?
-Python was invented by [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum) in the late 1980s and he continues in the role of 'benevolent dictator' to this day, which means that he (and some other very smart people) try to ensure that the language continues to meet the basic goals of:
+Python was invented in the late 1980s by [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum), Python's 'benevolent dictator' (until he stepped down from the position on 12 July 2018), which means that he (and some other very smart people) try to ensure that the language continues to meet the basic goals of:
+
 * Being very easy to read (syntax)
 * Using plain-English for many functions and operators (allowed words)
 * Has a comprehensive style guide: [PEP8](https://www.python.org/dev/peps/pep-0008/) (syntax)
@@ -260,11 +258,11 @@ The points above are also made in [Python In A Nutshell](http://mbrochh.github.i
 #### Three takes on Python
 The images below are links to three videos pitched in quite different ways at the advantages of Python, all of which touch on issues we'll be dealing with later... so watch the videos (even if they're a bit silly in places)!
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/aXKVOLwpDg8/0.jpg)](http://www.youtube.com/watch?v=aXKVOLwpDg8)
+[![What is Python?](http://img.youtube.com/vi/aXKVOLwpDg8/0.jpg)](http://www.youtube.com/watch?v=aXKVOLwpDg8)
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/Hn4FbT4wMms/0.jpg)](http://www.youtube.com/watch?v=Hn4FbT4wMms)
+[![Python Overview](http://img.youtube.com/vi/Hn4FbT4wMms/0.jpg)](http://www.youtube.com/watch?v=Hn4FbT4wMms)
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/G8brQdClo9s/0.jpg)](http://www.youtube.com/watch?v=G8brQdClo9s)
+[![Why You Should Learn Python Programming](http://img.youtube.com/vi/G8brQdClo9s/0.jpg)](http://www.youtube.com/watch?v=G8brQdClo9s)
 
 ## Computers: good or bad?
 
@@ -311,5 +309,5 @@ The content and structure of this teaching project itself is licensed under the 
 Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
 
 #### Potential Dependencies:
-This notebook may depend on the following libraries: None
+This lesson may depend on the following libraries: None
 

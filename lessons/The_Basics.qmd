@@ -10,7 +10,7 @@ As we progress through the excercises we'll encounter a range of new programming
 
 To help you get started, we have prepared an introductory video to aid your learning about the basic concepts in Python. Please note that by the time you have finished watching this video, you might need to re-launch binder. So if you have modified any part of your notebook, make sure to download the current version to your browser (the introductory video talks about how to do this).
 
-[![Notebook 3](http://img.youtube.com/vi/UDNtW3sy-og/0.jpg)](https://youtu.be/UDNtW3sy-og)
+[![Code Camp: The Basics ](http://img.youtube.com/vi/UDNtW3sy-og/0.jpg)](https://youtu.be/UDNtW3sy-og)
 
 ### How the exercises work
 

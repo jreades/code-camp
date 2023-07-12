@@ -28,7 +28,7 @@ You will need to look up:
 
 You will need to look up:
 
-- How much RAM does your computer have? [Help for Windows](https://www.howtogeek.com/435644how-to-see-how-much-ram-is-in-your-pc-and-its-speed/).
+- How much RAM does your computer have? [Help for Windows](https://uk.pcmag.com/components/133375/how-much-ram-do-i-have-in-my-pc).
 - How much free disk space does your computer have? [Help for Windows](https://www.lifewire.com/how-to-check-free-hard-drive-space-in-windows-2619187).
 
 ### Linux
