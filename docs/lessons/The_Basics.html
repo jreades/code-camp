@@ -393,9 +393,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>In this first <em>proper</em> programming lesson we are going to use the Python interpreter to perform simple operations, like numeric calculations that you would normally do on a calculator and slightly more advanced operations on words. The interpreter is what reads your code and converts that into the binary instructions that the computer can understand – think of it as translator between you and the low-level components (operating system, file system, network, display, etc.) of your machine. In these notebooks the interpreter is in the background and runs when you click the ‘Run’ button in a code cell (in future we’ll see how we can use the Python interpreter with scripts of many lines of code).</p>
-<p>As we progress through the excercises we’ll encounter a range of new programming concepts. At this stage don’t worry too much about memorizing all of them; it is through repeated used and practice that they will eventually come naturally. Instead, here we want you to try to develop a <em>sense</em> of what is going on and keep the concepts in mind when reading the examples… but the really important thing is to try to apply them while <em>doing the excercises</em>.</p>
-<p>To help you get started, we have prepared an introductory video to aid your learning about the basic concepts in Python. Please note that by the time you have finished watching this video, you might need to re-launch binder. So if you have modified any part of your notebook, make sure to download the current version to your browser (the introductory video talks about how to do this).</p>
+<p>In this first <em>proper</em> programming lesson we are going to use the Python interpreter to perform simple operations, like numeric calculations that you would normally do on a calculator and slightly more advanced operations on words. The interpreter is what reads your code and converts that into the binary instructions that the computer can understand – think of it as translator between you and the low-level components (operating system, file system, network, display, etc.) of your machine. The interpreter operates in the background and runs when you click the ‘Run’ button in your working envirnment (in future we’ll see how we can use the Python interpreter with scripts of many lines of code).</p>
+<p>As we progress through the excercises we’ll encounter a range of new programming concepts. At this stage don’t worry too much about memorizing all of them; it is through repeated use and practice that they will eventually come naturally. Instead, here we want you to try to develop a <em>sense</em> of what is going on and keep the concepts in mind when reading the examples… but the really important thing is to try to apply them while <em>doing the excercises</em>.</p>
+<p>To help you get started, we have prepared an introductory video to aid your learning about the basic concepts in Python. Please note that if you are using binder, by the time you have finished watching this video, you might need to re-launch it. So if you have modified any part of your notebook, make sure to download the current version to your browser (the introductory video talks about how to do this).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://youtu.be/UDNtW3sy-og"><img src="http://img.youtube.com/vi/UDNtW3sy-og/0.jpg" class="img-fluid figure-img"></a></p>
@@ -404,7 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="how-the-exercises-work" class="level3">
 <h3 class="anchored" data-anchor-id="how-the-exercises-work">How the exercises work</h3>
-<p>Lastly, a few words on the excercises; in every notebook we’ve tried to develop a mix of exercises and examples to show you how Python works. There are four ‘levels’ of exercise:</p>
+<p>Lastly, a few words on the excercises; in every lesson we’ve tried to develop a mix of exercises and examples to show you how Python works. There are four ‘levels’ of exercise:</p>
 <ol type="1">
 <li><strong>Code from Scratch</strong>: using examples already encountered in the lesson as a starting point, you will write some <em>very simple</em> code (1-3 lines at most) into a blank code cell.</li>
 <li><strong>Supported Code</strong>: using examples and exercises already encountered in the notebook, you will fill in somes ‘gaps’ in the lines of code where we’ve replaced some critical bits with (<em>???</em>) in order to make it work successfully.</li>
@@ -417,7 +417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Simple Operations</h1>
 <section id="numeric-operations" class="level2">
 <h2 class="anchored" data-anchor-id="numeric-operations">Numeric Operations</h2>
-<p>You already saw a really simple example of calculating the mean in Notebook 1, but let’s recall that you can easily use Python to like a calculator. Run the code already present in the code cells and make sure you understand the output.</p>
+<p>You already saw a really simple example of calculating the mean in the first lesson, but let’s recall that you can easily use Python to like a calculator. Run the code already present in the code cells and make sure you understand the output. To do this, just click on the clipboard icon to copy the code and paste it in your working environment (either <a href="../setup/install.html">locally</a> or <a href="../setup/no_install.html">online</a>)</p>
 <section id="basic-arithmetic" class="level3">
 <h3 class="anchored" data-anchor-id="basic-arithmetic">Basic Arithmetic</h3>
 <section id="addition-and-subtraction" class="level4">
@@ -432,9 +432,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-challenge-for-you" class="level4">
 <h4 class="anchored" data-anchor-id="a-challenge-for-you">A challenge for you!</h4>
 <p>Do you think the results of these two operations will be identical? If not, why? <strong>Decide what you think the answer is <em>before</em> running the code!</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">4</span> <span class="op">*</span> (<span class="dv">2</span> <span class="op">-</span> <span class="dv">8</span>) <span class="op">+</span> <span class="dv">2</span>)</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Operation 1:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">4</span> <span class="op">*</span> (<span class="dv">2</span> <span class="op">-</span> <span class="dv">8</span>) <span class="op">+</span> <span class="dv">2</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Operation 2:</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">4</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">8</span> <span class="op">+</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The results are different due to the order in which Python runs the operations. Anyway, remember the importance of <strong>parentheses</strong> in determining ‘precedence’ – which operations get done first.</p>
 <p>You’ll see that the code above encompases each formula in <code>print()</code> command on each line; this simply allows us to print out the results of both calculations when the code runs. We’ll come back to this later.</p>
@@ -482,9 +482,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-challenge-for-you-1" class="level4">
 <h4 class="anchored" data-anchor-id="a-challenge-for-you-1">A challenge for you!</h4>
 <p>What do you think will be the result of this operation? Work out your answer <strong>before</strong> running the code.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: shown</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( (<span class="dv">2</span><span class="op">*</span><span class="dv">3</span>) <span class="op">**</span> <span class="dv">2</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( (<span class="dv">2</span><span class="op">*</span><span class="dv">3</span>) <span class="op">**</span> <span class="dv">2</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The answer is 36 as Python would do the multiplication inside the parenthesis first.</p>
 <p>Now what do you think this will give you? Again, work out your answer <strong>before</strong> running the code.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( (<span class="dv">2</span><span class="op">*</span><span class="dv">3</span>) <span class="op">**</span> <span class="dv">2</span> <span class="op">/</span> (<span class="dv">12</span> <span class="op">%</span> <span class="dv">5</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -632,7 +630,7 @@ Operator &amp; Description \\ \hline
 <hr>
 <p>So far, everything we’ve done was about performing some kind of calculation on an integer, float, or string, and then showing the result. Given that a lot of programming doesn’t involve solving everything in one easy line, how do you save an answer so that you can re-use it later? Let’s start with the first true programming concept: the <strong>variable</strong>.</p>
 <p>If you have studied other programming languages before then the concept of the variable will be so familiar to you that it’s hard to remember even having to learn it! Some people think of a <a href="https://www.youtube.com/watch?v=V0aBwgLRNXI">variable simply as “a box”</a> that contains <em>values</em> that we want to store and retrieve in the future. However, we think it might be more useful to think of a variable as the <em>label</em> of a box in which we put something: for programmers, the label is how we remember what we put in the box and where we put it.</p>
-<p>Let me try to explain: if you <a href="https://www.youtube.com/watch?v=AkFi90lZmXA">watched</a> the introductory <a href="https://www.youtube.com/watch?v=VBDoT8o4q00">videos</a> in the previous notebook, then you’ll remember that the computer stores ‘information’ in lots of places (in memory, on the hard drive, etc.), but it doesn’t use an addressing system that you or I would be able to read. Instead, it will use a long, complicated number that tells the computer “Go look in this place for what to do when the mouse is clicked” or “Go look what to do when someone asks you to add together 1 and 5”. In the same way that Python translates between what we humans can deal with and what the computer can deal with, it also translates between the ‘labels’ that we use to refer to different boxes storing different things and how the computer finds what we <em>actually</em> put there.</p>
+<p>Let me try to explain: if you <a href="https://www.youtube.com/watch?v=AkFi90lZmXA">watched</a> the introductory <a href="https://www.youtube.com/watch?v=VBDoT8o4q00">videos</a> in the previous lessons, then you’ll remember that the computer stores ‘information’ in lots of places (in memory, on the hard drive, etc.), but it doesn’t use an addressing system that you or I would be able to read. Instead, it will use a long, complicated number that tells the computer “Go look in this place for what to do when the mouse is clicked” or “Go look what to do when someone asks you to add together 1 and 5”. In the same way that Python translates between what we humans can deal with and what the computer can deal with, it also translates between the ‘labels’ that we use to refer to different boxes storing different things and how the computer finds what we <em>actually</em> put there.</p>
 <p>Here’s an example:</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="op">-</span><span class="dv">2</span> <span class="op">*</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Hmmmm, nothing printed out this time…</p>
@@ -641,14 +639,14 @@ Operator &amp; Description \\ \hline
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"I'm wasting space..."</span>)</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Can you check the data type of your variable <strong>result</strong> and switch it to float?</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># First, we need to check the data type of our variable using a function called "type"</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(result)</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rewrite the existing variable or put it as a new variable </span></span>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, we need to check the data type of our variable using a function called "type"</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="op">-</span><span class="dv">2</span> <span class="op">*</span> <span class="dv">10</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(result))</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rewrite the existing variable or put it as a new variable:</span></span>
 <span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="bu">float</span>(result) <span class="co"># or result_float = float(result_float)</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(result) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(result))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Check it out! We <em>assigned</em> the outcome of <code>-2 * 10</code> to a variable called <code>result</code>; then we did something else (printed out a string); and <em>then</em> we printed out the value of the variable <em>and</em> the computer remembered!</p>
-<p><a href="http://img.youtube.com/vi/_sVtcPgHAjI/0.jpg">This video</a> may help you to further understand the concept of a ‘variable’:</p>
+<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=_sVtcPgHAjI">This video</a> may help you to further understand the concept of a ‘variable’:</p>
 <p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=_sVtcPgHAjI" target="_blank"><img src="http://img.youtube.com/vi/_sVtcPgHAjI/0.jpg" alt="IMAGE ALT TEXT HERE" width="480" height="360" border="10"></a></p>
 <section id="copying-variables" class="level3">
 <h3 class="anchored" data-anchor-id="copying-variables">Copying variables</h3>
@@ -690,18 +688,31 @@ Operator &amp; Description \\ \hline
 <p><code>name = "Peter"</code></p>
 <p><code>print(name)</code></p>
 <p>Replace the questions marks <code>???</code> in the following lines of code with the appropriate code to make it work (i.e.&nbsp;not produce an error).</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>cheers ??? name ??? <span class="st">" is awesome!"</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cheers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>cheers <span class="op">=</span> name <span class="op">+</span> <span class="st">" is awesome!"</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cheers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>cheers ??? name ??? <span class="st">" is awesome!"</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cheers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="sourceCode" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>cheers <span class="op">=</span> name <span class="op">+</span> <span class="st">" is awesome!"</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cheers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="naming-variables" class="level3">
 <h3 class="anchored" data-anchor-id="naming-variables">Naming variables</h3>
 <p>How do you choose a variable name (i.e.&nbsp;label) in Python?</p>
-<p>Here’s a short list of the conventions: * names may contain letters and/or numbers (e.g.&nbsp;<code>myVar2</code>) * names cannot begin with a number (e.g.&nbsp;<code>2myVar</code>) * names may contain an underscore (“_”) (e.g.&nbsp;<code>my_var_2</code>) * names can be of any length (e.g.&nbsp;<code>m2</code> or <code>mySecondVariableIsReallyLong</code>) * you cannot use Python keywords (e.g.&nbsp;<code>print</code>)</p>
+<p>Here’s a short list of the conventions:</p>
+<ul>
+<li>names may contain letters and/or numbers (e.g.&nbsp;<code>myVar2</code>)</li>
+<li>names cannot begin with a number (e.g.&nbsp;<code>2myVar</code>)</li>
+<li>names may contain an underscore (“_”) (e.g.&nbsp;<code>my_var_2</code>)</li>
+<li>names can be of any length (e.g.&nbsp;<code>m2</code> or <code>mySecondVariableIsReallyLong</code>)</li>
+<li>you cannot use Python keywords (e.g.&nbsp;<code>print</code>)</li>
+</ul>
 <p>So this block of code below will run:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>famous_geographer <span class="op">=</span> <span class="st">"Mercator"</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(famous_geographer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -739,12 +750,30 @@ Operator &amp; Description \\ \hline
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>old_satellite_description <span class="op">=</span> <span class="st">" was the first artificial Earth satellite, launched from the Soviet Union on the 4th of October, 1957."</span></span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Здравствуйте! My name is "</span> <span class="op">+</span> old_satellite)</span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(old_satellite <span class="op">+</span> old_satellite_description)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Similar to the example above, in the code cell below: 1. define a variable named <code>new_satellite</code> with value <code>landsat</code> 2. try to print its name 3. then try to concatenate its name with another variable description of your choice, 4. and print them.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>new_satellite <span class="op">=</span> <span class="st">'Landsat'</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_satellite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The new satellite is "</span> <span class="op">+</span> new_satellite <span class="op">+</span> <span class="st">" and the old satellite is "</span> <span class="op">+</span> old_satellite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Similar to the example above, in the code cell below:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Exercises</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Solution 1-A</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Solution 1-B</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="sourceCode" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">'''</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co">Exercise 1-A:</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co">* define a variable named `new_satellite` with value `landsat`</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co">* try to print its name</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co">Exercise 1-B:</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co">* then try to concatenate its name with another variable description of your choice, </span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="co">* and print them.</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="co">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="sourceCode" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>new_satellite <span class="op">=</span> <span class="st">'Landsat'</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_satellite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="sourceCode" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The new satellite is "</span> <span class="op">+</span> new_satellite <span class="op">+</span> <span class="st">" and the old satellite is "</span> <span class="op">+</span> old_satellite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="supported-code" class="level3">
@@ -753,67 +782,91 @@ Operator &amp; Description \\ \hline
 <section id="exercise-2" class="level4">
 <h4 class="anchored" data-anchor-id="exercise-2">Exercise 2</h4>
 <p>Landsat is a bit generic, the correct name is Landsat 8. How would you put together these two different Data Types? Remember what we’ve seen about casting? Edit the code below to make it work.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>pr???nt(<span class="st">"Hello there "</span> <span class="op">+</span> ???(new_satellite) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello there "</span> <span class="op">+</span> new_satellite <span class="op">+</span> <span class="st">" 8"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="sourceCode" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>pr???nt(<span class="st">"Hello there "</span> <span class="op">+</span> ???(new_satellite) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="sourceCode" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello there "</span> <span class="op">+</span> new_satellite <span class="op">+</span> <span class="st">" 8"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="excercise-3" class="level4">
 <h4 class="anchored" data-anchor-id="excercise-3">Excercise 3</h4>
 <p>According to its Wikipedia page Sputnik 1 was a 58 cm diameter polished metal sphere. If a cm = 0.393700787 inches what was its diameter in inches? Edit the code below to make it work.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>diameter_cm <span class="op">=</span> <span class="dv">58</span></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>cm2inches <span class="op">=</span> <span class="fl">0.393700787</span></span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>diameter_inches <span class="op">=</span> diameter_cm ??? cm2inches</span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(diameter_inches)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>diameter_cm <span class="op">=</span> <span class="dv">58</span></span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>cm2inches <span class="op">=</span> <span class="fl">0.393700787</span></span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>diameter_inches <span class="op">=</span> diameter_cm <span class="op">*</span> cm2inches</span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(diameter_inches)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="sourceCode" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>diameter_cm <span class="op">=</span> <span class="dv">58</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>cm2inches <span class="op">=</span> <span class="fl">0.393700787</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>diameter_inches <span class="op">=</span> diameter_cm ??? cm2inches</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(diameter_inches)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="sourceCode" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>diameter_cm <span class="op">=</span> <span class="dv">58</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>cm2inches <span class="op">=</span> <span class="fl">0.393700787</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>diameter_inches <span class="op">=</span> diameter_cm <span class="op">*</span> cm2inches</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(diameter_inches)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="exercise-4" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-4">Exercise 4</h4>
+<section id="exercise-4-1" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-4-1">Exercise 4</h4>
 <p>Wat was its volume (in cubic cm)? # NOTE: the first line below we are “importing” the <code>math</code> module and assigning to a variable <code>PI</code> the value of pi (3.14…). Edit the code to make it work.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>PI <span class="op">=</span> math.pi</span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>radius_cm <span class="op">=</span> diameter_cm<span class="op">/</span><span class="dv">2</span></span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>volume <span class="op">=</span>  (<span class="dv">4</span><span class="op">/</span><span class="dv">3</span>) ??? PI ??? (radius_cm  ??? <span class="dv">3</span> )</span>
-<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(volume)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>PI <span class="op">=</span> math.pi</span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>radius_cm <span class="op">=</span> diameter_cm<span class="op">/</span><span class="dv">2</span></span>
-<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>volume <span class="op">=</span>  (<span class="dv">4</span><span class="op">/</span><span class="dv">3</span>) <span class="op">*</span> PI <span class="op">*</span> (radius_cm  <span class="op">**</span> <span class="dv">3</span> )</span>
-<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(volume)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="sourceCode" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>PI <span class="op">=</span> math.pi</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>radius_cm <span class="op">=</span> diameter_cm<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>volume <span class="op">=</span>  (<span class="dv">4</span><span class="op">/</span><span class="dv">3</span>) ??? PI ??? (radius_cm  ??? <span class="dv">3</span> )</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(volume)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="sourceCode" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>PI <span class="op">=</span> math.pi</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>radius_cm <span class="op">=</span> diameter_cm<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>volume <span class="op">=</span>  (<span class="dv">4</span><span class="op">/</span><span class="dv">3</span>) <span class="op">*</span> PI <span class="op">*</span> (radius_cm  <span class="op">**</span> <span class="dv">3</span> )</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(volume)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="broken-code" class="level4">
 <h4 class="anchored" data-anchor-id="broken-code">Broken code</h4>
 <p>mmh..something’s broken in the following line of code; can you spot the error(s)? Hint: remember what we said about different data types…</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_satellite <span class="op">+</span> <span class="st">"has a Near Infrared (NI), </span><span class="ch">\</span></span>
-<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="st">which band captures light in the wavelength from "</span><span class="op">+</span></span>
-<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>      <span class="dv">770</span> <span class="op">+</span></span>
-<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">" to "</span> <span class="op">+</span></span>
-<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>      <span class="dv">900</span> <span class="op">+</span></span>
-<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">" nanometers."</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The error message indicates a type error, as we can only concatenate string</span></span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The code should work by including "" to the numbers</span></span>
-<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_satellite <span class="op">+</span> <span class="st">" has a Near Infrared (NI), </span><span class="ch">\</span></span>
-<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="st">which band captures light in the wavelength from "</span><span class="op">+</span></span>
-<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"770"</span> <span class="op">+</span></span>
-<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">" to "</span> <span class="op">+</span></span>
-<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"900"</span> <span class="op">+</span></span>
-<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">" nanometers."</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<div class="sourceCode" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_satellite <span class="op">+</span> <span class="st">"has a Near Infrared (NI), </span><span class="ch">\</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="st">which band captures light in the wavelength from "</span><span class="op">+</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>      <span class="dv">770</span> <span class="op">+</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">" to "</span> <span class="op">+</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>      <span class="dv">900</span> <span class="op">+</span></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">" nanometers."</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="sourceCode" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The error message indicates a type error, as we can only concatenate string</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The code should work by including "" to the numbers</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_satellite <span class="op">+</span> <span class="st">" has a Near Infrared (NI), </span><span class="ch">\</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="st">which band captures light in the wavelength from "</span><span class="op">+</span></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"770"</span> <span class="op">+</span></span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">" to "</span> <span class="op">+</span></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"900"</span> <span class="op">+</span></span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">" nanometers."</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -821,46 +874,52 @@ Operator &amp; Description \\ \hline
 <section id="code-applied-geo-example" class="level1">
 <h1>Code (Applied Geo-example)</h1>
 <p>In this excercise you’ll dip a toe in the wonderful world of web maps!</p>
-<p>We are going to create a <em>geographic marker</em> (a pin on the map!) on top of <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap (OSM)</a> to visualise King’s College location.</p>
+<p>We are going to create a <em>geographic marker</em> (a pin on the map!) on top of <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap (OSM)</a> to visualise UCL CASA location.</p>
 <p>To do so we’ll have to create a string representing a web <code>URL</code> (that’s the <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Locator">address you type in your browser</a> when your surf the web) pointing to OSM website.</p>
-<p>Now, as you can see there are two variables containing King’s College Longitute/Latitude coordinate position. You will need to use them within the variable <code>KCL_position</code>. Unfortunately they are in the wrong data type! Also, there might be something missing in the code.</p>
+<p>Now, as you can see there are two variables containing CASA’s Longitute/Latitude coordinate position. You will need to use them within the variable <code>CASA_position</code>. Unfortunately they are in the wrong data type! Also, there might be something missing in the code.</p>
 <p><em>HINT:</em> To convert (<em>cast</em>) a <code>float</code> to a <code>string</code> use the <code>str()</code> function (we haven’t talked about functions yet, but see if you can work it out). You’ll also need to think about how to concatenate strings?</p>
 <p>Replace the <code>???</code> in the code below to make it work.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co"># King's College coordinates</span></span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co"># What format are they in? Does it seem appropriate?</span></span>
-<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>longitude <span class="op">=</span> <span class="op">-</span><span class="fl">0.11596798896789551</span></span>
-<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>latitude <span class="op">=</span> <span class="fl">51.51130657591914</span></span>
-<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="co">#cast the floats to strings</span></span>
-<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>??? <span class="op">=</span> <span class="bu">str</span>(longitude)</span>
-<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>lat <span class="op">=</span> <span class="bu">str</span>(???)</span>
-<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a><span class="co"># King's College marker</span></span>
-<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a>KCL_position <span class="op">=</span> <span class="st">"https://www.openstreetmap.org/?mlat="</span><span class="op">+</span>lat<span class="op">+</span><span class="st">"8&amp;mlon="</span><span class="op">+</span>lon<span class="op">+</span><span class="st">"#map=15/"</span><span class="op">+</span>lat<span class="op">+</span><span class="st">"/"</span><span class="op">+</span>lon</span>
-<span id="cb60-14"><a href="#cb60-14" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb60-15"><a href="#cb60-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(KCL_position)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="co"># King's College coordinates</span></span>
-<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="co"># What format are they in? Does it seem appropriate?</span></span>
-<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>longitude <span class="op">=</span> <span class="op">-</span><span class="fl">0.11596798896789551</span></span>
-<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>latitude <span class="op">=</span> <span class="fl">51.51130657591914</span></span>
-<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="co">#cast the floats to strings</span></span>
-<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>lon <span class="op">=</span> <span class="bu">str</span>(longitude)</span>
-<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>lat <span class="op">=</span> <span class="bu">str</span>(latitude)</span>
-<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="co"># King's College marker</span></span>
-<span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a>KCL_position <span class="op">=</span> <span class="st">"https://www.openstreetmap.org/?mlat="</span><span class="op">+</span>lat<span class="op">+</span><span class="st">"8&amp;mlon="</span><span class="op">+</span>lon<span class="op">+</span><span class="st">"#map=15/"</span><span class="op">+</span>lat<span class="op">+</span><span class="st">"/"</span><span class="op">+</span>lon</span>
-<span id="cb61-13"><a href="#cb61-13" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb61-14"><a href="#cb61-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(KCL_position)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now click on the outputed string and behold! You’ll be flying to King’s.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<div class="sourceCode" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># UCL CASA coordinates</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="co"># What format are they in? Does it seem appropriate?</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>longitude <span class="op">=</span> <span class="op">-</span><span class="fl">0.13604732328636063</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>latitude <span class="op">=</span> <span class="fl">51.52199740741031</span></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="co">#cast the floats to strings</span></span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>??? <span class="op">=</span> <span class="bu">str</span>(longitude)</span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>lat <span class="op">=</span> <span class="bu">str</span>(???)</span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a><span class="co"># CASA marker</span></span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a>CASA_position <span class="op">=</span> <span class="st">"https://www.openstreetmap.org/?mlat="</span><span class="op">+</span>lat<span class="op">+</span><span class="st">"8&amp;mlon="</span><span class="op">+</span>lon<span class="op">+</span><span class="st">"#map=15/"</span><span class="op">+</span>lat<span class="op">+</span><span class="st">"/"</span><span class="op">+</span>lon</span>
+<span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb61-13"><a href="#cb61-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(CASA_position)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div class="sourceCode" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># UCL CASA coordinates</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="co"># What format are they in? Does it seem appropriate?</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>longitude <span class="op">=</span> <span class="op">-</span><span class="fl">0.13604732328636063</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>latitude <span class="op">=</span> <span class="fl">51.52199740741031</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="co">#cast the floats to strings</span></span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>lon <span class="op">=</span> <span class="bu">str</span>(longitude)</span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>lat <span class="op">=</span> <span class="bu">str</span>(latitude)</span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="co"># CASA marker</span></span>
+<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a>CASA_position <span class="op">=</span> <span class="st">"https://www.openstreetmap.org/?mlat="</span><span class="op">+</span>lat<span class="op">+</span><span class="st">"8&amp;mlon="</span><span class="op">+</span>lon<span class="op">+</span><span class="st">"#map=15/"</span><span class="op">+</span>lat<span class="op">+</span><span class="st">"/"</span><span class="op">+</span>lon</span>
+<span id="cb62-12"><a href="#cb62-12" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb62-13"><a href="#cb62-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(CASA_position)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Now click on the outputed string and behold! You’ll be flying to CASA.</p>
 <section id="further-references" class="level3">
 <h3 class="anchored" data-anchor-id="further-references">Further references:</h3>
 <p>For the most curious among you.</p>
 <p>On this lesson’s topic: - <a href="http://stackoverflow.com/questions/575196/in-python-why-can-a-function-modify-some-arguments-as-perceived-by-the-caller">StackOverflow: In Python, why can a function modify some arguments as perceived by the caller, but not others?</a> - <a href="http://stackoverflow.com/questions/664294/is-it-possible-only-to-declare-a-variable-without-assigning-any-value-in-python">StackOverflow: Is it possible only to declare a variable without assigning any value in Python?</a> - <a href="https://www.youtube.com/watch?v=D48iCw3WWpI">YouTube Video 1</a> - <a href="https://www.youtube.com/watch?v=rkx5_MRAV3A">YouTube Video 2 (<em>slightly</em> longer)</a></p>
-<p>General list or resources - <a href="https://github.com/vinta/awesome-python">Awesome list of resources</a> - <a href="https://docs.python.org/2.7/tutorial/introduction.html">Python Docs</a> - <a href="http://docs.python-guide.org/en/latest/intro/learning/">HitchHiker’s guide to Python</a> - <a href="http://www.pythonlearn.com/book_007.pdf">Python for Informatics</a> - <a href="http://learnpythonthehardway.org/book/">Learn Python the Hard Way</a> - <a href="https://www.codecademy.com/learn/python">CodeAcademy</a></p>
+<p>General list or resources - <a href="https://github.com/vinta/awesome-python">Awesome list of resources</a> - <a href="https://docs.python.org/2.7/tutorial/introduction.html">Python Docs</a> - <a href="http://docs.python-guide.org/en/latest/intro/learning/">HitchHiker’s guide to Python</a> - <a href="http://learnpythonthehardway.org/book/">Learn Python the Hard Way</a> - <a href="https://www.codecademy.com/learn/python">CodeAcademy</a></p>
 </section>
 <section id="credits" class="level3">
 <h3 class="anchored" data-anchor-id="credits">Credits!</h3>

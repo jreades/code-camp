@@ -96,7 +96,7 @@ We'd like to wrap up Code Camp by revisiting the question of 'why' -- why invest
 We hope you'll get there and we hope you'll stick it out until you do! If you invest the time and effort then we're pretty confident that _any_ of you can become a competent programmer: but don't take our word for it, ask some of this year's Third Years what they think! And here is some more food for thought:
 
 1. The National Academy's [Understanding the Changing Planet: Strategic Directions for the Geographical Sciences](https://www.nap.edu/read/12860/chapter/18#118)
-2. The RGS's [Data Skills in Geography](http://www.rgs.org/OurWork/Schools/Data+skills+in+geography/Data+skills+in+geography.htm) (especially [Quantitative Skills in Geography](http://www.rgs.org/OurWork/Research+and+Higher+Education/Learning+teaching+and+research+in+higher+education/Quantitative+Teaching+and+Learning+in+Geography/Quantitative+Methods+in+Geography.htm)).
+2. The RGS's [Data Skills in Geography](https://www.rgs.org/schools/teaching-resources/data-skills-in-geography-%E2%80%93-useful-links/) (especially [Quantitative Skills in Geography](https://www.rgs.org/schools/teaching-resources/a-short-introduction-to-quantitative-geography/)).
 
 
 **Good luck!**

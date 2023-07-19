@@ -2,19 +2,19 @@
 jupyter: python3
 ---
 
-# Notebook-3: The Basics
+# The Basics
 
-In this first _proper_ programming lesson we are going to use the Python interpreter to perform simple operations, like numeric calculations that you would normally do on a calculator and slightly more advanced operations on words. The interpreter is what reads your code and converts that into the binary instructions that the computer can understand – think of it as translator between you and the low-level components (operating system, file system, network, display, etc.) of your machine. In these notebooks the interpreter is in the background and runs when you click the 'Run' button in a code cell (in future we'll see how we can use the Python interpreter with scripts of many lines of code).  
+In this first _proper_ programming lesson we are going to use the Python interpreter to perform simple operations, like numeric calculations that you would normally do on a calculator and slightly more advanced operations on words. The interpreter is what reads your code and converts that into the binary instructions that the computer can understand – think of it as translator between you and the low-level components (operating system, file system, network, display, etc.) of your machine. The interpreter operates in the background and runs when you click the 'Run' button in your working envirnment (in future we'll see how we can use the Python interpreter with scripts of many lines of code).  
 
-As we progress through the excercises we'll encounter a range of new programming concepts. At this stage don't worry too much about memorizing all of them; it is through repeated used and practice that they will eventually come naturally. Instead, here we want you to try to develop a _sense_ of what is going on and keep the concepts in mind when reading the examples... but the really important thing is to try to apply them while _doing the excercises_.
+As we progress through the excercises we'll encounter a range of new programming concepts. At this stage don't worry too much about memorizing all of them; it is through repeated use and practice that they will eventually come naturally. Instead, here we want you to try to develop a _sense_ of what is going on and keep the concepts in mind when reading the examples... but the really important thing is to try to apply them while _doing the excercises_.
 
-To help you get started, we have prepared an introductory video to aid your learning about the basic concepts in Python. Please note that by the time you have finished watching this video, you might need to re-launch binder. So if you have modified any part of your notebook, make sure to download the current version to your browser (the introductory video talks about how to do this).
+To help you get started, we have prepared an introductory video to aid your learning about the basic concepts in Python. Please note that if you are using binder, by the time you have finished watching this video, you might need to re-launch it. So if you have modified any part of your notebook, make sure to download the current version to your browser (the introductory video talks about how to do this).
 
 [![Code Camp: The Basics ](http://img.youtube.com/vi/UDNtW3sy-og/0.jpg)](https://youtu.be/UDNtW3sy-og)
 
 ### How the exercises work
 
-Lastly, a few words on the excercises; in every notebook we've tried to develop a mix of exercises and examples to show you how Python works. There are four 'levels' of exercise:
+Lastly, a few words on the excercises; in every lesson we've tried to develop a mix of exercises and examples to show you how Python works. There are four 'levels' of exercise:
 
 1. **Code from Scratch**: using examples already encountered in the lesson as a starting point, you will write some _very simple_ code (1-3 lines at most) into a blank code cell. 
 2. **Supported Code**: using examples and exercises already encountered in the notebook, you will fill in somes 'gaps' in the lines of code where we've replaced some critical bits with (*???*) in order to make it work successfully.
@@ -27,7 +27,7 @@ We're not expecting you to master the fourth level at this stage; in fact, some 
 
 ## Numeric Operations
 
-You already saw a really simple example of calculating the mean in Notebook 1, but let's recall that you can easily use Python to like a calculator. Run the code already present in the code cells and make sure you understand the output. 
+You already saw a really simple example of calculating the mean in the first lesson, but let's recall that you can easily use Python to like a calculator. Run the code already present in the code cells and make sure you understand the output. To do this, just click on the clipboard icon to copy the code and paste it in your working environment (either [locally](../setup/install.qmd) or [online](../setup/no_install.qmd))
 
 ### Basic Arithmetic
 
@@ -51,9 +51,9 @@ You already saw a really simple example of calculating the mean in Notebook 1, b
 Do you think the results of these two operations will be identical? If not, why? **Decide what you think the answer is _before_ running the code!**
 
 ```python
-#| solution2: hidden
-#| solution2_first: true
+# Operation 1:
 print(4 * (2 - 8) + 2)
+# Operation 2:
 print(4 * 2 - 8 + 2)
 ```
 
@@ -135,8 +135,6 @@ For division which yields no remainder the operation will return a value of 0.
 What do you think will be the result of this operation? Work out your answer **before** running the code. 
 
 ```python
-#| solution2: shown
-#| solution2_first: true
 print( (2*3) ** 2 )
 ```
 
@@ -404,7 +402,7 @@ So far, everything we've done was about performing some kind of calculation on a
 
 If you have studied other programming languages before then the concept of the variable will be so familiar to you that it's hard to remember even having to learn it! Some people think of a [variable simply as "a box"](https://www.youtube.com/watch?v=V0aBwgLRNXI) that contains _values_ that we want to store and retrieve in the future. However, we think it might be more useful to think of a variable as the _label_ of a box in which we put something: for programmers, the label is how we remember what we put in the box and where we put it. 
 
-Let me try to explain: if you [watched](https://www.youtube.com/watch?v=AkFi90lZmXA) the introductory [videos](https://www.youtube.com/watch?v=VBDoT8o4q00) in the previous notebook, then you'll remember that the computer stores 'information' in lots of places (in memory, on the hard drive, etc.), but it doesn't use an addressing system that you or I would be able to read. Instead, it will use a long, complicated number that tells the computer "Go look in this place for what to do when the mouse is clicked" or "Go look what to do when someone asks you to add together 1 and 5". In the same way that Python translates between what we humans can deal with and what the computer can deal with, it also translates between the 'labels' that we use to refer to different boxes storing different things and how the computer finds what we _actually_ put there.
+Let me try to explain: if you [watched](https://www.youtube.com/watch?v=AkFi90lZmXA) the introductory [videos](https://www.youtube.com/watch?v=VBDoT8o4q00) in the previous lessons, then you'll remember that the computer stores 'information' in lots of places (in memory, on the hard drive, etc.), but it doesn't use an addressing system that you or I would be able to read. Instead, it will use a long, complicated number that tells the computer "Go look in this place for what to do when the mouse is clicked" or "Go look what to do when someone asks you to add together 1 and 5". In the same way that Python translates between what we humans can deal with and what the computer can deal with, it also translates between the 'labels' that we use to refer to different boxes storing different things and how the computer finds what we _actually_ put there.
 
 Here's an example:
 
@@ -425,17 +423,17 @@ print(result)
 Can you check the data type of your variable **result** and switch it to float?
 
 ```python
-#| solution2: hidden
 # First, we need to check the data type of our variable using a function called "type"
-type(result)
-# Rewrite the existing variable or put it as a new variable 
+result = -2 * 10
+print(type(result))
+# Rewrite the existing variable or put it as a new variable:
 result = float(result) # or result_float = float(result_float)
-type(result) 
+print(type(result))
 ```
 
 Check it out! We _assigned_ the outcome of `-2 * 10` to a variable called `result`; then we did something else (printed out a string); and _then_ we printed out the value of the variable _and_ the computer remembered! 
 
-[This video](http://img.youtube.com/vi/_sVtcPgHAjI/0.jpg) may help you to further understand the concept of a 'variable':
+[This video](http://www.youtube.com/watch?feature=player_embedded&v=_sVtcPgHAjI) may help you to further understand the concept of a 'variable':
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=_sVtcPgHAjI" target="_blank"><img src="http://img.youtube.com/vi/_sVtcPgHAjI/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="480" height="360" border="10" /></a>
@@ -492,24 +490,26 @@ For example:
 
 Replace the questions marks `???` in the following lines of code with the appropriate code to make it work (i.e. not produce an error).
 
+::: {.panel-tabset}
+
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 cheers ??? name ??? " is awesome!"
 print(cheers)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 cheers = name + " is awesome!"
 print(cheers)
 ```
+:::
 
 ### Naming variables
 
 How do you choose a variable name (i.e. label) in Python?  
 
 Here's a short list of the conventions:
+
 * names may contain letters and/or numbers (e.g. `myVar2`)
 * names cannot begin with a number (e.g. `2myVar`)
 * names may contain an underscore ("\_") (e.g. `my_var_2`)
@@ -573,21 +573,32 @@ print(old_satellite + old_satellite_description)
 ```
 
 Similar to the example above, in the code cell below:
-1. define a variable named `new_satellite` with value `landsat`
-2. try to print its name
-3. then try to concatenate its name with another variable description of your choice, 
-4. and print them.
 
+::: {.panel-tabset}
+## Exercises
 ```python
-#| solution2: hidden
+'''
+Exercise 1-A:
+* define a variable named `new_satellite` with value `landsat`
+* try to print its name
+
+Exercise 1-B:
+* then try to concatenate its name with another variable description of your choice, 
+* and print them.
+'''
+```
+## Solution 1-A
+```python
 new_satellite = 'Landsat'
 print(new_satellite)
 ```
-
+## Solution 1-B
 ```python
-#| solution2: hidden
 print("The new satellite is " + new_satellite + " and the old satellite is " + old_satellite)
 ```
+:::
+
+
 
 ### Supported code
 
@@ -597,45 +608,45 @@ Replace the questions marks `???`  in the following exercise with the appropriat
 
 Landsat is a bit generic, the correct name is Landsat 8. How would you put together these two different Data Types? Remember what we've seen about casting? Edit the code below to make it work. 
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 pr???nt("Hello there " + ???(new_satellite) )
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print("Hello there " + new_satellite + " 8" )
 ```
+:::
 
 #### Excercise 3
 
-According to its Wikipedia page Sputnik 1 was a 58 cm diameter polished metal sphere. If a cm = 0.393700787 inches what was its diameter in inches? Edit the code below to make it work. 
+According to its Wikipedia page Sputnik 1 was a 58 cm diameter polished metal sphere. If a cm = 0.393700787 inches what was its diameter in inches? Edit the code below to make it work.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 diameter_cm = 58
 cm2inches = 0.393700787
 diameter_inches = diameter_cm ??? cm2inches
 print(diameter_inches)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 diameter_cm = 58
 cm2inches = 0.393700787
 diameter_inches = diameter_cm * cm2inches
 print(diameter_inches)
 ```
+:::
 
 #### Exercise 4
 
 Wat was its volume (in cubic cm)? # NOTE: the first line below we are "importing" the `math` module and assigning to a variable `PI` the value of pi (3.14...). Edit the code to make it work. 
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 import math
 PI = math.pi
 
@@ -643,9 +654,8 @@ radius_cm = diameter_cm/2
 volume =  (4/3) ??? PI ??? (radius_cm  ??? 3 )
 print(volume)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 import math
 PI = math.pi
 
@@ -653,14 +663,15 @@ radius_cm = diameter_cm/2
 volume =  (4/3) * PI * (radius_cm  ** 3 )
 print(volume)
 ```
+:::
 
 #### Broken code
 
 mmh..something's broken in the following line of code; can you spot the error(s)? Hint: remember what we said about different data types...
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print(new_satellite + "has a Near Infrared (NI), \
 which band captures light in the wavelength from "+
       770 +
@@ -668,9 +679,8 @@ which band captures light in the wavelength from "+
       900 +
       " nanometers." )
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 # The error message indicates a type error, as we can only concatenate string
 # The code should work by including "" to the numbers
 
@@ -681,57 +691,59 @@ which band captures light in the wavelength from "+
       "900" +
       " nanometers." )
 ```
+:::
 
 # Code (Applied Geo-example)
 
 In this excercise you'll dip a toe in the wonderful world of web maps!
 
-We are going to create a *geographic marker* (a pin on the map!) on top of [OpenStreetMap (OSM)](https://wiki.openstreetmap.org/wiki/About_OpenStreetMap) to visualise King's College location.
+We are going to create a *geographic marker* (a pin on the map!) on top of [OpenStreetMap (OSM)](https://wiki.openstreetmap.org/wiki/About_OpenStreetMap) to visualise UCL CASA location.
 
 To do so we'll have to create a string representing a web `URL` (that's the [address you type in your browser](https://en.wikipedia.org/wiki/Uniform_Resource_Locator) when your surf the web) pointing to OSM website.
 
-Now, as you can see there are two variables containing King's College Longitute/Latitude coordinate position. You will need to use them within the variable `KCL_position`. Unfortunately they are in the wrong data type! Also, there might be something missing in the code.
+Now, as you can see there are two variables containing CASA's Longitute/Latitude coordinate position. You will need to use them within the variable `CASA_position`. Unfortunately they are in the wrong data type! Also, there might be something missing in the code.
 
 *HINT:* To convert (*cast*) a `float` to a `string` use the `str()` function (we haven't talked about functions yet, but see if you can work it out). You'll also need to think about how to concatenate strings? 
 
 Replace the `???` in the code below to make it work.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
-# King's College coordinates
+# UCL CASA coordinates
 # What format are they in? Does it seem appropriate?
-longitude = -0.11596798896789551
-latitude = 51.51130657591914
+longitude = -0.13604732328636063
+latitude = 51.52199740741031
 
 #cast the floats to strings
 ??? = str(longitude)
 lat = str(???)
 
-# King's College marker
-KCL_position = "https://www.openstreetmap.org/?mlat="+lat+"8&mlon="+lon+"#map=15/"+lat+"/"+lon
+# CASA marker
+CASA_position = "https://www.openstreetmap.org/?mlat="+lat+"8&mlon="+lon+"#map=15/"+lat+"/"+lon
           
-print(KCL_position)
+print(CASA_position)
 ```
 
+## Solution
 ```python
-#| solution2: hidden
-# King's College coordinates
+# UCL CASA coordinates
 # What format are they in? Does it seem appropriate?
-longitude = -0.11596798896789551
-latitude = 51.51130657591914
+longitude = -0.13604732328636063
+latitude = 51.52199740741031
 
 #cast the floats to strings
 lon = str(longitude)
 lat = str(latitude)
 
-# King's College marker
-KCL_position = "https://www.openstreetmap.org/?mlat="+lat+"8&mlon="+lon+"#map=15/"+lat+"/"+lon
+# CASA marker
+CASA_position = "https://www.openstreetmap.org/?mlat="+lat+"8&mlon="+lon+"#map=15/"+lat+"/"+lon
           
-print(KCL_position)
+print(CASA_position)
 ```
+:::
 
-Now click on the outputed string and behold! You'll be flying to King's.
+Now click on the outputed string (or copy and paste it into your browser) and behold! You'll be flying to CASA.
 
 ### Further references:
 
@@ -747,7 +759,6 @@ General list or resources
 - [Awesome list of resources](https://github.com/vinta/awesome-python)
 - [Python Docs](https://docs.python.org/2.7/tutorial/introduction.html)
 - [HitchHiker's guide to Python](http://docs.python-guide.org/en/latest/intro/learning/)
-- [Python for Informatics](http://www.pythonlearn.com/book_007.pdf)
 - [Learn Python the Hard Way](http://learnpythonthehardway.org/book/)
 - [CodeAcademy](https://www.codecademy.com/learn/python)
 
@@ -769,4 +780,3 @@ Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) 
 
 #### Potential Dependencies:
 This notebook may depend on the following libraries: None
-

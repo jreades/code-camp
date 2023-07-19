@@ -2,7 +2,7 @@
 jupyter: python3
 ---
 
-# Notebook-4: Dealing with Errors & Debugging
+# Dealing with Errors & Debugging
 
 #### Lesson Topics: 
 
@@ -12,7 +12,7 @@ jupyter: python3
 - How to read errors
 -  Learn to find help
 
-Welcome to the third Code Camp notebook! This lesson is all about learning to deal with the (unavoidable) errors that you wil encounter when programming in Ptyhon. Most programmers spend _most_ of their day dealing with errors of one sort or another: sometimes they are easy to solve (e.g. you mis-typed a variable name), other times they are very, very hard (e.g. you are writing a cloud computing platform and have to deal with competition for resources). Either way, learning how to find, diagnose, and resolve errors, as well as how to minimize their consequences, is thus a crucial skill for programmers. 
+This lesson is all about learning to deal with the (unavoidable) errors that you wil encounter when programming in Ptyhon. Most programmers spend _most_ of their day dealing with errors of one sort or another: sometimes they are easy to solve (e.g. you mis-typed a variable name), other times they are very, very hard (e.g. you are writing a cloud computing platform and have to deal with competition for resources). Either way, learning how to find, diagnose, and resolve errors, as well as how to minimize their consequences, is thus a crucial skill for programmers. 
 
 *DISCLAIMER: This notebook is heavily based on the [official Python Documentation](https://docs.python.org/2/tutorial/errors.html) about Errors and Exception. Check it out for further examples.*
 
@@ -23,7 +23,6 @@ In the preceding notebooks we've already pointed out a few simple errors and mad
 Run the next code cell and examine the error message:
 
 ```python
-#| scrolled: true
 print "Ouch!"
 ```
 
@@ -81,31 +80,35 @@ It really can't get better than this. Let's try to see if you can fix some bits 
 
 Run the next two code cells and use the error messages to see if you can fix the following problems:
 
+*Hint:* remember to look at what is happening *before* the caret!
+
+::: {.panel-tabset}
+## Exercise
 ```python
 projection="Cassini-Soldner" 
 print("The "  projection + " projection preserves distances along the central meridian.")
 ```
-
-*Hint:* remember to look at what is happening *before* the caret!
-
+## Solution
 ```python
-#| solution2: hidden
 projection="Cassini-Soldner" 
 print("The " + projection + " projection preserves distances along the central meridian.")
 ```
+:::
 
+*Hint:* which line is the error on?
+
+::: {.panel-tabset}
+## Exercise
 ```python
 other_projection "Mollweide"
 print("In the " + other_projection + " projection, meridians are ellipses.")
 ```
-
-*Hint:* which line is the error on?
-
+## Solution
 ```python
-#| solution2: hidden
 other_projection="Mollweide"
 print("In the " + other_projection + " projection, meridians are ellipses.")
 ```
+:::
 
 ## Exceptions
 
@@ -124,7 +127,7 @@ What do you think is going on here?
 And this one:
 
 ```python
-"london has an approx. popoulation of" + 8.5 + "million people "
+print()"london has an approx. popoulation of" + 8.5 + "million people ")
 ```
 
 We've seen this error before: remember that programmers don't like to write 'string' when they could write 'str', and that 'float' means 'floating point number'.
@@ -164,43 +167,42 @@ If you see any of the following commands `TRY/EXCEPT/FINALLY` then that means a 
 
 ### A Challenge for You!
 
-Run the next three code cells and use the error messages to see if you can fix the following problems:
+Run the next code cells and use the error messages to see if you can fix the following problems:
 
+HINT: Think about the _type_ of data that `london_population` holds _and_ how to convert a number into a string with the appropriate function
+
+::: {.panel-tabset}
+## Exercise
 ```python
 london_population = 8600000
 print("London's population is " + london_population)
 ```
-
-HINT: Think about the _type_ of data that `london_population` holds _and_ how to convert a number into a string with the appropriate function
-
+## Solution
 ```python
-#| solution2: hidden
 london_population = 8600000
 print("London's population is " + str(london_population))
 ```
+:::
 
-```python
-london_population / paris_population
-```
+Now we want to know the ration between London and Paris populations:
 
-HINT: Define a new variable with the amount of people living in the French capital (2.2 million) 
-
-```python
-#| solution2: hidden
-paris_population = 2200000
-london_population / paris_population
-```
-
-```python
-print("The ratio of london_population to paris_population is " + london_population / paris_population)
-```
+HINT: Define a new variable with the amount of people living in the French capital (2.2 million)
 
 HINT: Think about the data type the result of the calculation needs to be
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
+print("The ratio of london_population to paris_population is " + london_population / paris_population)
+```
+## Solution
+```python
+london_population = 8600000
+paris_population = 2200000
+
 print("The ratio of london_population to paris_population is " + str(london_population / paris_population))
 ```
+:::
 
 # How to read errors
 
@@ -218,8 +220,6 @@ Here's a "rule of thumb" list of actions to take when Python throws an error at 
 
 We can't say this enough: [Google is your friend!](http://lmgtfy.com/?q=%22Learning+what+questions+to+ask+is+a+skill+in+itself%22+-Somebody+smart). And we really mean it. 
 
-![stackOverflow](img/stack-overflow.jpg)
-
 If learning how to interpret error messages is the first step to fixing broken code, the _second_ one (before you think about asking for help) is doing your 'homework'. And since you're not the first students to learn to program, there's a pretty good chance that someone has had your problem -- or one very similar to it -- before. 
 
 The largest website/community/forum online that programmers from all over the world use on a daily basis is **StackOverflow**. The name itself is a nerdy inside joke referring to a *bad* situation in programming:
@@ -236,9 +236,7 @@ This is not meant to put you off in any way, but rather to let you know from the
 
 # Code (Applied Geo-example)
 
-If in the previous notebook we didn't even leave the U.K., this time we'll fly to the far away magical [Null Island](https://en.wikipedia.org/wiki/Null_Island).
-
-![null-islan](img/null-island.png)
+If in the previous lessons we didn't even leave the U.K., this time we'll fly to the far away magical [Null Island](https://en.wikipedia.org/wiki/Null_Island).
 
 From its official government's [touristic office](http://www.nullisland.com/):
    
@@ -247,29 +245,28 @@ From its official government's [touristic office](http://www.nullisland.com/):
 
 In order to get there, you'll have to first solve the exercise, avoiding those pesky *Syntax Errors* and *Exceptions"!
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 longitude = ???(0.0)
 latitude ??? str(0.0)
 
-
-# King's College marker
+# Null Island marker
 null_island = "https://www.openstreetmap.org/?mlat="+???+"&mlon="+longitude+"#map=5/"+latitude+"/"+longitude
           
 prnt null_island
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 longitude = str(0.0)
 latitude = str(0.0)
 
-
 # Null_island marker
 null_island = "https://www.openstreetmap.org/?mlat="+latitude+"&mlon="+longitude+"#map=5/"+latitude+"/"+longitude
+
 print(null_island)
 ```
+:::
 
 To conclude: remember to always read the output, and try to understand what Python is telling you. You might learn a lot from these simple messages! 
 
@@ -285,7 +282,6 @@ General list or resources
 - [Awesome list of resources](https://github.com/vinta/awesome-python)
 - [Python Docs](https://docs.python.org/2.7/tutorial/introduction.html)
 - [HitchHiker's guide to Python](http://docs.python-guide.org/en/latest/intro/learning/)
-- [Python for Informatics](http://www.pythonlearn.com/book_007.pdf)
 - [Learn Python the Hard Way](http://learnpythonthehardway.org/book/)
 - [CodeAcademy](https://www.codecademy.com/learn/python)
 

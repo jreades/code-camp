@@ -45,7 +45,6 @@ Many sites don't even discuss the concept of a semantic error or treat it as the
 Without running the code below, calculate what the values of `x`, `y` and `z` would be after all lines of code in the code block have been executed.
 
 ```python
-#| geopyter: {Contributors: James Millington (james.millington@kcl.ac.uk), git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-08-17 19:06:58', committed_date: '2017-08-17 19:06:58', committer.name: Jon Reades, sha: 5e3b396ae18a982d693c4bfd86c721c7e1e21051}}
 x = 12
 y = 10
 
@@ -61,7 +60,6 @@ Once you have calculated what you think `x`, `y` and `z` are, add print statemen
 Without running the code below, calculate what the values of `x`, `y` and `z` would be after all lines of code in the code block have been executed.
 
 ```python
-#| geopyter: {Contributors: James Millington (james.millington@kcl.ac.uk), git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-08-17 19:06:58', committed_date: '2017-08-17 19:06:58', committer.name: Jon Reades, sha: 5e3b396ae18a982d693c4bfd86c721c7e1e21051}}
 x = 1 + 2 * 3 / 4
 y = (1 + 2) * (3 / 4)
 z = 1 + 2 * (3 / 4)
@@ -79,46 +77,57 @@ Once you have calculated what you think `x`, `y` and `z` are, add print statemen
 
 Given a sphere of diameter 12cm, calculate its volume (use Google to find the formula for this):
 
-
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
+# Calculate the volume of a sphere of diameter 12cm
+```
+## Solution
+```python
 pi = 3.141592653589793
 r = 12 / 2
 vol = (4/3) * pi * (r**3)
 print(vol)
 ```
+:::
 
 Given a sphere of volume 14,137cm3 calculate its radius to the closest **whole number** (this will involve rearranging the formula and you may need to good how to find a cube root with python):
 
-
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
+# Calculate the radius of a shpere of volume 14,137cm3
+# Approximate it to the closest whole number
+```
+## Solution
+```python
 vol=14137
 r3 = vol / ((4/3) * pi)
 r = r3**(1/3)
 print(round(r))
 ```
+:::
 
 #### 2.1 Working with Conditions
 
 **This is not a loop question, we just want you to change the value of _hours_ so that for each of the cases below (_hours_ is set to 10, 2, 0 in turn) you get the right output.**
 
 Using the code below as a starting point, add two lines of code so that your output is as follows:
+
 1. Code prints `Hours are greater than zero` when `hours=10`
 2. Code prints `Hours are greater than zero` _and_ `Hours are less than 10` when `hours=2` 
 3. Code prints `Hours are less than 10` when `hours=0`
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 hours=10
 
 if hours > 0:
     print(" ")
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 hours=2
 
 if hours > 0:
@@ -126,18 +135,24 @@ if hours > 0:
 if hours < 10:
     print("Hours are less than 10")
 ```
+:::
 
 #### 2.2 Flow Control
 
-In the code cell below, enter code to execute the flow chart shown in the image below. You will need to assign values to `a` and `b` on lines 1 and 2 before using the flow chart to complete the code such that it produces the following:
+Write a code to execute the flow chart shown in the image below. You will need to assign values to `a` and `b` on lines 1 and 2 before using the flow chart to complete the code such that it produces the following:
+
 1. When `a = 2` and `b = 2` four lines of output will be written
 2. When `a = 1` and `b = 2` one line of output will be written
 
 <img src=https://kingsgeocomputation.files.wordpress.com/2016/09/geocompweek2_task3_3.jpg width = 600>
 
-
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
+# Execute the flow chart shown in the image
+```
+## Solution
+```python
 a = 1
 b = 2
 
@@ -148,13 +163,13 @@ if x == b:
     print("inside 3")
 print("after condition")
 ```
+:::
 
 #### 3.1 It's All Quite Logical
 
 Read the code in the code cell below. 
 
 ```python
-#| geopyter: {Contributors: James Millington (james.millington@kcl.ac.uk), git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-08-17 19:06:58', committed_date: '2017-08-17 19:06:58', committer.name: Jon Reades, sha: 5e3b396ae18a982d693c4bfd86c721c7e1e21051}}
 x = 1
 if x > 0 and x < 5:
     print("Joe")
@@ -168,23 +183,22 @@ if not(x > 0):
 
 Assume that the code executes for a given value of `x` and answer the following questions. Only test the code **AFTER** you have worked out the answers and typed them below.
 
-1.	What names are name(s) are printed when `x = 5`? 
-2.	What value(s) can `x` be when the names `Joe` and `Aled` are printed?  
+::: {.panel-tabset}
+## Exercise
+```python
+'''
+1.	What names are name(s) are printed when `x = 5`?
+
+2.	What value(s) can `x` be when the names `Joe` and `Aled` are printed?
+
 3.	What name(s) are printed when `x = -1`?
+
 4.	Is there any value for which all three names will be printed?
-
-**Answers** _Edit this cell!_
-
-To edit this cell just double click on it (right _here_ ). When you're finished, click the _run cell_ button in the toolbar just below the menu near the top of the window.
-
-1.
-
-2.
-
-3.
-
-4.
-
+'''
+```
+## Solution
+```python
+'''
 1. Aled
 
 2. 1, 2, 3, 4
@@ -192,6 +206,9 @@ To edit this cell just double click on it (right _here_ ). When you're finished,
 3. Aled, Sarah
 
 4. No
+'''
+```
+:::
 
 #### 3.2 Logic (Cont'd)
 
@@ -201,15 +218,14 @@ Study the flow chart below.
 
 In the cell below, use the for loop already set up to execute the alternative execution shown by the flow chart for values of `x` between 0 and 9. Check your code works. Also check you understand why the Modulo `%` allows us to find odd vs even numbers. 
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 for x in range(0,9):
     # ... do something ...
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 for x in range(0,9):
     print(x)
     if(x%2 == 0):
@@ -218,13 +234,13 @@ for x in range(0,9):
         print("x is odd")
     print(x)
 ```
+:::
 
 #### 3.3 Nested Conditions
 
 Conditional statements can be nested within one another. That is, once one conditional statement has been evaluated others may subsequently be evaluated (or not) depending on the result of the initial conditional statement. The code below shows an example of this. 
 
 ```python
-#| geopyter: {Contributors: James Millington (james.millington@kcl.ac.uk), git: {active_branch: master, author.name: Jon Reades, authored_date: '2017-08-17 19:06:58', committed_date: '2017-08-17 19:06:58', committer.name: Jon Reades, sha: 5e3b396ae18a982d693c4bfd86c721c7e1e21051}}
 if x != y:                                 #line 1
     print("x is not equal to y")
     
@@ -246,8 +262,17 @@ To check you understand how the code above works:
 
 Output for `x = 2` and `y = 3` is:
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
+'''
+1. Change insert conclusion here in the code above to a string that helps to explain the condition of x and y
+
+2. Before running the code for x = 2 and y = 3, type below what line(s) will be output
+'''
+```
+## Solution
+```python
 x = 2
 y = 3
 if x != y:                                 #line 1
@@ -262,13 +287,20 @@ if x != y:                                 #line 1
 else:
     print("x is equal to y")
 ```
+:::
 
 #### 4.1. Alterative Execution
 In the code cell below, enter code that reports whether person A is older than person B or not. Whole numbers should be used as ages in years and these ages should be specified on the first two lines of code. Either “Person A is older than Person B” or “Person A is not older than Person B” should be reported to the user.
 
-
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
+'''
+Enter code that reports whether person A is older than person B or not.
+'''
+```
+## Solution
+```python
 ageA = 20
 ageB = 19
 
@@ -277,16 +309,24 @@ if ageA > ageB:
 else:
     print("Person A is not older than Person B")
 ```
+:::
 
 #### 4.2. Conditional Execution
 Copy your final code from the previous exercise into the code block below. Now build on this code to check if Person A is older than Person B, but also whether they are the same age. One of following three responses should be reported to the user:
+
 1.	“Person A is older than Person B”
 2.	“Person B is older than Person A”
 3.	“Person A and Person B are the same age”
 
-
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
+'''
+Build on the previous code to check if Person A is older than Person B, but also whether they are the same age.
+'''
+```
+## Solution
+```python
 ageA = 20
 ageB = 20
 
@@ -297,18 +337,26 @@ elif ageA < ageB:
 else:
     print("Person A and Person B are the same age")
 ```
+:::
 
 #### 4.3. Nested Execution
 Copy your final code from the previous exercise into the code block below. Build on this code with a nested execution structure to report if Person A is much younger, a little younger, the same age, a little older or much older than Person B. Write your code with a nested structure so that first it evaluates whether one person is older than the other, and then, if so, whether there is a large difference in age or a small difference in age. You should create a variable to specify what the number of years is that indicates a ‘large difference’ in age. One of the following five responses should be reported to the user:
+
 1.	“Person A is much younger than Person B” [if age difference > ‘large difference’]
 2.	“Person A is a little younger than Person B” [if age difference <= ‘large difference’]
 3.	“Person A is the same age as Person B”
 4.	“Person A is a little older than Person B” [if age difference <= ‘large difference’]
 5.	“Person A is a much older than Person B” [if age difference > ‘large difference’]
 
-
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
+'''
+Build on the previous code with a nested execution structure to report if Person A is much younger, a little younger, the same age, a little older or much older than Person B.
+'''
+```
+## Solution
+```python
 ageA = 25
 ageB = 30
 largeD = 20
@@ -326,6 +374,7 @@ elif diff >= (largeD * 1):
 elif diff > 0 and diff < (largeD * 1):  
     print("Person A is a little older than Person B")
 ```
+:::
 
 #### 4.4a Bonus! Managing Errors
 
@@ -333,9 +382,15 @@ Python provides tools to 'handle exceptions' (i.e. manage errors). For example, 
 
 Read the link above (and maybe Google yourself for some other examples) and use the information gained to handle an exception in which the user an age as a `string` rather than a integer (e.g. print "Invalid Input" if `diff` cannot be calculated):
 
-
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
+'''
+Use the previous code and handle an exception in which the user an age as a string rather than a integer
+'''
+```
+## Solution
+```python
 ageA = "five"
 ageB = 30
 largeD = 20
@@ -358,16 +413,23 @@ else:
     
 #read more at https://docs.python.org/3/tutorial/errors.html#handling-exceptions
 ```
+:::
 
 #### 4.4b Bonus! Managing Errors
 
 Another way to trap errors is by 'raising exceptions'. [This requires](https://docs.python.org/3/tutorial/errors.html#raising-exceptions) using the `raise` keyword. 
 
-Read the link above (and maybe Google yourself for some other examples) and use the information gained to raise an exception if the user provide a negative age (outputing "Invalid Age" in the error mmessage):
+Read the link above (and maybe Google yourself for some other examples) and use the information gained to raise an exception if the user provides a negative age (outputing "Invalid Age" in the error mmessage):
 
-
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
+'''
+Use the previous code and raise an exception if the user provides a negative age (outputing “Invalid Age” in the error mmessage)
+'''
+```
+## Solution
+```python
 ageA = -1
 ageB = 30
 largeD = 20
@@ -390,6 +452,7 @@ else:
         
 #read more at https://docs.python.org/3/tutorial/errors.html#raising-exceptions
 ```
+:::
 
 ### Credits!
 

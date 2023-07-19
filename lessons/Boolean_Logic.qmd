@@ -2,7 +2,7 @@
 jupyter: python3
 ---
 
-# Notebook-5: Truth & Conditions
+# Truth & Conditions
 
 ### Lesson Content 
 
@@ -131,17 +131,16 @@ In the next two challenges, we've deliberately left out or broken some code that
 
 Fix this code so that it returns `True`
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 first_variable = 87.0
 second_variable = 9
 
 print(first_variable % 80 ??? second_variable)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 first_variable = 87.0
 second_variable = 9
 
@@ -151,23 +150,24 @@ print(first_variable % 80 < second_variable)
 print(first_variable % 80)
 print(second_variable)
 ```
+:::
 
 Fix this code so that it returns `False`
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print("Aardvark" ??? "Ant")
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print("Aardvark" > "Ant")
 
 #proof
 print(ord("a"))
 print(ord("n"))
 ```
+:::
 
 ## Testing for Equality
 
@@ -220,21 +220,21 @@ Before you run the code in each cell, try to think through what _you_ expect eac
 "Foo" == "Bar"
 ```
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 # And this?
 10 % 3 == 3 / 3
 ```
-
+## Hint
 ```python
-#| solution2: hidden
-#this may help interpret the result here
+# This may help interpret the result here
 print(10 % 3)
 print(3 / 3)
 ```
+:::
 
-### Testing for Inequality
+## Testing for Inequality
 
 What if you want to check if two things are *different* rather than equal? Well then you'll need to use the *Not Equal (!=)* operator, which returns `True` when there's no equality between the conditons you are comparing. 
 
@@ -251,8 +251,7 @@ french_capital  = "Paris"
 print(british_capital != french_capital)
 ```
 
-----
-# Conditions
+## Conditions
 
 OK, so now we've seen comparisons and booleans, but why? Where are we going with this? Think back to the first notebook and the example of what is happening inside a computer: _if_ the user has clicked on the mouse _then_ we need to do something (e.g. change the colour of the button, open the web link, etc.). Everything that we've done up until now basically happened on a single line: _set_ this variable, _set_ that variable, print out the result of the _comparison_. 
 
@@ -306,6 +305,7 @@ print("Done.")
 See how that works? Only conditions \#1 and \#3 were printed out, \#2 and \#4 were skipped over entirely!
 
 Let's take these in order:
+
 1. 2 _is_ greater than 1, so the `condition-to-check` returns True and Python then looks at the next line to see what it should do next.
 2. 1 _is not_ greater than 2, so the `condition-to-check` returns False. Python then skips the next _two_ indented lines which form part of the _code block_. It's the indentation that tells Python they're still part of the same code block. That _entire code block_ would only be executed _if_ the `condition-to-check` had been True.
 3. "Foo" is the same as "Foo", so this condition is True. Python then runs the next three lines because the indentation tells Python that they are all part of the same code block. Notice that we can even do things like set new variables in a code block.
@@ -345,18 +345,18 @@ if london_population < 10000000:
 
 Complete the missing code, while also fixing the broken bits (_HINT:_ Remember the position of colons and indentation is important in Python!):
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 if (london_population % 8000000) == 600000 ???
 print("Good job")
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 if (london_population % 8000000) == 600000:
     print("Good job")
 ```
+:::
 
 ## ELSE condition
 
@@ -391,24 +391,24 @@ The `if: else:` statement is like a fork in the road: you can take one road, or 
 
 Fix the code below so that it prints out `London's population is above my threshold`.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 mythreshold = 1000000
 if london_population <= mythreshold ???
     print("London's population is below my threshold")
 ???:
     print("London's popuation is above my threshold")
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 mythreshold = 1000000
 if london_population <= mythreshold:
     print("London's population is below my threshold")
 else:
     print("London's popuation is above my threshold")
 ```
+:::
 
 ## ELIF condition
 
@@ -450,9 +450,9 @@ This a tricky one: the _first_ thing that evaluates to `True` (that London is be
 
 Complete the missing bits so that the logically correct print statement is output:
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 london_population = 10
 ??? london_population <= 9:
     print("First case is true")
@@ -464,9 +464,8 @@ london_population = 10
 
 print("And now back to normal code execution.")
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 london_population = 10
 if london_population <= 9:
     print("First case is true")
@@ -478,6 +477,7 @@ else: print("Well, looks like none of the above statements were true!")
 
 print("And now back to normal code execution.")
 ```
+:::
 
 # Boolean Logic
 ----
@@ -543,9 +543,9 @@ else:
 
 Try to change the values of conditions and see the different outcomes, but first you'll need to fix the Syntax Errors and the Exceptions!
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 condition1 = 2 < 4
 condition2 ??? (6/3) != 2
 
@@ -554,9 +554,8 @@ if (condition1) ??? (condition2):
 elif:
 print("mmh..they must both be false"")
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 condition1 = 2 < 4
 condition2 = (6/3) != 2
 
@@ -565,6 +564,7 @@ if (condition1) or (condition2):
 else:
     print("mmh..they must both be false")
 ```
+:::
 
 ## NOT 
 
@@ -604,9 +604,9 @@ I've provided a basic scaffolding of the code. It covers the case where the user
 
 HINT: You will need to use `elif` statements to check for the various cases that use user might input.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 # variable with the City borough's total population (in thousands)
 city_of_London = 7.375
 # City borough's map marker
@@ -646,9 +646,8 @@ if (user_input == '1'):
 else:
     print("That's not in my system. Please try again!")
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 # variable with the City borough's total population (in thousands)
 city_of_London = 7.375
 # City borough's map marker
@@ -710,6 +709,7 @@ elif(user_input == '4'):
 else:
     print("That's not in my system. Please try again!")
 ```
+:::
 
 ### Credits!
 
