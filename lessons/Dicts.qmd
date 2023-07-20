@@ -10,7 +10,7 @@ In this lesson, we'll continue our exploration of more advanced data structures.
 
 This time we'll use **dictionaries** to create collections of unordered items (this is just an easy distinction - there's much more to it - but it's a good way to start wrapping your head around the subject).
 
-### In this Notebook
+### In this Lesson
 
 - Creating dictionaries
 - Accessing elements of dictionaries
@@ -197,7 +197,7 @@ print("The American emergency number is " + eNumbers['US'])
 
 ## Useful Dictionary Methods
 
-We are going to see in the next couple of notebooks how to systematically access values in a dictionary (amongst other things). For now, let's also take in the fact the dictionaries _also_ have utility *methods* similar to what we saw with the `list`. And as with the list, these methods are functions that only make sense _when_ you're working with a dictionary, so they're bundled up in a way that makes them easy to use.
+We are going to see in the next couple of lessons how to systematically access values in a dictionary (amongst other things). For now, let's also take in the fact the dictionaries _also_ have utility *methods* similar to what we saw with the `list`. And as with the list, these methods are functions that only make sense _when_ you're working with a dictionary, so they're bundled up in a way that makes them easy to use.
 
 Let's say that you have forgotten what *keys* you put in your dictionary...
 
@@ -606,7 +606,7 @@ As proof that behind this all is just a dictionary:
 print(json.dumps(j, indent=4))
 ```
 
-After you've run the code, Python will have saved a file called `my-first-marker.geojson` in the folder where you are running the notebook. Try to upload it on [this website (Geojson.io)](http://geojson.io/#map=2/20.0/0.0) and check it shows a marker _somewhere_ in central London...                                               
+After you've run the code, Python will have saved a file called `my-first-marker.geojson` in the folder where you are running the lesson. Try to upload it on [this website (Geojson.io)](http://geojson.io/#map=2/20.0/0.0) and check it shows a marker _somewhere_ in central London...                                               
 
 
 ### Further references:
@@ -635,5 +635,5 @@ The content and structure of this teaching project itself is licensed under the 
 Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
 
 #### Potential Dependencies:
-This notebook may depend on the following libraries: None
+This lesson may depend on the following libraries: None
 

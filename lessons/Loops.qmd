@@ -2,7 +2,7 @@
 jupyter: python3
 ---
 
-# Notebook-9: Loops and Iteration
+# Loops and Iteration
 
 
 ### Lesson Content 
@@ -17,10 +17,10 @@ jupyter: python3
 
 In this lesson we cover the concept of *iteration*, which is basically the idea of *repeating the same set of instructions until a certain condition is met*. This sequence of instructions is also called a *loop*.   
 
-This is an extremely important and powerful concept, as it allows us to finally *automate* tasks! Remember that a fundamental feature of programmers is that they are *lazy* (refresh [Larry Wall's *"Three Virtues"*](www.threevirtues.com) that we saw in the first notebook!). The more you can delegate to the machine and avoid repeating boring and repetitive tasks yourself, the better!
+This is an extremely important and powerful concept, as it allows us to finally *automate* tasks! Remember that a fundamental feature of programmers is that they are *lazy* (refresh [Larry Wall's *"Three Virtues"*](https://thethreevirtues.com/) that we saw in the first notebook!). The more you can delegate to the machine and avoid repeating boring and repetitive tasks yourself, the better!
 
 Of course, as the fantastic [Randall Munroe](https://xkcd.com/about/) likes to remind us, reality sometimes challenges this idea...
-![xkcd-automation](img/automation.png)
+![xkcd-automation](../img/automation.png)
 
 # Two Ways to Iterate 
 
@@ -73,7 +73,7 @@ But the _second_ time the while conditional is evaluted, `counter` has been incr
 _CAVEAT_: pay attention to how you write your `while` *loops*! They can potentially run forever (for as long as the condition they are evaluating is `True`) maxing out your machine's memory. For example:
 
 ```python
-# don't run this!
+# DON'T RUN THIS!
 # or if you do, save everything first
 # and then be prepared to stop the code execution manually 
 # (usually by pressing CTRL+D or Cmd+D)
@@ -82,30 +82,28 @@ while True:
     print("Forever Loop! Yeeee!")
 ```
 
-
-
 #### A challenge for you!
 
 Complete the code below to run a while loop that prints only odd numbers under 10. 
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 otherCounter = 1
 
 while ??? <= ???:
     print("This is an odd number: " + str(???))
     otherCounter += 2
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 otherCounter = 1
 
 while otherCounter <= 10:
     print("This is an odd number: " + str(otherCounter))
     otherCounter += 2
 ```
+:::
 
 You can also run `while` loops _decrementally_ until they meet a certain condition (run the code block to see how):
 
@@ -234,8 +232,15 @@ WOOT!
 WOOT!
 `
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
+'''
+Change the code above so that it printed _only_ the odd number _or_ 'WOOT!'
+'''
+```
+## Solution
+```python
 i = 0
 
 while True:
@@ -253,14 +258,15 @@ while True:
     
 print("Done!")
 ```
+:::
 
 ### A challenge for you!
 
 Now, replace the `???` in the code below and use it to print only even numbers less than 22.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 i = 0
 while True:
     i += 1
@@ -273,9 +279,8 @@ while True:
 
 print("Done!")
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 i = 0
 while True:
     i += 1
@@ -288,6 +293,7 @@ while True:
 
 print("Done!")
 ```
+:::
 
 ## Iterating over a List
 
@@ -324,20 +330,20 @@ But wait a second... what about the great Babbage? Why isn't his name displayed?
 
 *Hint*: check (using `print`) the values of `counter` and `britishCompList`. What is the condition we are asking Python to use?
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
-#your code here
+# fix the code to include Babbage
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 counter = 0 # To include Babbage, we need to start counter from 0
 while counter < len(britishCompList):
     print(britishCompList[counter] + " was a british computer scientist")
     # don't forget to increment the counter!!!
     counter += 1
 ```
+:::
 
 ## Other Overlooked Computers
 
@@ -349,9 +355,9 @@ If you think that being skipped over in the loop above was tough for old Babbage
 
 Complete the following code:
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 counter = ???
 nonBritishProgrammers = ["Torvald", "Knuth", "Swartz"]
 stoppingCondition = len(???)
@@ -361,9 +367,8 @@ while counter < stoppingCondition :
     #  always remember to increment the counter!!!
     counter += 1
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 counter = 0
 nonBritishProgrammers = ["Torvald", "Knuth", "Swartz"]
 stoppingCondition = len(nonBritishProgrammers)
@@ -373,6 +378,7 @@ while counter < stoppingCondition :
     #  always remember to increment the counter!!!
     counter += 1
 ```
+:::
 
 *CAVEAT*: An important condition to remember when iterating over a list is thus that lists are *zero-indexed*! If if you start you counter from 1 you will certainly miss the first item in the list (which has an index of 0). 
 
@@ -385,8 +391,6 @@ Can you guess why I needed to subtract -1 to the list's `len`?
 _[Hint: Check the condition again. Is the same as before? (Run the code below before continuing)]_
 
 ```python
-#| solution2: hidden
-#| solution2_first: true
 counter = 0
 nonBritishProgrammers = ["Torvald", "Knuth", "Swartz"]
 stoppingCondition = len(nonBritishProgrammers) -1
@@ -408,7 +412,6 @@ We've just seen that we can use a `while` loop to iterate over a list, but it's 
 You guessed right, my friend! Let me introduce you to the `'for ... in:'` statement:
 
 ```python
-#| scrolled: true
 for programmer in britishCompList:
     print(programmer)
 ```
@@ -424,7 +427,6 @@ So, the biggest difference between a `while` and a `for` loop is thus not _merel
 Let's recap with another example:
 
 ```python
-#| scrolled: true
 # WHILE LOOP
 whileCounter = 0
 myList = [0,1,2,3,4]
@@ -435,7 +437,6 @@ while whileCounter < stoppingCondition:
 ```
 
 ```python
-#| scrolled: true
 # FOR LOOP
 for element in myList:
      print("Element number: " + str(element))
@@ -447,22 +448,22 @@ SIDENOTE: See how the value of `myList[whileCounter]` and that of `element` in t
 
 Print only the odd numbers in the list. HINT: remember the modulo operator?
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 numbers = [1,2,3,4,5,6,7,8,9,10]
 for n in numbers:
     if (???):
         print(n)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 numbers = [1,2,3,4,5,6,7,8,9,10]
 for n in numbers:
     if (n % 2 != 0):
         print(n)
 ```
+:::
 
 Now, as we are *lazy* programmers, let's repeat the above example combining the `range` function with a `for` loop. It will save us the hassle of typing all those numbers!
 
@@ -499,9 +500,9 @@ for k,v in programmers.items():
 
 Iterate over the GeoJSON marker and print its "properties".
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 KCL_marker = {
       "type": "Feature",
       "properties": {
@@ -521,9 +522,8 @@ KCL_marker = {
 for ???,v in KCL_marker["???"].items():
     print("KCL_marker has a property: '" + ??? + "' for the key: " + k)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 KCL_marker = {
       "type": "Feature",
       "properties": {
@@ -543,6 +543,7 @@ KCL_marker = {
 for k,v in KCL_marker["properties"].items():
     print("KCL_marker has a property: '" + v + "' for the key: " + k)
 ```
+:::
 
 Very good! Let's summarise some facts about loops:
 
