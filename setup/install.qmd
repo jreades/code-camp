@@ -51,7 +51,7 @@ Once it's installed, you just use the Terminal or Command Prompt as above.
 
 Anaconda Python is just 'Reference' Python packaged up by a commercial firm with some useful utilities (and a graphical installer) to help make your Python-life a little easier to manage. You can [download](https://www.anaconda.com/products/distribution) Anaconda Python for free.
 
-Once it's installed, you *can* use the Terminal or Command Prompt as above, or you may find you've got some additional options (e.g. Anaconda Prompt on Windows) that are more slightly more user-friendly.
+Once it's installed, you *can* use the Terminal or Command Prompt as above, or you may find you've got some additional options (e.g. Anaconda Prompt on Windows) that are slightly more user-friendly.
 
 ## Virtualised Python
 

@@ -102,7 +102,7 @@ Some of the reasons that these are virtues in programming (but not in your studi
 
 Larry also pointed out that these virtues had three mirror-image false virtues:
 
-1. **False laziness** happens when you leave something working but half-finished and, most likely, about to break. When you start using [StackOverflow](http://www.stackoverflow.com/) you may find that it makes it easy to copy+paste answers into your script and then you can glue it together messily. This isn't the same as _understanding_ and _adapting_ the solution that you found online to _your_ problem, so it's false laziness. To really develop a learning mindset, [don't copy+paste code, type it out](https://medium.freecodecamp.com/the-benefits-of-typing-instead-of-copying-54ed734ad849#.es5mw1j0z). 
+1. **False laziness** happens when you leave something working but half-finished and, most likely, about to break. When you start using [StackOverflow](http://www.stackoverflow.com/) you may find that it makes it easy to copy+paste answers into your script and then you can glue it together messily. This isn't the same as _understanding_ and _adapting_ the solution that you found online to _your_ problem, so it's false laziness. To really develop a learning mindset, don't copy+paste code, type it out. 
 2. **False hubris** is thinking that no one else's code is 'good enough' for you. Sometimes copy+paste is false laziness, but refusing to recognise when copy+paste (or importing a library, more on this later) _is_ the right thing to do is false hubris.
 3. **False impatience** is getting started on coding your answer to a problem when you don't yet understand what the problem actually _is_. One thing that a lot of programmers do is half-listen to what someone has asked them to do and then go haring off without sitting down to make any kind of plan. It's like writing an essay without having done the readings. Nudge, nudge.
 
@@ -141,9 +141,9 @@ There are obviously many ways that you can calculate the mean (also known as the
 
 In the area immediately below this paragraph you should see something like "<span style="color:blue">In [ ]</span>". On the right of this is an empty box into which you can type computer code (which we will call a 'code cell'). We can use Python like a calculator but doing it from a keyboard instead of a calculator's keypad. 
 
-For example, to calculate 2 plus 2 using Python type `2 + 2` in the code cell and run the code. 
+For example, to calculate 2 plus 2 using Python type `2 + 2` and run the code.
 
-*HINT*: To run ensure your cursor is in the code cell and click the the 'Run' button in the toolbar above (the sideways-pointing triangle). Or, again with the cursor in the code cell, you can also type Ctrl+Return on the keyboard (that's the Control button and the Return button simultaneously).
+*HINT*: To run ensure you type your code in your working environment (either [locally](../setup/install.qmd) or [online](../setup/no_install.qmd)) and click the the 'Run' button (usually, a sideways-pointing triangle).
 
 ```python
 (2+2+1250)/3

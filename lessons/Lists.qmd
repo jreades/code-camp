@@ -2,9 +2,9 @@
 jupyter: python3
 ---
 
-# Notebook-7: Lists
+# Lists
 
-### Notebook Content 
+### Lesson Content 
 
 In previous code camp notebooks we looked at numeric (**integers** and **floats**) and textual (**strings**) data, but it's probably been quite difficult to imagine how you'd assemble these simple data into something useful. The new data types (**lists** and **dictionaries**) will _begin_ to show you how that can happen, and they will allow you to 'express' much more complex concepts with ease.
 
