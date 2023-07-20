@@ -43,7 +43,7 @@ Note: did you see the `str()` around the `myBoolean` variable on the second `pri
 
 ## Comparison Operators
 
-How do we use booleans? Well, what is the 'answer' if I ask you "Is it true or false than an elephant is bigger than a mouse?" And remember too that in an early notebook we looked at how a computer 'thinks' -- it's all in terms of things being `True` or `False`. 
+How do we use booleans? Well, what is the 'answer' if I ask you "Is it true or false than an elephant is bigger than a mouse?" And remember too that in an early lesson we looked at how a computer 'thinks' -- it's all in terms of things being `True` or `False`. 
 
 Note: just so that you know, sometimes people will use `1` and `0` in place of `True` and `False` because that's what's actually happening behind the scenes. It's the same thing _logically_ , but Python views sees `True` and `False` differently from `1` and `0` because the latter are numbers, while the former are _boolean_ data type.
 
@@ -253,7 +253,7 @@ print(british_capital != french_capital)
 
 ## Conditions
 
-OK, so now we've seen comparisons and booleans, but why? Where are we going with this? Think back to the first notebook and the example of what is happening inside a computer: _if_ the user has clicked on the mouse _then_ we need to do something (e.g. change the colour of the button, open the web link, etc.). Everything that we've done up until now basically happened on a single line: _set_ this variable, _set_ that variable, print out the result of the _comparison_. 
+OK, so now we've seen comparisons and booleans, but why? Where are we going with this? Think back to the first lesson and the example of what is happening inside a computer: _if_ the user has clicked on the mouse _then_ we need to do something (e.g. change the colour of the button, open the web link, etc.). Everything that we've done up until now basically happened on a single line: _set_ this variable, _set_ that variable, print out the result of the _comparison_. 
 
 Now we're going to step it up a level.
 
@@ -486,7 +486,7 @@ The very logical Prof. George Boole, circa 1860:
 
 ![Photo of Boole](https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg "Boole")
 
-Boolean logic and [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra) have to do with _set theory_ but also lie at the heart of the modern computer! Remember that in notebook 1 we saw that a computer works by combining `AND`, `OR`, `XOR` and `NAND` circuits to produce ever more complex calculations? Well, we also use this a lot in programming!
+Boolean logic and [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra) have to do with _set theory_ but also lie at the heart of the modern computer! Remember that in lesson 1 we saw that a computer works by combining `AND`, `OR`, `XOR` and `NAND` circuits to produce ever more complex calculations? Well, we also use this a lot in programming!
 
 In Python there are [three boolean logic opertors](https://docs.python.org/2/library/stdtypes.html#boolean-operations-and-or-not), these are (in ascending order of priority): `or`, `and`, and `not`.
 
@@ -726,5 +726,5 @@ The content and structure of this teaching project itself is licensed under the 
 Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
 
 #### Potential Dependencies:
-This notebook may depend on the following libraries: None
+This lesson may depend on the following libraries: None
 

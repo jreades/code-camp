@@ -14,11 +14,11 @@ jupyter: python3
 
 This lesson is all about learning to deal with the (unavoidable) errors that you wil encounter when programming in Ptyhon. Most programmers spend _most_ of their day dealing with errors of one sort or another: sometimes they are easy to solve (e.g. you mis-typed a variable name), other times they are very, very hard (e.g. you are writing a cloud computing platform and have to deal with competition for resources). Either way, learning how to find, diagnose, and resolve errors, as well as how to minimize their consequences, is thus a crucial skill for programmers. 
 
-*DISCLAIMER: This notebook is heavily based on the [official Python Documentation](https://docs.python.org/2/tutorial/errors.html) about Errors and Exception. Check it out for further examples.*
+*DISCLAIMER: This lesson is heavily based on the [official Python Documentation](https://docs.python.org/2/tutorial/errors.html) about Errors and Exception. Check it out for further examples.*
 
 # Introduction to errors
 
-In the preceding notebooks we've already pointed out a few simple errors and made some suggestions about how to read them, but as you have seen when there's something wrong Python stops whatever it's doing and prints out an error message.
+In the preceding lessons we've already pointed out a few simple errors and made some suggestions about how to read them, but as you have seen when there's something wrong Python stops whatever it's doing and prints out an error message.
 
 Run the next code cell and examine the error message:
 
@@ -302,5 +302,5 @@ The content and structure of this teaching project itself is licensed under the 
 Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
 
 #### Potential Dependencies:
-This notebook may depend on the following libraries: None
+This lesson may depend on the following libraries: None
 

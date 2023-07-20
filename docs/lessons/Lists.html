@@ -378,7 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Notebook-7: Lists</h1>
+<h1 class="title">Lists</h1>
 </div>
 
 
@@ -393,9 +393,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="notebook-content" class="level3">
-<h3 class="anchored" data-anchor-id="notebook-content">Notebook Content</h3>
-<p>In previous code camp notebooks we looked at numeric (<strong>integers</strong> and <strong>floats</strong>) and textual (<strong>strings</strong>) data, but it’s probably been quite difficult to imagine how you’d assemble these simple data into something useful. The new data types (<strong>lists</strong> and <strong>dictionaries</strong>) will <em>begin</em> to show you how that can happen, and they will allow you to ‘express’ much more complex concepts with ease.</p>
+<section id="lesson-content" class="level3">
+<h3 class="anchored" data-anchor-id="lesson-content">Lesson Content</h3>
+<p>In previous code camp lessons we looked at numeric (<strong>integers</strong> and <strong>floats</strong>) and textual (<strong>strings</strong>) data, but it’s probably been quite difficult to imagine how you’d assemble these simple data into something useful. The new data types (<strong>lists</strong> and <strong>dictionaries</strong>) will <em>begin</em> to show you how that can happen, and they will allow you to ‘express’ much more complex concepts with ease.</p>
 </section>
 <section id="whats-the-difference" class="level3">
 <h3 class="anchored" data-anchor-id="whats-the-difference">What’s the Difference?</h3>
@@ -404,7 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now, with <strong>lists</strong> and <strong>dictionaries</strong> we can store <em>multiple</em> things: several numbers, several strings, or some mish-mash of both. That is, lists and dictionaries are data <em>structures</em> that can contain multiple data <em>types</em>.</p>
 <p>Here’s a brief summary of these data structures, highlighting their main difference: - A <strong>list</strong> is an <em>ordered</em> collection of ‘items’ (numbers, strings, etc.). You can ask for the first item in a list, the 3rd, or the 1,000th, it doesn’t really matter because your list has an order and it keeps that order. - A <strong>dictionary</strong> is an <em>unordered</em> collection of ‘items’ (numbers, strings, etc.). You access items in a dictionary in a similar way to how you access a real dictionary: you have a ‘key’ (i.e.&nbsp;the word for which you want the definition) and you use this to look up the ‘value’ (i.e.&nbsp;the definition of the word).</p>
 <p>There’s obviously a lot more to lists and dictionaries than this, but it’s a good starting point.</p>
-<p>Let’s start with <strong>lists</strong> in this notebook and we’ll continue with <strong>dictionaries</strong> in the following.</p>
+<p>Let’s start with <strong>lists</strong> in this lesson and we’ll continue with <strong>dictionaries</strong> in the following.</p>
 <p>You can go back to our short video that talks about lists:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -413,8 +413,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="in-this-notebook" class="level3">
-<h3 class="anchored" data-anchor-id="in-this-notebook">In this Notebook</h3>
+<section id="in-this-lesson" class="level3">
+<h3 class="anchored" data-anchor-id="in-this-lesson">In this lesson</h3>
 <ul>
 <li>Indexing &amp; Slicing</li>
 <li>List operations
@@ -446,7 +446,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We don’t want to get too technical here, but it’s important to note one thing: <code>myList</code> is still just <strong>one</strong> thing – a list – and not six things (<code>'hi I am', 2312, 'mixing', 6.6, 90, 'strings, integers and floats'</code>). So we can only assign one list to a variable called <code>myList</code>. It’s like the difference between a person and a crowd: a crowd is one thing that holds many people inside it…</p>
 <section id="indexing" class="level2">
 <h2 class="anchored" data-anchor-id="indexing">Indexing</h2>
-<p>To access an item in a list you use an <strong>index</strong>. This is a new and important concept and it’s a term that we’re going to use a <em>lot</em> in the future, so try to really get this term into your head before moving forward in the notebook.</p>
+<p>To access an item in a list you use an <strong>index</strong>. This is a new and important concept and it’s a term that we’re going to use a <em>lot</em> in the future, so try to really get this term into your head before moving forward in the lesson.</p>
 <section id="accessing-elements-in-a-list-using-indexes" class="level3">
 <h3 class="anchored" data-anchor-id="accessing-elements-in-a-list-using-indexes">Accessing Elements in a List using Indexes</h3>
 <p>The index is just the location of the item in the list that you want to access. So let’s say that we want to fetch the second item, we access it via the <em>index notation</em> like so:</p>
@@ -470,28 +470,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="negative-indexing" class="level3">
 <h3 class="anchored" data-anchor-id="negative-indexing">Negative Indexing</h3>
 <p>Since programmers are lazy, they also have a short-cut for accessing the <em>end</em> of a list. Since positive numbers count from the start of a list, negative numbers count from the end:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myNewList[<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myNewList[<span class="op">-</span><span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>myNewList <span class="op">=</span> [<span class="st">'first'</span>, <span class="st">'second'</span>, <span class="st">'third'</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myNewList[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myNewList[<span class="op">-</span><span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <em>last</em> element has index <code>-1</code>. So you count forwards from <code>0</code>, but backwards from <code>-1</code>.</p>
 <p>You can remember it this way: the last item in the list is at <em>n-1</em> (where <em>n</em> is the number of items in the list), so <code>...[-1]</code> is a sensible way to access the last item.</p>
 <section id="a-challenge-for-you" class="level4">
 <h4 class="anchored" data-anchor-id="a-challenge-for-you">A challenge for you!</h4>
 <p>Edit the code so that it prints the ‘second’ element in the list</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The second element is :"</span> <span class="op">+</span> myNewList[???])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>myNewList <span class="op">=</span> [<span class="st">'first'</span>, <span class="st">'second'</span>, <span class="st">'third'</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The second element is :"</span> <span class="op">+</span> myNewList[???])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>myNewList <span class="op">=</span> [<span class="st">'first'</span>, <span class="st">'second'</span>, <span class="st">'third'</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The second element is :"</span> <span class="op">+</span> myNewList[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="index-out-of-range" class="level3">
 <h3 class="anchored" data-anchor-id="index-out-of-range">Index Out of Range</h3>
 <p>What happens when you try to access an element that doesn’t exist?</p>
 <p>We know that <code>myList</code> has 3 elements, so what if we try to access the 200th element in the list? In that case Python, as usual, will inform us of the problem using an <em>error message</em> pointing to the problem:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myNewList[<span class="dv">200</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>myNewList <span class="op">=</span> [<span class="st">'first'</span>, <span class="st">'second'</span>, <span class="st">'third'</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myNewList[<span class="dv">200</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="a-challenge-for-you-1" class="level4">
 <h4 class="anchored" data-anchor-id="a-challenge-for-you-1">A challenge for you!</h4>
-<p>Do you remember the past lesson on <em>syntax errors</em> and <em>exceptions</em>? What is the error message displayed in the code above? Is it an <em>exception</em> or a <em>syntax error</em>? Can you find the explanation for what’s going in the <a href="https://www.google.ie/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=3&amp;ved=0ahUKEwiN3s-0qr7OAhVGIcAKHYBLAE4QFggoMAI&amp;url=https%3A%2F%2Fdocs.python.org%2F2%2Ftutorial%2Ferrors.html&amp;usg=AFQjCNG6q1juN8ZVXOEqOYWxE18Cv5X_qw&amp;sig2=o92WLjkV1PNNfgpW1w9n0g&amp;cad=rja">Official Documentation</a>?</p>
+<p>Do you remember the past lesson on <em>syntax errors</em> and <em>exceptions</em>? What is the error message displayed in the code above? Is it an <em>exception</em> or a <em>syntax error</em>? Can you find the explanation for what’s going in the <a href="https://docs.python.org/3/tutorial/errors.html">Official Documentation</a>?</p>
 <p>Even if a statement or expression is syntactically correct, it may cause an error when an attempt is made to execute it. Errors detected during execution are called <strong><em>exceptions</em></strong> and are not unconditionally fatal. The last line of the error message indicates what happened.</p>
 <p>You can see from the last line to you have an error related to your index - where your list index is out of range.</p>
 </section>
@@ -514,13 +524,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-challenge-for-you-2" class="level4">
 <h4 class="anchored" data-anchor-id="a-challenge-for-you-2">A challenge for you!</h4>
 <p>Using the previous code as a guide, edit the code below so that it prints from the second to the fourth (inclusive) characters from the string:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: shown</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>shortSentence2 <span class="op">=</span> <span class="st">"A12B34c7.0"</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shortSentence2[???:???])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: shown</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>shortSentence2 <span class="op">=</span> <span class="st">"A12B34c7.0"</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shortSentence2[<span class="dv">1</span>:<span class="dv">4</span>]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>shortSentence2 <span class="op">=</span> <span class="st">"A12B34c7.0"</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shortSentence2[???:???])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>shortSentence2 <span class="op">=</span> <span class="st">"A12B34c7.0"</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shortSentence2[<span class="dv">1</span>:<span class="dv">4</span>]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <p>To print the entirety of a list from any starting position onwards, just drop the second index value while leaving the <code>:</code> in your code:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>stringToPrint <span class="op">=</span> <span class="st">"I will print from HERE onwards"</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Starting from the 17th position: "</span> <span class="op">+</span> stringToPrint[<span class="dv">17</span>:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -531,15 +547,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-challenge-for-you-3" class="level4">
 <h4 class="anchored" data-anchor-id="a-challenge-for-you-3">A challenge for you!</h4>
 <p>Now, combining what we’ve seen above, how do you think you would print everything <em>up to the eighth character from the end</em> (which is the space between “HERE” and “onwards”)?</p>
-<p>You’ll need to combine: 1. Negative indexing 2. List slicing</p>
+<p>You’ll need to combine:</p>
+<ol type="1">
+<li>Negative indexing</li>
+<li>List slicing</li>
+</ol>
 <p>There are two ways to do it, one way uses only one number, the other uses two. Both are correct. Why don’t you try to figure them both out? For ‘Way 2’ below the <code>???</code> is a placeholder for a full slicing operation since if we gave you more of a hint it would make it too obvious.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Up to the 18th position (Way 1): '"</span> <span class="op">+</span> stringToPrint[???:???] <span class="op">+</span> <span class="st">"'"</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Up to the 18th position (Way 2): '"</span> <span class="op">+</span> ??? <span class="op">+</span> <span class="st">"'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Up to the 18th position (Way 1): '"</span> <span class="op">+</span> stringToPrint[<span class="op">-</span><span class="dv">8</span>:] <span class="op">+</span> <span class="st">"'"</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Up to the 18th position (Way 2): '"</span> <span class="op">+</span> stringToPrint[<span class="dv">22</span>:<span class="dv">30</span>] <span class="op">+</span> <span class="st">"'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Up to the 18th position (Way 1): '"</span> <span class="op">+</span> stringToPrint[???:???] <span class="op">+</span> <span class="st">"'"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Up to the 18th position (Way 2): '"</span> <span class="op">+</span> ??? <span class="op">+</span> <span class="st">"'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Up to the 18th position (Way 1): '"</span> <span class="op">+</span> stringToPrint[<span class="op">-</span><span class="dv">8</span>:] <span class="op">+</span> <span class="st">"'"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Up to the 18th position (Way 2): '"</span> <span class="op">+</span> stringToPrint[<span class="dv">22</span>:<span class="dv">30</span>] <span class="op">+</span> <span class="st">"'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <p>Strings have also plenty of methods that might prove to be quite useful in the future; for a fuller overview check out <a href="https://en.wikibooks.org/wiki/Python_Programming/Variables_and_Strings">this reference</a>.</p>
 </section>
 </section>
@@ -582,18 +608,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-challenge-for-you-4" class="level4">
 <h4 class="anchored" data-anchor-id="a-challenge-for-you-4">A challenge for you!</h4>
 <p>Correct the syntax in the following code to properly define a new list:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>otherNonBritishProgrammers <span class="op">=</span> [<span class="st">"Wozniak"</span> ??? <span class="st">"Van Rossum"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>otherNonBritishProgrammers <span class="op">=</span> [<span class="st">"Wozniak"</span>,<span class="st">"Van Rossum"</span>]</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>otherNonBritishProgrammers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>otherNonBritishProgrammers <span class="op">=</span> [<span class="st">"Wozniak"</span> ??? <span class="st">"Van Rossum"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>otherNonBritishProgrammers <span class="op">=</span> [<span class="st">"Wozniak"</span>,<span class="st">"Van Rossum"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <p>Edit the following code to print out all the non british programmers:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> nonBritishProgrammers ??? otherNonBritishProgrammers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers <span class="op">+</span> otherNonBritishProgrammers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>nonBritishProgrammers <span class="op">=</span> [<span class="st">"Torvald"</span>, <span class="st">"Knuth"</span>]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>otherNonBritishProgrammers <span class="op">=</span> [<span class="st">"Wozniak"</span>,<span class="st">"Van Rossum"</span>]</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> nonBritishProgrammers ??? otherNonBritishProgrammers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>nonBritishProgrammers <span class="op">=</span> [<span class="st">"Torvald"</span>, <span class="st">"Knuth"</span>]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>otherNonBritishProgrammers <span class="op">=</span> [<span class="st">"Wozniak"</span>,<span class="st">"Van Rossum"</span>]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers <span class="op">+</span> otherNonBritishProgrammers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="youre-not-in-the-list" class="level3">
@@ -601,7 +644,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Ever stood outside a club or event and been told: “You’re not on/in the list”? Well, Python is like that too. In fact, Python tries as hard as possible to be <em>like</em> English – this isn’t by accident, it’s by design – and once you’ve done a <em>bit</em> of programming in Python you can start to guess how to do something by thinking about how you might say it in English.</p>
 <p>So if you want to check if an item exists in a list you can use the <strong>in</strong> operator:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>element <span class="kw">in</span> <span class="bu">list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The <strong>in</strong> operator will return <code>True</code> if the item is present, and <code>False</code> otherwise. This is a new data type (called a Boolean) that we’ll see a lot more of in two notebooks’ time.</p>
+<p>The <strong>in</strong> operator will return <code>True</code> if the item is present, and <code>False</code> otherwise. This is a data type (called a Boolean) that we’ve seen in the <a href="../lessons/Boolean_Logic.html">Boolean logic</a> lessons.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">'Lovelace'</span> <span class="kw">in</span> britishProgrammers)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">'Lovelace'</span> <span class="kw">in</span> nonBritishProgrammers)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -610,28 +653,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">'z'</span> <span class="kw">in</span> letters)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><em>Note:</em> You might also have spotted that this time there are parentheses (“(…)”) after <code>print</code>. In general, as you become more experienced you’ll <em>always</em> want to put parentheses after a <code>print</code> statement (because that’s how Python3 works) but the intricacies of <em>why</em> this is the case are a bit out of the scope of an introductory set of lessons.</p>
 <p>Anyway, if you want to check if an item does not exist in a list then you can use the <strong>not in </strong> operator. Let’s go back to our party:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(theParty)</span>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(theParty) <span class="co"># You might have re-define the variable if you haven't saved it (in case, just copy and paste it before the print line)</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Bob'</span> <span class="kw">not</span> <span class="kw">in</span> theParty)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Jane'</span> <span class="kw">not</span> <span class="kw">in</span> theParty)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>So here, that ‘Boolean’ gives us <code>True</code> on the first <code>not in</code> because it’s “true that Bob isn’t at the party” and <code>False</code> on the second one because it’s “not true that Jane isn’t at the party”! Double-negatives aren’t supposed to exist in English, but they certainly do in programming!</p>
 <section id="a-challenge-for-you-5" class="level4">
 <h4 class="anchored" data-anchor-id="a-challenge-for-you-5">A challenge for you!</h4>
 <p>Complete the missing bits of the following code so that we print out Ada Lovelace, her full name:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>firstProgrammerSurnames <span class="op">=</span> [<span class="st">"Babbage"</span>, <span class="st">"Lovelace"</span>]</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>firstProgrammerNames    <span class="op">=</span> [<span class="st">"Charles"</span>, <span class="st">"Ada"</span>]</span>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>firstProgrammerSurnames <span class="op">=</span> [<span class="st">"Babbage"</span>, <span class="st">"Lovelace"</span>]</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>firstProgrammerNames    <span class="op">=</span> [<span class="st">"Charles"</span>, <span class="st">"Ada"</span>]</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>firstProgrammerSurnames[<span class="dv">1</span>] <span class="op">=</span> firstProgrammerNames[<span class="dv">1</span>] <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> firstProgrammerSurnames[<span class="dv">1</span>]</span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>firstProgrammerSurnames[<span class="dv">1</span>] <span class="op">=</span> firstProgrammerNames[<span class="dv">1</span>] <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> firstProgrammerSurnames[<span class="dv">1</span>]</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Lady "</span><span class="op">+</span> ???[<span class="dv">1</span>] <span class="op">+</span><span class="st">" is considered to be the first programmer."</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>firstProgrammerSurnames <span class="op">=</span> [<span class="st">"Babbage"</span>, <span class="st">"Lovelace"</span>]</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>firstProgrammerNames    <span class="op">=</span> [<span class="st">"Charles"</span>, <span class="st">"Ada"</span>]</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>firstProgrammerSurnames[<span class="dv">1</span>] <span class="op">=</span> firstProgrammerNames[<span class="dv">1</span>] <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> firstProgrammerSurnames[<span class="dv">1</span>]</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Lady "</span><span class="op">+</span> firstProgrammerSurnames[<span class="dv">1</span>] <span class="op">+</span><span class="st">" is considered to be the first programmer."</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Lady "</span><span class="op">+</span> ???[<span class="dv">1</span>] <span class="op">+</span><span class="st">" is considered to be the first programmer."</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>firstProgrammerSurnames <span class="op">=</span> [<span class="st">"Babbage"</span>, <span class="st">"Lovelace"</span>]</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>firstProgrammerNames    <span class="op">=</span> [<span class="st">"Charles"</span>, <span class="st">"Ada"</span>]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>firstProgrammerSurnames[<span class="dv">1</span>] <span class="op">=</span> firstProgrammerNames[<span class="dv">1</span>] <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> firstProgrammerSurnames[<span class="dv">1</span>]</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Lady "</span><span class="op">+</span> firstProgrammerSurnames[<span class="dv">1</span>] <span class="op">+</span><span class="st">" is considered to be the first programmer."</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <p><em>Note</em> : Actually, Lady Ada Lovelace is a <a href="https://en.wikipedia.org/wiki/Ada_Lovelace">fascinating person</a>: she isn’t just the first female programmer, she was the first programmer full-stop. For many years Charles Babbage got all the credit for inventing computers simply because he was a guy and designed the clever mechanical adding machine. However, lately, we’ve realised that Ada was the one who actually saw that Babbage hadn’t just invented a better abacus, he’d invented a general-purpose computing device!</p>
 <p>She was so far ahead of her time that the code she wrote down couldn’t even run on Babbage’s ‘simple’ (i.e.&nbsp;remarkably complex for the time) computer, but it is now recognised as the first computer algorithm. As a result, there is now a day in her honour every year that is celebrated around the world at places like Google and Facebook, as well as at King’s and MIT, because we want to recognise the fundamental contribution to computing made by women programmers.</p>
 <p>This contribution was long overlooked by the men who thought that the hard part was the machine, not the programming. Rather entertainingly (given the kudos attached to the people who created applications like Google and Facebook), most men thought that programming was just like typing and was, therefore ‘women’s work’. So why not take a few minutes to <a href="http://www.npr.org/blogs/alltechconsidered/2014/10/06/345799830/the-forgotten-female-programmers-who-created-modern-tech">recognise the important contributions of women to the history of computing</a>.</p>
@@ -662,9 +711,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>myList.append(<span class="st">'And another one!'</span>)</span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Why don’t you try typing it all in the coding area below? You’ll get the same answer either way, but one is faster to write and easier to read!</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Appending to a list using <code>append(...)</code> is actually using something called a <em>function</em>. We’ve not really seen this concept before and we’re not going to go into it in enormous detail here (there’s a whole other notebook to introduce you to functions). The things that you need to notice at <em>this</em> point in time are:</p>
+<p>Why don’t you try typing it all in your working environment? You’ll get the same answer either way, but one is faster to write and easier to read!</p>
+<p>Appending to a list using <code>append(...)</code> is actually using something called a <em>function</em>. We’ve not really seen this concept before and we’re not going to go into it in enormous detail here (there’s a whole other lesson to introduce you to functions). The things that you need to notice at <em>this</em> point in time are:</p>
 <ol type="1">
 <li>That square brackets (‘[’ and ’]’) are used for list indexing.</li>
 <li>That parentheses (‘(’ and ‘)’) are (normally) used for function calls.</li>
@@ -672,98 +720,131 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The best thing about functions is that they are like little packages of code that can do a whole bunch of things at once (e.g.&nbsp;add an item to a list by modifying the list directly), but you only need to remember to write <code>append(...)</code>.</p>
 <p>What did I mean just now by ‘modifying the list directly’?</p>
 <p>Notice that in the first example above we had to write:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> myList <span class="op">+</span> [<span class="st">'New item'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> myList <span class="op">+</span> [<span class="st">'New item'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>because we had to write the result of concatenating the two lists together back to the variable. The list isn’t really growing, we’re just overwriting what was <em>already</em> in <code>myList</code> with the results of the list addition operation. What do you think you would get if you wrote the following code:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [] <span class="co"># An empty list</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>myList <span class="op">+</span> [<span class="st">'New item'</span>]</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>myList <span class="op">+</span> [<span class="st">'Another new item'</span>]</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>myList <span class="op">+</span> [<span class="st">'And another one!'</span>]</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [] <span class="co"># An empty list</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>myList <span class="op">+</span> [<span class="st">'New item'</span>]</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>myList <span class="op">+</span> [<span class="st">'Another new item'</span>]</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>myList <span class="op">+</span> [<span class="st">'And another one!'</span>]</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you aren’t sure, why don’t you try typing this into the coding area above and try to figure out why the answer is: ’’.</p>
 <p>Meanwhile, in the second example we could just write:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>myList.append(<span class="st">'New item'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>myList.append(<span class="st">'New item'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and the change was made to <code>myList</code> directly! So this is easier to read <em>and</em> it is more like what we’d expect to happen: the list grows without us having to overwrite the old variable.</p>
 </section>
 <section id="other-list-functions" class="level2">
 <h2 class="anchored" data-anchor-id="other-list-functions">Other List Functions</h2>
 <p><code>append()</code> is a function, and there are many other functions that can be applied to lists such as: <code>len</code>, <code>insert</code> and <code>index</code>. You tell Python to <em>execute a function</em> (sometimes also termed <em>calling a function</em>) by writing the function’s name, followed by a set of parentheses. The parentheses will contain any optional inputs necessary for the function to do its job. Appending to a list wouldn’t be very useful if you couldn’t tell Python <em>what</em> to append in the first place!</p>
 <p>The <code>len</code> function is also a good example of this:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(theParty)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(theParty)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Here, the function <code>len</code> (lazy short-hand for <em>length</em> ) is <em>passed</em> <code>theParty</code> list as an input in order to do its magic.</p>
 <p>The functions <code>append</code>, <code>insert</code> and <code>index</code> work a <em>little</em> bit differently. They have to be <em>called</em> using <code>theParty</code> list. We’re at risk of joining Alice down the rabbit-hole here, so let’s just leave it at: the second set of functions are of a particular <em>type</em> known as <em>methods</em> of the <em>list class</em>. We’ll stop there.</p>
 <p><img src="https://www.washingtonpost.com/blogs/answer-sheet/files/2013/01/alice-falling-down-rabbit-hole1.jpg" width="250"></p>
 <p>In order to use a <em>list method</em> you always need to ‘prepend’ (i.e.&nbsp;lead with) the name of list you want to work with, like so:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>theParty.append(<span class="st">"New Guest"</span>)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>theParty.insert(<span class="dv">2</span>, <span class="st">"Anastasia"</span>)</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>theParty.index(<span class="st">"Sarah"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>theParty.append(<span class="st">"New Guest"</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>theParty.insert(<span class="dv">2</span>, <span class="st">"Anastasia"</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>theParty.index(<span class="st">"Sarah"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The idea here is that methods are associated with specific types of things such as lists, whereas generic functions are kind of free-floating. Think about it this way: you can’t append something to a number, because that <em>makes no sense</em>. Appending is something that only makes sense in the context of a list. In contrast, something like <code>len</code> works on several different types of variables: lists and string both!</p>
 <section id="append" class="level3">
 <h3 class="anchored" data-anchor-id="append">Append</h3>
 <p>Reminder: here’s appending…</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>britishProgrammers <span class="op">=</span> [<span class="st">'Lovelace'</span>]</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>britishProgrammers.append(<span class="st">"Turing"</span>)</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(britishProgrammers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>britishProgrammers <span class="op">=</span> [<span class="st">'Lovelace'</span>]</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>britishProgrammers.append(<span class="st">"Turing"</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(britishProgrammers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="insert" class="level3">
 <h3 class="anchored" data-anchor-id="insert">Insert</h3>
 <p>That’s cool, but as you noticed <code>append</code> only ever inserts the new item as the last element in the list. What if you want it to go somewhere else?</p>
 <p>With <code>insert</code> you can also specify a position</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers)</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>nonBritishProgrammers.insert(<span class="dv">1</span>, <span class="st">"Swartz"</span>)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>nonBritishProgrammers.insert(<span class="dv">1</span>, <span class="st">"Swartz"</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="index" class="level3">
 <h3 class="anchored" data-anchor-id="index">Index</h3>
 <p>Lastly, with the <code>index</code> method you can easily ask Python to find the position (index) of a given item:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Say you want to know in where "Knuth" is </span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># in the list of non-British programmers...</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers.index(<span class="st">"Knuth"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Say you want to know in where "Knuth" is </span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># in the list of non-British programmers...</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers.index(<span class="st">"Knuth"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="a-challenge-for-you-6" class="level4">
 <h4 class="anchored" data-anchor-id="a-challenge-for-you-6">A challenge for you!</h4>
 <p>Add the famous <a href="https://en.wikipedia.org/wiki/Grace_Hopper">Grace Hopper</a> (inventress of the first compiler!) to the list of British programmers, and then print her index position:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>nonBritishProgrammers.???(<span class="st">"Hopper"</span>) </span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers.???(<span class="st">"Hopper"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>nonBritishProgrammers.append(<span class="st">"Hopper"</span>) </span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># let's check</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers)</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers.index(<span class="st">"Hopper"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>nonBritishProgrammers.???(<span class="st">"Hopper"</span>) </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers.???(<span class="st">"Hopper"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div class="sourceCode" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>nonBritishProgrammers.append(<span class="st">"Hopper"</span>) </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># let's check</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers.index(<span class="st">"Hopper"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="length" class="level3">
 <h3 class="anchored" data-anchor-id="length">Length</h3>
 <p>Cool, so those were some of the <em>methods you can invoke on</em> a list. Let’s focus now on some <em>functions</em> that take lists as an <em>input</em>.</p>
 <p>With the function <code>len</code> you can immediately know the <code>len</code>-gth of a given list:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">len</span>(britishProgrammers) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>length_of_list <span class="op">=</span> <span class="bu">len</span>(nonBritishProgrammers)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"There are "</span> <span class="op">+</span> <span class="bu">str</span>(length_of_list) <span class="op">+</span> <span class="st">" elements in the list of non-British Programmers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">len</span>(britishProgrammers) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>length_of_list <span class="op">=</span> <span class="bu">len</span>(nonBritishProgrammers)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"There are "</span> <span class="op">+</span> <span class="bu">str</span>(length_of_list) <span class="op">+</span> <span class="st">" elements in the list of non-British Programmers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Did you see the <code>str(length_of_list)</code>? There’s another function! We didn’t draw attention to it before, we just told you to use <code>str(5.0)</code> to convert the float <code>5.0</code> to the string <code>"5.0"</code>. We can tell it’s a function because it uses the format <code>functionName(...some input...)</code>. So the function name is <code>str</code> (as in <em>convert to string</em>) and the input is a number (in this case it’s the length of the list <code>nonBritishProgrammers</code>). So now we can easily convert between different types of data: we took an integer (you can check this by adding the following line to the code above:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> length_of_list <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix the syntax of this line to print the length of the list:</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> length_of_list <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div class="sourceCode" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(length_of_list) <span class="op">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <p>And then print it out as a string. So <code>length_of_list</code> is a number, and by calling <code>str(length_of_list)</code> we changed it to a string that we could print out. Given that programmers are lazy, can you guess how you’d convert the string “3” to the <em>integer</em> 3?</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(length_of_list) <span class="op">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>three <span class="op">=</span> <span class="st">"3"</span></span>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<div class="sourceCode" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">'''</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co">Convert the string "3" to the _integer_ 3</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<div class="sourceCode" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>three <span class="op">=</span> <span class="st">"3"</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's check the data type</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(three)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to Integer</span></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>three <span class="op">=</span> <span class="bu">int</span>(three)</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(three)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(three))</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to Integer</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>three <span class="op">=</span> <span class="bu">int</span>(three)</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(three))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <section id="a-challenge-for-you-7" class="level4">
 <h4 class="anchored" data-anchor-id="a-challenge-for-you-7">A challenge for you!</h4>
 <p>Complete the missing bits of the following code:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>length_of_brits <span class="op">=</span> ???(britishProgrammers)</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> <span class="st">"There are "</span> ??? <span class="st">" British programmers."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: hidden</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>length_of_brits <span class="op">=</span> <span class="bu">len</span>(britishProgrammers)</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"There are "</span> <span class="op">+</span> <span class="bu">str</span>(length_of_brits) <span class="op">+</span> <span class="st">" British programmers."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
+<div class="sourceCode" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>length_of_brits <span class="op">=</span> ???(britishProgrammers)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> <span class="st">"There are "</span> ??? <span class="st">" British programmers."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
+<div class="sourceCode" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>length_of_brits <span class="op">=</span> <span class="bu">len</span>(britishProgrammers)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"There are "</span> <span class="op">+</span> <span class="bu">str</span>(length_of_brits) <span class="op">+</span> <span class="st">" British programmers."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <p>To check if the output of <code>range()</code> is a list we can use the <code>type()</code> function:</p>
 </section>
 </section>
@@ -771,50 +852,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="code-applied-geo-example" class="level1">
 <h1>Code (Applied Geo-example)</h1>
-<p>Let’s have a little play with some geographical coordinates. Based on what we’ve just done in this notebook, what do you think would be a good data type for storing lat/long coordinates?</p>
+<p>Let’s have a little play with some geographical coordinates. Based on what we’ve just done in this lesson, what do you think would be a good data type for storing lat/long coordinates?</p>
 <p>Go on, I’ll bet you can’t guess!</p>
 <p>Let’s use what we know to jump to a particular point on the planet…</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| scrolled: true</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We'll see more of this package import</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co"># later... for now, just know that it </span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&nbsp;provides access to a function called IFrame</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> IFrame</span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="co"># We want to view an OpenStreetMap map</span></span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>siteName  <span class="op">=</span> <span class="st">"http://www.openlinkmap.org/small.php"</span></span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the location and zoom level</span></span>
-<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>latitude  <span class="op">=</span> <span class="fl">63.6314</span></span>
-<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>longitude <span class="op">=</span> <span class="op">-</span><span class="fl">19.6083</span></span>
-<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>zoomLevel <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>mapURL    <span class="op">=</span> [<span class="st">'?lat='</span>, <span class="bu">str</span>(latitude), <span class="st">'&amp;lon='</span>, <span class="bu">str</span>(longitude), <span class="st">'&amp;zoom='</span>, <span class="bu">str</span>(zoomLevel)]</span>
-<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the ULR</span></span>
-<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(siteName <span class="op">+</span> <span class="st">''</span>.join(mapURL))</span>
-<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a><span class="co"># And now show us an inline map!</span></span>
-<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a>IFrame(siteName <span class="op">+</span> <span class="st">''</span>.join(mapURL), width<span class="op">=</span><span class="st">'100%'</span>, height<span class="op">=</span><span class="dv">400</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We'll see more of this package import later...</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For now, just know that it </span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&nbsp;provides access to a function called IFrame</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> IFrame</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co"># We want to view an OpenStreetMap map</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>siteName  <span class="op">=</span> <span class="st">"http://www.openlinkmap.org/small.php"</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the location and zoom level</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>latitude  <span class="op">=</span> <span class="fl">63.6314</span></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>longitude <span class="op">=</span> <span class="op">-</span><span class="fl">19.6083</span></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>zoomLevel <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>mapURL    <span class="op">=</span> [<span class="st">'?lat='</span>, <span class="bu">str</span>(latitude), <span class="st">'&amp;lon='</span>, <span class="bu">str</span>(longitude), <span class="st">'&amp;zoom='</span>, <span class="bu">str</span>(zoomLevel)]</span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the ULR</span></span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(siteName <span class="op">+</span> <span class="st">''</span>.join(mapURL))</span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a><span class="co"># And now show us an inline map!</span></span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>IFrame(siteName <span class="op">+</span> <span class="st">''</span>.join(mapURL), width<span class="op">=</span><span class="st">'100%'</span>, height<span class="op">=</span><span class="dv">400</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>And now let’s try somewhere closer to home. Try using the <code>KCLMapCoordinates</code> list below (which tells you the x/y and zoom-level) in combination with the code above. I’d suggest copying what you need from above, pasting it into the code below, and then using what you know about accessing list information so that the map shows the location of King’s College London…</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: shown</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2_first: true</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co"># King's College coordinates</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># What format are they in? Does it seem appropriate?</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>KCLMapCoordinates <span class="op">=</span> [<span class="fl">51.51130657591914</span>, <span class="op">-</span><span class="fl">0.11596798896789551</span>, <span class="dv">15</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| solution2: shown</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We want to view an OpenStreetMap map</span></span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>siteName  <span class="op">=</span> <span class="st">"http://www.openlinkmap.org/small.php"</span></span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the location and zoom level</span></span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>latitude  <span class="op">=</span> KCLMapCoordinates[<span class="dv">0</span>]</span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>longitude <span class="op">=</span> KCLMapCoordinates[<span class="dv">1</span>]</span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>zoomLevel <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>mapURL    <span class="op">=</span> [<span class="st">'?lat='</span>, <span class="bu">str</span>(latitude), <span class="st">'&amp;lon='</span>, <span class="bu">str</span>(longitude), <span class="st">'&amp;zoom='</span>, <span class="bu">str</span>(zoomLevel)]</span>
-<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the ULR</span></span>
-<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(siteName <span class="op">+</span> <span class="st">''</span>.join(mapURL))</span>
-<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a><span class="co"># And now show us an inline map!</span></span>
-<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>IFrame(siteName <span class="op">+</span> <span class="st">''</span>.join(mapURL), width<span class="op">=</span><span class="st">'100%'</span>, height<span class="op">=</span><span class="dv">400</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># King's College coordinates</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co"># What format are they in? Does it seem appropriate?</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>KCLMapCoordinates <span class="op">=</span> [<span class="fl">51.51130657591914</span>, <span class="op">-</span><span class="fl">0.11596798896789551</span>, <span class="dv">15</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We want to view an OpenStreetMap map</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>siteName  <span class="op">=</span> <span class="st">"http://www.openlinkmap.org/small.php"</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the location and zoom level</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>latitude  <span class="op">=</span> KCLMapCoordinates[<span class="dv">0</span>]</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>longitude <span class="op">=</span> KCLMapCoordinates[<span class="dv">1</span>]</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>zoomLevel <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>mapURL    <span class="op">=</span> [<span class="st">'?lat='</span>, <span class="bu">str</span>(latitude), <span class="st">'&amp;lon='</span>, <span class="bu">str</span>(longitude), <span class="st">'&amp;zoom='</span>, <span class="bu">str</span>(zoomLevel)]</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the ULR</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(siteName <span class="op">+</span> <span class="st">''</span>.join(mapURL))</span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a><span class="co"># And now show us an inline map!</span></span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>IFrame(siteName <span class="op">+</span> <span class="st">''</span>.join(mapURL), width<span class="op">=</span><span class="st">'100%'</span>, height<span class="op">=</span><span class="dv">400</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="further-references" class="level3">
 <h3 class="anchored" data-anchor-id="further-references">Further references:</h3>
 <p>General list or resources - <a href="https://github.com/vinta/awesome-python">Awesome list of resources</a> - <a href="https://docs.python.org/2.7/tutorial/introduction.html">Python Docs</a> - <a href="http://docs.python-guide.org/en/latest/intro/learning/">HitchHiker’s guide to Python</a> - <a href="http://www.pythonlearn.com/book_007.pdf">Python for Informatics</a> - <a href="http://learnpythonthehardway.org/book/ex32.html">Learn Python the Hard Way - Lists</a> - <a href="http://learnpythonthehardway.org/book/ex39.html">Learn Python the Hard Way - Dictionaries</a> - <a href="https://www.codecademy.com/courses/python-beginner-en-pwmb1/0/1">CodeAcademy</a></p>
@@ -835,7 +912,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="potential-dependencies" class="level4">
 <h4 class="anchored" data-anchor-id="potential-dependencies">Potential Dependencies:</h4>
-<p>This notebook may depend on the following libraries: None</p>
+<p>This lesson may depend on the following libraries: None</p>
 
 
 </section>

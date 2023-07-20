@@ -6,7 +6,7 @@ jupyter: python3
 
 ### Lesson Content 
 
-In previous code camp notebooks we looked at numeric (**integers** and **floats**) and textual (**strings**) data, but it's probably been quite difficult to imagine how you'd assemble these simple data into something useful. The new data types (**lists** and **dictionaries**) will _begin_ to show you how that can happen, and they will allow you to 'express' much more complex concepts with ease.
+In previous code camp lessons we looked at numeric (**integers** and **floats**) and textual (**strings**) data, but it's probably been quite difficult to imagine how you'd assemble these simple data into something useful. The new data types (**lists** and **dictionaries**) will _begin_ to show you how that can happen, and they will allow you to 'express' much more complex concepts with ease.
 
 ### What's the Difference?
 
@@ -22,13 +22,13 @@ Here's a brief summary of these data structures, highlighting their main differe
 
 There's obviously a lot more to lists and dictionaries than this, but it's a good starting point.
 
-Let's start with **lists** in this notebook and we'll continue with **dictionaries** in the following.
+Let's start with **lists** in this lesson and we'll continue with **dictionaries** in the following.
 
 You can go back to our short video that talks about lists:
 
 [![The Basics](http://img.youtube.com/vi/UDNtW3sy-og/0.jpg)](https://youtu.be/UDNtW3sy-og?t=452)
 
-### In this Notebook
+### In this lesson
 
 - Indexing & Slicing
 - List operations
@@ -67,7 +67,7 @@ We don't want to get too technical here, but it's important to note one thing: `
 
 ## Indexing
 
-To access an item in a list you use an **index**. This is a new and important concept and it's a term that we're going to use a _lot_ in the future, so try to really get this term into your head before moving forward in the notebook.
+To access an item in a list you use an **index**. This is a new and important concept and it's a term that we're going to use a _lot_ in the future, so try to really get this term into your head before moving forward in the lesson.
 
 ### Accessing Elements in a List using Indexes
 
@@ -102,6 +102,7 @@ print("The third element is: " + myNewList[2])
 Since programmers are lazy, they also have a short-cut for accessing the _end_ of a list. Since positive numbers count from the start of a list, negative numbers count from the end:
 
 ```python
+myNewList = ['first', 'second', 'third']
 print(myNewList[-1])
 print(myNewList[-2])
 ```
@@ -114,16 +115,18 @@ You can remember it this way: the last item in the list is at _n-1_ (where _n_ i
 
 Edit the code so that it prints the 'second' element in the list
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
+myNewList = ['first', 'second', 'third']
 print("The second element is :" + myNewList[???])
 ```
-
+## Solution
 ```python
-#| solution2: hidden
+myNewList = ['first', 'second', 'third']
 print("The second element is :" + myNewList[1])
 ```
+:::
 
 ### Index Out of Range
 
@@ -132,12 +135,13 @@ What happens when you try to access an element that doesn't exist?
 We know that `myList` has 3 elements, so what if we try to access the 200th element in the list? In that case Python, as usual, will inform us of the problem using an *error message* pointing to the problem:
 
 ```python
+myNewList = ['first', 'second', 'third']
 print(myNewList[200])
 ```
 
 #### A challenge for you!
 
-Do you remember the past lesson on *syntax errors* and *exceptions*? What is the error message displayed in the code above? Is it an *exception* or a *syntax error*? Can you find the explanation for what's going in the [Official Documentation](https://www.google.ie/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0ahUKEwiN3s-0qr7OAhVGIcAKHYBLAE4QFggoMAI&url=https%3A%2F%2Fdocs.python.org%2F2%2Ftutorial%2Ferrors.html&usg=AFQjCNG6q1juN8ZVXOEqOYWxE18Cv5X_qw&sig2=o92WLjkV1PNNfgpW1w9n0g&cad=rja)? 
+Do you remember the past lesson on *syntax errors* and *exceptions*? What is the error message displayed in the code above? Is it an *exception* or a *syntax error*? Can you find the explanation for what's going in the [Official Documentation](https://docs.python.org/3/tutorial/errors.html)?
 
 Even if a statement or expression is syntactically correct, it may cause an error when an attempt is made to execute it. Errors detected during execution are called ***exceptions*** and are not unconditionally fatal. The last line of the error message indicates what happened.
 
@@ -170,18 +174,18 @@ print(shortSentence[20:25])
 
 Using the previous code as a guide, edit the code below so that it prints from the second to the fourth (inclusive) characters from the string:
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: shown
-#| solution2_first: true
 shortSentence2 = "A12B34c7.0"
 print(shortSentence2[???:???])
 ```
-
+## Solution
 ```python
-#| solution2: shown
 shortSentence2 = "A12B34c7.0"
 print(shortSentence2[1:4]) 
 ```
+:::
 
 To print the entirety of a list from any starting position onwards, just drop the second index value while leaving the `:` in your code:
 
@@ -203,23 +207,24 @@ Got it?
 Now, combining what we've seen above, how do you think you would print everything _up to the eighth character from the end_ (which is the space between "HERE" and "onwards")?
 
 You'll need to combine:
+
 1. Negative indexing
 2. List slicing
 
 There are two ways to do it, one way uses only one number, the other uses two. Both are correct. Why don't you try to figure them both out? For 'Way 2' below the `???` is a placeholder for a full slicing operation since if we gave you more of a hint it would make it too obvious.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print("Up to the 18th position (Way 1): '" + stringToPrint[???:???] + "'")
 print("Up to the 18th position (Way 2): '" + ??? + "'")
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print("Up to the 18th position (Way 1): '" + stringToPrint[-8:] + "'")
 print("Up to the 18th position (Way 2): '" + stringToPrint[22:30] + "'")
 ```
+:::
 
 Strings have also plenty of methods that might prove to be quite useful in the future; for a fuller overview check out [this reference](https://en.wikibooks.org/wiki/Python_Programming/Variables_and_Strings).
 
@@ -282,30 +287,35 @@ print(britishProgrammers * 2)
 
 Correct the syntax in the following code to properly define a new list: 
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 otherNonBritishProgrammers = ["Wozniak" ??? "Van Rossum"]
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
-otherNonBritishProgrammers
 ```
+:::
 
 Edit the following code to print out all the non british programmers:
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
+nonBritishProgrammers = ["Torvald", "Knuth"]
+otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
+
 print nonBritishProgrammers ??? otherNonBritishProgrammers
 ```
-
+## Solution
 ```python
-#| solution2: hidden
+nonBritishProgrammers = ["Torvald", "Knuth"]
+otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
+
 print(nonBritishProgrammers + otherNonBritishProgrammers)
 ```
+:::
 
 ###  You're (not) in the list!
 
@@ -317,7 +327,7 @@ So if you want to check if an item exists in a list you can use the **in** opera
 element in list
 ```
 
-The **in** operator will return `True` if the item is present, and `False` otherwise. This is a new data type (called a Boolean) that we'll see a lot more of in two notebooks' time. 
+The **in** operator will return `True` if the item is present, and `False` otherwise. This is a data type (called a Boolean) that we've seen in the [Boolean logic](./Boolean_Logic.qmd) lessons.
 
 ```python
 print ('Lovelace' in britishProgrammers)
@@ -333,7 +343,7 @@ _Note:_ You might also have spotted that this time there are parentheses ("(...)
 Anyway, if you want to check if an item does not exist in a list then you can use the **not in ** operator. Let's go back to our party:
 
 ```python
-print(theParty)
+print(theParty) # You might have re-define the variable if you haven't saved it (in case, just copy and paste it before the print line)
 print('Bob' not in theParty)
 print('Jane' not in theParty)
 ```
@@ -344,9 +354,9 @@ So here, that 'Boolean' gives us `True` on the first `not in` because it's "true
 
 Complete the missing bits of the following code so that we print out Ada Lovelace, her full name:
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 firstProgrammerSurnames = ["Babbage", "Lovelace"]
 firstProgrammerNames    = ["Charles", "Ada"]
 
@@ -354,9 +364,8 @@ firstProgrammerSurnames[1] = firstProgrammerNames[1] + " " + firstProgrammerSurn
 
 print("Lady "+ ???[1] +" is considered to be the first programmer.") 
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 firstProgrammerSurnames = ["Babbage", "Lovelace"]
 firstProgrammerNames    = ["Charles", "Ada"]
 
@@ -364,6 +373,7 @@ firstProgrammerSurnames[1] = firstProgrammerNames[1] + " " + firstProgrammerSurn
 
 print("Lady "+ firstProgrammerSurnames[1] +" is considered to be the first programmer.") 
 ```
+:::
 
 _Note_ : Actually, Lady Ada Lovelace is a [fascinating person](https://en.wikipedia.org/wiki/Ada_Lovelace): she isn't just the first female programmer, she was the first programmer full-stop. For many years Charles Babbage got all the credit for inventing computers simply because he was a guy and designed the clever mechanical adding machine. However, lately, we've realised that Ada was the one who actually saw that Babbage hadn't just invented a better abacus, he'd invented a general-purpose computing device! 
 
@@ -396,13 +406,9 @@ myList.append('And another one!')
 print(myList)
 ```
 
-Why don't you try typing it all in the coding area below? You'll get the same answer either way, but one is faster to write and easier to read!
+Why don't you try typing it all in your working environment? You'll get the same answer either way, but one is faster to write and easier to read!
 
-```python
-#your code here
-```
-
-Appending to a list using `append(...)` is actually using something called a _function_. We've not really seen this concept before and we're not going to go into it in enormous detail here (there's a whole other notebook to introduce you to functions). The things that you need to notice at _this_ point in time are:
+Appending to a list using `append(...)` is actually using something called a _function_. We've not really seen this concept before and we're not going to go into it in enormous detail here (there's a whole other lesson to introduce you to functions). The things that you need to notice at _this_ point in time are:
 
 1. That square brackets ('[' and ']') are used for list indexing.
 2. That parentheses ('(' and ')') are (normally) used for function calls.
@@ -493,20 +499,20 @@ print(nonBritishProgrammers.index("Knuth"))
 
 Add the famous [Grace Hopper](https://en.wikipedia.org/wiki/Grace_Hopper) (inventress of the first compiler!) to the list of British programmers, and then print her index position:
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 nonBritishProgrammers.???("Hopper") 
 print(nonBritishProgrammers.???("Hopper"))
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 nonBritishProgrammers.append("Hopper") 
 # let's check
 print(nonBritishProgrammers)
 print(nonBritishProgrammers.index("Hopper"))
 ```
+:::
 
 ### Length
 
@@ -523,62 +529,72 @@ length_of_list = len(nonBritishProgrammers)
 print("There are " + str(length_of_list) + " elements in the list of non-British Programmers")
 ```
 
-Did you see the `str(length_of_list)`? There's another function! We didn't draw attention to it before, we just told you to use `str(5.0)` to convert the float `5.0` to the string `"5.0"`. We can tell it's a function because it uses the format `functionName(...some input...)`. So the function name is `str` (as in _convert to string_) and the input is a number (in this case it's the length of the list `nonBritishProgrammers`). So now we can easily convert between different types of data: we took an integer (you can check this by adding the following line to the code above: 
+Did you see the `str(length_of_list)`? There's another function! We didn't draw attention to it before, we just told you to use `str(5.0)` to convert the float `5.0` to the string `"5.0"`. We can tell it's a function because it uses the format `functionName(...some input...)`. So the function name is `str` (as in _convert to string_) and the input is a number (in this case it's the length of the list `nonBritishProgrammers`). So now we can easily convert between different types of data: we took an integer (you can check this by adding the following line to the code above:
+
+::: {.panel-tabset}
+## Exercise
 ```python
+# Fix the syntax of this line to print the length of the list:
 print length_of_list + 1
 ```
-And then print it out as a string. So `length_of_list` is a number, and by calling `str(length_of_list)` we changed it to a string that we could print out. Given that programmers are lazy, can you guess how you'd convert the string "3" to the _integer_ 3?
-
+## Solution
 ```python
-#| solution2: hidden
 print(int(length_of_list) + 1)
 ```
+:::
 
+And then print it out as a string. So `length_of_list` is a number, and by calling `str(length_of_list)` we changed it to a string that we could print out. Given that programmers are lazy, can you guess how you'd convert the string "3" to the _integer_ 3?
+
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-three = "3"
-# Let's check the data type
-type(three)
+'''
+Convert the string "3" to the _integer_ 3
+'''
 ```
-
+## Solution
 ```python
-#| solution2: hidden
+three = "3"
+
+# Let's check the data type
+print(type(three))
+
 # Change to Integer
 three = int(three)
-type(three)
+print(type(three))
 ```
+:::
 
 #### A challenge for you!
 
 Complete the missing bits of the following code:
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 length_of_brits = ???(britishProgrammers)
 print "There are " ??? " British programmers."
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 length_of_brits = len(britishProgrammers)
 print("There are " + str(length_of_brits) + " British programmers.")
 ```
+:::
 
 To check if the output of `range()` is a list we can use the `type()` function:
 
 # Code (Applied Geo-example)
 
-Let's have a little play with some geographical coordinates. Based on what we've just done in this notebook, what do you think would be a good data type for storing lat/long coordinates?
+Let's have a little play with some geographical coordinates. Based on what we've just done in this lesson, what do you think would be a good data type for storing lat/long coordinates?
 
 Go on, I'll bet you can't guess!
 
 Let's use what we know to jump to a particular point on the planet...
 
 ```python
-#| scrolled: true
-# We'll see more of this package import
-# later... for now, just know that it 
+# We'll see more of this package import later...
+# For now, just know that it 
 # provides access to a function called IFrame
 from IPython.display import IFrame
 
@@ -601,15 +617,12 @@ IFrame(siteName + ''.join(mapURL), width='100%', height=400)
 And now let's try somewhere closer to home. Try using the `KCLMapCoordinates` list below (which tells you the x/y and zoom-level) in combination with the code above. I'd suggest copying what you need from above, pasting it into the code below, and then using what you know about accessing list information so that the map shows the location of King's College London...
 
 ```python
-#| solution2: shown
-#| solution2_first: true
 # King's College coordinates
 # What format are they in? Does it seem appropriate?
 KCLMapCoordinates = [51.51130657591914, -0.11596798896789551, 15]
 ```
 
 ```python
-#| solution2: shown
 # We want to view an OpenStreetMap map
 siteName  = "http://www.openlinkmap.org/small.php"
 
@@ -655,5 +668,5 @@ The content and structure of this teaching project itself is licensed under the 
 Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
 
 #### Potential Dependencies:
-This notebook may depend on the following libraries: None
+This lesson may depend on the following libraries: None
 

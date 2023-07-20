@@ -469,5 +469,5 @@ The content and structure of this teaching project itself is licensed under the 
 Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
 
 #### Potential Dependencies:
-This notebook may depend on the following libraries: None
+This lesson may depend on the following libraries: None
 

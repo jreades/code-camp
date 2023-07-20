@@ -17,7 +17,7 @@ To help you get started, we have prepared an introductory video to aid your lear
 Lastly, a few words on the excercises; in every lesson we've tried to develop a mix of exercises and examples to show you how Python works. There are four 'levels' of exercise:
 
 1. **Code from Scratch**: using examples already encountered in the lesson as a starting point, you will write some _very simple_ code (1-3 lines at most) into a blank code cell. 
-2. **Supported Code**: using examples and exercises already encountered in the notebook, you will fill in somes 'gaps' in the lines of code where we've replaced some critical bits with (*???*) in order to make it work successfully.
+2. **Supported Code**: using examples and exercises already encountered in the lesson, you will fill in somes 'gaps' in the lines of code where we've replaced some critical bits with (*???*) in order to make it work successfully.
 3. **Broken Code**: here we have deliberately broken something (sometimes, more than one thing) in the code and you will need to fix these before it will run successfully. Being able to _debug_ code is an integral part of being a programmer, and this will also require you to have an eye for detail because tiny typos and simple sloppiness are enough to break a computer program.
 4. **Applied Geo-Example**: this will be a much more advanced bit of code that will (we hope) run successfully right from the start. The point of these examples is to demonstrate a real-world _application_ of a concept covered in the lesson and we are asking you to spend some time puzzling over the code and adding comments about what you think is going on. Being able to read someone else's code and to make sense of what is going on is another crucial skill for a programmer. 
 
@@ -284,7 +284,7 @@ print("I'm contained within double quotes. I'll be fine.")
 print('I'm sourrounded by single-quotes and I contain a single-quote so there may be trouble ahead...')
 ```
 
-Notice the helpful error message after running the code above? We'll come back to how to read errors like these in more detail in the next notebook, but again Python is giving us hints about where we might have made a mistake.
+Notice the helpful error message after running the code above? We'll come back to how to read errors like these in more detail in the next lesson, but again Python is giving us hints about where we might have made a mistake.
 
 ### Escape Club
 
@@ -370,7 +370,7 @@ And just like we can add together a whole set of numbers, we can add together a 
 Replace the questions marks "???"  in the following exercise with the appropriate code to make it work
 
 ```python
-print("This is code " ??? " camp's notebook is "  ??? " number " + "2.")
+print("This is code " ??? " camp's lesson is "  ??? " number " + "2.")
 ```
 
 ### Multiplication
@@ -779,4 +779,4 @@ The content and structure of this teaching project itself is licensed under the 
 Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
 
 #### Potential Dependencies:
-This notebook may depend on the following libraries: None
+This lesson may depend on the following libraries: None
