@@ -2,7 +2,7 @@
 jupyter: python3
 ---
 
-# Notebook-8: Dictionaries
+# Dictionaries
 
 ### Lesson Content 
 
@@ -86,16 +86,30 @@ Notice how now we just jump straight to the item we want? We don't need to think
 
 How would you print out "2nd Value" from `myDict`?
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
+myDict = {
+    "key1": "Value 1",
+    3: "3rd Value",
+    "key2": "2nd Value",
+    "Fourth Key": [4.0, 'Jon']
+}
+
 print(???)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
+myDict = {
+    "key1": "Value 1",
+    3: "3rd Value",
+    "key2": "2nd Value",
+    "Fourth Key": [4.0, 'Jon']
+}
+
 print(myDict["key2"])
 ```
+:::
 
 When it comes to error messages, `dict`s and `list`s behave in similar ways. If you try to access a dictionary using a key that doesn't exist then Python raises an *exception*. 
 
@@ -118,30 +132,35 @@ capital_city = ['San Jose','Zagreb','Havana'] #values
 
 We already found out that we can easily convert between different types. Dictionary is also a data type, so we can convert these lists to dictionary just like we convert strings into integers using `str` and `int`. However, since we need to pair them, we need an additional function called `zip` to pair the keys and values.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
+country = ['Costa Rica','Croatia','Cuba'] #keys
+capital_city = ['San Jose','Zagreb','Havana'] #values
+
 capitalDict = ???(zip(???,???))
 ```
-
+## Solution
 ```python
-#| solution2: hidden
+country = ['Costa Rica','Croatia','Cuba'] #keys
+capital_city = ['San Jose','Zagreb','Havana'] #values
+
 capitalDict = dict(zip(country,capital_city))
-capitalDict
 ```
+:::
 
 How would you print out the capital city of Croatia from `capitalDict`?
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print(???)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print(capitalDict['Croatia'])
 ```
+:::
 
 ## Creating a Simple Phone Book
 
@@ -155,6 +174,9 @@ So here are some useful contact numbers:
 5. Russian Emergency Number: 102
 
 Now, how would you create a dictionary that allowed us to look up and print out an emergency phone number based on the [two-character ISO country code](http://www.nationsonline.org/oneworld/country_code_list.htm)? It's going to look a little like this:
+
+::: {.panel-tabset}
+## Exercise
 ```python
 eNumbers = {
     ...
@@ -162,7 +184,7 @@ eNumbers = {
 print("The Icelandic emergency number is " + eNumbers['IS'])
 print("The American emergency number is " + eNumbers['US'])
 ```
-
+## Solution
 ```python
 eNumbers = {
     "IS": '112', # It's not very important here whether we use single- or double-quotes
@@ -171,6 +193,7 @@ eNumbers = {
 print("The Icelandic emergency number is " + eNumbers['IS'])
 print("The American emergency number is " + eNumbers['US']) 
 ```
+:::
 
 ## Useful Dictionary Methods
 
@@ -205,16 +228,16 @@ print(programmers.items())
 
 Can you access all the values of `capitalDict` from the previous challenge?
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print(???)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print(capitalDict.values())
 ```
+:::
 
 ### Are You On the List? (Part 2)
 
@@ -286,24 +309,25 @@ print(cityData[2][0])
 
 #### A challenge for you
 Can you retrieve and print the following from `cityData`:
+
 1. Nigeria
 2. 8673713
 3. 177
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print(???)
 print(???)
 print(???) 
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print(cityData[3][1])
 print(cityData[0][2])
 print(cityData[2][3])
 ```
+:::
 
 ### A Phonebook+
 
@@ -331,18 +355,18 @@ print("The " + eNumbers['FR'][0] + " emergency number is " + str(eNumbers['FR'][
 
 See if you can create the rest of the `eNumbers` dictionary and then print out the Russian and British emergency numbers.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print("The " + ??? + " emergency number is " + ???)
 print("The " + ??? + " emergency number is " + ???) 
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print("The " + eNumbers['RU'][0] + " emergency number is " + str(eNumbers['RU'][1]))
 print("The " + eNumbers['UK'][0] + " emergency number is " + str(eNumbers['UK'][1]))
 ```
+:::
 
 ### Dictionary-of-Dictionaries
 
@@ -373,21 +397,8 @@ cityData2 = {
 }
 ```
 
-Try the following code in the code cell below:
+Try the following code:
 ```python
-print(cityData2['Paris'])
-print(cityData2['Paris']['country']['ISO2'])
-print(cityData2['Paris']['location'][0])
-```
-
-```python
-#| solution2: hidden
-#| solution2_first: true
-#your code here
-```
-
-```python
-#| solution2: hidden
 print(cityData2['Paris'])
 print(cityData2['Paris']['country']['ISO2'])
 print(cityData2['Paris']['location'][0])
@@ -396,43 +407,44 @@ print(cityData2['Paris']['location'][0])
 Now, figure out how to print:
 `The population of Paris, the capital of France (FR), is 2229621.`
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print("The population of Paris, the capital of " + str(cityData2['Paris']['country']['Full']) + " " \
       + "(" + ??? + ") " + "is "+ ??? + ".")
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print("The population of Paris, the capital of " + str(cityData2['Paris']['country']['Full']) + " " \
       + "(" + str(cityData2['Paris']['country']['ISO2']) + ") " + "is "+ str(cityData2['Paris']['population']) + ".")
 ```
+:::
 
-And print `It has a density of 21153.899 persons per square km.` 
+And print `It has a density of 21153.899 persons per square km.`
+
 **Hint**: to calculate density, divide population with area.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print("It has a density of " + ???)
 ```
-
+## Solution
 ```python
 #| solution2: hidden
 print("It has a density of " + str(cityData2['Paris']['population'] / cityData2['Paris']['area'] ))
 ```
+:::
 
 Do the same for London.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print(???)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 # Note that we can tweak the formatting a bit: Python is smart 
 # enough to understand that if you have a '+' on the end of a
 # string and there next line is also a string then it'll 
@@ -452,6 +464,7 @@ print("The population of " + c + ", the capital of " +
       str(cd['population']) + ". It has a density of " + 
       "{0:8.1f}".format(cd['population']/cd['area']) + " persons per square km")
 ```
+:::
 
 # Code (Applied Geo-example)
 
@@ -463,7 +476,7 @@ This is simply a formalised way to represent a *geographic marker* (a pin on the
 
 According to the awesome [Lizy Diamond](https://twitter.com/lyzidiamond?lang=en-gb) 
 
->[GeoJSON](http://geojson.org/geojson-spec.html) is an open and popular geographic data format commonly used in web applications. It is an extension of a format called [JSON](http://json.org), which stands for *JavaScript Object Notation*. Basically, JSON is a table turned on its side. GeoJSON extends JSON by adding a section called "geometry" such that you can define coordinates for the particular object (point, line, polygon, multi-polygon, etc). A point in a GeoJSON file might look like this:
+>[GeoJSON](https://datatracker.ietf.org/doc/html/rfc7946) is an open and popular geographic data format commonly used in web applications. It is an extension of a format called [JSON](http://json.org), which stands for *JavaScript Object Notation*. Basically, JSON is a table turned on its side. GeoJSON extends JSON by adding a section called "geometry" such that you can define coordinates for the particular object (point, line, polygon, multi-polygon, etc). A point in a GeoJSON file might look like this:
 
     {
       "type": "Feature",
@@ -602,10 +615,8 @@ General list or resources
 - [Awesome list of resources](https://github.com/vinta/awesome-python)
 - [Python Docs](https://docs.python.org/2.7/tutorial/introduction.html)
 - [HitchHiker's guide to Python](http://docs.python-guide.org/en/latest/intro/learning/)
-- [Python for Informatics](http://www.pythonlearn.com/book_007.pdf)
 - [Learn Python the Hard Way - Lists](http://learnpythonthehardway.org/book/ex32.html)
 - [Learn Python the Hard Way - Dictionaries](http://learnpythonthehardway.org/book/ex39.html)
-- [CodeAcademy](https://www.codecademy.com/courses/python-beginner-en-pwmb1/0/1)
 
 
 ### Credits!

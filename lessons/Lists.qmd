@@ -646,10 +646,8 @@ General list or resources
 - [Awesome list of resources](https://github.com/vinta/awesome-python)
 - [Python Docs](https://docs.python.org/2.7/tutorial/introduction.html)
 - [HitchHiker's guide to Python](http://docs.python-guide.org/en/latest/intro/learning/)
-- [Python for Informatics](http://www.pythonlearn.com/book_007.pdf)
 - [Learn Python the Hard Way - Lists](http://learnpythonthehardway.org/book/ex32.html)
 - [Learn Python the Hard Way - Dictionaries](http://learnpythonthehardway.org/book/ex39.html)
-- [CodeAcademy](https://www.codecademy.com/courses/python-beginner-en-pwmb1/0/1)
 
 
 ### Credits!
@@ -669,4 +667,3 @@ Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) 
 
 #### Potential Dependencies:
 This lesson may depend on the following libraries: None
-
