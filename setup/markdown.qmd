@@ -31,4 +31,4 @@ Markdown is the 'default' language of GitHub, which means it's worth your while 
 
 ## Markdown & Notebooks
 
-Markdown is also the language of plain-text in Jupyter notebooks, which makes it doubly worth your while to familiarise yourself with how it works. 
+Markdown is also the language of plain-text in Jupyter notebooks, which makes it doubly worth your while to familiarise yourself with how it works.

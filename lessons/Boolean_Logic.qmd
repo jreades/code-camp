@@ -488,7 +488,7 @@ The very logical Prof. George Boole, circa 1860:
 
 Boolean logic and [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra) have to do with _set theory_ but also lie at the heart of the modern computer! Remember that in lesson 1 we saw that a computer works by combining `AND`, `OR`, `XOR` and `NAND` circuits to produce ever more complex calculations? Well, we also use this a lot in programming!
 
-In Python there are [three boolean logic opertors](https://docs.python.org/2/library/stdtypes.html#boolean-operations-and-or-not), these are (in ascending order of priority): `or`, `and`, and `not`.
+In Python there are [three boolean logic opertors](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not), these are (in ascending order of priority): `or`, `and`, and `not`.
 
 We'll look at these in more detail in a second, but here's the 'cheat sheet':
 - OR: _if either A OR B are True_ then run the following code block...
@@ -727,4 +727,3 @@ Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) 
 
 #### Potential Dependencies:
 This lesson may depend on the following libraries: None
-

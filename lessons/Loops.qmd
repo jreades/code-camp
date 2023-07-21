@@ -654,7 +654,7 @@ m
 
 General list of resources
 - [Awesome list of resources](https://github.com/vinta/awesome-python)
-- [Python Docs](https://docs.python.org/2.7/tutorial/introduction.html)
+- [Python Docs](https://docs.python.org/3/tutorial/introduction.html)
 - [HitchHiker's guide to Python](http://docs.python-guide.org/en/latest/intro/learning/)
 - [Python for Informatics](http://www.pythonlearn.com/book_007.pdf)
 - [Learn Python the Hard Way - Lists](http://learnpythonthehardway.org/book/ex32.html)

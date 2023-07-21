@@ -15,4 +15,3 @@ A big gap is opening up between the stuff that can be done by pushing buttons (w
 ## What is Urban Spatial Science?
 
 It is for these reasons that terms like 'geocomputation', 'spatial data science', 'geographic data science' and, of course, '**urban spatial science**' are back in vogue. After a period in which GIS tools like ArcMap, ArcPro, MapInfo and (our favourite) [QGIS](https://www.qgis.org/) were front-and-centre for many people with an interest in spatial data (as well for many people who objected to the shortcomings of quantitative approaches), the increased availability of data and code has created a need for a 'new' (or old, depending on your view) type of spatial analyst able to reason _through_ code while remaining critically aware of the limitations of the data.
-

@@ -14,7 +14,7 @@ jupyter: python3
 
 This lesson is all about learning to deal with the (unavoidable) errors that you wil encounter when programming in Ptyhon. Most programmers spend _most_ of their day dealing with errors of one sort or another: sometimes they are easy to solve (e.g. you mis-typed a variable name), other times they are very, very hard (e.g. you are writing a cloud computing platform and have to deal with competition for resources). Either way, learning how to find, diagnose, and resolve errors, as well as how to minimize their consequences, is thus a crucial skill for programmers. 
 
-*DISCLAIMER: This lesson is heavily based on the [official Python Documentation](https://docs.python.org/2/tutorial/errors.html) about Errors and Exception. Check it out for further examples.*
+*DISCLAIMER: This lesson is heavily based on the [official Python Documentation](https://docs.python.org/3/tutorial/errors.html) about Errors and Exception. Check it out for further examples.*
 
 # Introduction to errors
 
@@ -114,7 +114,7 @@ print("In the " + other_projection + " projection, meridians are ellipses.")
 
 Even if your code is syntatically exemplary (i.e. it's all perfectly written before you hit 'run'), errors might still occur for a wide variety of reasons: your computer is freaking out, you're not online, you haven't defined a variable yet... Obviously, these aren't syntax errors because your code would ordinarly work fine, it's just that something is missing and we think this is... _exceptional_. 
 
-To help you find out which of the problems you've just hit, Python has the concept of exceptions and a huge taxonomy of specific errors ([here's a list](https://docs.python.org/2/library/exceptions.html)). That way, when something exceptional happens we know whether to restart the computer, check the Internet connection, or look for the place where the variable was supposedly defined.
+To help you find out which of the problems you've just hit, Python has the concept of exceptions and a huge taxonomy of specific errors ([here's a list](https://docs.python.org/3/library/exceptions.html)). That way, when something exceptional happens we know whether to restart the computer, check the Internet connection, or look for the place where the variable was supposedly defined.
 
 Let's start by considering these two *exception* examples (run each and examine the error message returned):
 
@@ -213,7 +213,7 @@ Here's a "rule of thumb" list of actions to take when Python throws an error at 
 - Ask yourself: is it a *Syntax Error* or an *Exception*?
 - In both cases: where's the faulty line?
 - For  *Syntax Errors*: where's the little caret character ( ‸ ) pointing at?
-- For *Exceptions*: what kind of exception is that? Read the [Official Docs](https://docs.python.org/2/library/exceptions.html) and try to make sense of it
+- For *Exceptions*: what kind of exception is that? Read the [Official Docs](https://docs.python.org/3/library/exceptions.html) and try to make sense of it
 - *No, really. Don't Panic!*
 
 # Learn to find help
@@ -280,7 +280,7 @@ If you are on Twitter, don't forget to follow the [Null Island buoy](https://twi
 
 General list or resources
 - [Awesome list of resources](https://github.com/vinta/awesome-python)
-- [Python Docs](https://docs.python.org/2.7/tutorial/introduction.html)
+- [Python Docs](https://docs.python.org/3/tutorial/introduction.html)
 - [HitchHiker's guide to Python](http://docs.python-guide.org/en/latest/intro/learning/)
 - [Learn Python the Hard Way](http://learnpythonthehardway.org/book/)
 - [CodeAcademy](https://www.codecademy.com/learn/python)
@@ -303,4 +303,3 @@ Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) 
 
 #### Potential Dependencies:
 This lesson may depend on the following libraries: None
-

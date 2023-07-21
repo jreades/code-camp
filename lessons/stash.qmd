@@ -26,4 +26,3 @@ print(sys.version)
 ```
 
 You don't need to understand all of that output, the point is that this is Python and we can do anything in a notebook that we would in a program.
-

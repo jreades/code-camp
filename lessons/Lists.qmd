@@ -644,7 +644,7 @@ IFrame(siteName + ''.join(mapURL), width='100%', height=400)
 
 General list or resources
 - [Awesome list of resources](https://github.com/vinta/awesome-python)
-- [Python Docs](https://docs.python.org/2.7/tutorial/introduction.html)
+- [Python Docs](https://docs.python.org/3/tutorial/introduction.html)
 - [HitchHiker's guide to Python](http://docs.python-guide.org/en/latest/intro/learning/)
 - [Learn Python the Hard Way - Lists](http://learnpythonthehardway.org/book/ex32.html)
 - [Learn Python the Hard Way - Dictionaries](http://learnpythonthehardway.org/book/ex39.html)

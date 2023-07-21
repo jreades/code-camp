@@ -111,7 +111,7 @@ Many programming languages (Python _used_ to be one of them) treat whole numbers
 
 #### Modulo
 
-While we're on the topic of division, how do you get the 'remainder' of 9/2 – the bit _left over_ from the division? To get this there is a different symbol called the *modulo operator* which is a marked by a `%` sign. According in fact to the [Python Documentation](https://docs.python.org/2.7/reference/expressions.html)
+While we're on the topic of division, how do you get the 'remainder' of 9/2 – the bit _left over_ from the division? To get this there is a different symbol called the *modulo operator* which is a marked by a `%` sign. According in fact to the [Python Documentation](https://docs.python.org/3/reference/expressions.html)
 
 >The % (modulo) operator yields the remainder from the division of the first argument by the second.
 
@@ -757,7 +757,7 @@ On this lesson's topic:
 
 General list or resources
 - [Awesome list of resources](https://github.com/vinta/awesome-python)
-- [Python Docs](https://docs.python.org/2.7/tutorial/introduction.html)
+- [Python Docs](https://docs.python.org/3/tutorial/introduction.html)
 - [HitchHiker's guide to Python](http://docs.python-guide.org/en/latest/intro/learning/)
 - [Learn Python the Hard Way](http://learnpythonthehardway.org/book/)
 - [CodeAcademy](https://www.codecademy.com/learn/python)

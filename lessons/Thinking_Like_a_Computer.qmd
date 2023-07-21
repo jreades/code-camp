@@ -237,5 +237,3 @@ Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) 
 
 #### Potential Dependencies:
 This notebook may depend on the following libraries: None
-
-
