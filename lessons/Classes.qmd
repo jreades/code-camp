@@ -2,7 +2,7 @@
 jupyter: python3
 ---
 
-# Notebook-13: Inheritance and Classes
+# Inheritance and Classes
 
 # A (Semi-Brief) Discourse on Families & Inheritance
 
@@ -168,6 +168,7 @@ print("")
 ### Test Your Understanding 
 
 Based on the above examples of classes and methods, I have two challenges for you to implement in the code below:
+
 1. Try fully-implementing the *regular* pyramid class with a square base that we skipped over above!
 2. Try adding an `area` method that returns the surface area of each shape and then add that information to the output below.
 
@@ -257,5 +258,4 @@ The content and structure of this teaching project itself is licensed under the 
 Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
 
 #### Potential Dependencies:
-This notebook may depend on the following libraries: None
-
+This lesson may depend on the following libraries: None
