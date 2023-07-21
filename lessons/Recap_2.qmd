@@ -6,7 +6,7 @@ jupyter: python3
 
 ## Second Checkpoint
 
-Since the first recap, you've learned about lists, dictionaries and loops. Let's revise those concepts and how to use them in this notebook before continuing on to some new material. Answer the questions as best you can, working through any error messages you receive and remembering to refer back to previous notebooks. 
+Since the first recap, you've learned about lists, dictionaries and loops. Let's revise those concepts and how to use them in this lesson before continuing on to some new material. Answer the questions as best you can, working through any error messages you receive and remembering to refer back to previous lessons. 
 
 ## Lists
 First, here's a reminder of some useful methods (_i.e._ functions) that apply to lists:
@@ -34,55 +34,55 @@ cities = ["Bristol", "London", "Manchester", "Edinburgh", "Belfast", "York"]
 
 **b)** Replace the `???` so that it prints the position of Manchester in the list
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print("The position of Manchester in the list is: " + str(cities.???('Manchester')))
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print("The position of Manchester in the list is: " + str(cities.index('Manchester')))
 ```
+:::
 
 **c)** Replace the `???` so that it prints Belfast
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print(cities[2 + ???])
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print(cities[2 + 2])
 ```
+:::
 
 **d)** Use a **negative** index to print *Belfast*
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print(cities[???])
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print(cities[-2])
 ```
+:::
 
 **e)** Force Python to generate a `list index out of range` error. NB: This error happens you provide an index for which a list element does not exist
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print(cities[???])
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print(cities[6]) #anything above five would do it
 ```
+:::
 
 **f)** Think about what the next line creates, then run the code. 
 
@@ -92,31 +92,31 @@ temperatures = [15.6, 16.5, 13.4, 14.0, 15.2, 14.8]
 
 **g)** What would you change `???` to, to return `[16.5, 13.4, 14.0]`?
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print(temperatures[???])
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print(temperatures[1:4])
 ```
+:::
 
 **h)** What are two different ways of getting `[15.2, 14.8]` from the `temperatures` list?
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print(temperatures[???])
 print(temperatures[???])
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print(temperatures[4:6])
 print(temperatures[-3:-1])
 ```
+:::
 
 **i)** Notice that the list of `temperatures` is the same length as the list of `cities`, that's because these are (roughly) average temperatures for each city! Given this, how do you print: "The average temperature in Manchester is 13.4 degrees." _without_ doing any of the following:
 1. Using a list index directly (*i.e.* `cities[2]` and `temperatures[2]`) or 
@@ -134,34 +134,34 @@ print("The average temperature in " + cities[city] + " is " + str(temperatures[c
 
 _Hint:_ you need to combine some of the ideas we've used above!
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 city="Manchester" # Use this to start the solution...
-#your code here
+#your code here...
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 city="Manchester" # Use this to get the solution...
 index = cities.index(city)
 print("The average temperature in " + cities[index] + " is " + str(temperatures[index]) + " degrees.")
 ```
+:::
 
 Now copy+paste your code and change only **one** thing in order to print out: "The average temperature in Belfast is 15.2 degrees"
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 ???
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 city="Belfast"
 index = cities.index(city)
 print("The average temperature in " + cities[index] + " is " + str(temperatures[index]) + " degrees.")
 ```
+:::
 
 ### 1.2 Manipulating Multiple Lists
 
@@ -174,29 +174,29 @@ list2 = [4, 5, 6]
 
 **j)** How do you get Python to print: `[1, 2, 3, 4, 5, 6]`
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print( ??? )
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print ( list1 + list2 )
 ```
+:::
 
 **k)** How to you get Python to print: `[1, 2, 3, [4, 5, 6]]`
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print( ??? )
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print( list1+[list2])
 ```
+:::
 
 Let's re-set the lists (run the next code block)
 
@@ -207,62 +207,62 @@ list2 = [4, 5, 6]
 
 **l)** How would you print out: `[6, 5, 4, 3, 2, 1]` ?
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 list3 = ???
 list3.???
 print(list3)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 list3 = list1+list2
 list3.reverse()
 print(list3)
 ```
+:::
 
 **m)** How would you print out: `[3, 2, 1, 6, 5, 4]` ?
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 list1.???
 list2.???
 print( list1+list2 )
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 list1.reverse()
 list2.reverse()
 print( list1+list2 )
 ```
+:::
 
 **n)** How would you print out `[3, 2, 6, 5]` with a permanent change to the list (not slicing)? NB: this follows on from the previous question, so note that the order is still 'reversed'.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 list1.???
 list2.???
 print( list1+list2 )
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 list1.remove(1)
 list2.remove(4)
 print( list1+list2 )
 ```
+:::
 
 ## Dictionaries
 
-Remember that dictionaries (a.k.a. dicts) are like lists in that they are [data structures](https://docs.python.org/2/tutorial/datastructures.html) containing multiple elements. A key difference between [dictionaries](https://docs.python.org/2/tutorial/datastructures.html#dictionaries) and [lists](https://docs.python.org/2/tutorial/introduction.html#lists) is that while elements in lists are ordered, dicts are unordered. This means that whereas for lists we use integers as indexes to access elements, in dictonaries we use 'keys' (which can multiple different types; strings, integers, etc.). Consequently, an important concept for dicts is that of key-value pairs. 
+Remember that dictionaries (a.k.a. dicts) are like lists in that they are [data structures](https://docs.python.org/3/tutorial/datastructures.html) containing multiple elements. A key difference between [dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries) and [lists](https://docs.python.org/3/tutorial/introduction.html#lists) is that while elements in lists are ordered, dicts are unordered. This means that whereas for lists we use integers as indexes to access elements, in dictonaries we use 'keys' (which can multiple different types; strings, integers, etc.). Consequently, an important concept for dicts is that of key-value pairs. 
 
 ### Creating an Atlas
 
-Replace `???` in the following code block to make the code work as instructed in the comments. If you need some hints and reminders, revisit [Code Camp Lesson 7](https://kingsgeocomputation.org/teaching/code-camp/code-camp-python/lessons/).
+Replace `???` in the following code block to make the code work as instructed in the comments. If you need some hints and reminders, revisit the [Dictionaries Lesson](./Dicts.qmd).
 
 Run the code and check you understand what the data structure that is being created (the data for each city are latitude, longitude and airport code)
 
@@ -277,14 +277,13 @@ cities = {
 
 **a)** Add a record to the dictionary for Chennai ([data here](https://en.wikipedia.org/wiki/Chennai))
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 cities = ???
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 cities = {
     'San Francisco': [37.77, -122.43, 'SFO'],
     'London': [51.51, -0.08, 'LDN'],
@@ -293,107 +292,107 @@ cities = {
     'Chennai': [13.08, 80.27,'MAA']
 }
 ```
+:::
 
 **b)** In *one* line of code, print out the airport code for Chennai
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print(???)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 print("The airport code for Chennai is " + cities["Chennai"][2])
 ```
+:::
 
 **c)** Check you understand the difference between the following two blocks of code by running them, checking the output and editing them (e.g. try the code again, but replacing *Berlin* with *London*)
 
 ```python
-#| scrolled: true
 print(cities['Berlin'])
 ```
 
 ```python
-#| solution2: hidden
-#| solution2_first: true
 print(cities.get('Berlin'))
 ```
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
+# What is the difference among the two methods above?
+# Compare to use using the two different methods for London
+```
+## Solution
+```python
 #Berlin is not in the dict. 
 #The first code block above returns an error because Berlin is missing
 #The second does not because it uses the .get method which handles the error for us (returning a None value)
 #This second method is 'safer' because of how it handles this error
 
-#compare to use using the two different methods for London
+#compare using the two different methods for London:
 print(cities['London'])
 print(cities.get('London'))
 ```
-
-```python
-#| solution2: hidden
-print(cities.get('London'))
-```
+:::
 
 **d)** Adapting the code below, print out the city name and airport code for every city in our Atlas.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 for k, v in cities.items():
     print(k)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 for k, v in cities.items():
     print("The city of " + str(k) + " has an airport code of " + str(v[2]) )
 ```
+:::
 
 ## Loops
 
-Recall from the previous notebook that loops are a way to *iterate* (or repeat) chunks of code. The two most common ways to iterate a set of commands are the `while` loop and the `for` loop. 
+Recall from the previous lessons that loops are a way to *iterate* (or repeat) chunks of code. The two most common ways to iterate a set of commands are the `while` loop and the `for` loop. 
 
 ### Working with Loops
-The questions below use `for` loops. Replace `???` in the following code block to make the code work as instructed in the comments. If you need some hints and reminders, revisit the previous notebook.
+The questions below use `for` loops. Replace `???` in the following code block to make the code work as instructed in the comments. If you need some hints and reminders, revisit the previous lessons.
 
 **a)** Print out the name and latitude of every city in the cities dictionary using a for loop
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 for ??? in cities.???:
     print(??? + " is at latitude " + str(???))
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 for city, latitude in cities.items():
     print(city + " is at latitude " + str(latitude[0]))
 ```
+:::
 
 **b)** Print out every city on a separate line using a for loop:
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 for c in ???:
     print(???)
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 for c in cities.items():
     print(c)
 ```
+:::
 
 **c)** Now print using a loop this new data structure:
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: hidden
-#| solution2_first: true
 citiesB = [
     {'name':     'San Francisco',
      'position': [37.77, -122.43],
@@ -412,9 +411,8 @@ citiesB = [
 for ??? in citiesB.???:
     print(??? + " is at latitude " + str(???))
 ```
-
+## Solution
 ```python
-#| solution2: hidden
 citiesB = [
     {'name':     'San Francisco',
      'position': [37.77, -122.43],
@@ -433,6 +431,7 @@ citiesB = [
 for city in citiesB:
     print(city['name'] + " is at latitude " + str(city['position'][0]))
 ```
+:::
 
 Nice work. Hopefully these questions have helped you compound your understanding. Onwards!
 
@@ -452,5 +451,4 @@ The content and structure of this teaching project itself is licensed under the 
 Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
 
 #### Potential Dependencies:
-This notebook may depend on the following libraries: None
-
+This lesson may depend on the following libraries: None

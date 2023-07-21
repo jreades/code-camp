@@ -17,7 +17,7 @@ jupyter: python3
 
 In this lesson we cover the concept of *iteration*, which is basically the idea of *repeating the same set of instructions until a certain condition is met*. This sequence of instructions is also called a *loop*.   
 
-This is an extremely important and powerful concept, as it allows us to finally *automate* tasks! Remember that a fundamental feature of programmers is that they are *lazy* (refresh [Larry Wall's *"Three Virtues"*](https://thethreevirtues.com/) that we saw in the first notebook!). The more you can delegate to the machine and avoid repeating boring and repetitive tasks yourself, the better!
+This is an extremely important and powerful concept, as it allows us to finally *automate* tasks! Remember that a fundamental feature of programmers is that they are *lazy* (refresh [Larry Wall's *"Three Virtues"*](https://thethreevirtues.com/) that we saw in the first lesson!). The more you can delegate to the machine and avoid repeating boring and repetitive tasks yourself, the better!
 
 Of course, as the fantastic [Randall Munroe](https://xkcd.com/about/) likes to remind us, reality sometimes challenges this idea...
 ![xkcd-automation](../img/automation.png)
@@ -678,5 +678,4 @@ The content and structure of this teaching project itself is licensed under the 
 Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
 
 #### Potential Dependencies:
-This notebook may depend on the following libraries: None
-
+This lesson may depend on the following libraries: None
