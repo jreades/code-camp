@@ -2,7 +2,7 @@
 jupyter: python3
 ---
 
-# Notebook-12: Introduction to Packages
+# Introduction to Packages
 
 ## Functions vs. Packages
 
@@ -28,7 +28,7 @@ Often, if you're not sure where to start Google (or StackOverflow) is the place 
 
 Boom!
 
-### Q: But why have packages at all, why not just copy and paste all the functions that we need into our notebook directly? 
+### Q: But why have packages at all, why not just copy and paste all the functions that we need into our script directly? 
 
 **A**: Because it keeps our code 'clean' and allows us to have functions with the *same name* that do different things. 
 
@@ -134,9 +134,9 @@ print(help(urlopen)) # Notice!
 
 Fix the code to set the `url` variable, then use it with the `urlopen` function to open it.
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: shown
-#| solution2_first: true
 from urllib.request import urlopen
 
 # Given the info you were given above, what do you 
@@ -153,9 +153,8 @@ datafile = response.read().decode('utf-8')
 
 print("datafile variable is of type: '" + datafile.__class__.__name__ + "'.\n")
 ```
-
+## Solution
 ```python
-#| solution2: shown
 from urllib.request import urlopen
 
 url = "http://bit.ly/2vrUFKi"
@@ -164,6 +163,7 @@ datafile = response.read().decode('utf-8')
 
 print("datafile variable is of type: '" + datafile.__class__.__name__ + "'.\n")
 ```
+:::
 
 Note that the _datafile_ variable is of type `string` (because we decoded it as such).  If we hadn't decoded it, the result would have been of type `bytes` which wouldn't be as easy for us (humans) to work with. 
 
@@ -173,13 +173,13 @@ Now that we've read our data as text, we can print it to check.
 print(datafile)
 ```
 
-So this is definitely text, but even though it has been nicely formatted _visually_ in the notebook, right now it's actually not in a very convenient format to work with in our _code_. The `datafile` `str` object is actually a single string of text that the notebook is interpreting as having line breaks. We can see this by printing the 'raw' object (without jupyter notebook formatting for us) using the `repr` function:
+So this is definitely text, but even though it has been nicely formatted _visually_ in the script, right now it's actually not in a very convenient format to work with in our _code_. The `datafile` `str` object is actually a single string of text that Python is interpreting as having line breaks. We can see this by printing the 'raw' object using the `repr` function:
 
 ```python
 print(repr(datafile))
 ```
 
-Note the `\n` character that jupyter notebook is using to determine when to print a [new line](https://en.wikipedia.org/wiki/Newline) for us to read nicely.
+Note the `\n` character that Python is using to determine when to print a [new line](https://en.wikipedia.org/wiki/Newline) for us to read nicely.
 
 To split the text into individual lines ourselves (ready to work with in our code), we can use the handily named `.splitlines()` method (more on methods below):
 
@@ -239,22 +239,22 @@ Now, using the output of the `help` command, how would you use `split` to turn t
 ```
 If you replace the `???` with the right bits of code then running the block below will print out "You got it!". You *only* need to change the `???` and nothing else!
 
+::: {.panel-tabset}
+## Exercise
 ```python
-#| solution2: shown
-#| solution2_first: true
 if ['sup','rcalifragilisticexpialidocious']=='supercalifragilisticexpialidocious'.split(???, maxsplit=???):
     print("You got it!")
 else:
     print("Not yet!")
 ```
-
+## Solution
 ```python
-#| solution2: shown
 if ['sup','rcalifragilisticexpialidocious']=='supercalifragilisticexpialidocious'.split('e', maxsplit=1):
     print("You got it!")
 else:
     print("Not yet!")
 ```
+:::
 
 ```python
 # Some other string methods
@@ -270,15 +270,18 @@ Let's test `string` splitting using our sample data (the last line of the 'simpl
 ```
 Again, we only need to change the `???`.
 
+::: {.panel-tabset}
+## Exercise
 ```python
 test = datafile[-1].split(???)
 print(test)
 ```
-
+## Solution
 ```python
 test = datafile[-1].split(',')
 print(test)
 ```
+:::
 
 #### Consider
 
@@ -338,5 +341,4 @@ The content and structure of this teaching project itself is licensed under the 
 Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
 
 #### Potential Dependencies:
-This notebook may depend on the following libraries: None
-
+This lesson may depend on the following libraries: None
