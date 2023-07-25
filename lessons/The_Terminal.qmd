@@ -1,3 +1,78 @@
 ---
 title: The Terminal
 ---
+
+# Working Without Buttons
+
+At _some_ point in your exploration of programming you will need to learn how to read/write data from elsewhere on the computer or the Internet. At that point, for anyone who learned how to use a computer after about 1990, computers can quickly come to seem very unfriendly indeed! That's because when you are programming you will need to give the computer a lot more information about how to find, read, and write data. 
+
+When you use an app on your mobile phone or on your computer it will often save your files somewhere convenient so that you can find them again, but this isn't magic: a programmer made a choice about how to do this for you, and now that you're learning to program _you_ have to make that choice.
+
+## Paths
+
+Have you ever thought about how and where files are stored on your computer? Probably not, unless you were very, very bored. Unfortunately, when you start programming you _do_ need to learn a bit more about this -- enough, at least, to tell Python where to find the file that you want it to read... though you can do much more than that!
+
+A few starting principles:
+
+1. Directories (a.k.a. folders) and files all have a unique location _somewhere_ on your hard drive.
+
+2. A directory (or folder) can contain directories and files. A _simple_ file cannot contain a directory. Only special _types_ of file such as a Zip archive can contain a folder.
+
+3. The directory that sits at the bottom of the hierarchy (_i.e._ the _one_ directory that is not _in_ another directory) is known as the **root directory**.
+
+4. The directory in which _your_ settings and documents are saved (_i.e._ the stuff associated with your *username*) is known as the **home directory**.
+
+5. A file must be stored in a directory (there are no root files).
+
+### Paths in the Finder
+
+We'll get to a video in a second, but on a Mac you can 'view' the path in the Finder simply by clicking on any finder window and typing `Alt + Command + P` (or selecting `View > Path` from the menu bar). This will show the current path in a strip along the bottom of the finder window. Pay attention to the Path view in the movie below.
+
+[![The Path (Graphical Version)](http://img.youtube.com/vi/U0hrKz5Ajrg/0.jpg)](http://www.youtube.com/watch?v=U0hrKz5Ajrg "The Path (Graphical Version)")
+
+### Paths in a Terminal
+
+Now, sooner or later you are going to have to learn how to use the Terminal (a.k.a. Shell) because it will make certain tedious tasks go much, much faster. It is also by far the best way to install Python libraries or other 'libraries' that you need to develop your code. Learning to the use the Terminal is also going to help a _lot_ in learning to fix subtle problems with your program (e.g. checking that you are reading the _right_ data). 
+
+So here's the _same_ process of navigating from a directory called `KCL Modules` down to the 2017-18 Geocomputation Teaching directory as you just saw above, but using the Terminal:
+
+[![The Path (Terminal Version)](http://img.youtube.com/vi/qxvhsuOKGaY/0.jpg)](http://www.youtube.com/watch?v=qxvhsuOKGaY "The Path (Terminal Version)")
+
+You'll notice that there were several seemingly cryptic commands -- we'll examine them in more detail below, but the important ones to note in this video are:
+
+- `ls` *lists* the contents of the current directory
+- `cd` *c*hanges *d*irectory
+
+We always say that programmers are lazy and this is a good example of that: why write `list` when we can write `ls` or `change directory` when we can write `cd`? You obviously need to learn what those bits of laziness mean, but they can help a lot in speeding up your code!
+
+#### A Challenge for you!
+Now that you have a geneal idea of what is the terminal, what is a path, and how to navigate in your computer's folders without clicking buttons, you can take a look at this [Software Carpentry exercise focussed on the Terminal](https://librarycarpentry.org/lc-shell/).
+
+This will cover the following topics and guide you in understanding how to efficiently work with the terminal:
+
+1. [What is the shell?](https://librarycarpentry.org/lc-shell/01-intro-shell.html)
+2. [Navigating the filesystem](https://librarycarpentry.org/lc-shell/02-navigating-the-filesystem.html)
+3. [Working with files and directories](https://librarycarpentry.org/lc-shell/03-working-with-files-and-folders.html)
+4. [Automating the tedious with loops](https://librarycarpentry.org/lc-shell/04-loops.html)
+5. [Counting and mining with the shell](https://librarycarpentry.org/lc-shell/05-counting-mining.html)
+6. [Working with free text](https://librarycarpentry.org/lc-shell/06-free-text.html)
+
+For a one-page recap on everything you need to know to start working from the terminal, check out Ian Milligan & James Baker's [Introduction to the Bash Command Line](https://doi.org/10.46430/phen0037). This very well structured overview covers the same topics of the previous exercise, and can serve a useful cheat sheet if in the future you might want to go back and revise these concepts (or only have a useful list of bash commands at hand).
+
+### Credits!
+
+#### Contributors:
+The following individuals have contributed to these teaching materials: 
+- [James Millington](https://github.com/jamesdamillington)
+- [Jon Reades](https://github.com/jreades)
+- [Michele Ferretti](https://github.com/miccferr)
+- [Zahratu Shabrina](https://github.com/zarashabrina)
+
+#### License
+The content and structure of this teaching project itself is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/), and the contributing source code is licensed under [The MIT License](https://opensource.org/licenses/mit-license.php).
+
+#### Acknowledgements:
+Supported by the [Royal Geographical Society](https://www.rgs.org/HomePage.htm) (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.
+
+#### Potential Dependencies:
+This lesson may depend on the following libraries: None

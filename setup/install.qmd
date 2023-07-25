@@ -2,7 +2,7 @@
 title: "Installing Python"
 ---
 
-Installing Python or R (see [Tools of the Trade](../lessons/Tools_of_the_Trade.qmd)) is fairly straightforward nowdays, but be warned: what you will see _after_ installing them ain't pretty. By default, Python and R code is simply the black-and-white text output of an 'interpreter' (something that processes lines of code by 'interpreting' our code into instructions to the computer, and back). People who code all the time will _always_ install an [IDE](../lessons/Tools_of_the_Trade.qmd) like RStudio or VSCode because it 'prettifies' the code that they run, making it easier to spot mistakes and track links between files containing code that interact. 
+Installing Python or R is fairly straightforward nowdays, but be warned: what you will see _after_ installing them ain't pretty. By default, Python and R code is simply the black-and-white text output of an 'interpreter' (something that processes lines of code by 'interpreting' our code into instructions to the computer, and back). People who code all the time will _always_ install an [IDE](../lessons/Tools_of_the_Trade.qmd) like RStudio or VSCode because it 'prettifies' the code that they run, making it easier to spot mistakes and track links between files containing code that interact. 
 
 You can complete a _lot_ of Code Camp using just the basic Python interpreter, but you might find it _easier_ to look at the [no install options](./no_install.qmd) since these automatically include tools for beautifying your Python code. However, if you're sure that you want to install Python on your computer then here's what you do... 
 

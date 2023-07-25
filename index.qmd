@@ -49,7 +49,6 @@ from datetime import time
 sequencing = [
   [str(time(0,10,0)), 'Introduction: Doing Urban Spatial Science'],
   [str(time(0,25,0)), 'Background: *Why* We Do What We Do'],
-  [str(time(0,45,0)), 'Tools of the Trade: *How* We Do What We Do'],
   [str(time(0,45,0)), 'The Basics: Variables, Operators & Precedence'],
   [str(time(0,45,0)), 'Exceptions: What to Do When Things Go Wrong'],
   [str(time(0,45,0)), 'Writing Code: A Matter of Style'],

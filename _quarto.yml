@@ -64,8 +64,6 @@ website:
           href: lessons/Doing_Urban_Spatial_Science.qmd
         - text: "Background"
           href: lessons/Background.qmd
-        - text: "Tools of the Trade"
-          href: lessons/Tools_of_the_Trade.qmd
         - text: "The Basics"
           href: lessons/The_Basics.qmd
         - text: "Exceptions"

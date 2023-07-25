@@ -130,10 +130,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Background</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Tools_of_the_Trade.html" rel="" target="">
- <span class="dropdown-text">Tools of the Trade</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../lessons/The_Basics.html" rel="" target="">
  <span class="dropdown-text">The Basics</span></a>
   </li>  
@@ -233,12 +229,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lessons/Tools_of_the_Trade.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tools of the Trade</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../lessons/The_Basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Basics</span></a>
   </div>
@@ -321,7 +311,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#working-without-buttons" id="toc-working-without-buttons" class="nav-link active" data-scroll-target="#working-without-buttons">Working Without Buttons</a>
+  <ul class="collapse">
+  <li><a href="#paths" id="toc-paths" class="nav-link" data-scroll-target="#paths">Paths</a></li>
+  <li><a href="#the-unix-shell" id="toc-the-unix-shell" class="nav-link" data-scroll-target="#the-unix-shell">The Unix Shell</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -343,8 +343,85 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="working-without-buttons" class="level1">
+<h1>Working Without Buttons</h1>
+<p>At <em>some</em> point in your exploration of programming you will need to learn how to read/write data from elsewhere on the computer or the Internet. At that point, for anyone who learned how to use a computer after about 1990, computers can quickly come to seem very unfriendly indeed! That’s because when you are programming you will need to give the computer a lot more information about how to find, read, and write data.</p>
+<p>When you use an app on your mobile phone or on your computer it will often save your files somewhere convenient so that you can find them again, but this isn’t magic: a programmer made a choice about how to do this for you, and now that you’re learning to program <em>you</em> have to make that choice.</p>
+<section id="paths" class="level2">
+<h2 class="anchored" data-anchor-id="paths">Paths</h2>
+<p>Have you ever thought about how and where files are stored on your computer? Probably not, unless you were very, very bored. Unfortunately, when you start programming you <em>do</em> need to learn a bit more about this – enough, at least, to tell Python where to find the file that you want it to read… though you can do much more than that!</p>
+<p>A few starting principles:</p>
+<ol type="1">
+<li><p>Directories (a.k.a. folders) and files all have a unique location <em>somewhere</em> on your hard drive.</p></li>
+<li><p>A directory (or folder) can contain directories and files. A <em>simple</em> file cannot contain a directory. Only special <em>types</em> of file such as a Zip archive can contain a folder.</p></li>
+<li><p>The directory that sits at the bottom of the hierarchy (<em>i.e.</em> the <em>one</em> directory that is not <em>in</em> another directory) is known as the <strong>root directory</strong>.</p></li>
+<li><p>The directory in which <em>your</em> settings and documents are saved (<em>i.e.</em> the stuff associated with your <em>username</em>) is known as the <strong>home directory</strong>.</p></li>
+<li><p>A file must be stored in a directory (there are no root files).</p></li>
+</ol>
+<section id="paths-in-the-finder" class="level3">
+<h3 class="anchored" data-anchor-id="paths-in-the-finder">Paths in the Finder</h3>
+<p>We’ll get to a video in a second, but on a Mac you can ‘view’ the path in the Finder simply by clicking on any finder window and typing <code>Alt + Command + P</code> (or selecting <code>View &gt; Path</code> from the menu bar). This will show the current path in a strip along the bottom of the finder window. Pay attention to the Path view in the movie below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="http://www.youtube.com/watch?v=U0hrKz5Ajrg" title="The Path (Graphical Version)"><img src="http://img.youtube.com/vi/U0hrKz5Ajrg/0.jpg" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">The Path (Graphical Version)</figcaption>
+</figure>
+</div>
+</section>
+<section id="paths-in-a-terminal" class="level3">
+<h3 class="anchored" data-anchor-id="paths-in-a-terminal">Paths in a Terminal</h3>
+<p>Now, sooner or later you are going to have to learn how to use the Terminal (a.k.a. Shell) because it will make certain tedious tasks go much, much faster. It is also by far the best way to install Python libraries or other ‘libraries’ that you need to develop your code. Learning to the use the Terminal is also going to help a <em>lot</em> in learning to fix subtle problems with your program (e.g.&nbsp;checking that you are reading the <em>right</em> data).</p>
+<p>So here’s the <em>same</em> process of navigating from a directory called <code>KCL Modules</code> down to the 2017-18 Geocomputation Teaching directory as you just saw above, but using the Terminal:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="http://www.youtube.com/watch?v=qxvhsuOKGaY" title="The Path (Terminal Version)"><img src="http://img.youtube.com/vi/qxvhsuOKGaY/0.jpg" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">The Path (Terminal Version)</figcaption>
+</figure>
+</div>
+<p>You’ll notice that there were several seemingly cryptic commands – we’ll examine them in more detail below, but the important ones to note in this video are:</p>
+<ul>
+<li><code>ls</code> <em>lists</em> the contents of the current directory</li>
+<li><code>cd</code> <em>c</em>hanges <em>d</em>irectory</li>
+</ul>
+<p>We always say that programmers are lazy and this is a good example of that: why write <code>list</code> when we can write <code>ls</code> or <code>change directory</code> when we can write <code>cd</code>? You obviously need to learn what those bits of laziness mean, but they can help a lot in speeding up your code!</p>
+</section>
+</section>
+<section id="the-unix-shell" class="level2">
+<h2 class="anchored" data-anchor-id="the-unix-shell">The Unix Shell</h2>
+<p>Now that you have a geneal idea of what is the terminal, what is a path, and how to navigate in your computer’s folders without clicking buttons, you can take a look at this <a href="https://librarycarpentry.org/lc-shell/">Software Carpentry exercise focussed on the Terminal</a>.</p>
+<p>This will cover the following topics and guide you in understanding how to efficiently work with the terminal:</p>
+<ol type="1">
+<li><a href="https://librarycarpentry.org/lc-shell/01-intro-shell.html">What is the shell?</a></li>
+<li><a href="https://librarycarpentry.org/lc-shell/02-navigating-the-filesystem.html">Navigating the filesystem</a></li>
+<li><a href="https://librarycarpentry.org/lc-shell/03-working-with-files-and-folders.html">Working with files and directories</a></li>
+<li><a href="https://librarycarpentry.org/lc-shell/04-loops.html">Automating the tedious with loops</a></li>
+<li><a href="https://librarycarpentry.org/lc-shell/05-counting-mining.html">Counting and mining with the shell</a></li>
+<li><a href="https://librarycarpentry.org/lc-shell/06-free-text.html">Working with free text</a></li>
+</ol>
+<p>For a one-page recap on everything you need to know to start working from the terminal, check out Ian Milligan &amp; James Baker’s <a href="https://doi.org/10.46430/phen0037">Introduction to the Bash Command Line</a>. This very well structured overview covers the same topics of the previous exercise, and can serve a useful cheat sheet if in the future you might want to go back and revise these concepts (or only have a useful list of bash commands at hand.)</p>
+<section id="credits" class="level3">
+<h3 class="anchored" data-anchor-id="credits">Credits!</h3>
+<section id="contributors" class="level4">
+<h4 class="anchored" data-anchor-id="contributors">Contributors:</h4>
+<p>The following individuals have contributed to these teaching materials: - <a href="https://github.com/jamesdamillington">James Millington</a> - <a href="https://github.com/jreades">Jon Reades</a> - <a href="https://github.com/miccferr">Michele Ferretti</a> - <a href="https://github.com/zarashabrina">Zahratu Shabrina</a></p>
+</section>
+<section id="license" class="level4">
+<h4 class="anchored" data-anchor-id="license">License</h4>
+<p>The content and structure of this teaching project itself is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license</a>, and the contributing source code is licensed under <a href="https://opensource.org/licenses/mit-license.php">The MIT License</a>.</p>
+</section>
+<section id="acknowledgements" class="level4">
+<h4 class="anchored" data-anchor-id="acknowledgements">Acknowledgements:</h4>
+<p>Supported by the <a href="https://www.rgs.org/HomePage.htm">Royal Geographical Society</a> (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.</p>
+</section>
+<section id="potential-dependencies" class="level4">
+<h4 class="anchored" data-anchor-id="potential-dependencies">Potential Dependencies:</h4>
+<p>This lesson may depend on the following libraries: None</p>
 
 
+</section>
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -593,7 +670,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 2022, J. Reades, Z. Shabrina, J. Millington &amp; M. Ferretti</div>   
-    <div class="nav-footer-center"><img src="..\img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    <div class="nav-footer-center"><img src="..\img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp</div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
