@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -122,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lessons">    
         <li>
-    <a class="dropdown-item" href="../lessons/Doing_Urban_Spatial_Science.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Introduction.html" rel="" target="">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
@@ -217,7 +217,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lessons/Doing_Urban_Spatial_Science.html" class="sidebar-item-text sidebar-link">
+  <a href="../lessons/Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -318,7 +318,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#working-without-buttons" id="toc-working-without-buttons" class="nav-link active" data-scroll-target="#working-without-buttons">Working Without Buttons</a>
   <ul class="collapse">
   <li><a href="#paths" id="toc-paths" class="nav-link" data-scroll-target="#paths">Paths</a></li>
-  <li><a href="#the-unix-shell" id="toc-the-unix-shell" class="nav-link" data-scroll-target="#the-unix-shell">The Unix Shell</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -361,33 +360,21 @@ ul.task-list li input[type="checkbox"] {
 <section id="paths-in-the-finder" class="level3">
 <h3 class="anchored" data-anchor-id="paths-in-the-finder">Paths in the Finder</h3>
 <p>We’ll get to a video in a second, but on a Mac you can ‘view’ the path in the Finder simply by clicking on any finder window and typing <code>Alt + Command + P</code> (or selecting <code>View &gt; Path</code> from the menu bar). This will show the current path in a strip along the bottom of the finder window. Pay attention to the Path view in the movie below.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="http://www.youtube.com/watch?v=U0hrKz5Ajrg" title="The Path (Graphical Version)"><img src="http://img.youtube.com/vi/U0hrKz5Ajrg/0.jpg" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">The Path (Graphical Version)</figcaption>
-</figure>
-</div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/U0hrKz5Ajrg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="paths-in-a-terminal" class="level3">
 <h3 class="anchored" data-anchor-id="paths-in-a-terminal">Paths in a Terminal</h3>
 <p>Now, sooner or later you are going to have to learn how to use the Terminal (a.k.a. Shell) because it will make certain tedious tasks go much, much faster. It is also by far the best way to install Python libraries or other ‘libraries’ that you need to develop your code. Learning to the use the Terminal is also going to help a <em>lot</em> in learning to fix subtle problems with your program (e.g.&nbsp;checking that you are reading the <em>right</em> data).</p>
 <p>So here’s the <em>same</em> process of navigating from a directory called <code>KCL Modules</code> down to the 2017-18 Geocomputation Teaching directory as you just saw above, but using the Terminal:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="http://www.youtube.com/watch?v=qxvhsuOKGaY" title="The Path (Terminal Version)"><img src="http://img.youtube.com/vi/qxvhsuOKGaY/0.jpg" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">The Path (Terminal Version)</figcaption>
-</figure>
-</div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/qxvhsuOKGaY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>You’ll notice that there were several seemingly cryptic commands – we’ll examine them in more detail below, but the important ones to note in this video are:</p>
 <ul>
 <li><code>ls</code> <em>lists</em> the contents of the current directory</li>
 <li><code>cd</code> <em>c</em>hanges <em>d</em>irectory</li>
 </ul>
 <p>We always say that programmers are lazy and this is a good example of that: why write <code>list</code> when we can write <code>ls</code> or <code>change directory</code> when we can write <code>cd</code>? You obviously need to learn what those bits of laziness mean, but they can help a lot in speeding up your code!</p>
-</section>
-</section>
-<section id="the-unix-shell" class="level2">
-<h2 class="anchored" data-anchor-id="the-unix-shell">The Unix Shell</h2>
+<section id="a-challenge-for-you" class="level4">
+<h4 class="anchored" data-anchor-id="a-challenge-for-you">A Challenge for you!</h4>
 <p>Now that you have a geneal idea of what is the terminal, what is a path, and how to navigate in your computer’s folders without clicking buttons, you can take a look at this <a href="https://librarycarpentry.org/lc-shell/">Software Carpentry exercise focussed on the Terminal</a>.</p>
 <p>This will cover the following topics and guide you in understanding how to efficiently work with the terminal:</p>
 <ol type="1">
@@ -398,7 +385,9 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://librarycarpentry.org/lc-shell/05-counting-mining.html">Counting and mining with the shell</a></li>
 <li><a href="https://librarycarpentry.org/lc-shell/06-free-text.html">Working with free text</a></li>
 </ol>
-<p>For a one-page recap on everything you need to know to start working from the terminal, check out Ian Milligan &amp; James Baker’s <a href="https://doi.org/10.46430/phen0037">Introduction to the Bash Command Line</a>. This very well structured overview covers the same topics of the previous exercise, and can serve a useful cheat sheet if in the future you might want to go back and revise these concepts (or only have a useful list of bash commands at hand.)</p>
+<p>For a one-page recap on everything you need to know to start working from the terminal, check out Ian Milligan &amp; James Baker’s <a href="https://doi.org/10.46430/phen0037">Introduction to the Bash Command Line</a>. This very well structured overview covers the same topics of the previous exercise, and can serve a useful cheat sheet if in the future you might want to go back and revise these concepts (or only have a useful list of bash commands at hand).</p>
+</section>
+</section>
 <section id="credits" class="level3">
 <h3 class="anchored" data-anchor-id="credits">Credits!</h3>
 <section id="contributors" class="level4">
@@ -669,8 +658,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 2022, J. Reades, Z. Shabrina, J. Millington &amp; M. Ferretti</div>   
-    <div class="nav-footer-center"><img src="..\img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp</div>
+    <div class="nav-footer-left"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 2022, J. Reades, F. Lopane, Z. Shabrina, J. Millington &amp; M. Ferretti</div>   
+    <div class="nav-footer-center"><img src="../img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp</div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

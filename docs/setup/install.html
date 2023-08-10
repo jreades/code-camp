@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -292,9 +292,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#system-python" id="toc-system-python" class="nav-link active" data-scroll-target="#system-python">‘System’ Python</a></li>
   <li><a href="#reference-python" id="toc-reference-python" class="nav-link" data-scroll-target="#reference-python">‘Reference’ Python</a></li>
-  <li><a href="#anaconda-python" id="toc-anaconda-python" class="nav-link" data-scroll-target="#anaconda-python">Anaconda Python</a></li>
-  <li><a href="#virtualised-python" id="toc-virtualised-python" class="nav-link" data-scroll-target="#virtualised-python">Virtualised Python</a></li>
-  <li><a href="#our-recommendation" id="toc-our-recommendation" class="nav-link" data-scroll-target="#our-recommendation">Our Recommendation</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -318,15 +315,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Installing Python or R (see <a href="../lessons/Tools_of_the_Trade.html">Tools of the Trade</a>) is fairly straightforward nowdays, but be warned: what you will see <em>after</em> installing them ain’t pretty. By default, Python and R code is simply the black-and-white text output of an ‘interpreter’ (something that processes lines of code by ‘interpreting’ our code into instructions to the computer, and back). People who code all the time will <em>always</em> install an <a href="../lessons/Tools_of_the_Trade.html">IDE</a> like RStudio or VSCode because it ‘prettifies’ the code that they run, making it easier to spot mistakes and track links between files containing code that interact.</p>
+<p>Installing Python or R is fairly straightforward nowdays, but be warned: what you will see <em>after</em> installing them ain’t pretty. By default, Python and R code is simply the black-and-white text output of an ‘interpreter’ (something that processes lines of code by ‘interpreting’ our code into instructions to the computer, and back). People who code all the time will <em>always</em> install an <a href="../lessons/Tools_of_the_Trade.html">IDE</a> like RStudio or VSCode because it ‘prettifies’ the code that they run, making it easier to spot mistakes and track links between files containing code that interact.</p>
 <p>You can complete a <em>lot</em> of Code Camp using just the basic Python interpreter, but you might find it <em>easier</em> to look at the <a href="../setup/no_install.html">no install options</a> since these automatically include tools for beautifying your Python code. However, if you’re sure that you want to install Python on your computer then here’s what you do…</p>
 <section id="system-python" class="level2">
 <h2 class="anchored" data-anchor-id="system-python">‘System’ Python</h2>
 <p>Many computers (especially Macs and Linux systems) will come with Python pre-installed. To find out if you have Python installed:</p>
-<ol type="1">
-<li>On a Mac, open up the Terminal (under <code>Applications</code> &gt; <code>Utilities</code>) and then type <code>python↩︎</code>.</li>
-<li>On a Windows machine, open the Command Prompt (either run <code>cmd.exe</code> or search for <code>Command Prompt</code> from the Windows menu) and then type <code>python↩︎</code>.</li>
-</ol>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Windows</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Open up the Terminal (under <code>Applications</code> &gt; <code>Utilities</code>) and then type <code>python3 --version ↩︎</code>.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Open the Command Prompt (either run <code>cmd.exe</code> or search for <code>Command Prompt</code> from the Windows menu) and then type <code>python3 --version ↩︎</code>.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -340,12 +344,26 @@ Tip
 <p><code>↩︎</code> means hit <code>Enter</code> or <code>Return</code> on your keyboard. <strong>Don’t</strong> try to paste the symbol into the Terminal or Command Prompt.</p>
 </div>
 </div>
-<p>In both cases, if Python is already installed then you will see something like the following:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Python</span> 3.8.3 <span class="er">(</span><span class="ex">default,</span> Jul  2 2020, 11:26:31<span class="kw">)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[Clang</span> 10.0.0 ] :: Anaconda, Inc. on darwin</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Type</span> <span class="st">"help"</span>, <span class="st">"copyright"</span>, <span class="st">"credits"</span> or <span class="st">"license"</span> for more information.</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In both cases, if Python is already installed then you will see something like the following (your exact version may differ):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Python</span> 3.8.16</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you see this kind output then, congratulations, you have Python installed!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Depending on how Python was installed, you may find that typing just <code>python</code> produces an error, while typing <code>python3</code> is successful.</p>
+</div>
+</div>
+<section id="action" class="level3">
+<h3 class="anchored" data-anchor-id="action">Action</h3>
+<p>Just to give you a sense of how to interact with Python from the command line, here’s a short video from a Mac showing how to start/stop Python and execute code to print out the result of <code>2+2</code>. It’s just a sanity-check:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/-zDGmxcFrxk" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -356,32 +374,28 @@ Versions
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Don’t worry too much about what version of Python you see listed (in the example above it’s 3.8.3) as long as you have <em>at least</em> verion 3.6.0. Earlier versions that are <em>still</em> Python3 are fine, but you should <em>not</em> use Python2 (e.g.&nbsp;2.7.6).</p>
+<p>Don’t worry too much about what version of Python you see listed (in the example above it’s 3.8.16) as long as you have <em>at least</em> verion 3.8.0. You should <em>not</em> use Python2 (e.g.&nbsp;2.7.6) or versions of Python3 earlier than 3.6.</p>
 </div>
 </div>
-<section id="if-you-dont-have-system-python" class="level3">
-<h3 class="anchored" data-anchor-id="if-you-dont-have-system-python">If You Don’t Have System Python</h3>
-<p>On a Windows machine you install Python for free from the Microsoft Store, or you can follow the instructions below for installing ‘Reference’ Python, but you should end up with roughly the same version of Python.</p>
-<p>On a Mac you should install X-Code command line tools by typing <code>xcode-select --install↩︎</code> into the Terminal as detailed <a href="https://www.freecodecamp.org/news/install-xcode-command-line-tools/">here</a>.</p>
 </section>
 </section>
 <section id="reference-python" class="level2">
 <h2 class="anchored" data-anchor-id="reference-python">‘Reference’ Python</h2>
 <p>The ‘reference’ version of Python is the one produced by the Python Software Foundation. Whatever operating system you’re using, you should start from the <a href="https://www.python.org/downloads/">downloads page</a> and follow the instructions from there. You will want a <strong>Stable Release</strong>, <em>not</em> a Pre-release version of Python.</p>
-<p>Once it’s installed, you just use the Terminal or Command Prompt as above.</p>
-</section>
-<section id="anaconda-python" class="level2">
-<h2 class="anchored" data-anchor-id="anaconda-python">Anaconda Python</h2>
-<p>Anaconda Python is just ‘Reference’ Python packaged up by a commercial firm with some useful utilities (and a graphical installer) to help make your Python-life a little easier to manage. You can <a href="https://www.anaconda.com/products/distribution">download</a> Anaconda Python for free.</p>
-<p>Once it’s installed, you <em>can</em> use the Terminal or Command Prompt as above, or you may find you’ve got some additional options (e.g.&nbsp;Anaconda Prompt on Windows) that are slightly more user-friendly.</p>
-</section>
-<section id="virtualised-python" class="level2">
-<h2 class="anchored" data-anchor-id="virtualised-python">Virtualised Python</h2>
-<p>When you start the programme we’ll introduce you to <a href="https://hub.docker.com/_/python?tab=tags">Docker</a> and the ability to run Python in a ‘Virtual Machine’ without having to know anything about where the machine came from or how it was created. But we’d suggest not worrying about that for now.</p>
-</section>
-<section id="our-recommendation" class="level2">
-<h2 class="anchored" data-anchor-id="our-recommendation">Our Recommendation</h2>
-<p>You will need to have ‘Reference’ Python installed anyway to <a href="https://gis.stackexchange.com/a/351290/62754">make the most of QGIS</a>, so we’d use that one. And getting used to the Terminal/Command Prompt is no bad thing since you’ll be using it a lot in the future.</p>
+<p>Once it’s installed, you just use the Terminal or Command Prompt as above in <a href="#action">Action</a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Our Recommendation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You would need to have ‘Reference’ Python installed anyway to <a href="https://gis.stackexchange.com/a/351290/62754">make the most of QGIS</a>, so we’d use that one. And getting used to the Terminal/Command Prompt is no bad thing since you’ll be using it a lot in the future.</p>
+</div>
+</div>
 
 
 </section>
@@ -635,8 +649,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 2022, J. Reades, Z. Shabrina, J. Millington &amp; M. Ferretti</div>   
-    <div class="nav-footer-center"><img src="..\img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp</div>
+    <div class="nav-footer-left"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 2022, J. Reades, F. Lopane, Z. Shabrina, J. Millington &amp; M. Ferretti</div>   
+    <div class="nav-footer-center"><img src="../img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp</div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
