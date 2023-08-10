@@ -61,7 +61,7 @@ website:
       title: "Lessons"
       contents:
         - text: "Introduction"
-          href: lessons/Doing_Urban_Spatial_Science.qmd
+          href: lessons/Introduction.qmd
         - text: "Background"
           href: lessons/Background.qmd
         - text: "The Basics"
