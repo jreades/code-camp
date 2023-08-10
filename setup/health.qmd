@@ -2,7 +2,7 @@
 title: Computer Health Check
 ---
 
-This is intended to help you gauge whether your computer is likely to encounter issues doing spatial analysis once term starts. In the meantime, 'cloud-based' [no installation](./no_install.qmd)) options will also work well for Code Camp.
+To be clear: Code Camp does *not* require you to buy a new computer! The [no install options](./no_install.qmd)) page is all you need for Code Camp. *This* page is intended to help you gauge whether your computer might encounter issues doing spatial analysis once term starts. 
 
 ::: {.callout-note}
 When answering the questions below, 'your computer' is the machine on which you plan to do the programming. 
@@ -17,31 +17,36 @@ In our experience, the students **most likely to encounter problems** share one 
 
 Read on below to check what _your_ situation is...
 
+::: {.panel-tabset}
+
 ### MacOS
 
 You will need to look up:
 
-- How much RAM does your computer have? [Help for Mac](https://www.macworld.co.uk/how-to/mac/much-ram-need-more-3793418/).
-- How much free disk space does your computer have? [Help for Mac](https://www.macworld.com/article/2972775/how-to-check-a-mac-free-hard-drive-space.html).
+- How much RAM does your computer have? [Help](https://www.macworld.co.uk/how-to/mac/much-ram-need-more-3793418/).
+- How much free disk space does your computer have? [Help](https://www.macworld.com/article/2972775/how-to-check-a-mac-free-hard-drive-space.html).
 
 ### Windows
 
 You will need to look up:
 
-- How much RAM does your computer have? [Help for Windows](https://uk.pcmag.com/components/133375/how-much-ram-do-i-have-in-my-pc).
-- How much free disk space does your computer have? [Help for Windows](https://www.lifewire.com/how-to-check-free-hard-drive-space-in-windows-2619187).
+- How much RAM does your computer have? [Help](https://uk.pcmag.com/components/133375/how-much-ram-do-i-have-in-my-pc).
+- How much free disk space does your computer have? [Help](https://www.lifewire.com/how-to-check-free-hard-drive-space-in-windows-2619187).
 
 ### Linux
 
-We're going to assume that you know what you're doing (`df -h`). If you want a recommendation, we'd probably go with the latest Ubuntu desktop release.
+We're going to assume that you know what you're doing (`df -h`). If you want a recommendation, we'd probably go with the latest stable Ubuntu desktop release. The LTR releases could also be a good choice though we tend to like have access to newer UIs and tools.
+
+:::
 
 ### Recommendations
 
 If you are looking for a recommendation as to what to buy:
 
-1. Don't worry about getting the fastest chip, get as much RAM as you can. You should aim for 32GB of RAM, but get more if you can afford it and your system will take it.
+1. Don't worry about getting the fastest chip, get as much RAM as you can. Don't get *less* than 32GB of RAM, and get more if you can afford it and your system will take it.
 2. Don't worry about getting the biggest hard drive, get the fastest one you can. You should get a SSD (Solid State Drive), but get a M2 type SSD if you can afford it and it's available for your system.
-3. Only after you've sorted this out should you look for the fastest chipset that's still within your budget.
+3. Think about portability vs. screen size: a 15" (or larger) laptop gives you a lot of screen real estate (and they generally have high spec chips that consume more power) but if you're going to be out and about all day, carrying a 17" laptop together with the charger, cables, and all that, is going to be **heavy**.
+4. Only after you've sorted this out should you look for the fastest chipset that's still within your budget.
 
 Should you buy a Windows, Linux, or Apple machine? You should probably stick with whatever you're familiar with since learning your way around a new Operating System while *also* learning to code is just raising the bar unnecessarily. Around CASA we use a mix of all three, and you can probably find as many opinions as there are staff members.
 
@@ -50,7 +55,7 @@ Should you buy a Windows, Linux, or Apple machine? You should probably stick wit
 
 Two easy things to do to save money on a new machine are:
 
-1. Unless there is a specific reason to do so (e.g. getting a system with Apple's M1/M2 chip), don't buy the latest machine, buy a model from earlier in the year/the previous year instead and upgrade the RAM and hard drive instead.
+1. Unless there is a specific reason to do so (e.g. getting a system with Apple's latest M2 chip), don't buy the latest machine, buy a model from earlier in the year/the previous year instead and upgrade the RAM and hard drive instead.
 2. Only buy the machine when you have access to a student discount. The discount for Apple computers is relatively modest (ca. 10%) compared to 'back to school' offers for Windows machines, but as the Brits would say: even 10% is better than a kick in the teeth! 
 
 :::
@@ -64,17 +69,17 @@ In our experience the students **most likely to encounter problems** share one o
 
 As long as your computer is running one of the last two major releases of the Operating System you should encounter few issues.
 
+::: {.panel-tabset}
+
 ### MacOS
 
-You will need to look up:
-
-- What Operating System and Version is your computer running? [Help for Mac](https://support.apple.com/en-gb/HT201260).
+- What Operating System and Version is your computer running? [Help](https://support.apple.com/en-gb/HT201260).
 
 ### Windows
 
-You will need to look up:
+- What Operating System and Version is your computer running? [Help](https://support.microsoft.com/en-gb/help/13443/windows-which-version-am-i-running).
 
-- What Operating System and Version is your computer running? [Help for Windows](https://support.microsoft.com/en-gb/help/13443/windows-which-version-am-i-running).
+:::
 
 ### Recommendations
 

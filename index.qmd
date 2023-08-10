@@ -17,13 +17,12 @@ This site is for everyone _else_---especially our [future MSc Urban Spatial Scie
 
 So what can you expect to learn? By the end of the course, we hope that you will have a basic understanding of:
 
-1. The rationale behind the usage of computers and computational methodologies for urban spatial science (and the social sciences more generally).
-2. The range of tools that we use to _do_ urban spatial science, a sense of _why_ we use them, and _how_ they connect with tools used by practicing researchers and programmers. 
-3. The fundamental concepts of programming used in Python so that you can 'read' Python code and begin to recognise how to do things using Python.
-4. How programs and libraries are structured so that you code remains manageable and, above all, legible.
-5. How your newly acquired coding skills can help you be _usefully_ lazy because that, ultimately, is what computers do: they make tedious, repetitive problems 'go away', though they often create or reveal much more complex, novel problems in turn.
+1. The range of tools that we use to _do_ urban spatial science, a sense of _why_ we use them, and _how_ they connect with tools used by practicing researchers and programmers. 
+2. The fundamental concepts of programming used in Python so that you can 'read' Python code and begin to recognise how to do things using Python.
+3. How programs and libraries are structured so that your code remains manageable and, above all, legible.
+4. How your newly-acquired coding skills can help you be _usefully_ lazy because that, ultimately, is what computers do: they make tedious, repetitive problems 'go away', though they often create or reveal much more complex, novel problems in turn.
 
-Code Camp is all about building blocks: helping you to learn the fundamentals so that when classes start you (hopefully) feel a _little_ less lost and _lot_ less stressed. We can't make learning to code _easy_ any more than learning to speak French or Chinese (or English!) easy, but if you work your way through these lessons it will be _easier_ to hit the ground running in Week 1.
+Code Camp is all about building blocks: helping you to learn the fundamentals so that when classes start you (hopefully) feel like you already have the lay of the land. We can't make learning to code _easy_ any more than we can make learning to speak French or Chinese (or English!) easy, but if you work your way through these lessons it will be _easier_ to hit the ground running in Week 1.
 
 ## How will you learn?
 

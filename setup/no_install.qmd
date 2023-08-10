@@ -12,6 +12,10 @@ Google's [Colaboratory](https://colab.research.google.com/?) will require a Goog
 
 [MyBinder](https://mybinder.org/) works in a similar way to Colab, but no login is required and you can only use the notebooks from our GitHub repository. You'll also lose your notebooks when you log out/don't run any code for a while _unless_ you download and save the notebook on your computer first.
 
-## Recommendation
+::: {.callout-tip}
+
+### Recommendation
 
 We'd recommend Google Colab on the basis that you can save your work.
+
+:::

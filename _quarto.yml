@@ -19,7 +19,7 @@ website:
   page-navigation: true
   reader-mode: true
   page-footer: 
-    left: "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 2022, J. Reades, Z. Shabrina, J. Millington & M. Ferretti"
+    left: "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 2022, J. Reades, F. Lopane, Z. Shabrina, J. Millington & M. Ferretti"
     center: "![](/img/favicon-16x16.png){.height:10px} Code Camp"
     right: 
       - icon: github
