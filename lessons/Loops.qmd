@@ -28,7 +28,7 @@ The two most common ways to iterate (or repeat) a set of commands are the _while
 
 The video below is a nice (if slightly scary) intro to each of the approaches; you might remember them the next time you're in the gym:
 
-[![Demonstration of While and For Loops](http://img.youtube.com/vi/9AJ0uoxtdCQ/0.jpg)](https://www.youtube.com/watch?v=9AJ0uoxtdCQ)
+{{< video https://youtu.be/9AJ0uoxtdCQ >}}
 
 
 The 'right' approach you use usually depends on [what sort of data structure you are iterating over](http://stackoverflow.com/questions/920645/when-to-use-while-or-the-for-in-python) and [whether we know before we start how many times we want to repeat the commands](https://www.reddit.com/r/learnprogramming/comments/3bqzpf/python_for_loops_vs_while_loops/). That might sound a little vague at this point, but come back and have a think about it once you have a better understanding of how loops work.
@@ -349,7 +349,7 @@ while counter < len(britishCompList):
 
 If you think that being skipped over in the loop above was tough for old Babbage, then perhaps you might be interested to hear about the history of the [NASA 'computers' who helped put a man on the moon](https://www.washingtonpost.com/lifestyle/style/the-nearly-forgotten-story-of-the-black-women-who-helped-land-a-man-on-the-moon/2016/09/12/95f2d356-7504-11e6-8149-b8d05321db62_story.html) and are only getting a film made about them in 2016.
 
-[![The hidden history of NASA's computers](http://img.youtube.com/vi/RK8xHq6dfAo/0.jpg)](http://www.youtube.com/watch?v=RK8xHq6dfAo)
+{{< video https://youtu.be/RK8xHq6dfAo >}}
 
 #### A challenge for you!
 

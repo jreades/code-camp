@@ -23,7 +23,7 @@ Dictionaries are another data type in Python that, like lists, contains multiple
 
 You can go back to our short video that talks about dictionaries:
 
-[![The Basics](http://img.youtube.com/vi/UDNtW3sy-og/0.jpg)](https://youtu.be/UDNtW3sy-og?t=613)
+{{< video https://youtu.be/UDNtW3sy-og >}}
 
 Like lists, dictionaries are also found in other programming languages, often under a different name. For instance, Python dictionaries might be referred to elsewhere as "maps", "hashes", or "associative arrays").
 
@@ -494,7 +494,7 @@ According to the awesome [Lizy Diamond](https://twitter.com/lyzidiamond?lang=en-
         "gluten free": "no"
       }
     }
-    
+
 >GeoJSON files have to have both a `"geometry"` section and a `"properties"` section. The `"geometry"` section houses the geographic information of the feature (its location and type) and the `"properties"` section houses all of the descriptive information about the feature (like fields in an attribute table). [Source](https://github.com/lyzidiamond/learn-geojson)
 
 

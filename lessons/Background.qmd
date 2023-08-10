@@ -63,13 +63,13 @@ There are many good reasons for geographers to learn to code, but let's start wi
 
 > You should learn how to program a computer because it teaches you how to think.
 
-[![Why You Should Learn How to Code](http://img.youtube.com/vi/Dv7gLpW91DM/0.jpg)](https://youtu.be/Dv7gLpW91DM)
+{{< video https://youtu.be/Dv7gLpW91DM >}}
 
 And here is a useful perspective on whether or not learning to code is hard:
 
 > If you don't have a reason for learning to code outside of trying making lots of money that's not a very long term passion... but when you have an idea or a problem that you're passionate about solving then that's why we keep on going... but do you need to have an understanding of complex math or logic skills, the answer is no.
 
-[![Is Learning to Code Hard](http://img.youtube.com/vi/k7Txbdvzx90/0.jpg)](https://youtu.be/k7Txbdvzx90)
+{{< video https://youtu.be/k7Txbdvzx90 >}}
 
 So while 'making money' is (often) a nice outcome of learning to code, having a passion for what you want to _do_ with your code is what's going to get you through the worst parts of the learning curve. You also need to be realistic: to become a professional programmer is something that happens over many years, you probably won't just take a couple of classes and then go out into the world saying "I'm a programmer."
 
@@ -78,9 +78,14 @@ And, no, you do _not_ need to know advanced maths in order to learn how to code:
 ## The Benefits of Coding?
 
 In a practical context we think that the benefits of learning to code fall into three categories:
+
+
+
 1. **Flexibility**: a computer can often apply the _same_ analytical process to a completely different data set (_e.g._ rainfall in UK vs rainfall in the US) with minimal effort compared to trying to do each step manually in, say, Excel or SPSS. For students, it comes down to this: if you discover a newer, better data set halfway through your dissertation and want to use this for your analysis instead of the old, inaccurate data, it's a lot easier and faster to update your analyses if you have used code to do the analysis to-date!
 2. **Reproducibility**: recently, it's been discovered that a lot of research cannot be reproduced. In other words, if one scientist tries to duplicate what someone else did in order to check something out (as is important in the scientific method) they're finding that the results don't line up. So a second example of why coding your data analysis for a dissertation: you've just finished your analysis when someone points out that you made a mistake with the data right back at the beginning; redoing all of that in Excel or SPSS would be a nightmare, but with code, it can be as easy as changing one line and hitting 'Run'!
 3. **Scalability**: a computer doesn't care if you throw 10 lines or 10 billion lines at it, the only thing that changes is how long it takes to get an answer. In other words, if your code 'works' on a subset of your data it should also work on your entire data set no matter how big it is. This is also a good way to develop code: rather than try to read in the whole data set in one go while you're still trying to understand it, take a few rows and make sure you're handling _those_ ones correctly (and if what you see squares with what you were told) before expanding to larger and larger subsets.
+
+
 
 Often, the payoff for coding the answer to a problem instead of just clicking through the options in SPSS or Arc can seem a long way away. It's like learning a new language: you spend a lot of time asking directions to the train station or whether someone had a nice breakfast before you can start work on the novel or the business case. But the payoff _is_ there if you stick with it!
 
@@ -139,21 +144,27 @@ Actually, there is a third silly thing: not asking for help. In the same way tha
 
 There are obviously many ways that you can calculate the mean (also known as the *average* if your maths is a little rusty): in your head, using pencil and paper, on a calculator, in Excel... and, of course, using code! For a small set of simple numbers, using your brain is going to be a lot faster than typing it into a calculator or computer.
 
-In the area immediately below this paragraph you should see something like "<span style="color:blue">In [ ]</span>". On the right of this is an empty box into which you can type computer code (which we will call a 'code cell'). We can use Python like a calculator but doing it from a keyboard instead of a calculator's keypad. 
+We can use Python like a calculator. For example, to calculate 2 plus 2 using Python we can just type `2 + 2 ↩︎` and get the answer. OK, but *where* do we run this?
 
-For example, to calculate 2 plus 2 using Python type `2 + 2` and run the code.
+::: {.callout-tip}
 
-*HINT*: To run ensure you type your code in your working environment (either [locally](../setup/install.qmd) or [online](../setup/no_install.qmd)) and click the the 'Run' button (usually, a sideways-pointing triangle).
+Now is when you either start Python on your own computer (usually from the Terminal/Command Promp) or mosy over to Google Collab (to run Python in the cloud). If you don't know how to do either, please visit the [install](../setup/install.qmd) and [no install](../setup/no_install.qmd) pages.
+
+:::
+
+All of the rules of normal maths are respected by Python, though sometimes the syntax is a little different (as we'll see later). So the following code will also work as expected to produce 418.0:
 
 ```python
 (2+2+1250)/3
 ```
 
-If everything has gone well then you should see something like "<span style="color:red">Out [ ]</span>" appear with the answer to the formula `2 + 2`. Hopefully it is `4`!
+::: {.callout-tip}
 
-That was an easy one; faster to calculate in our head than use Python. 
+Notice the 'clipboard' icon at the right-hand side of the code block above this tip? That will copy the code to your computer's memory, allowing you to paste it into another file/input, such as the Python interpreter or Google notebook so that you can save or run it.
 
-*But quick*, what's the average (mean) of: `1 + 2 + 3 + 4`?
+:::
+
+*Quick*, what's the average (mean) of: `1 + 2 + 3 + 4`?
 
 A little harder, huh? So type your 'formula' to calculate the mean of `1, 2, 3, 4` then click the 'play' button on the tool bar at the top of the window to run your first piece of Python code! 
 
@@ -199,7 +210,11 @@ We'll say it _again_: there's _one_ other silly thing that you can do, and that'
 
 There are web sites that will give you answers (in fact, we're going to point you to some of them) but if you don't expend any effort in trying to understand how the code works, or if you just copy the answer off of your friend, that's the same as assuming you'll learn a foreign language just because you're sitting next to a friend who is taking the same language course! _That_ is also silly.
 
-<span style="color:red;font-weight:bold;font-size:18pt;line-height: 24pt">You will need to practice in order to progress. You don't learn French or Chinese by practising in the language lab once a week. You won't learn to program a computer by only practising during the practicals once a week.</span>
+::: {.callout-warning}
+
+You will need to practice in order to progress. You don't learn French or Chinese by practising in the language lab once a week. You won't learn to program a computer by only practising during the practicals once a week.
+
+:::
 
 ### When computers beat brains (or calculators)
 
@@ -258,49 +273,31 @@ The points above are also made in [Python In A Nutshell](http://mbrochh.github.i
 #### Three takes on Python
 The images below are links to three videos pitched in quite different ways at the advantages of Python, all of which touch on issues we'll be dealing with later... so watch the videos (even if they're a bit silly in places)!
 
-[![What is Python?](http://img.youtube.com/vi/aXKVOLwpDg8/0.jpg)](http://www.youtube.com/watch?v=aXKVOLwpDg8)
+{{< video https://youtu.be/aXKVOLwpDg8 >}}
 
-[![Python Overview](http://img.youtube.com/vi/Hn4FbT4wMms/0.jpg)](http://www.youtube.com/watch?v=Hn4FbT4wMms)
+{{< video https://youtu.be/Hn4FbT4wMms >}}
 
-[![Why You Should Learn Python Programming](http://img.youtube.com/vi/G8brQdClo9s/0.jpg)](http://www.youtube.com/watch?v=G8brQdClo9s)
+{{< video https://youtu.be/G8brQdClo9s >}}
 
-## Computers: good or bad?
-
-What are computers good at?
-- Doing the same thing over and over
-- Doing _exactly_ what they are told to do
-
-What are computers currently still bad at?
-- Generating knowledge
-- Being creative
-
-There is a long-standing contest, called the Turing Test in honour of [the famous computer pioneer](https://en.wikipedia.org/wiki/Alan_Turing), that demonstrates this difference rather nicely: a computer passes the Turing test if it can fool a person into thinking that they're talking to another person. Some people have claimed that if a computer can _really_ pass the Turing Test by keeping up a conversation of indefinite length on any range of topics then we'll have to declare that machines have become full AIs (Artificial Intelligences). To put it another way: if it sounds like a human and responds like a human... then is it a human?
-
-Perhaps fortunately for us, although computers are getting a lot better at holding up their end of the conversation they still seem to have a hard time fooling anyone for very long. In contrast, bigger and better computers have now beat the best humans at Chess and Go, and are being used to help us understand earthquakes and climate change on a huge scale. Here, computers can do billions -- or trillions -- of calculations a second to work out that if 'A' happens then 'B' is the next most likely thing to happen, and so on and so on.
-
-The difference is that games like Go and Chess have well-understood rules as (ultimately) do natural processes like climate change and earthquakes. Chess is 'easier' for a computer than Go because a big enough computer can work out every possible chess move and pick the best one, whereas it can't do that for Go and so has to make 'choices' based on incomplete information. Earthquakes have even more 'rules', but as far we know they still follow _some_ set of rules dictated by physics and chemistry. 
-
-People, however, don't use the same unchanging rules in conversation. Yes, conversations have norms, unless you're using an online comment forum where it's normal to start a conversation by asking someone if they're an idiot, but people don't just 'play games' within the rules, they actually play with the rules themselves in a way that computers find very, very hard to follow. Think of sarcasm: you say one thing but it means exactly the opposite. And if it's delivered deadpan then sometimes even people have trouble knowing if you're being sincere!
-
-That's why AI of the sort you might have seen in _2001_ or _Blade Runner_ has been twenty years away for the last sixty years! Recently, computers have been getting better and better at doing really difficult things, but it's usually still in a narrow area where we understand the rules and we normally need to spend a lot of time training the computer. 
-
-#### More About the Turing Test
-Turing, A (1950), _Computing Machinery and Intelligence, Mind_ LIX (236): 433–460
-doi: [10.1093/mind/LIX.236.433](http://dx.doi.org/10.1093/mind/LIX.236.433), ISSN 0026-4423
-
-## Further Reading:
+## Further Reading
 
 - A **must** read: [The Hard Way is Easier](http://learnpythonthehardway.org/book/intro.html)
 - Two easy and accessible videos to start wrapping your head around programming (although they are not Python-centric) [1](https://www.youtube.com/watch?v=qUVWM2Q4vAU) and [2](https://www.youtube.com/watch?v=AImF__7FyzM)
 
-### Credits!
+## Credits!
 
 #### Contributors:
 The following individuals have contributed to these teaching materials: 
+
+
+
 - [James Millington](https://github.com/jamesdamillington)
 - [Jon Reades](https://github.com/jreades)
 - [Michele Ferretti](https://github.com/miccferr)
 - [Zahratu Shabrina](https://github.com/zarashabrina)
+- [Fulvio Lopane](https://www.ucl.ac.uk/bartlett/casa/people/fulvio-lopane)
+
+
 
 #### License
 The content and structure of this teaching project itself is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/), and the contributing source code is licensed under [The MIT License](https://opensource.org/licenses/mit-license.php).

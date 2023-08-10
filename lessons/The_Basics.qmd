@@ -8,10 +8,6 @@ In this first _proper_ programming lesson we are going to use the Python interpr
 
 As we progress through the excercises we'll encounter a range of new programming concepts. At this stage don't worry too much about memorizing all of them; it is through repeated use and practice that they will eventually come naturally. Instead, here we want you to try to develop a _sense_ of what is going on and keep the concepts in mind when reading the examples... but the really important thing is to try to apply them while _doing the excercises_.
 
-To help you get started, we have prepared an introductory video to aid your learning about the basic concepts in Python. Please note that if you are using binder, by the time you have finished watching this video, you might need to re-launch it. So if you have modified any part of your notebook, make sure to download the current version to your browser (the introductory video talks about how to do this).
-
-[![Code Camp: The Basics ](http://img.youtube.com/vi/UDNtW3sy-og/0.jpg)](https://youtu.be/UDNtW3sy-og)
-
 ### How the exercises work
 
 Lastly, a few words on the excercises; in every lesson we've tried to develop a mix of exercises and examples to show you how Python works. There are four 'levels' of exercise:
@@ -433,10 +429,9 @@ print(type(result))
 
 Check it out! We _assigned_ the outcome of `-2 * 10` to a variable called `result`; then we did something else (printed out a string); and _then_ we printed out the value of the variable _and_ the computer remembered! 
 
-[This video](http://www.youtube.com/watch?feature=player_embedded&v=_sVtcPgHAjI) may help you to further understand the concept of a 'variable':
+This video may help you to further understand the concept of a 'variable':
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=_sVtcPgHAjI" target="_blank"><img src="http://img.youtube.com/vi/_sVtcPgHAjI/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="480" height="360" border="10" /></a>
+{{< video https://youtu.be/_sVtcPgHAjI >}}
 
 ### Copying variables
 
@@ -559,7 +554,7 @@ For more examples of Python variables check out also [OpenTechSchool's intro to 
 Now that we've had a taste of the fantastic Python programming world, let's solidify our newly acquired skills with a final round of excercises.
 
 ### Code from scratch
-    
+
 
 #### Exercise 1 
 

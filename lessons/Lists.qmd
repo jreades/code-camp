@@ -26,7 +26,7 @@ Let's start with **lists** in this lesson and we'll continue with **dictionaries
 
 You can go back to our short video that talks about lists:
 
-[![The Basics](http://img.youtube.com/vi/UDNtW3sy-og/0.jpg)](https://youtu.be/UDNtW3sy-og?t=452)
+{{< video https://youtu.be/UDNtW3sy-og >}}
 
 ### In this lesson
 
@@ -420,7 +420,7 @@ What did I mean just now by 'modifying the list directly'?
 Notice that in the first example above we had to write:
 ```python
 myList = myList + ['New item']
-``` 
+```
 because we had to write the result of concatenating the two lists together back to the variable. The list isn't really growing, we're just overwriting what was _already_ in `myList` with the results of the list addition operation. What do you think you would get if you wrote the following code:
 ```python
 myList = [] # An empty list
@@ -430,7 +430,7 @@ myList + ['Another new item']
 myList + ['And another one!']
 
 print(myList)
-``` 
+```
 If you aren't sure, why don't you try typing this into the coding area above and try to figure out why the answer is: ''.
 
 Meanwhile, in the second example we could just write: 

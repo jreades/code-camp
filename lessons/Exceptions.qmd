@@ -14,7 +14,7 @@ jupyter: python3
 
 This lesson is all about learning to deal with the (unavoidable) errors that you wil encounter when programming in Ptyhon. Most programmers spend _most_ of their day dealing with errors of one sort or another: sometimes they are easy to solve (e.g. you mis-typed a variable name), other times they are very, very hard (e.g. you are writing a cloud computing platform and have to deal with competition for resources). Either way, learning how to find, diagnose, and resolve errors, as well as how to minimize their consequences, is thus a crucial skill for programmers. 
 
-*DISCLAIMER: This lesson is heavily based on the [official Python Documentation](https://docs.python.org/3/tutorial/errors.html) about Errors and Exception. Check it out for further examples.*
+*DISCLAIMER: This lesson is heavily based on the [official Python Documentation](https://docs.python.org/3/tutorial/errors.html) about Errors and Exceptions. Check it out for further examples.*
 
 # Introduction to errors
 
@@ -239,7 +239,7 @@ This is not meant to put you off in any way, but rather to let you know from the
 If in the previous lessons we didn't even leave the U.K., this time we'll fly to the far away magical [Null Island](https://en.wikipedia.org/wiki/Null_Island).
 
 From its official government's [touristic office](http://www.nullisland.com/):
-   
+
 > The Republic of Null Island	 
 > *LIKE NO PLACE ON EARTH!*
 

@@ -2,9 +2,6 @@
 jupyter: python3
 ---
 
-<div style="text-align:center">
-<h1>Recap 1</h1>
-</div>
 
 ## First Checkpoint
 
@@ -28,7 +25,7 @@ Actually, not all programmers would distinguish between \#2 and \#3, but we'll m
 
 Here's a nice little video on this topic...
 
-[![Video about Types of Errors](https://img.youtube.com/vi/ToPP5UGgJUM/0.jpg)](https://www.youtube.com/watch?v=ToPP5UGgJUM)
+{{< video https://youtu.be/ToPP5UGgJUM >}}
 
 When you first learn to code, syntax errors are the most common type of error because you are still learning the 'rules' of the language: indentation, the difference between `=` and `==`, the need for a colon (`:`) on the end of some types of code... Python is _fairly_ good at telling you what has caused a syntax error when it's trivial and happens on a single line of code, but it will get quite a bit harder as your code becomes more complex!
 

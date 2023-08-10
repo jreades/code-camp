@@ -14,11 +14,11 @@ Many computers (especially Macs and Linux systems) will come with Python pre-ins
 
 ### Mac
 
-Open up the Terminal (under `Applications` > `Utilities`) and then type `python --version ↩︎`.
+Open up the Terminal (under `Applications` > `Utilities`) and then type `python3 --version ↩︎`.
 
 ### Windows 
 
-Open the Command Prompt  (either run `cmd.exe` or search for `Command Prompt` from the Windows menu) and then type `python --version ↩︎`.
+Open the Command Prompt  (either run `cmd.exe` or search for `Command Prompt` from the Windows menu) and then type `python3 --version ↩︎`.
 
 :::
 
@@ -34,7 +34,20 @@ Python 3.8.16
 
 If you see this kind output then, congratulations, you have Python installed!
 
+::: {.callout-note}
+
+Depending on how Python was installed, you may find that typing just `python` produces an error, while typing `python3` is successful. 
+
+:::
+
+### Action
+
+Just to give you a sense of how to interact with Python from the command line, here's a short video from a Mac showing how to start/stop Python and execute code to print out the result of `2+2`. It's just a sanity-check:
+
+{{< video https://www.youtube.com/watch?v=-zDGmxcFrxk >}}
+
 ::: {.callout-tip}
+
 ## Versions
 
 Don't worry too much about what version of Python you see listed (in the example above it's 3.8.16) as long as you have _at least_ verion 3.8.0. You should _not_ use Python2 (e.g. 2.7.6) or versions of Python3 earlier than 3.6.
@@ -45,7 +58,7 @@ Don't worry too much about what version of Python you see listed (in the example
 
 The 'reference' version of Python is the one produced by the Python Software Foundation. Whatever operating system you're using, you should start from the [downloads page](https://www.python.org/downloads/) and follow the instructions from there. You will want a **Stable Release**, _not_ a Pre-release version of Python.
 
-Once it's installed, you just use the Terminal or Command Prompt as above.
+Once it's installed, you just use the Terminal or Command Prompt as above in [Action](#action).
 
 ::: {.callout-tip}
 

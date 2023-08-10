@@ -326,8 +326,7 @@ Note: Other languages such as C/C++ use curly braces `{...}` around a block, jus
 
 Sidenote: How much should you indent? Although the [official specification](https://www.python.org/dev/peps/pep-0008/#tabs-or-spaces) specifies *4 spaces*, quite a few people indent using *one tab* instead. Technically, there is no difference _as long as you are consistent_ (See [this discussion](http://stackoverflow.com/questions/1125653/python-4-whitespaces-indention-why)). This apparently trivial issue is the sort of thing that leads to all kinds of heated argument (like whether you prefer Mac OSX or Windows; OSX is better, obviously). It's such a famous aspect of the programming world that it even featured in an episode of the sit-com [Silicon Valley](https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)): 
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=cowtgmZuai0" target="_blank"><img src="http://img.youtube.com/vi/cowtgmZuai0/0.jpg" 
-alt="Silicon Valley" width="480" height="360" border="10" /></a>
+{{< video https://youtu.be/cowtgmZuai0 >}}
 
 #### A challenge for you!
 
@@ -479,12 +478,11 @@ print("And now back to normal code execution.")
 ```
 :::
 
-# Boolean Logic
-----
+## Boolean Logic
 
 The very logical Prof. George Boole, circa 1860:
 
-![Photo of Boole](https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg "Boole")
+![Photo of Boole](https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg){fit-alt="George Boole" width=50%}
 
 Boolean logic and [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra) have to do with _set theory_ but also lie at the heart of the modern computer! Remember that in lesson 1 we saw that a computer works by combining `AND`, `OR`, `XOR` and `NAND` circuits to produce ever more complex calculations? Well, we also use this a lot in programming!
 

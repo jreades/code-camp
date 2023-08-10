@@ -221,7 +221,7 @@ In the output below, the functions that start and end with `__` are generally co
 
 Just in case you need help pronouncing supercalifragilisticexpialidocious:
 
-[![Mary Poppins](http://img.youtube.com/vi/uZNRzc3hWvE/0.jpg)](https://youtu.be/uZNRzc3hWvE)
+{{< video https://youtu.be/uZNRzc3hWvE >}}
 
 Remember that you can find out what _methods_ are supported by a string using `dir(<string>)`:
 ```python

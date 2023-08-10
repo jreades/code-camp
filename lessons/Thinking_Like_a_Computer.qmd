@@ -24,13 +24,13 @@ There are a huge number of videos on YouTube and resources accessible from Googl
 
 If you've never really got to grips with what is happening inside a computer, then [this TedED video](http://www.youtube.com/watch?v=AkFi90lZmXA) would be a good way to get started because it helps to explain the basics of things like I/O and what actually happens when you click with the mouse on a button. In fact, you will see that we've used code to import the YouTube video in a way that requires me to do very little work and this is one of the strengths of programming: that someone else created the code to embed a YouTube video into a script (which is what this web page is) and all I need to do is know how to ask that code to find the video on the YouTube web site. Everything else happens automatically.
 
-[![What's Going On in There?](http://img.youtube.com/vi/AkFi90lZmXA/0.jpg)](http://www.youtube.com/watch?v=AkFi90lZmXA)
+{{< video https://youtu.be/AkFi90lZmXA >}}
 
 ### How a Computer Adds Numbers
 
 [This next video](http://www.youtube.com/watch?v=VBDoT8o4q00) is a little more technical and we don't really expect you to remember it, but it touches on a lot of really important concepts: binary numbers, Boolean logic, and how these basic building blocks are assembled into much more complex processes like adding numbers or, ultimately, manipulating data.
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/VBDoT8o4q00/0.jpg)](http://www.youtube.com/watch?v=VBDoT8o4q00)
+{{< video https://youtu.be/VBDoT8o4q00 >}}
 
 The really important thing to get from this last video is that computers are chaining together long sets of simple operations which always basically work out to 1 or 0, which is the same as True or False. This is [Boolean logic](http://computer.howstuffworks.com/boolean.htm) and it is integral to computation _and_ to data processing, but you should always keep in mind that a huge set of calculations are going on in your computer in an order specified by a set of *rules*: do 'A', then do 'B', then... When these rules become sufficiently complex (they become like long recipes!) they are called algorithms. And when they get so complicated that they are not easy to write down as a set of logical outputs, it's often easier to express in a more human-readable form... which is why we have [programming languages](https://en.wikipedia.org/wiki/Programming_language).
 
@@ -62,7 +62,7 @@ A few starting principles:
 
 We'll get to a video in a second, but on a Mac you can 'view' the path in the Finder simply by clicking on any finder window and typing `Alt + Command + P` (or selecting `View > Path` from the menu bar). This will show the current path in a strip along the bottom of the finder window. Pay attention to the Path view in the movie below.
 
-[![The Path (Graphical Version)](http://img.youtube.com/vi/U0hrKz5Ajrg/0.jpg)](http://www.youtube.com/watch?v=U0hrKz5Ajrg "The Path (Graphical Version)")
+{{< video https://youtu.be/U0hrKz5Ajrg >}}
 
 ### Paths in a Terminal
 
@@ -70,7 +70,7 @@ Now, sooner or later you are going to have to learn how to use the Terminal (a.k
 
 So here's the _same_ process of navigating from a directory called `KCL Modules` down to the 2017-18 Geocomputation Teaching directory as you just saw above, but using the Terminal:
 
-[![The Path (Terminal Version)](http://img.youtube.com/vi/qxvhsuOKGaY/0.jpg)](http://www.youtube.com/watch?v=qxvhsuOKGaY "The Path (Terminal Version)")
+{{< video https://youtu.be/qxvhsuOKGaY >}}
 
 You'll notice that there were several seemingly cryptic commands -- we'll examine them in more detail below, but the important ones to note in this video are:
 

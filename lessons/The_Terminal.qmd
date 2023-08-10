@@ -28,7 +28,7 @@ A few starting principles:
 
 We'll get to a video in a second, but on a Mac you can 'view' the path in the Finder simply by clicking on any finder window and typing `Alt + Command + P` (or selecting `View > Path` from the menu bar). This will show the current path in a strip along the bottom of the finder window. Pay attention to the Path view in the movie below.
 
-[![The Path (Graphical Version)](http://img.youtube.com/vi/U0hrKz5Ajrg/0.jpg)](http://www.youtube.com/watch?v=U0hrKz5Ajrg "The Path (Graphical Version)")
+{{< video https://youtu.be/U0hrKz5Ajrg >}}
 
 ### Paths in a Terminal
 
@@ -36,7 +36,7 @@ Now, sooner or later you are going to have to learn how to use the Terminal (a.k
 
 So here's the _same_ process of navigating from a directory called `KCL Modules` down to the 2017-18 Geocomputation Teaching directory as you just saw above, but using the Terminal:
 
-[![The Path (Terminal Version)](http://img.youtube.com/vi/qxvhsuOKGaY/0.jpg)](http://www.youtube.com/watch?v=qxvhsuOKGaY "The Path (Terminal Version)")
+{{< video https://youtu.be/qxvhsuOKGaY >}}
 
 You'll notice that there were several seemingly cryptic commands -- we'll examine them in more detail below, but the important ones to note in this video are:
 
