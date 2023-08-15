@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code Camp – packages</title>
+<title>Code Camp - Introduction to Packages</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -350,8 +350,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#functions-vs.-packages" id="toc-functions-vs.-packages" class="nav-link active" data-scroll-target="#functions-vs.-packages">Functions vs.&nbsp;Packages</a></li>
-  <li><a href="#packages-in-programming-context" id="toc-packages-in-programming-context" class="nav-link" data-scroll-target="#packages-in-programming-context">Packages in Programming Context</a></li>
+  <li><a href="#whats-a-package" id="toc-whats-a-package" class="nav-link active" data-scroll-target="#whats-a-package">What’s a Package?</a></li>
+  <li><a href="#packages-in-context" id="toc-packages-in-context" class="nav-link" data-scroll-target="#packages-in-context">Packages in Context</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -375,12 +375,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="functions-vs.-packages" class="level2">
-<h2 class="anchored" data-anchor-id="functions-vs.-packages">Functions vs.&nbsp;Packages</h2>
-<p>We saw in a previous Code Camp Lesson how <strong>functions</strong> are a useful programming tool to enable us to re-use chunks of code. Basically, a function is a way to do something to something in a portable, easy-to-use little bundle of code.</p>
-<p>However, some steps in a program are done so many times by so many people that, eventually, someone writes a <strong>package</strong> that bundles up those operations into something easy to use that saves <em>you</em> having to figure out the gory details.</p>
 <p>In this lesson we’ll see how packages are useful in the context of tacking problems programmatically. The problem we will use here as an example is: <em>download a data file that we know is hosted on a web site and then do some analysis of those data</em>.</p>
 <p>In this example, we are going to access and analyse a data set that we created: <a href="https://raw.githubusercontent.com/kingsgeocomp/geocomputation/master/CitiesWithWikipediaData-simple.csv">Cities from Wikipedia Data</a>. Have a look at those data in your browser now by pasting the URL into a new tab. We’ll use the <code>urlopen</code> package to help us access the data.</p>
+<section id="whats-a-package" class="level2">
+<h2 class="anchored" data-anchor-id="whats-a-package">What’s a Package?</h2>
+<p>We saw in a previous Code Camp Lesson how <strong>functions</strong> are a useful programming tool to enable us to re-use chunks of code. Basically, a function is a way to do something to something in a portable, easy-to-use little bundle of code.</p>
+<p>However, some steps in a program are done so many times by so many people that, eventually, someone writes a <strong>package</strong> that bundles up those operations into something easy to use that saves <em>you</em> having to figure out the gory details.</p>
 <section id="q-how-is-a-package-different-from-a-function" class="level3">
 <h3 class="anchored" data-anchor-id="q-how-is-a-package-different-from-a-function">Q: How is a package different from a function?</h3>
 <p><strong>A</strong>: A package is just a bundle of useful functions.</p>
@@ -413,8 +413,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Because the <em>alias</em> (<code>"...as ldn"</code>) lets you type <code>ldn.read_data(...)</code> and Python will know exactly which function you mean!</p>
 </section>
 </section>
-<section id="packages-in-programming-context" class="level2">
-<h2 class="anchored" data-anchor-id="packages-in-programming-context">Packages in Programming Context</h2>
+<section id="packages-in-context" class="level2">
+<h2 class="anchored" data-anchor-id="packages-in-context">Packages in Context</h2>
 <p>The first step to writing a program is thinking about your goal and the steps required to achieve that. We <em><strong>don’t</strong></em> write programs like we write essays: all at once by writing a whole lot of code and then hoping for the best when we hit ‘submit’.&nbsp;</p>
 <p>When you’re tackling a programming problem you break it down into separate, simpler steps, and then tick them off one by one. Doing this gets easier as you become more familiar with programming, but it remains crucial and, in many cases, good programmers in large companies spend more time on <em>design</em> than they do on actual <em>coding</em>.</p>
 <p>To a computer, reading data from a remote location (e.g.&nbsp;a web site halfway around the world) is not really any different from reading one that’s sitting on your your local hard drive (e.g.&nbsp;on your desktop). To simplify things a great deal: the computer really just needs to know the location of the file and an appropriate <em>protocol</em> for accessing that file (<em>e.g.</em> http, https, ftp, local…) and then a clever programming language like Python will typically have packages that can kind of take of the rest.</p>
@@ -444,8 +444,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>What <strong><code>dir</code></strong> gives you is information about things you can potentially do: it’s like navigating the menu of a web site – you aren’t yet looking at the information you need, you’re trying to figure out if the site even <em>has</em> what you need. So <code>dir</code> on a package will give you a list of the functions (and any variables) that the person who created the package has provided.</p>
 <p>Typically, the information given by <code>dir</code> is highly abbreviated and is really just a prelude to using <code>help</code>.</p>
 </section>
-<section id="help" class="level5">
-<h5 class="anchored" data-anchor-id="help">help</h5>
+</section>
+<section id="help" class="level4">
+<h4 class="anchored" data-anchor-id="help">help</h4>
 <p>The <code>help</code> function gives you the actual detail you need about how to use a particular function: what are the inputs, what are the outputs, and what will the function actually <em>do</em> ?</p>
 <p>Both of these can be used on a package, a function, or a variable that you’ve created; for example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -461,8 +462,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>?urlopen</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="a-challenge-for-you" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you">A Challenge for you!</h4>
+<section id="a-challenge-for-you" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you">A Challenge for you!</h3>
 <p>Fix the code to set the <code>url</code> variable, then use it with the <code>urlopen</code> function to open it.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Solution</a></li></ul>
@@ -516,15 +517,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The last row should be <code>10,Sheffield,10,-163545.3257,7055177.403,685368</code>.</p>
 <p>If you’ve managed to get the code above to run and have received 11 rows of text in response to your <code>urlopen</code> query then, congratulations, you’ve now read a text file sitting on a server in, I think, Alberta, Canada and Python <em>didn’t care</em>.</p>
 </section>
-</section>
 <section id="step-2-turning-text-into-data" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-turning-text-into-data">Step 2: Turning Text into Data</h3>
 <p>We now need to work on turning the response we got to our <code>urlopen</code> request into useful data. You’ll notice that we are dealing with a <em>CSV</em> (Comma-Separated Value) file and that the format is quite simple since none of the rows have fields that <em>themselves</em> contain commas. So to turn this into data we just need to <em>split</em> the row into separate fields using the commas.</p>
 <p>In the code below, <code>dir('string')</code> lists the available function for strings (because <code>'string'</code> is itself a <em>String</em>; we could just as easily written <code>dir('foo')</code> or <code>dir('supercalifragilisticexpialidocious')</code> because ‘foo’ and ‘supercalifragilisticexpialidocious’ are also strings and so have the <em>same</em> functions available.</p>
 <p>In the output below, the functions that start and end with <code>__</code> are generally considered private, so you can skip over these and focus on the ones further down that are designed to be useful to programmers. Can you spot the method that is most likely to be useful?</p>
-</section>
-<section id="a-brief-musical-interlude" class="level3">
-<h3 class="anchored" data-anchor-id="a-brief-musical-interlude">A Brief Musical Interlude</h3>
+<section id="a-brief-musical-interlude" class="level4">
+<h4 class="anchored" data-anchor-id="a-brief-musical-interlude">A Brief Musical Interlude</h4>
 <p>Just in case you need help pronouncing supercalifragilisticexpialidocious:</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/uZNRzc3hWvE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>Remember that you can find out what <em>methods</em> are supported by a string using <code>dir(&lt;string&gt;)</code>:</p>
@@ -571,6 +570,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
 <section id="consider" class="level4">
 <h4 class="anchored" data-anchor-id="consider">Consider</h4>
 <p>A question: why do you think that I consider a) to be data and not b)?</p>
@@ -591,7 +591,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="step-3-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-analysis">Step 3 Analysis</h3>
+<h3 class="anchored" data-anchor-id="step-3-analysis">Step 3: Analysis</h3>
 <div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>

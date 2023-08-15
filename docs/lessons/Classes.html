@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code Camp – classes</title>
+<title>Code Camp - Inheritance and Classes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -350,12 +350,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#a-semi-brief-discourse-on-families-inheritance" id="toc-a-semi-brief-discourse-on-families-inheritance" class="nav-link active" data-scroll-target="#a-semi-brief-discourse-on-families-inheritance">A (Semi-Brief) Discourse on Families &amp; Inheritance</a>
-  <ul class="collapse">
-  <li><a href="#the-tree-of-life" id="toc-the-tree-of-life" class="nav-link" data-scroll-target="#the-tree-of-life">The ‘Tree of Life’</a></li>
+  <li><a href="#the-tree-of-life" id="toc-the-tree-of-life" class="nav-link active" data-scroll-target="#the-tree-of-life">The ‘Tree of Life’</a></li>
   <li><a href="#the-tree-of-classes" id="toc-the-tree-of-classes" class="nav-link" data-scroll-target="#the-tree-of-classes">The ‘Tree of Classes’</a></li>
   <li><a href="#classes" id="toc-classes" class="nav-link" data-scroll-target="#classes">Classes</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -379,17 +376,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="a-semi-brief-discourse-on-families-inheritance" class="level1">
-<h1>A (Semi-Brief) Discourse on Families &amp; Inheritance</h1>
-<p>GeoPandas objects are deliberately designed to resemble Pandas objects. There are two good reasons for this:</p>
-<ol type="1">
-<li>Since Pandas is well-known, this makes it easier to learn how to use GeoPandas.</li>
-<li>GeoPandas <em>inherits</em> functionality from Pandas.</li>
-</ol>
-<p>The concept of <strong>inheritance</strong> is something we’ve held off from mentioning until now, but it’s definitely worth understanding if you are serious about learning how to code. In effect, geopandas ‘<em>imports</em>’ pandas and then <em>extends</em> it so that the more basic class (pandas in this case) learns how to work with geodata… pandas doesn’t know how to read shapefiles or make maps, but geopandas does. Same for GeoJSON.</p>
+<p>The concept of <strong>inheritance</strong> is something we’ve held off from mentioning until now, but it’s definitely worth understanding if you are serious about learning how to code. In effect, it’s common to find Python classes that <em>import</em> a ‘base class’ and then <em>extend</em> it with additional functionality.</p>
+<p>The two main libraries for working with small to medium-sized data sets in Python are <code>pandas</code> and <code>geopandas</code>. The creators of <code>pandas</code> were’t interested in spatial data analysis, so they didn’t implement any functionality for reading/writing/analysing spatial data. Along come some developers who <em>are</em> interested in spatial problems and <code>geopandas</code> as born! But they don’t want to have to copy+paste lots of code from <code>pandas</code> just to implement the <em>same</em> functionality that pandas already provides (calculating the mean, reading an Excel file, handling time series data…) so they <em>extend</em> pandas by importing it and adding <em>only</em> the new bits that are needed to deal with geography: in this way ‘pandas’ learns how to work with geodata…</p>
 <section id="the-tree-of-life" class="level2">
 <h2 class="anchored" data-anchor-id="the-tree-of-life">The ‘Tree of Life’</h2>
-<p>Here’s a simple way to think about inheritance: think of the ‘evolutionary trees’ you might have seen charting the evolution of organisms over time. At the bottom of the tree is the single-celled animal, and at the other end are humans, whales, wildebeest, etc. We all <em>inherit</em> some basic functionality from that original, simple cell. In between us and that primitive, however, are a whole series of branches: different bits of the tree evolved in different directions and developed different ‘functionality’. Some of us have bones. Some have cartilege. Some are vegetarian, and some are carnivorous. And so on. When you get to the primates we all share certain common ‘features’ (binocular vision, grasping hands, etc.), but we are <em>still</em> more similar to gorillas than we are to macaques. So gorillas and humans <em>extend</em> the primitive ‘primate functionality’ with some bonus features (bigger brains, greater strength, etc.) that are useful, while macaques extend it with a slightly different set of features (tails, etc.).</p>
+<p>Here’s a simple way to think about inheritance: think of the ‘evolutionary trees’ you might have seen charting the evolution of organisms over time. At the bottom of the tree is the single-celled animal, and at the other end are humans, whales, wildebeest, etc. We all <em>inherit</em> some basic functionality from that original, simple cell.</p>
+<p>In between us and that primitive, however, are a whole series of branches: different bits of the tree evolved in different directions and developed different ‘functionality’. Some of us have bones. Some have cartilege. Some are vegetarian, and some are carnivorous. And so on.</p>
+<p>When you get to the primates we all share certain common ‘features’ (binocular vision, grasping hands, etc.), but we are <em>still</em> more similar to gorillas than we are to macaques. So gorillas and humans <em>extend</em> the primitive ‘primate functionality’ with some bonus features (bigger brains, greater strength, etc.) that are useful, while macaques extend it with a slightly different set of features (tails, etc.).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="http://palaeos.com/systematics/tree/images/treeolif.jpg" class="img-fluid figure-img"></p>
@@ -629,7 +622,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This lesson may depend on the following libraries: None</p>
 
 
-</section>
 </section>
 </section>
 </section>

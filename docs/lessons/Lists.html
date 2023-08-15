@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code Camp – lists</title>
+<title>Code Camp - Lists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -97,6 +97,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -350,16 +352,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#lists" id="toc-lists" class="nav-link active" data-scroll-target="#lists">Lists</a>
-  <ul class="collapse">
+  <li><a href="#introducing-structure" id="toc-introducing-structure" class="nav-link active" data-scroll-target="#introducing-structure">Introducing: Structure</a></li>
+  <li><a href="#whats-a-list" id="toc-whats-a-list" class="nav-link" data-scroll-target="#whats-a-list">What’s a List?</a></li>
   <li><a href="#indexing" id="toc-indexing" class="nav-link" data-scroll-target="#indexing">Indexing</a></li>
   <li><a href="#a-string-is-a-list" id="toc-a-string-is-a-list" class="nav-link" data-scroll-target="#a-string-is-a-list">A String is a List?</a></li>
   <li><a href="#slicing" id="toc-slicing" class="nav-link" data-scroll-target="#slicing">Slicing</a></li>
-  <li><a href="#list-operations" id="toc-list-operations" class="nav-link" data-scroll-target="#list-operations">List operations</a></li>
+  <li><a href="#list-operations" id="toc-list-operations" class="nav-link" data-scroll-target="#list-operations">List Operations</a></li>
   <li><a href="#extending-lists" id="toc-extending-lists" class="nav-link" data-scroll-target="#extending-lists">Extending Lists</a></li>
   <li><a href="#other-list-functions" id="toc-other-list-functions" class="nav-link" data-scroll-target="#other-list-functions">Other List Functions</a></li>
-  </ul></li>
-  <li><a href="#code-applied-geo-example" id="toc-code-applied-geo-example" class="nav-link" data-scroll-target="#code-applied-geo-example">Code (Applied Geo-example)</a></li>
+  <li><a href="#applied-geo-example" id="toc-applied-geo-example" class="nav-link" data-scroll-target="#applied-geo-example">Applied Geo-example</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -383,44 +384,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="lesson-content" class="level3">
-<h3 class="anchored" data-anchor-id="lesson-content">Lesson Content</h3>
-<p>In previous code camp lessons we looked at numeric (<strong>integers</strong> and <strong>floats</strong>) and textual (<strong>strings</strong>) data, but it’s probably been quite difficult to imagine how you’d assemble these simple data into something useful. The new data types (<strong>lists</strong> and <strong>dictionaries</strong>) will <em>begin</em> to show you how that can happen, and they will allow you to ‘express’ much more complex concepts with ease.</p>
-</section>
-<section id="whats-the-difference" class="level3">
-<h3 class="anchored" data-anchor-id="whats-the-difference">What’s the Difference?</h3>
-<p>Up until now, our variables have only held <em>one</em> things: a number, or a string.</p>
-<p>In other words, we’ve had things like, <code>myNumber = 5</code> or <code>myString = "Hello world!"</code>. And that’s it.</p>
+<p>In previous code camp lessons we looked at numeric (<strong>integers</strong> and <strong>floats</strong>) and textual (<strong>strings</strong>) data, but it’s probably been quite difficult to imagine how you’d assemble these simple data types into something <em>useful</em>. The new data types — <strong>lists</strong> and <strong>dictionaries</strong> — which we’re covering in the next two sessions will <em>begin</em> to show you how that can happen, and they will allow you to ‘express’ much more complex concepts.</p>
+<section id="introducing-structure" class="level2">
+<h2 class="anchored" data-anchor-id="introducing-structure">Introducing: Structure</h2>
+<p>Up until now, our variables have only held <em>one</em> things: a number, or a string. In other words, we’ve had things like, <code>myNumber = 5</code> or <code>myString = "Hello world!"</code>. And that’s it.</p>
 <p>Now, with <strong>lists</strong> and <strong>dictionaries</strong> we can store <em>multiple</em> things: several numbers, several strings, or some mish-mash of both. That is, lists and dictionaries are data <em>structures</em> that can contain multiple data <em>types</em>.</p>
-<p>Here’s a brief summary of these data structures, highlighting their main difference: - A <strong>list</strong> is an <em>ordered</em> collection of ‘items’ (numbers, strings, etc.). You can ask for the first item in a list, the 3rd, or the 1,000th, it doesn’t really matter because your list has an order and it keeps that order. - A <strong>dictionary</strong> is an <em>unordered</em> collection of ‘items’ (numbers, strings, etc.). You access items in a dictionary in a similar way to how you access a real dictionary: you have a ‘key’ (i.e.&nbsp;the word for which you want the definition) and you use this to look up the ‘value’ (i.e.&nbsp;the definition of the word).</p>
-<p>There’s obviously a lot more to lists and dictionaries than this, but it’s a good starting point.</p>
+<p>Here’s a brief summary of these data structures, highlighting their main difference:</p>
+<ul>
+<li>A <strong>list</strong> is an <em>ordered</em> collection of ‘items’ (numbers, strings, etc.) accessed <em>by position</em>. So you ask for the <em>first</em>, <em>fifth</em>, or <em>n</em><span class="math inline">\(^{th}\)</span> item of the list.</li>
+<li>A <strong>dictionary</strong> (in Python) is an <em>ordered</em> collection of ‘items’ (numbers, strings, etc.) accessed <em>by label</em> or <em>name</em>.</li>
+</ul>
+<p>So a Python dictionary is similar to a real dictionary in the sense that you have a ‘key’ (i.e.&nbsp;the word for which you want the definition) and you use this to look up the ‘value’ (i.e.&nbsp;the definition of the word). There’s obviously a lot more to lists and dictionaries than this, but it’s a good starting point.</p>
 <p>Let’s start with <strong>lists</strong> in this lesson and we’ll continue with <strong>dictionaries</strong> in the following.</p>
 <p>You can go back to our short video that talks about lists:</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/UDNtW3sy-og" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</section>
-<section id="in-this-lesson" class="level3">
-<h3 class="anchored" data-anchor-id="in-this-lesson">In this lesson</h3>
-<ul>
-<li>Indexing &amp; Slicing</li>
-<li>List operations
-<ul>
-<li>Addition and Mulitplication</li>
-<li>You’re (not) in the list!</li>
-</ul></li>
-<li>List functions
-<ul>
-<li>insert</li>
-<li>append</li>
-<li>index</li>
-<li>len</li>
-</ul></li>
-</ul>
 <hr>
 </section>
-<section id="lists" class="level1">
-<h1>Lists</h1>
+<section id="whats-a-list" class="level2">
+<h2 class="anchored" data-anchor-id="whats-a-list">What’s a List?</h2>
 <p>So a <strong>list</strong> is an ordered collection of items that we access by position (what Python calls the <strong>index</strong>) within that collection. So the first item in a list is always the first item in the list. End of (well, sort of… more on this later).</p>
-<p>Because lists contain multiple data items, we create and use them differently from the simple (single item) variables we’ve seen so far. You can always spot a list because it is a series of items separated by commas and grouped together between a pair of square brackets ( <em>[A, B, C, …, n]</em> ).</p>
+<p>Because lists contain multiple items, we create and use them differently from the simple (single item) variables we’ve seen so far. You can always spot a list because it is a series of items separated by commas and grouped together between a pair of square brackets ( <code>[A, B, C, ..., n]</code>).</p>
+<section id="creating-a-list" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-list">Creating a List</h3>
 <p>Here is a list of 4 items assigned to a variable called <code>myList</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -429,11 +414,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="st">'hi I am'</span>, <span class="dv">2312</span>, <span class="st">'mixing'</span>, <span class="fl">6.6</span>, <span class="dv">90</span>, <span class="st">'strings, integers and floats'</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We don’t want to get too technical here, but it’s important to note one thing: <code>myList</code> is still just <strong>one</strong> thing – a list – and not six things (<code>'hi I am', 2312, 'mixing', 6.6, 90, 'strings, integers and floats'</code>). So we can only assign one list to a variable called <code>myList</code>. It’s like the difference between a person and a crowd: a crowd is one thing that holds many people inside it…</p>
+</section>
+</section>
 <section id="indexing" class="level2">
 <h2 class="anchored" data-anchor-id="indexing">Indexing</h2>
-<p>To access an item in a list you use an <strong>index</strong>. This is a new and important concept and it’s a term that we’re going to use a <em>lot</em> in the future, so try to really get this term into your head before moving forward in the lesson.</p>
-<section id="accessing-elements-in-a-list-using-indexes" class="level3">
-<h3 class="anchored" data-anchor-id="accessing-elements-in-a-list-using-indexes">Accessing Elements in a List using Indexes</h3>
+<p>To access an item in a list you use an <strong>index</strong>. This is a new and important concept, and it’s a term that we’re going to use a <em>lot</em> in the future. You have been warned!</p>
+<section id="accessing-elements-in-a-list" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-elements-in-a-list">Accessing Elements in a List</h3>
 <p>The index is just the location of the item in the list that you want to access. So let’s say that we want to fetch the second item, we access it via the <em>index notation</em> like so:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="st">'hi'</span>, <span class="dv">2312</span>, <span class="st">'mixing'</span>, <span class="fl">6.6</span>, <span class="dv">90</span>, <span class="st">'strings, integers and floats'</span> ]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myList[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -506,8 +493,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>Note</em>: remember too that the error above when we tried to get the 200th element was <em>index out of range</em>. So ‘range’ is how Python talks about more than one list element.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>shortSentence <span class="op">=</span> <span class="st">"Now I'll just print THIS word, between the 20th and the 25th character: "</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shortSentence[<span class="dv">20</span>:<span class="dv">25</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="a-challenge-for-you-2" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-2">A challenge for you!</h4>
+<section id="a-challenge-for-you-2" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-2">A challenge for you!</h3>
 <p>Using the previous code as a guide, edit the code below so that it prints from the second to the fourth (inclusive) characters from the string:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Solution</a></li></ul>
@@ -529,8 +516,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Starting from the 17th position: '"</span> <span class="op">+</span> stringToPrint[<span class="dv">17</span>:] <span class="op">+</span> <span class="st">"'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Got it?</p>
 </section>
-<section id="a-challenge-for-you-3" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-3">A challenge for you!</h4>
+<section id="a-challenge-for-you-3" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-3">A challenge for you!</h3>
 <p>Now, combining what we’ve seen above, how do you think you would print everything <em>up to the eighth character from the end</em> (which is the space between “HERE” and “onwards”)?</p>
 <p>You’ll need to combine:</p>
 <ol type="1">
@@ -555,7 +542,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="list-operations" class="level2">
-<h2 class="anchored" data-anchor-id="list-operations">List operations</h2>
+<h2 class="anchored" data-anchor-id="list-operations">List Operations</h2>
 <p>So far, we’ve only created a list, but just like a real to-do list, most lists don’t usually stay the same throughout the day (or the execution of your application). Their <em>real</em> value comes when we start to change them: adding and removing items, updating an existing item, concatenating several lists (i.e.&nbsp;sticking them together), etc.</p>
 <section id="replacing-an-item" class="level3">
 <h3 class="anchored" data-anchor-id="replacing-an-item">Replacing an item</h3>
@@ -590,8 +577,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(famousProgrammers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You can even multiply them, although in this particular instance it is kind of pointless:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(britishProgrammers <span class="op">*</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="a-challenge-for-you-4" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-4">A challenge for you!</h4>
+</section>
+<section id="a-challenge-for-you-4" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-4">A challenge for you!</h3>
 <p>Correct the syntax in the following code to properly define a new list:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Solution</a></li></ul>
@@ -623,7 +611,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-</section>
 <section id="youre-not-in-the-list" class="level3">
 <h3 class="anchored" data-anchor-id="youre-not-in-the-list">You’re (not) in the list!</h3>
 <p>Ever stood outside a club or event and been told: “You’re not on/in the list”? Well, Python is like that too. In fact, Python tries as hard as possible to be <em>like</em> English – this isn’t by accident, it’s by design – and once you’ve done a <em>bit</em> of programming in Python you can start to guess how to do something by thinking about how you might say it in English.</p>
@@ -642,8 +629,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Bob'</span> <span class="kw">not</span> <span class="kw">in</span> theParty)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Jane'</span> <span class="kw">not</span> <span class="kw">in</span> theParty)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>So here, that ‘Boolean’ gives us <code>True</code> on the first <code>not in</code> because it’s “true that Bob isn’t at the party” and <code>False</code> on the second one because it’s “not true that Jane isn’t at the party”! Double-negatives aren’t supposed to exist in English, but they certainly do in programming!</p>
-<section id="a-challenge-for-you-5" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-5">A challenge for you!</h4>
+</section>
+<section id="a-challenge-for-you-5" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-5">A challenge for you!</h3>
 <p>Complete the missing bits of the following code so that we print out Ada Lovelace, her full name:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Solution</a></li></ul>
@@ -675,7 +663,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption class="figure-caption">Margaret Hamilton, <em>lead</em> software engineer at MIT, next to the code that she and her colleagues created, taking Apollo 11 to the moon.</figcaption>
 </figure>
 </div>
-</section>
 </section>
 </section>
 <section id="extending-lists" class="level2">
@@ -726,7 +713,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(theParty)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Here, the function <code>len</code> (lazy short-hand for <em>length</em> ) is <em>passed</em> <code>theParty</code> list as an input in order to do its magic.</p>
 <p>The functions <code>append</code>, <code>insert</code> and <code>index</code> work a <em>little</em> bit differently. They have to be <em>called</em> using <code>theParty</code> list. We’re at risk of joining Alice down the rabbit-hole here, so let’s just leave it at: the second set of functions are of a particular <em>type</em> known as <em>methods</em> of the <em>list class</em>. We’ll stop there.</p>
-<p><img src="https://www.washingtonpost.com/blogs/answer-sheet/files/2013/01/alice-falling-down-rabbit-hole1.jpg" width="250"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.washingtonpost.com/blogs/answer-sheet/files/2013/01/alice-falling-down-rabbit-hole1.jpg" class="img-fluid figure-img" width="250"></p>
+<figcaption class="figure-caption">Alice falling down the rabbit hole</figcaption>
+</figure>
+</div>
 <p>In order to use a <em>list method</em> you always need to ‘prepend’ (i.e.&nbsp;lead with) the name of list you want to work with, like so:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>theParty.append(<span class="st">"New Guest"</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>theParty.insert(<span class="dv">2</span>, <span class="st">"Anastasia"</span>)</span>
@@ -753,8 +745,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Say you want to know in where "Knuth" is </span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># in the list of non-British programmers...</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nonBritishProgrammers.index(<span class="st">"Knuth"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="a-challenge-for-you-6" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-6">A challenge for you!</h4>
+</section>
+<section id="a-challenge-for-you-6" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-6">A challenge for you!</h3>
 <p>Add the famous <a href="https://en.wikipedia.org/wiki/Grace_Hopper">Grace Hopper</a> (inventress of the first compiler!) to the list of British programmers, and then print her index position:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Solution</a></li></ul>
@@ -771,7 +764,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
 </section>
 <section id="length" class="level3">
 <h3 class="anchored" data-anchor-id="length">Length</h3>
@@ -814,8 +806,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="a-challenge-for-you-7" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-7">A challenge for you!</h4>
+</section>
+<section id="a-challenge-for-you-7" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-7">A challenge for you!</h3>
 <p>Complete the missing bits of the following code:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false">Solution</a></li></ul>
@@ -833,10 +826,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To check if the output of <code>range()</code> is a list we can use the <code>type()</code> function:</p>
 </section>
 </section>
-</section>
-</section>
-<section id="code-applied-geo-example" class="level1">
-<h1>Code (Applied Geo-example)</h1>
+<section id="applied-geo-example" class="level2">
+<h2 class="anchored" data-anchor-id="applied-geo-example">Applied Geo-example</h2>
 <p>Let’s have a little play with some geographical coordinates. Based on what we’ve just done in this lesson, what do you think would be a good data type for storing lat/long coordinates?</p>
 <p>Go on, I’ll bet you can’t guess!</p>
 <p>Let’s use what we know to jump to a particular point on the planet…</p>

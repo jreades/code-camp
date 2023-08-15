@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code Camp – loops</title>
+<title>Code Camp - Loops and Iteration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -350,16 +350,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#two-ways-to-iterate" id="toc-two-ways-to-iterate" class="nav-link active" data-scroll-target="#two-ways-to-iterate">Two Ways to Iterate</a></li>
-  <li><a href="#while-loops" id="toc-while-loops" class="nav-link" data-scroll-target="#while-loops">WHILE Loops</a>
-  <ul class="collapse">
+  <li><a href="#while-loops" id="toc-while-loops" class="nav-link active" data-scroll-target="#while-loops">WHILE Loops</a></li>
   <li><a href="#break-and-continue" id="toc-break-and-continue" class="nav-link" data-scroll-target="#break-and-continue">Break and Continue</a></li>
   <li><a href="#i-and-j-in-loops" id="toc-i-and-j-in-loops" class="nav-link" data-scroll-target="#i-and-j-in-loops"><code>i</code> and <code>j</code> in Loops</a></li>
   <li><a href="#iterating-over-a-list" id="toc-iterating-over-a-list" class="nav-link" data-scroll-target="#iterating-over-a-list">Iterating over a List</a></li>
   <li><a href="#other-overlooked-computers" id="toc-other-overlooked-computers" class="nav-link" data-scroll-target="#other-overlooked-computers">Other Overlooked Computers</a></li>
-  </ul></li>
   <li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop">FOR Loop</a></li>
-  <li><a href="#code-applied-geo-example" id="toc-code-applied-geo-example" class="nav-link" data-scroll-target="#code-applied-geo-example">Code (Applied Geo-example)</a></li>
+  <li><a href="#applied-geo-example" id="toc-applied-geo-example" class="nav-link" data-scroll-target="#applied-geo-example">Applied Geo-example</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -383,36 +380,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="lesson-content" class="level3">
-<h3 class="anchored" data-anchor-id="lesson-content">Lesson Content</h3>
-<ul>
-<li>Two Ways to Iterate</li>
-<li>While Statement
-<ul>
-<li>While Loop</li>
-<li>Break and Continue</li>
-<li>Loop over a list<br>
-</li>
-</ul></li>
-<li>For Loop<br>
-</li>
-<li>Code (Applied Geo-example)</li>
-</ul>
 <p>In this lesson we cover the concept of <em>iteration</em>, which is basically the idea of <em>repeating the same set of instructions until a certain condition is met</em>. This sequence of instructions is also called a <em>loop</em>.</p>
 <p>This is an extremely important and powerful concept, as it allows us to finally <em>automate</em> tasks! Remember that a fundamental feature of programmers is that they are <em>lazy</em> (refresh <a href="https://thethreevirtues.com/">Larry Wall’s <em>“Three Virtues”</em></a> that we saw in the first lesson!). The more you can delegate to the machine and avoid repeating boring and repetitive tasks yourself, the better!</p>
 <p>Of course, as the fantastic <a href="https://xkcd.com/about/">Randall Munroe</a> likes to remind us, reality sometimes challenges this idea… <img src="../img/automation.png" class="img-fluid" alt="xkcd-automation"></p>
-</section>
-<section id="two-ways-to-iterate" class="level1">
-<h1>Two Ways to Iterate</h1>
+<section id="two-ways-to-iterate" class="level3">
+<h3 class="anchored" data-anchor-id="two-ways-to-iterate">Two Ways to Iterate</h3>
 <p>The two most common ways to iterate (or repeat) a set of commands are the <em>while loop</em> and the <em>for loop</em>. That’s why in Python the words <code>while</code>, <code>for</code> (and <code>in</code>) are reserved words and you can’t use them for variable names.</p>
 <p>The video below is a nice (if slightly scary) intro to each of the approaches; you might remember them the next time you’re in the gym:</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/9AJ0uoxtdCQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>The ‘right’ approach you use usually depends on <a href="http://stackoverflow.com/questions/920645/when-to-use-while-or-the-for-in-python">what sort of data structure you are iterating over</a> and <a href="https://www.reddit.com/r/learnprogramming/comments/3bqzpf/python_for_loops_vs_while_loops/">whether we know before we start how many times we want to repeat the commands</a>. That might sound a little vague at this point, but come back and have a think about it once you have a better understanding of how loops work.</p>
 <p>So let’s first see how while loops work, then we’ll look at actual loops in Python.</p>
 </section>
-<section id="while-loops" class="level1">
-<h1>WHILE Loops</h1>
-<p>Remember <code>if</code> statements? When the Python interpreter finds an <code>if</code> statement in your code, it checks if the specified condition evalutes to <code>True</code>. If the condition is <code>True</code> then it runs the remainder of the <em>indented</em> code block following the <code>if</code>. The ‘true’ block of code is only run once.</p>
+<section id="while-loops" class="level2">
+<h2 class="anchored" data-anchor-id="while-loops">WHILE Loops</h2>
+<p>Remember <code>if</code> statements? When the Python interpreter finds an <code>if</code> statement in your code, it checks if the specified condition evalutes to <code>True</code>. If the condition is <code>True</code> then run the remainder of the <em>indented</em> code block following the <code>if</code>. The ‘true’ block of code is only run once.</p>
 <p>Using the <code>while</code> statement, the ‘true’ block is run for as long as the condition evalutes to <code>True</code>. So if the statment continues to evaluation to <code>True</code> then the block of code is run again and again and again and again… and again until some stopping condition is reached (usually the while condition becomes <code>False</code> for ‘some reason’).</p>
 <p>This allows us to finally do some interesting stuff in code:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> <span class="dv">1</span> <span class="co"># Starting condition: counter is at 1</span></span>
@@ -437,8 +418,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># in the terminale/console</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Forever Loop! Yeeee!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="a-challenge-for-you" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you">A challenge for you!</h4>
+<section id="a-challenge-for-you" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you">A challenge for you!</h3>
 <p>Complete the code below to run a while loop that prints only odd numbers under 10.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Solution</a></li></ul>
@@ -465,6 +446,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> myThirdCounter <span class="op">&gt;=</span> <span class="dv">0</span>:</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Decrementing counter: "</span> <span class="op">+</span> <span class="bu">str</span>(myThirdCounter))</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    myThirdCounter <span class="op">-=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="break-and-continue" class="level2">
 <h2 class="anchored" data-anchor-id="break-and-continue">Break and Continue</h2>
@@ -621,8 +603,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The important bits are: - notice that this time we used the <code>len</code> of <code>britishCompList</code> as stopping condition, instead of specifying ourselves a number. - we accessed the items in the list with a regular index, like we have done in the past. The difference is that this time the index was the variable <code>counter</code>, as at each iteration <code>counter</code> assumes the value of 0, 1 … until the stopping condition is met. This is equivalent to writing :</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(britishCompList[<span class="dv">0</span>])  <span class="co"># on the first iteration</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(britishCompList[<span class="dv">1</span>])  <span class="co"># on the second iteration</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="a-challenge-for-you-2" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-2">A challenge for you!</h4>
+<section id="a-challenge-for-you-2" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-2">A challenge for you!</h3>
 <p>But wait a second… what about the great Babbage? Why isn’t his name displayed? Certainly not because he’s not worth a mention! Can you spot the reason why the iteration skipped him? Can you fix the code to include Babbage?</p>
 <p><em>Hint</em>: check (using <code>print</code>) the values of <code>counter</code> and <code>britishCompList</code>. What is the condition we are asking Python to use?</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -646,8 +628,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="other-overlooked-computers">Other Overlooked Computers</h2>
 <p>If you think that being skipped over in the loop above was tough for old Babbage, then perhaps you might be interested to hear about the history of the <a href="https://www.washingtonpost.com/lifestyle/style/the-nearly-forgotten-story-of-the-black-women-who-helped-land-a-man-on-the-moon/2016/09/12/95f2d356-7504-11e6-8149-b8d05321db62_story.html">NASA ‘computers’ who helped put a man on the moon</a> and are only getting a film made about them in 2016.</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/RK8xHq6dfAo" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<section id="a-challenge-for-you-3" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-3">A challenge for you!</h4>
+<section id="a-challenge-for-you-3" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-3">A challenge for you!</h3>
 <p>Complete the following code:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Solution</a></li></ul>
@@ -692,9 +674,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We can see that from the code above the while condition is slightly different: <code>while counter &lt; stoppingCondition :</code> versus <code>while counter &lt;= stoppingCondition</code> Because <code>len</code> counts the number of elements, if we use <code>&lt;=</code> we will access the variable <code>counter</code> at each iteration <code>counter</code> with the value of 0, 1, 2, 3. This would result in an <code>indexError</code> since we only have three variables.</p>
 </section>
 </section>
-</section>
-<section id="for-loop" class="level1">
-<h1>FOR Loop</h1>
+<section id="for-loop" class="level2">
+<h2 class="anchored" data-anchor-id="for-loop">FOR Loop</h2>
 <p>We’ve just seen that we can use a <code>while</code> loop to iterate over a list, but it’s kind of clunky and inelegant. All those counters and things makes for a lot of extra typing, especially when you consider how terse Python’s language usually is! Surely there must be another way?</p>
 <p>You guessed right, my friend! Let me introduce you to the <code>'for ... in:'</code> statement:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> programmer <span class="kw">in</span> britishCompList:</span>
@@ -715,8 +696,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> myList:</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span>(<span class="st">"Element number: "</span> <span class="op">+</span> <span class="bu">str</span>(element))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>SIDENOTE: See how the value of <code>myList[whileCounter]</code> and that of <code>element</code> in the two loops are the same? That’s because Python is doing the indexing job for you behind the scenes.</p>
-<section id="a-challenge-for-you-4" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-4">A challenge for you!</h4>
+<section id="a-challenge-for-you-4" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-4">A challenge for you!</h3>
 <p>Print only the odd numbers in the list. HINT: remember the modulo operator?</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Solution</a></li></ul>
@@ -753,8 +734,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k,v <span class="kw">in</span> programmers.items():</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"this is the value: </span><span class="ch">\'</span><span class="st">"</span> <span class="op">+</span> v <span class="op">+</span> <span class="st">"</span><span class="ch">\'</span><span class="st"> for the key: </span><span class="ch">\'</span><span class="st">"</span> <span class="op">+</span> k <span class="op">+</span><span class="st">"</span><span class="ch">\'</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="a-challenge-for-you-5" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-5">A Challenge for you!</h4>
+<section id="a-challenge-for-you-5" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-5">A Challenge for you!</h3>
 <p>Iterate over the GeoJSON marker and print its “properties”.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Solution</a></li></ul>
@@ -810,8 +791,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="code-applied-geo-example" class="level1">
-<h1>Code (Applied Geo-example)</h1>
+<section id="applied-geo-example" class="level2">
+<h2 class="anchored" data-anchor-id="applied-geo-example">Applied Geo-example</h2>
 <p>The geo-excercise I’ll give you this time is a real-world problem that you might face one day in your career as geospatial professionals. In <em>principle</em> it is possible to work out everything below based on what we’ve done up to this point; however, this exercise is also <em>hard</em> since it is a big jump conceptually that mixes up the ideas in a new way. So if you can’t quite make out the answer don’t worry, just try to understand the concepts above and see if you can solve <em>parts</em> of the problem.</p>
 <p>Let’s say a colleague of yours used a GPS to survey at regular intervals the dispersion of pollutants in a patch of terrain. Unfortunately, after a good start they forgot to record all the remaining points!</p>
 <p>But that’s not a terrible problem, as the transect has a perfect West-East orientation and direction, and all the points are spaced by a the same value dX (short for ‘delta-X’, the change in X between each point) of 0.03 degrees longitude, i.e.:</p>

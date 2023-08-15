@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code Camp – functions</title>
+<title>Code Camp - Introduction to Functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -351,13 +351,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul class="collapse">
   <li><a href="#functions-101" id="toc-functions-101" class="nav-link active" data-scroll-target="#functions-101">Functions 101</a></li>
-  <li><a href="#layout-of-a-function" id="toc-layout-of-a-function" class="nav-link" data-scroll-target="#layout-of-a-function">Layout of a Function</a></li>
   <li><a href="#arguments" id="toc-arguments" class="nav-link" data-scroll-target="#arguments">Arguments</a></li>
   <li><a href="#scoping" id="toc-scoping" class="nav-link" data-scroll-target="#scoping">Scoping</a></li>
   <li><a href="#default-parameters" id="toc-default-parameters" class="nav-link" data-scroll-target="#default-parameters">Default Parameters</a></li>
   <li><a href="#return-statement" id="toc-return-statement" class="nav-link" data-scroll-target="#return-statement">Return statement</a></li>
   <li><a href="#functions-as-parameters-of-other-functions" id="toc-functions-as-parameters-of-other-functions" class="nav-link" data-scroll-target="#functions-as-parameters-of-other-functions">Functions as Parameters of Other Functions</a></li>
-  <li><a href="#code-applied-geo-example" id="toc-code-applied-geo-example" class="nav-link" data-scroll-target="#code-applied-geo-example">Code (Applied Geo-example)</a></li>
+  <li><a href="#applied-geo-example" id="toc-applied-geo-example" class="nav-link" data-scroll-target="#applied-geo-example">Applied Geo-example</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -381,21 +380,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="lesson-content" class="level3">
-<h3 class="anchored" data-anchor-id="lesson-content">Lesson Content</h3>
-<ul>
-<li>Function Anatomy 101
-<ul>
-<li>Function definiton &amp; call</li>
-<li>Arguments</li>
-<li>Return statement</li>
-</ul></li>
-<li>Function calling!
-<ul>
-<li>Assign a function to a variable</li>
-<li>Function as a parameter to another function</li>
-</ul></li>
-</ul>
 <p>In this lesson we’ll cover <em>functions</em> in Python, a concept that you’ve already encountered but to which you’ve not yet been formally introduced. Now we’re going to dig into this a little bit more because writing functions is where lazy programmers become good programmers.</p>
 <p>In other words, as we saw with the concept of <em>iteration</em>, programmers are lazy and they tend want to avoid doing boring tasks over and over again. The idea is to avoid “wasting time re-inventing the wheel” and programmers have abbreviated this idea to the acronym <strong>D.R.Y.</strong> (Do not Repeat Yourself): if you are doing something more than once or twice, ask yourself if there’s a way to encapsulate what you are doing in a function: you write the function <em>once</em>, and then <em>call</em> it whenever you need to complete that task.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -407,20 +391,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Naturally, <strong>D.R.Y.</strong> has its opposite: <strong>W.E.T.</strong> (We Enjoy Typing or Write Everything Twice). Dry is nearly always better than wet.</p>
 <p>Encapsulating regularly-used bits of code in functions has several advantages: * Your code is more readable: because you only have to write a function once and can then re-use it as many times as you like, your files are shorter. * Your code is easier to maintain: because you only have to write a function once, if you find a mistake in your code, you also only have to fix it in one place. * Your can code more quickly: things that you do a <em>lot</em> can even be stuck in a separate file that you <em>import</em> into your code so that your most-used functions are immediately available.</p>
 <p>Basically, a function is a way to <em>do</em> something <em>to</em> something in a portable, easy-to-use little bundle of code.</p>
-</section>
 <section id="functions-101" class="level2">
 <h2 class="anchored" data-anchor-id="functions-101">Functions 101</h2>
 <p>We’ve already met and used some functions, especially when we dealt with lists and dictionaries:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">1</span>,<span class="st">"two"</span>, <span class="va">False</span>, <span class="fl">9.99</span>]</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(myList) <span class="co"># A function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myList) <span class="co"># A different function!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="layout-of-a-function" class="level2">
-<h2 class="anchored" data-anchor-id="layout-of-a-function">Layout of a Function</h2>
+<section id="layout-of-a-function" class="level3">
+<h3 class="anchored" data-anchor-id="layout-of-a-function">Layout of a Function</h3>
 <p>As we briefly mentioned in another lesson, any ‘word’ followed by a set of parenthesis is a function. The ‘word’ is the function’s <em>name</em>, and anything that you write within the parantheses are the function’s inputs (also known as <em>parameters</em>). Like so:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>function_name(optional_parameter_1, optional_parameter_2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>So how do we create (<em>instantiate</em> in programming terms) a new function? Like everything else in Python, functions have specific rules that you have to follow for the computer to understand what you want it to do. In this case there are two separate steps: the <em>function definition</em> and the <em>function call</em>.</p>
+</section>
 <section id="function-definition" class="level3">
 <h3 class="anchored" data-anchor-id="function-definition">Function Definition</h3>
 <p>This is a function definition:</p>
@@ -448,8 +431,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Reading (out loud!) the error message hopefully makes the error obvious… Quite explicit, isn’t it? :)</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>myVariable <span class="op">=</span> <span class="st">"Hallo Hallo!"</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myVariable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="a-challenge-for-you" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you">A challenge for you!</h4>
+</section>
+<section id="a-challenge-for-you" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you">A challenge for you!</h3>
 <p>Define a new function called “sunnyDay” that prints the string “What a lovely day!”</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Solution</a></li></ul>
@@ -491,7 +475,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-</section>
 <section id="arguments" class="level2">
 <h2 class="anchored" data-anchor-id="arguments">Arguments</h2>
 <p>Those are pretty basic functions, and as you might have noticed they all kind of do the same thing but are no shorter than the thing they replaced (a single print command). You will definetely need them though whenever you are using a function to process some <em>input</em> and <em>return</em> some <em>output</em>. In that case the paramters are inputs that you are <em>passing</em> to the function.</p>
@@ -502,8 +485,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hi! My name is: "</span> <span class="op">+</span> name)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>printMyName(<span class="st">"Gerardus"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="a-challenge-for-you-1" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-1">A challenge for you!</h4>
+<section id="a-challenge-for-you-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-1">A challenge for you!</h3>
 <p>We’ve already defined <code>printMyName</code>, so you don’t need to do that again. Just ask the function to print <em>your</em> name!</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Solution</a></li></ul>
@@ -536,8 +519,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Neat right? We’ve simplified things to that we can focus only on what’s important: we have our ‘data structure’ (the list-of-lists) and we have our printing function (<code>printMyName</code>). And now we just use a <code>for</code> loop to do the hard work. If we had 1,000 british programmers to print out it would be the <em>same</em> level of effort.</p>
 <p>See what we mean about it being like Lego? We’ve combined a new concept with a concept covered in the last lesson to simplify the process of printing out nametags.</p>
 </section>
-<section id="a-challenge-for-you-2" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-2">A challenge for you!</h4>
+<section id="a-challenge-for-you-2" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-2">A challenge for you!</h3>
 <p>Define and use a function that takes as input parameters a <code>&lt;name&gt;</code> (String) and <code>&lt;age&gt;</code> (Integer) and then prints out the phrase: <code>&lt;name&gt; + "is" + &lt;age&gt; +" years old"</code></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Solution</a></li></ul>
@@ -616,8 +599,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> </span>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"this line won't be ever executed! how sad!"</span>)</span>
 <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"nope. this won't either, sorry."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="a-challenge-for-you-3" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-3">A challenge for you!</h4>
+</section>
+<section id="a-challenge-for-you-3" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-3">A challenge for you!</h3>
 <p>Guess which will be the highest number to be printed from this function (<strong>think about your guess <em>before</em> you execute the code)</strong>:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> printNumbers():</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="dv">2</span>)</span>
@@ -673,8 +657,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(myList.append)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="a-challenge-for-you-4" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-4">A Challenge for you!</h4>
+<section id="a-challenge-for-you-4" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-4">A Challenge for you!</h3>
 <p>Now modify the oddNumbers function so that it <em>also</em> prints “Yuck, an even number!” for every even number…</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Solution</a></li></ul>
@@ -696,7 +680,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-</section>
 <section id="functions-as-parameters-of-other-functions" class="level2">
 <h2 class="anchored" data-anchor-id="functions-as-parameters-of-other-functions">Functions as Parameters of Other Functions</h2>
 <p>This leads us to another intersting idea: since moving around functions is so easy, what happens when we use them as inputs to other functions?</p>
@@ -716,8 +699,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="co"># And then</span></span>
 <span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(addTwo(multiplyByThree(<span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="code-applied-geo-example" class="level1">
-<h1>Code (Applied Geo-example)</h1>
+<section id="applied-geo-example" class="level2">
+<h2 class="anchored" data-anchor-id="applied-geo-example">Applied Geo-example</h2>
 <p>For the last Geo-Example, let’s revisit a couple of old exercises, combining them and making them a bit more sophisticated with the help of our newly acquired concept of functions.</p>
 <p>First, let’s define some variables to contain data that we will then use with the functions.</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># London's total population</span></span>
