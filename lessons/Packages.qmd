@@ -1,18 +1,17 @@
 ---
 jupyter: python3
+title: Introduction to Packages
 ---
-
-# Introduction to Packages
-
-## Functions vs. Packages
-
-We saw in a previous Code Camp Lesson how **functions** are a useful programming tool to enable us to re-use chunks of code. Basically, a function is a way to do something to something in a portable, easy-to-use little bundle of code. 
-
-However, some steps in a program are done so many times by so many people that, eventually, someone writes a **package** that bundles up those operations into something easy to use that saves _you_ having to figure out the gory details. 
 
 In this lesson we'll see how packages are useful in the context of tacking problems programmatically. The problem we will use here as an example is: _download a data file that we know is hosted on a web site and then do some analysis of those data_.  
 
 In this example, we are going to access and analyse a data set that we created: [Cities from Wikipedia Data](https://raw.githubusercontent.com/kingsgeocomp/geocomputation/master/CitiesWithWikipediaData-simple.csv). Have a look at those data in your browser now by pasting the URL into a new tab. We'll use the `urlopen` package to help us access the data.
+
+## What's a Package?
+
+We saw in a previous Code Camp Lesson how **functions** are a useful programming tool to enable us to re-use chunks of code. Basically, a function is a way to do something to something in a portable, easy-to-use little bundle of code. 
+
+However, some steps in a program are done so many times by so many people that, eventually, someone writes a **package** that bundles up those operations into something easy to use that saves _you_ having to figure out the gory details. 
 
 ### Q: How is a package different from a function?
 
@@ -56,7 +55,7 @@ import ldn_data_store_reader as ldn
 ```
 Because the _alias_ (`"...as ldn"`) lets you type `ldn.read_data(...)` and Python will know exactly which function you mean!
 
-## Packages in Programming Context
+## Packages in Context
 
 The first step to writing a program is thinking about your goal and the steps required to achieve that. We _**don't**_ write programs like we write essays: all at once by writing a whole lot of code and then hoping for the best when we hit 'submit'. 
 
@@ -103,7 +102,7 @@ What **`dir`** gives you is information about things you can potentially do: it'
 
 Typically, the information given by `dir` is highly abbreviated and is really just a prelude to using `help`.
 
-##### help
+#### help
 
 The `help` function gives you the actual detail you need about how to use a particular function: what are the inputs, what are the outputs, and what will the function actually _do_ ?
 
@@ -130,12 +129,12 @@ print(help(urlopen)) # Notice!
 ?urlopen
 ```
 
-#### A Challenge for you!
+### A Challenge for you!
 
 Fix the code to set the `url` variable, then use it with the `urlopen` function to open it.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 from urllib.request import urlopen
 
@@ -153,7 +152,7 @@ datafile = response.read().decode('utf-8')
 
 print("datafile variable is of type: '" + datafile.__class__.__name__ + "'.\n")
 ```
-## Solution
+#### Solution
 ```python
 from urllib.request import urlopen
 
@@ -217,7 +216,7 @@ In the code below, `dir('string')` lists the available function for strings (bec
 
 In the output below, the functions that start and end with `__` are generally considered private, so you can skip over these and focus on the ones further down that are designed to be useful to programmers. Can you spot the method that is most likely to be useful?
 
-### A Brief Musical Interlude
+#### A Brief Musical Interlude
 
 Just in case you need help pronouncing supercalifragilisticexpialidocious:
 
@@ -240,14 +239,14 @@ Now, using the output of the `help` command, how would you use `split` to turn t
 If you replace the `???` with the right bits of code then running the block below will print out "You got it!". You *only* need to change the `???` and nothing else!
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 if ['sup','rcalifragilisticexpialidocious']=='supercalifragilisticexpialidocious'.split(???, maxsplit=???):
     print("You got it!")
 else:
     print("Not yet!")
 ```
-## Solution
+#### Solution
 ```python
 if ['sup','rcalifragilisticexpialidocious']=='supercalifragilisticexpialidocious'.split('e', maxsplit=1):
     print("You got it!")
@@ -271,12 +270,12 @@ Let's test `string` splitting using our sample data (the last line of the 'simpl
 Again, we only need to change the `???`.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 test = datafile[-1].split(???)
 print(test)
 ```
-## Solution
+#### Solution
 ```python
 test = datafile[-1].split(',')
 print(test)
@@ -310,7 +309,7 @@ It is much more difficult to access the individual pieces of information from th
 
 You can hopefully see how we're breaking a complex problem down into a set of _increments_ , each of which is a bit easier to write and understand. 
 
-### Step 3 Analysis
+### Step 3: Analysis
 
 ```python
 total = 0

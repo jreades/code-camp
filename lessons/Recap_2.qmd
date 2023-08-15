@@ -1,10 +1,7 @@
 ---
 jupyter: python3
+title: Recap 2
 ---
-
-# Recap 2
-
-## Second Checkpoint
 
 Since the first recap, you've learned about lists, dictionaries and loops. Let's revise those concepts and how to use them in this lesson before continuing on to some new material. Answer the questions as best you can, working through any error messages you receive and remembering to refer back to previous lessons. 
 
@@ -35,11 +32,11 @@ cities = ["Bristol", "London", "Manchester", "Edinburgh", "Belfast", "York"]
 **b)** Replace the `???` so that it prints the position of Manchester in the list
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print("The position of Manchester in the list is: " + str(cities.???('Manchester')))
 ```
-## Solution
+#### Solution
 ```python
 print("The position of Manchester in the list is: " + str(cities.index('Manchester')))
 ```
@@ -48,11 +45,11 @@ print("The position of Manchester in the list is: " + str(cities.index('Manchest
 **c)** Replace the `???` so that it prints Belfast
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print(cities[2 + ???])
 ```
-## Solution
+#### Solution
 ```python
 print(cities[2 + 2])
 ```
@@ -61,11 +58,11 @@ print(cities[2 + 2])
 **d)** Use a **negative** index to print *Belfast*
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print(cities[???])
 ```
-## Solution
+#### Solution
 ```python
 print(cities[-2])
 ```
@@ -74,11 +71,11 @@ print(cities[-2])
 **e)** Force Python to generate a `list index out of range` error. NB: This error happens you provide an index for which a list element does not exist
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print(cities[???])
 ```
-## Solution
+#### Solution
 ```python
 print(cities[6]) #anything above five would do it
 ```
@@ -93,11 +90,11 @@ temperatures = [15.6, 16.5, 13.4, 14.0, 15.2, 14.8]
 **g)** What would you change `???` to, to return `[16.5, 13.4, 14.0]`?
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print(temperatures[???])
 ```
-## Solution
+#### Solution
 ```python
 print(temperatures[1:4])
 ```
@@ -106,12 +103,12 @@ print(temperatures[1:4])
 **h)** What are two different ways of getting `[15.2, 14.8]` from the `temperatures` list?
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print(temperatures[???])
 print(temperatures[???])
 ```
-## Solution
+#### Solution
 ```python
 print(temperatures[4:6])
 print(temperatures[-3:-1])
@@ -135,12 +132,12 @@ print("The average temperature in " + cities[city] + " is " + str(temperatures[c
 _Hint:_ you need to combine some of the ideas we've used above!
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 city="Manchester" # Use this to start the solution...
 #your code here...
 ```
-## Solution
+#### Solution
 ```python
 city="Manchester" # Use this to get the solution...
 index = cities.index(city)
@@ -151,11 +148,11 @@ print("The average temperature in " + cities[index] + " is " + str(temperatures[
 Now copy+paste your code and change only **one** thing in order to print out: "The average temperature in Belfast is 15.2 degrees"
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 ???
 ```
-## Solution
+#### Solution
 ```python
 city="Belfast"
 index = cities.index(city)
@@ -163,7 +160,7 @@ print("The average temperature in " + cities[index] + " is " + str(temperatures[
 ```
 :::
 
-### 1.2 Manipulating Multiple Lists
+### Manipulating Multiple Lists
 
 We'll create two lists for the next set of questions
 
@@ -175,11 +172,11 @@ list2 = [4, 5, 6]
 **j)** How do you get Python to print: `[1, 2, 3, 4, 5, 6]`
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print( ??? )
 ```
-## Solution
+#### Solution
 ```python
 print ( list1 + list2 )
 ```
@@ -188,11 +185,11 @@ print ( list1 + list2 )
 **k)** How to you get Python to print: `[1, 2, 3, [4, 5, 6]]`
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print( ??? )
 ```
-## Solution
+#### Solution
 ```python
 print( list1+[list2])
 ```
@@ -208,13 +205,13 @@ list2 = [4, 5, 6]
 **l)** How would you print out: `[6, 5, 4, 3, 2, 1]` ?
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 list3 = ???
 list3.???
 print(list3)
 ```
-## Solution
+#### Solution
 ```python
 list3 = list1+list2
 list3.reverse()
@@ -225,13 +222,13 @@ print(list3)
 **m)** How would you print out: `[3, 2, 1, 6, 5, 4]` ?
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 list1.???
 list2.???
 print( list1+list2 )
 ```
-## Solution
+#### Solution
 ```python
 list1.reverse()
 list2.reverse()
@@ -242,13 +239,13 @@ print( list1+list2 )
 **n)** How would you print out `[3, 2, 6, 5]` with a permanent change to the list (not slicing)? NB: this follows on from the previous question, so note that the order is still 'reversed'.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 list1.???
 list2.???
 print( list1+list2 )
 ```
-## Solution
+#### Solution
 ```python
 list1.remove(1)
 list2.remove(4)
@@ -278,11 +275,11 @@ cities = {
 **a)** Add a record to the dictionary for Chennai ([data here](https://en.wikipedia.org/wiki/Chennai))
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 cities = ???
 ```
-## Solution
+#### Solution
 ```python
 cities = {
     'San Francisco': [37.77, -122.43, 'SFO'],
@@ -297,11 +294,11 @@ cities = {
 **b)** In *one* line of code, print out the airport code for Chennai
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print(???)
 ```
-## Solution
+#### Solution
 ```python
 print("The airport code for Chennai is " + cities["Chennai"][2])
 ```
@@ -318,12 +315,12 @@ print(cities.get('Berlin'))
 ```
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 # What is the difference among the two methods above?
 # Compare to use using the two different methods for London
 ```
-## Solution
+#### Solution
 ```python
 #Berlin is not in the dict. 
 #The first code block above returns an error because Berlin is missing
@@ -339,12 +336,12 @@ print(cities.get('London'))
 **d)** Adapting the code below, print out the city name and airport code for every city in our Atlas.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 for k, v in cities.items():
     print(k)
 ```
-## Solution
+#### Solution
 ```python
 for k, v in cities.items():
     print("The city of " + str(k) + " has an airport code of " + str(v[2]) )
@@ -361,12 +358,12 @@ The questions below use `for` loops. Replace `???` in the following code block t
 **a)** Print out the name and latitude of every city in the cities dictionary using a for loop
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 for ??? in cities.???:
     print(??? + " is at latitude " + str(???))
 ```
-## Solution
+#### Solution
 ```python
 for city, latitude in cities.items():
     print(city + " is at latitude " + str(latitude[0]))
@@ -376,12 +373,12 @@ for city, latitude in cities.items():
 **b)** Print out every city on a separate line using a for loop:
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 for c in ???:
     print(???)
 ```
-## Solution
+#### Solution
 ```python
 for c in cities.items():
     print(c)
@@ -391,7 +388,7 @@ for c in cities.items():
 **c)** Now print using a loop this new data structure:
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 citiesB = [
     {'name':     'San Francisco',
@@ -411,7 +408,7 @@ citiesB = [
 for ??? in citiesB.???:
     print(??? + " is at latitude " + str(???))
 ```
-## Solution
+#### Solution
 ```python
 citiesB = [
     {'name':     'San Francisco',

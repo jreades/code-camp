@@ -1,18 +1,7 @@
 ---
 jupyter: python3
+title: Introduction to Functions
 ---
-
-# Introduction to Functions
-
-### Lesson Content 
-
-- Function Anatomy 101
-    - Function definiton & call
-    - Arguments
-    - Return statement
-- Function calling!
-    - Assign a function to a variable
-    - Function as a parameter to another function
 
 In this lesson we'll cover *functions* in Python, a concept that you've already encountered but to which you've not yet been formally introduced. Now we're going to dig into this a little bit more because writing functions is where lazy programmers become good programmers.
 
@@ -42,7 +31,7 @@ len(myList) # A function
 print(myList) # A different function!
 ```
 
-## Layout of a Function
+### Layout of a Function
 
 As we briefly mentioned in another lesson, any 'word' followed by a set of parenthesis is a function. The 'word' is the function's *name*, and anything that you write within the parantheses are the function's inputs (also known as *parameters*). Like so:
 
@@ -104,16 +93,16 @@ myVariable = "Hallo Hallo!"
 print(myVariable)
 ```
 
-#### A challenge for you!
+### A challenge for you!
 
 Define a new function called "sunnyDay" that prints the string "What a lovely day!"
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 #your code here
 ```
-## Solution
+#### Solution
 ```python
 def sunnyDay():
     print("What a lovely day!")
@@ -123,11 +112,11 @@ def sunnyDay():
 Now define a function named "gloomyDay" that prints "I hate rainy days!" 
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 #your code here
 ```
-## Solution
+#### Solution
 ```python
 def gloomyDay():
     print("I hate rainy days!")
@@ -137,11 +126,11 @@ def gloomyDay():
 Finally, call the two functions you have defined so that "I hate rainy days!" is printed before "What a lovely day!"
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 #your code here
 ```
-## Solution
+#### Solution
 ```python
 gloomyDay()
 sunnyDay()
@@ -165,16 +154,16 @@ def printMyName( name ):
 printMyName("Gerardus")
 ```
 
-#### A challenge for you!
+### A challenge for you!
 
 We've already defined `printMyName`, so you don't need to do that again. Just ask the function to print _your_ name!
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 #your code here
 ```
-## Solution
+#### Solution
 ```python
 printMyName("James")
 ```
@@ -213,16 +202,16 @@ Neat right? We've simplified things to that we can focus only on what's importan
 
 See what we mean about it being like Lego? We've combined a new concept with a concept covered in the last lesson to simplify the process of printing out nametags.
 
-#### A challenge for you!
+### A challenge for you!
 
 Define and use a function that takes as input parameters a `<name>` (String) and `<age>` (Integer) and then prints out the phrase: `<name> + "is" + <age> +" years old"`
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 #your code here
 ```
-## Solution
+#### Solution
 ```python
 def printMyAge(name, age):
     print(name + " is " + str(age) + " years old.")
@@ -322,9 +311,9 @@ def genericFunc(parameter):
     print("this line won't be ever executed! how sad!")
     print("nope. this won't either, sorry.")
 ```
-    
 
-#### A challenge for you!
+
+### A challenge for you!
 
 Guess which will be the highest number to be printed from this function (**think about your guess _before_ you execute the code)**:
 
@@ -407,16 +396,16 @@ myList = [1,2,3]
 help(myList.append)
 ```
 
-#### A Challenge for you!
+### A Challenge for you!
 
 Now modify the oddNumbers function so that it _also_ prints "Yuck, an even number!" for every even number...
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 #your code here
 ```
-## Solution
+#### Solution
 ```python
 def oddNumbers(inputRange):
     for i in range(inputRange):
@@ -451,7 +440,7 @@ print(multiplyByThree(addTwo(2)))
 print(addTwo(multiplyByThree(2)))
 ```
 
-# Code (Applied Geo-example)
+## Applied Geo-example
 
 For the last Geo-Example, let's revisit a couple of old exercises, combining them and making them a bit more sophisticated with the help of our newly acquired concept of functions.
 
@@ -485,7 +474,7 @@ london_boroughs = {
 Now, fix the code in the next cell to use the variables defined in the last cell. The `calcProportion` function should return the proportion of the population that the `boro` borough composes of London.  The `getLocation` function should return the coordinates of the `boro` borough. 
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 def calcProportion(boro,city_pop=???):
     return ???['population']/???
@@ -493,7 +482,7 @@ def calcProportion(boro,city_pop=???):
 def getLocation(???):
     return boro[???]
 ```
-## Solution
+#### Solution
 ```python
 #in this function definition we provide a default value for city_pop
 #this makes sense here because we are only dealing with london
@@ -508,11 +497,11 @@ def getLocation(boro):
 Write some code to print the **longitude of Lambeth**. This could be done in a single line but don't stress if you need to use more lines... 
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 #your code here
 ```
-## Solution
+#### Solution
 ```python
 #one-liner (see if you can understand how it works)
 print(getLocation(london_boroughs['Lambeth'])[0])
@@ -527,11 +516,11 @@ print(long)
 Write some code to print the **proportion of the London population that lives in the City of London**. Using the function defined above, this should take only one line of code.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 #your code here
 ```
-## Solution
+#### Solution
 ```python
 print(calcProportion(london_boroughs['City of London']))
 ```
@@ -540,11 +529,11 @@ print(calcProportion(london_boroughs['City of London']))
 Write code to loop over the `london_boroughs` dictionary, use the `calcProportion` and `getLocation` functions to then print proportions and locations of all the boroughs. 
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 #your code here
 ```
-## Solution
+#### Solution
 ```python
 for boro, data in london_boroughs.items():
     prop = calcProportion(data)

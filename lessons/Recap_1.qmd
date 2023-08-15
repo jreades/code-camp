@@ -1,21 +1,25 @@
 ---
 jupyter: python3
+title: First Checkpoint
 ---
 
-
-## First Checkpoint
-
-After a whirlwind introduction to Python you've made it to the first checkpoint. This isn't about us checking up on you, but rather about you having a chance to check your _own_ understanding of the foundational concepts covered so far. It is really _easy_ to click through the coding cells, become a bit flummoxed, look at the answer quickly 'just to check', and then come away with the impression that you've _understood_ what you are doing: "Yeah, yeah, I made a little mistake there but it's fine because I was close enough..."
+After a whirlwind introduction to Python you've made it to the first checkpoint. This isn't about us checking up on you, but rather about you having a chance to check your _own_ understanding of the foundational concepts covered so far. It is really _easy_ to click through the coding examples, look at the answer quickly 'just to check', and then come away with the impression that you've _understood_ what you are doing: "Yeah, yeah, I made a little mistake there but it's fine because I was close enough..."
 
 We _know_ that's the case because we've _done_ it before you. 
 
-The challenge with coding is that, as the code becomes more complex, so do the issues. And if you haven't learned to be careful with the basics and to _fix them yourself_ then fixing the more subtle 'mistakes' will be _that much harder_. And you don't want this to be any harder than it alreay is!
+The challenge with coding is that, as the code becomes more complex, so do the issues. And if you haven't learned to be careful with the basics and to _fix them yourself_ then fixing the more subtle 'mistakes' will be _that much harder_. And you don't want this to be any harder than it alreay is! 
 
-### Remember: You _Will_ Make Mistakes
+Here's where the 'learning a language' analogy breaks down a bit: because a fluent Spanish or Chinese speaker will often be able to make sense of what you're *trying* to say as a learner, whereas the computer will just throw up its (metaphorical) hands through an exception. So learning the basics to the point where you can quickly find the simple errors really *is* important.
 
-Everyone makes mistakes. We do it all the time because, in programming, it is very easy to make errors. Computers are stupid and do _exactly_ what we tell them, so even tiny mistakes (`aVariable` vs `avariable`, for example) can cause a piece of code or a program to fail to run. Errors in a program are often called bugs. 
+## You _Will_ Make Mistakes
+
+So *everyone* makes mistakes. We do it all the time because. Computers are essentially stupid and do _exactly_ what we tell them, so even tiny mistakes (`aVariable` vs `avariable`, for example) can cause a piece of code or a program to fail to run.
+
+::: {.callout-note}
 
 Fun fact: the [origin of the term bug](https://en.wikipedia.org/wiki/Software_bug#:~:text=The%20term%20%22bug%22%20was%20used,in%20an%20early%20electromechanical%20computer.&text=Operators%20traced%20an%20error%20in,taped%20to%20the%20log%20book.) was an _actual_ bug (a moth) caught up in the mechanical relay of an early computer.
+
+:::
 
 Bugs today are rarely of the insectile variety, and we now distinguish between three general types of error: 
 1. **Syntax errors** are when the ‘grammar’ rules of Python (known as the syntax) have been violated, making it impossible for the code to be parsed (i.e. understood by Python); 
@@ -31,13 +35,13 @@ When you first learn to code, syntax errors are the most common type of error be
 
 The other types of errors are ones that you learn to spot over time through experience and developing skills. Learning to spot logic errors is one of those wonderful transferrable skills that you can _also_ use in everyday life: by learning to think through challenges at a higher level and then address them iteratively you are likely to become both a more careful thinker (i.e. _how_ should I go about solving this issue?), and a more flexible and resilient thinker (i.e. ok, so _that_ didn't work out as I expected, what should do I do now?). 
 
-> _“A good example of a logic error might be, 'take a drink from your water bottle, put it in your backpack, walk to the library, and then put the top back on the bottle.'”_ Severance (2014, p.14)
+> _A good example of a logic error might be, 'take a drink from your water bottle, put it in your backpack, walk to the library, and then put the top back on the bottle.'_ Severance (2014, p.14)
 
-Many sites don't even discuss the concept of a semantic error or treat it as the equivalent of a logic error, but we think it's useful to set a bar _beyond_ 'basic' logic errors: these arise from _interactions_ between parts of a program, or between a programming language and the underlying computer/operating system. So the code can (and usually does) run successfully but the output is a long way from what you expected, or the failures that you're seeing _don't make sense_. We'd suggest that spotting semantic errors is a sign that you are well on your way to _thinking_ computationally. In short, you understand why your code is triggering strange and unexpected behaviour even though it _looks_ like it should do exactly what you intended. 
+Many sites don't even discuss the concept of a semantic error or treat it as the equivalent of a logical error, but we think it's useful to set a bar _beyond_ 'basic' logic errors: these arise from _interactions_ between parts of a program, or between a programming language and the underlying computer/operating system. So the code can (and usually does) run successfully but the output is a long way from what you expected, or the failures that you're seeing _don't make sense_. We'd suggest that spotting semantic errors is a sign that you are well on your way to _thinking_ computationally. In short, you understand why your code is triggering strange and unexpected behaviour even though it _looks_ like it should do exactly what you intended. 
 
-## Exercises
+## 1. Foundations
 
-#### 1.1 Variables and Assignment
+### 1.1 Variables and Assignment
 
 Without running the code below, calculate what the values of `x`, `y` and `z` would be after all lines of code in the code block have been executed.
 
@@ -52,7 +56,7 @@ y = z + y
 
 Once you have calculated what you think `x`, `y` and `z` are, add print statements to the code above and run it to check. Make sure you understand the results you find. 
 
-#### 1.2 Operator Precedence
+### 1.2 Operator Precedence
 
 Without running the code below, calculate what the values of `x`, `y` and `z` would be after all lines of code in the code block have been executed.
 
@@ -68,18 +72,18 @@ print(z)
 
 Once you have calculated what you think `x`, `y` and `z` are, add print statements to the code above and run it to check.
 
-#### 1.3 Thinking Abstractly
+### 1.3 Thinking Abstractly
 
 *Hint*: to solve the following problems assume `pi = 3.141592653589793`
 
 Given a sphere of diameter 12cm, calculate its volume (use Google to find the formula for this):
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 # Calculate the volume of a sphere of diameter 12cm
 ```
-## Solution
+#### Solution
 ```python
 pi = 3.141592653589793
 r = 12 / 2
@@ -91,12 +95,12 @@ print(vol)
 Given a sphere of volume 14,137cm3 calculate its radius to the closest **whole number** (this will involve rearranging the formula and you may need to good how to find a cube root with python):
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 # Calculate the radius of a shpere of volume 14,137cm3
 # Approximate it to the closest whole number
 ```
-## Solution
+#### Solution
 ```python
 vol=14137
 r3 = vol / ((4/3) * pi)
@@ -105,7 +109,9 @@ print(round(r))
 ```
 :::
 
-#### 2.1 Working with Conditions
+## 2. Logic (Part 1)
+
+### 2.1 Working with Conditions
 
 **This is not a loop question, we just want you to change the value of _hours_ so that for each of the cases below (_hours_ is set to 10, 2, 0 in turn) you get the right output.**
 
@@ -116,14 +122,14 @@ Using the code below as a starting point, add two lines of code so that your out
 3. Code prints `Hours are less than 10` when `hours=0`
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 hours=10
 
 if hours > 0:
     print(" ")
 ```
-## Solution
+#### Solution
 ```python
 hours=2
 
@@ -134,21 +140,21 @@ if hours < 10:
 ```
 :::
 
-#### 2.2 Flow Control
+### 2.2 Flow Control
 
 Write a code to execute the flow chart shown in the image below. You will need to assign values to `a` and `b` on lines 1 and 2 before using the flow chart to complete the code such that it produces the following:
 
 1. When `a = 2` and `b = 2` four lines of output will be written
 2. When `a = 1` and `b = 2` one line of output will be written
 
-<img src=https://kingsgeocomputation.files.wordpress.com/2016/09/geocompweek2_task3_3.jpg width = 600>
+![Flow Chart of Logic](https://kingsgeocomputation.files.wordpress.com/2016/09/geocompweek2_task3_3.jpg){width=600}
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 # Execute the flow chart shown in the image
 ```
-## Solution
+#### Solution
 ```python
 a = 1
 b = 2
@@ -162,7 +168,9 @@ print("after condition")
 ```
 :::
 
-#### 3.1 It's All Quite Logical
+## 3. Logic (Part 2)
+
+### 3.1 It's All Quite Logical
 
 Read the code in the code cell below. 
 
@@ -181,7 +189,7 @@ if not(x > 0):
 Assume that the code executes for a given value of `x` and answer the following questions. Only test the code **AFTER** you have worked out the answers and typed them below.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 '''
 1.	What names are name(s) are printed when `x = 5`?
@@ -193,7 +201,7 @@ Assume that the code executes for a given value of `x` and answer the following 
 4.	Is there any value for which all three names will be printed?
 '''
 ```
-## Solution
+#### Solution
 ```python
 '''
 1. Aled
@@ -207,21 +215,21 @@ Assume that the code executes for a given value of `x` and answer the following 
 ```
 :::
 
-#### 3.2 Logic (Cont'd)
+### 3.2 Logic (Cont'd)
 
 Study the flow chart below.
 
-<img src=https://kingsgeocomputation.files.wordpress.com/2016/09/geocompweek2_task3_5.jpg width = 600>
+![Logic Flow Chart](https://kingsgeocomputation.files.wordpress.com/2016/09/geocompweek2_task3_5.jpg){width=500}
 
 In the cell below, use the for loop already set up to execute the alternative execution shown by the flow chart for values of `x` between 0 and 9. Check your code works. Also check you understand why the Modulo `%` allows us to find odd vs even numbers. 
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 for x in range(0,9):
     # ... do something ...
 ```
-## Solution
+#### Solution
 ```python
 for x in range(0,9):
     print(x)
@@ -233,7 +241,7 @@ for x in range(0,9):
 ```
 :::
 
-#### 3.3 Nested Conditions
+### 3.3 Nested Conditions
 
 Conditional statements can be nested within one another. That is, once one conditional statement has been evaluated others may subsequently be evaluated (or not) depending on the result of the initial conditional statement. The code below shows an example of this. 
 
@@ -260,7 +268,7 @@ To check you understand how the code above works:
 Output for `x = 2` and `y = 3` is:
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 '''
 1. Change insert conclusion here in the code above to a string that helps to explain the condition of x and y
@@ -268,7 +276,7 @@ Output for `x = 2` and `y = 3` is:
 2. Before running the code for x = 2 and y = 3, type below what line(s) will be output
 '''
 ```
-## Solution
+#### Solution
 ```python
 x = 2
 y = 3
@@ -286,17 +294,19 @@ else:
 ```
 :::
 
-#### 4.1. Alterative Execution
+## 4. Flow
+
+### 4.1. Alterative Execution
 In the code cell below, enter code that reports whether person A is older than person B or not. Whole numbers should be used as ages in years and these ages should be specified on the first two lines of code. Either “Person A is older than Person B” or “Person A is not older than Person B” should be reported to the user.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 '''
 Enter code that reports whether person A is older than person B or not.
 '''
 ```
-## Solution
+#### Solution
 ```python
 ageA = 20
 ageB = 19
@@ -308,7 +318,7 @@ else:
 ```
 :::
 
-#### 4.2. Conditional Execution
+### 4.2. Conditional Execution
 Copy your final code from the previous exercise into the code block below. Now build on this code to check if Person A is older than Person B, but also whether they are the same age. One of following three responses should be reported to the user:
 
 1.	“Person A is older than Person B”
@@ -316,13 +326,13 @@ Copy your final code from the previous exercise into the code block below. Now b
 3.	“Person A and Person B are the same age”
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 '''
 Build on the previous code to check if Person A is older than Person B, but also whether they are the same age.
 '''
 ```
-## Solution
+#### Solution
 ```python
 ageA = 20
 ageB = 20
@@ -336,7 +346,7 @@ else:
 ```
 :::
 
-#### 4.3. Nested Execution
+### 4.3. Nested Execution
 Copy your final code from the previous exercise into the code block below. Build on this code with a nested execution structure to report if Person A is much younger, a little younger, the same age, a little older or much older than Person B. Write your code with a nested structure so that first it evaluates whether one person is older than the other, and then, if so, whether there is a large difference in age or a small difference in age. You should create a variable to specify what the number of years is that indicates a ‘large difference’ in age. One of the following five responses should be reported to the user:
 
 1.	“Person A is much younger than Person B” [if age difference > ‘large difference’]
@@ -346,13 +356,13 @@ Copy your final code from the previous exercise into the code block below. Build
 5.	“Person A is a much older than Person B” [if age difference > ‘large difference’]
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 '''
 Build on the previous code with a nested execution structure to report if Person A is much younger, a little younger, the same age, a little older or much older than Person B.
 '''
 ```
-## Solution
+#### Solution
 ```python
 ageA = 25
 ageB = 30
@@ -373,20 +383,20 @@ elif diff > 0 and diff < (largeD * 1):
 ```
 :::
 
-#### 4.4a Bonus! Managing Errors
+### 4.4 Managing Errors
 
 Python provides tools to 'handle exceptions' (i.e. manage errors). For example, [read more at](https://docs.python.org/3/tutorial/errors.html#handling-exceptions) you can use combinations of `try`, `except`, `else` and `finally` keywords. 
 
 Read the link above (and maybe Google yourself for some other examples) and use the information gained to handle an exception in which the user an age as a `string` rather than a integer (e.g. print "Invalid Input" if `diff` cannot be calculated):
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 '''
 Use the previous code and handle an exception in which the user an age as a string rather than a integer
 '''
 ```
-## Solution
+#### Solution
 ```python
 ageA = "five"
 ageB = 30
@@ -412,20 +422,20 @@ else:
 ```
 :::
 
-#### 4.4b Bonus! Managing Errors
+### 4.5 More Errors
 
 Another way to trap errors is by 'raising exceptions'. [This requires](https://docs.python.org/3/tutorial/errors.html#raising-exceptions) using the `raise` keyword. 
 
 Read the link above (and maybe Google yourself for some other examples) and use the information gained to raise an exception if the user provides a negative age (outputing "Invalid Age" in the error mmessage):
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 '''
 Use the previous code and raise an exception if the user provides a negative age (outputing “Invalid Age” in the error mmessage)
 '''
 ```
-## Solution
+#### Solution
 ```python
 ageA = -1
 ageB = 30

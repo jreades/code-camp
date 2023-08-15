@@ -2,11 +2,11 @@
 title: The Terminal
 ---
 
-# Working Without Buttons
-
-At _some_ point in your exploration of programming you will need to learn how to read/write data from elsewhere on the computer or the Internet. At that point, for anyone who learned how to use a computer after about 1990, computers can quickly come to seem very unfriendly indeed! That's because when you are programming you will need to give the computer a lot more information about how to find, read, and write data. 
+At _some_ point in your exploration of programming you will need to learn how to read/write data from elsewhere on the computer or the Internet. 
 
 When you use an app on your mobile phone or on your computer it will often save your files somewhere convenient so that you can find them again, but this isn't magic: a programmer made a choice about how to do this for you, and now that you're learning to program _you_ have to make that choice.
+
+At this point, for anyone who learned how to use a computer after about 1995, coding can quickly come to seem very unfriendly indeed! That's because when you are programming you will need to give the computer a lot more information about how to find, read, and write data. 
 
 ## Paths
 
@@ -45,7 +45,7 @@ You'll notice that there were several seemingly cryptic commands -- we'll examin
 
 We always say that programmers are lazy and this is a good example of that: why write `list` when we can write `ls` or `change directory` when we can write `cd`? You obviously need to learn what those bits of laziness mean, but they can help a lot in speeding up your code!
 
-#### A Challenge for you!
+### A Challenge for you!
 Now that you have a geneal idea of what is the terminal, what is a path, and how to navigate in your computer's folders without clicking buttons, you can take a look at this [Software Carpentry exercise focussed on the Terminal](https://librarycarpentry.org/lc-shell/).
 
 This will cover the following topics and guide you in understanding how to efficiently work with the terminal:

@@ -1,19 +1,7 @@
 ---
 jupyter: python3
+title: Loops and Iteration
 ---
-
-# Loops and Iteration
-
-
-### Lesson Content 
-
-- Two Ways to Iterate
-- While Statement
-    - While Loop
-    - Break and Continue
-    - Loop over a list   
-- For Loop   
-- Code (Applied Geo-example)
 
 In this lesson we cover the concept of *iteration*, which is basically the idea of *repeating the same set of instructions until a certain condition is met*. This sequence of instructions is also called a *loop*.   
 
@@ -22,7 +10,7 @@ This is an extremely important and powerful concept, as it allows us to finally 
 Of course, as the fantastic [Randall Munroe](https://xkcd.com/about/) likes to remind us, reality sometimes challenges this idea...
 ![xkcd-automation](../img/automation.png)
 
-# Two Ways to Iterate 
+### Two Ways to Iterate 
 
 The two most common ways to iterate (or repeat) a set of commands are the _while loop_ and the _for loop_. That's why in Python the words `while`, `for` (and `in`) are reserved words and you can't use them for variable names. 
 
@@ -35,9 +23,9 @@ The 'right' approach you use usually depends on [what sort of data structure you
 
 So let's first see how while loops work, then we'll look at actual loops in Python.
 
-# WHILE Loops
+## WHILE Loops
 
-Remember `if` statements? When the Python interpreter finds an `if` statement in your code, it checks if the specified condition evalutes to `True`. If the condition is `True` then it runs the remainder of the *indented* code block following the `if`. The 'true' block of code is only run once.
+Remember `if` statements? When the Python interpreter finds an `if` statement in your code, it checks if the specified condition evalutes to `True`. If the condition is `True` then run the remainder of the *indented* code block following the `if`. The 'true' block of code is only run once.
 
 Using the `while` statement, the 'true' block is run for as long as the condition evalutes to `True`. So if the statment continues to evaluation to `True` then the block of code is run again and again and again and again... and again until some stopping condition is reached (usually the while condition becomes `False` for 'some reason').
 
@@ -82,12 +70,12 @@ while True:
     print("Forever Loop! Yeeee!")
 ```
 
-#### A challenge for you!
+### A challenge for you!
 
 Complete the code below to run a while loop that prints only odd numbers under 10. 
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 otherCounter = 1
 
@@ -95,7 +83,7 @@ while ??? <= ???:
     print("This is an odd number: " + str(???))
     otherCounter += 2
 ```
-## Solution
+#### Solution
 ```python
 otherCounter = 1
 
@@ -233,13 +221,13 @@ WOOT!
 `
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 '''
 Change the code above so that it printed _only_ the odd number _or_ 'WOOT!'
 '''
 ```
-## Solution
+#### Solution
 ```python
 i = 0
 
@@ -265,7 +253,7 @@ print("Done!")
 Now, replace the `???` in the code below and use it to print only even numbers less than 22.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 i = 0
 while True:
@@ -279,7 +267,7 @@ while True:
 
 print("Done!")
 ```
-## Solution
+#### Solution
 ```python
 i = 0
 while True:
@@ -324,18 +312,18 @@ print(britishCompList[0])  # on the first iteration
 print(britishCompList[1])  # on the second iteration
 ```
 
-#### A challenge for you!
+### A challenge for you!
 
 But wait a second... what about the great Babbage? Why isn't his name displayed? Certainly not because he's not worth a mention! Can you spot the reason why the iteration skipped him? Can you fix the code to include Babbage?
 
 *Hint*: check (using `print`) the values of `counter` and `britishCompList`. What is the condition we are asking Python to use?
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 # fix the code to include Babbage
 ```
-## Solution
+#### Solution
 ```python
 counter = 0 # To include Babbage, we need to start counter from 0
 while counter < len(britishCompList):
@@ -351,12 +339,12 @@ If you think that being skipped over in the loop above was tough for old Babbage
 
 {{< video https://youtu.be/RK8xHq6dfAo >}}
 
-#### A challenge for you!
+### A challenge for you!
 
 Complete the following code:
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 counter = ???
 nonBritishProgrammers = ["Torvald", "Knuth", "Swartz"]
@@ -367,7 +355,7 @@ while counter < stoppingCondition :
     #  always remember to increment the counter!!!
     counter += 1
 ```
-## Solution
+#### Solution
 ```python
 counter = 0
 nonBritishProgrammers = ["Torvald", "Knuth", "Swartz"]
@@ -405,7 +393,7 @@ We can see that from the code above the while condition is slightly different:
     `while counter < stoppingCondition :` versus `while counter <= stoppingCondition`
 Because `len` counts the number of elements, if we use `<=` we will access the variable `counter` at each iteration `counter` with the value of 0, 1, 2, 3. This would result in an `indexError` since we only have three variables.
 
-# FOR Loop
+## FOR Loop
 
 We've just seen that we can use a `while` loop to iterate over a list, but it's kind of clunky and inelegant. All those counters and things makes for a lot of extra typing, especially when you consider how terse Python's language usually is! Surely there must be another way?
 
@@ -444,19 +432,19 @@ for element in myList:
 
 SIDENOTE: See how the value of `myList[whileCounter]` and that of `element` in the two loops are the same? That's  because Python is doing the indexing job for you behind the scenes.
 
-#### A challenge for you!
+### A challenge for you!
 
 Print only the odd numbers in the list. HINT: remember the modulo operator?
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 numbers = [1,2,3,4,5,6,7,8,9,10]
 for n in numbers:
     if (???):
         print(n)
 ```
-## Solution
+#### Solution
 ```python
 numbers = [1,2,3,4,5,6,7,8,9,10]
 for n in numbers:
@@ -496,12 +484,12 @@ for k,v in programmers.items():
     print("this is the value: \'" + v + "\' for the key: \'" + k +"\'")
 ```
 
-#### A Challenge for you!
+### A Challenge for you!
 
 Iterate over the GeoJSON marker and print its "properties".
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 KCL_marker = {
       "type": "Feature",
@@ -522,7 +510,7 @@ KCL_marker = {
 for ???,v in KCL_marker["???"].items():
     print("KCL_marker has a property: '" + ??? + "' for the key: " + k)
 ```
-## Solution
+#### Solution
 ```python
 KCL_marker = {
       "type": "Feature",
@@ -552,7 +540,7 @@ Very good! Let's summarise some facts about loops:
 - the increment doesn't need to be 1 every the time (you can increment by 2, 50, whatever..)
 - don’t forget to to indent the *block* of code after the colon!
 
-# Code (Applied Geo-example)
+## Applied Geo-example
 
 The geo-excercise I'll give you this time is a real-world problem that you might face one day in your career as geospatial professionals. In _principle_ it is possible to work out everything below based on what we've done up to this point; however, this exercise is also _hard_ since it is a big jump conceptually that mixes up the ideas in a new way. So if you can't quite make out the answer don't worry, just try to understand the concepts above and see if you can solve _parts_ of the problem. 
 

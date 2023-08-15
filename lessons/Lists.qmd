@@ -1,26 +1,22 @@
 ---
 jupyter: python3
+title: Lists
 ---
 
-# Lists
+In previous code camp lessons we looked at numeric (**integers** and **floats**) and textual (**strings**) data, but it's probably been quite difficult to imagine how you'd assemble these simple data types into something *useful*. The new data types --- **lists** and **dictionaries** --- which we're covering in the next two sessions will _begin_ to show you how that can happen, and they will allow you to 'express' much more complex concepts.
 
-### Lesson Content 
+## Introducing: Structure
 
-In previous code camp lessons we looked at numeric (**integers** and **floats**) and textual (**strings**) data, but it's probably been quite difficult to imagine how you'd assemble these simple data into something useful. The new data types (**lists** and **dictionaries**) will _begin_ to show you how that can happen, and they will allow you to 'express' much more complex concepts with ease.
-
-### What's the Difference?
-
-Up until now, our variables have only held _one_ things: a number, or a string. 
-
-In other words, we've had things like, `myNumber = 5` or `myString = "Hello world!"`. And that's it. 
+Up until now, our variables have only held _one_ things: a number, or a string. In other words, we've had things like, `myNumber = 5` or `myString = "Hello world!"`. And that's it. 
 
 Now, with **lists** and **dictionaries** we can store _multiple_ things: several numbers, several strings, or some mish-mash of both. That is, lists and dictionaries are data _structures_ that can contain multiple data _types_. 
 
 Here's a brief summary of these data structures, highlighting their main difference:
-- A **list** is an *ordered* collection of 'items' (numbers, strings, etc.). You can ask for the first item in a list, the 3rd, or the 1,000th, it doesn't really matter because your list has an order and it keeps that order.
-- A **dictionary** is an *unordered* collection of 'items' (numbers, strings, etc.). You access items in a dictionary in a similar way to how you access a real dictionary: you have a 'key' (i.e. the word for which you want the definition) and you use this to look up the 'value' (i.e. the definition of the word).
 
-There's obviously a lot more to lists and dictionaries than this, but it's a good starting point.
+- A **list** is an *ordered* collection of 'items' (numbers, strings, etc.) accessed *by position*. So you ask for the *first*, *fifth*, or *n*$^{th}$ item of the list.
+- A **dictionary** (in Python) is an *ordered* collection of 'items' (numbers, strings, etc.) accessed *by label* or *name*. 
+
+So a Python dictionary is similar to a real dictionary in the sense that you have a 'key' (i.e. the word for which you want the definition) and you use this to look up the 'value' (i.e. the definition of the word). There's obviously a lot more to lists and dictionaries than this, but it's a good starting point.
 
 Let's start with **lists** in this lesson and we'll continue with **dictionaries** in the following.
 
@@ -28,24 +24,14 @@ You can go back to our short video that talks about lists:
 
 {{< video https://youtu.be/UDNtW3sy-og >}}
 
-### In this lesson
-
-- Indexing & Slicing
-- List operations
-    - Addition and Mulitplication
-    - You're (not) in the list!
-- List functions
-    - insert
-    - append
-    - index
-    - len
-
 ----
-# Lists
+## What's a List?
 
 So a **list** is an ordered collection of items that we access by position (what Python calls the **index**) within that collection. So the first item in a list is always the first item in the list. End of (well, sort of... more on this later). 
 
-Because lists contain multiple data items, we create and use them differently from the simple (single item) variables we've seen so far. You can always spot a list because it is a series of items separated by commas and grouped together between a pair of square brackets ( *[A, B, C, ..., n]* ).
+Because lists contain multiple items, we create and use them differently from the simple (single item) variables we've seen so far. You can always spot a list because it is a series of items separated by commas and grouped together between a pair of square brackets ( `[A, B, C, ..., n]`).
+
+### Creating a List
 
 Here is a list of 4 items assigned to a variable called `myList`:
 
@@ -67,9 +53,9 @@ We don't want to get too technical here, but it's important to note one thing: `
 
 ## Indexing
 
-To access an item in a list you use an **index**. This is a new and important concept and it's a term that we're going to use a _lot_ in the future, so try to really get this term into your head before moving forward in the lesson.
+To access an item in a list you use an **index**. This is a new and important concept, and it's a term that we're going to use a _lot_ in the future. You have been warned!
 
-### Accessing Elements in a List using Indexes
+### Accessing Elements in a List
 
 The index is just the location of the item in the list that you want to access. So let's say that we want to fetch the second item, we access it via the *index notation* like so:
 
@@ -116,12 +102,12 @@ You can remember it this way: the last item in the list is at _n-1_ (where _n_ i
 Edit the code so that it prints the 'second' element in the list
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 myNewList = ['first', 'second', 'third']
 print("The second element is :" + myNewList[???])
 ```
-## Solution
+#### Solution
 ```python
 myNewList = ['first', 'second', 'third']
 print("The second element is :" + myNewList[1])
@@ -170,17 +156,17 @@ shortSentence = "Now I'll just print THIS word, between the 20th and the 25th ch
 print(shortSentence[20:25])
 ```
 
-#### A challenge for you!
+### A challenge for you!
 
 Using the previous code as a guide, edit the code below so that it prints from the second to the fourth (inclusive) characters from the string:
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 shortSentence2 = "A12B34c7.0"
 print(shortSentence2[???:???])
 ```
-## Solution
+#### Solution
 ```python
 shortSentence2 = "A12B34c7.0"
 print(shortSentence2[1:4]) 
@@ -202,7 +188,7 @@ print("Starting from the 17th position: '" + stringToPrint[17:] + "'")
 
 Got it?
 
-#### A challenge for you!
+### A challenge for you!
 
 Now, combining what we've seen above, how do you think you would print everything _up to the eighth character from the end_ (which is the space between "HERE" and "onwards")?
 
@@ -214,12 +200,12 @@ You'll need to combine:
 There are two ways to do it, one way uses only one number, the other uses two. Both are correct. Why don't you try to figure them both out? For 'Way 2' below the `???` is a placeholder for a full slicing operation since if we gave you more of a hint it would make it too obvious.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print("Up to the 18th position (Way 1): '" + stringToPrint[???:???] + "'")
 print("Up to the 18th position (Way 2): '" + ??? + "'")
 ```
-## Solution
+#### Solution
 ```python
 print("Up to the 18th position (Way 1): '" + stringToPrint[-8:] + "'")
 print("Up to the 18th position (Way 2): '" + stringToPrint[22:30] + "'")
@@ -228,7 +214,7 @@ print("Up to the 18th position (Way 2): '" + stringToPrint[22:30] + "'")
 
 Strings have also plenty of methods that might prove to be quite useful in the future; for a fuller overview check out [this reference](https://en.wikibooks.org/wiki/Python_Programming/Variables_and_Strings).
 
-## List operations
+## List Operations
 
 So far, we've only created a list, but just like a real to-do list, most lists don't usually stay the same throughout the day (or the execution of your application). Their _real_ value comes when we start to change them: adding and removing items, updating an existing item, concatenating several lists (i.e. sticking them together), etc.
 
@@ -283,16 +269,16 @@ You can even multiply them, although in this particular instance it is kind of p
 print(britishProgrammers * 2)
 ```
 
-#### A challenge for you!
+### A challenge for you!
 
 Correct the syntax in the following code to properly define a new list: 
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 otherNonBritishProgrammers = ["Wozniak" ??? "Van Rossum"]
 ```
-## Solution
+#### Solution
 ```python
 otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
 ```
@@ -301,14 +287,14 @@ otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
 Edit the following code to print out all the non british programmers:
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 nonBritishProgrammers = ["Torvald", "Knuth"]
 otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
 
 print nonBritishProgrammers ??? otherNonBritishProgrammers
 ```
-## Solution
+#### Solution
 ```python
 nonBritishProgrammers = ["Torvald", "Knuth"]
 otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
@@ -350,12 +336,12 @@ print('Jane' not in theParty)
 
 So here, that 'Boolean' gives us `True` on the first `not in` because it's "true that Bob isn't at the party" and `False` on the second one because it's "not true that Jane isn't at the party"! Double-negatives aren't supposed to exist in English, but they certainly do in programming!
 
-#### A challenge for you!
+### A challenge for you!
 
 Complete the missing bits of the following code so that we print out Ada Lovelace, her full name:
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 firstProgrammerSurnames = ["Babbage", "Lovelace"]
 firstProgrammerNames    = ["Charles", "Ada"]
@@ -364,7 +350,7 @@ firstProgrammerSurnames[1] = firstProgrammerNames[1] + " " + firstProgrammerSurn
 
 print("Lady "+ ???[1] +" is considered to be the first programmer.") 
 ```
-## Solution
+#### Solution
 ```python
 firstProgrammerSurnames = ["Babbage", "Lovelace"]
 firstProgrammerNames    = ["Charles", "Ada"]
@@ -451,7 +437,7 @@ Here, the function `len` (lazy short-hand for _length_ ) is _passed_ `theParty` 
 
 The functions `append`, `insert` and `index` work a _little_ bit differently. They have to be _called_ using `theParty` list. We're at risk of joining Alice down the rabbit-hole here, so let's just leave it at: the second set of functions are of a particular _type_ known as *methods* of the *list class*. We'll stop there. 
 
-<img src="https://www.washingtonpost.com/blogs/answer-sheet/files/2013/01/alice-falling-down-rabbit-hole1.jpg" width="250" />
+![Alice falling down the rabbit hole](https://www.washingtonpost.com/blogs/answer-sheet/files/2013/01/alice-falling-down-rabbit-hole1.jpg){width=250}
 
 In order to use a _list method_ you always need to 'prepend' (i.e. lead with) the name of list you want to work with, like so:
 
@@ -495,17 +481,17 @@ Lastly, with the `index` method you can easily ask Python to find the position (
 print(nonBritishProgrammers.index("Knuth"))
 ```
 
-#### A challenge for you!
+### A challenge for you!
 
 Add the famous [Grace Hopper](https://en.wikipedia.org/wiki/Grace_Hopper) (inventress of the first compiler!) to the list of British programmers, and then print her index position:
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 nonBritishProgrammers.???("Hopper") 
 print(nonBritishProgrammers.???("Hopper"))
 ```
-## Solution
+#### Solution
 ```python
 nonBritishProgrammers.append("Hopper") 
 # let's check
@@ -532,12 +518,12 @@ print("There are " + str(length_of_list) + " elements in the list of non-British
 Did you see the `str(length_of_list)`? There's another function! We didn't draw attention to it before, we just told you to use `str(5.0)` to convert the float `5.0` to the string `"5.0"`. We can tell it's a function because it uses the format `functionName(...some input...)`. So the function name is `str` (as in _convert to string_) and the input is a number (in this case it's the length of the list `nonBritishProgrammers`). So now we can easily convert between different types of data: we took an integer (you can check this by adding the following line to the code above:
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 # Fix the syntax of this line to print the length of the list:
 print length_of_list + 1
 ```
-## Solution
+#### Solution
 ```python
 print(int(length_of_list) + 1)
 ```
@@ -546,13 +532,13 @@ print(int(length_of_list) + 1)
 And then print it out as a string. So `length_of_list` is a number, and by calling `str(length_of_list)` we changed it to a string that we could print out. Given that programmers are lazy, can you guess how you'd convert the string "3" to the _integer_ 3?
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 '''
 Convert the string "3" to the _integer_ 3
 '''
 ```
-## Solution
+#### Solution
 ```python
 three = "3"
 
@@ -565,17 +551,17 @@ print(type(three))
 ```
 :::
 
-#### A challenge for you!
+### A challenge for you!
 
 Complete the missing bits of the following code:
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 length_of_brits = ???(britishProgrammers)
 print "There are " ??? " British programmers."
 ```
-## Solution
+#### Solution
 ```python
 length_of_brits = len(britishProgrammers)
 print("There are " + str(length_of_brits) + " British programmers.")
@@ -584,7 +570,7 @@ print("There are " + str(length_of_brits) + " British programmers.")
 
 To check if the output of `range()` is a list we can use the `type()` function:
 
-# Code (Applied Geo-example)
+## Applied Geo-example
 
 Let's have a little play with some geographical coordinates. Based on what we've just done in this lesson, what do you think would be a good data type for storing lat/long coordinates?
 

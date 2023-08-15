@@ -1,35 +1,25 @@
 ---
 jupyter: python3
+title: Dictionaries
 ---
 
-# Dictionaries
+In this lesson, we'll continue our exploration of more advanced data structures. Last time we took a peek at a way to represent ordered collections of items via **lists**. This time we'll use **dictionaries** to create collections of ordered items accessed by name, instead of position.
 
-### Lesson Content 
+::: {.callout-warning}
 
-In this lesson, we'll continue our exploration of more advanced data structures. Last time we took a peek at a way to represent ordered collections of items via **lists**.
+### Watch Out for Pythons
 
-This time we'll use **dictionaries** to create collections of unordered items (this is just an easy distinction - there's much more to it - but it's a good way to start wrapping your head around the subject).
+Python is *unusual* amongst programming languages in maintaining order in dictionaries. Most other languages make no such promise: if you use a 'hash' in Perl or 'map' in Java, then items are stored in any order the programming language sees fit to optimise the speed of retrieval. 
 
-### In this Lesson
+We'd recommend *never* assuming that key/value data structures have an order as it will save you a lot of pain later.
 
-- Creating dictionaries
-- Accessing elements of dictionaries
-- Methods of dictionaries
-
-# Dictionaries
-----
-
-Dictionaries are another data type in Python that, like lists, contains multiple items. The difference is that while lists use an index to access _ordered_ items, dictionaries use 'keys' to access _unordered_ values.
-
-You can go back to our short video that talks about dictionaries:
-
-{{< video https://youtu.be/UDNtW3sy-og >}}
-
-Like lists, dictionaries are also found in other programming languages, often under a different name. For instance, Python dictionaries might be referred to elsewhere as "maps", "hashes", or "associative arrays").
+:::
 
 According to the [Official Docs](https://docs.python.org/3/tutorial/datastructures.html#dictionaries):
 
 > It is best to think of a dictionary as an unordered set of key-value pairs, with the requirement that the keys are unique (within one dictionary). A pair of braces creates an empty dictionary: {}
+
+## Creating
 
 In other words, dictionaries are not lists: instead of just a checklist, we now have a _key_ and a _value_. We use the key to find the value. So a generic dictionary looks like this:
 
@@ -41,7 +31,7 @@ theDictionary = {
     ...
 }
 ```
-Each key/value _pair_ is linked by a ':', and each pair is separated by a ','. It doesn't really matter if you put everything on newlines (as we do here) or all on the same line. We're just doing it this way to make it easier to read.
+Each key/value _pair_ is linked by a ':', and each pair is separated from other pairs by a ','. It doesn't really matter if you put everything on newlines (as we do here) or all on the same line. We're just doing it this way to make it easier to read.
 
 Here's a more useful implementation of a dictionary:
 
@@ -55,9 +45,7 @@ myDict = {
 print(myDict)
 ```
 
-At the danger of repeating ourselves (but to make the point!): an important difference between `dictionaries` and `lists` is that dictionaries are unordered. Always remember that you have no idea where things are stored in a `dictionary` and you can't rely on indexing like you can with a `list`. From this perspective, a Python dictionary is _not_ like a real dictionary (as a real dictionary presents the keys, i.e. words, in alphabetical order). 
-
-And notice too that every type of data can go into a dictionary: strings, integers, and floats. There's even a `list` in this dictionary (`[4.0, 'Jon']`)! The _only_ constraint is that the **key must be *immutable***; this means that it is a simple, static identifier and that can't change.
+Notice that almost any type of data can go into a dictionary: strings, integers, and floats. There's even a `list` in this dictionary (`[4.0, 'Jon']`)! The _only_ constraint is that the **key must be *immutable***; this means that it is a simple, static identifier and that can't change.
 
 ```python
 # this will result in an error
@@ -69,9 +57,9 @@ myFaultyDict = {
 }
 ```
 
-This doesn't work because you can't use a list (`["key1",1]`) as a key, though as you saw above you can use a list as a _value_. For more on the subject of (im)mutability checkout [this SO answer](http://stackoverflow.com/a/8059504) ).
+This doesn't work because you can't use a list (`["key1",1]`) as a key, though as you saw above you can use a list as a _value_. For more on the subject of (im)mutability check out [this SO answer](http://stackoverflow.com/a/8059504) ).
 
-## Accessing Dictionaries
+## Accessing
 
 Like lists, we access an element in a dictionary using a 'location' marked out by a pair of square brackets (*[...]*). The difference is that the index is no longer an integer indicating the position of the item that we want to access, but is a *key* in the *key:value* pair:
 
@@ -82,12 +70,12 @@ print(myDict["Fourth Key"])
 
 Notice how now we just jump straight to the item we want? We don't need to think about "Was that the fourth item on the list? Or the fifth?" We just use a sensible key, and we can ask for the associated value directly.
 
-#### A challenge for you!
+### A challenge for you!
 
 How would you print out "2nd Value" from `myDict`?
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 myDict = {
     "key1": "Value 1",
@@ -98,7 +86,7 @@ myDict = {
 
 print(???)
 ```
-## Solution
+#### Solution
 ```python
 myDict = {
     "key1": "Value 1",
@@ -121,7 +109,7 @@ print(myDict[99])
 
 Handy, no? Again, Python's error messages are giving you helpful clues about where the problem it's encountering might be! Up above we had a `TypeError` when we tried to create a key using a list. Here, we have a `KeyError` that tells us something must be wrong with using `99` as a key in `myDict`. In this case, it's that there is no key 99!
 
-#### A challenge for you
+### A challenge for you
 
 Can you turn these lists into dictionary called `capitalDict`?
 
@@ -133,14 +121,14 @@ capital_city = ['San Jose','Zagreb','Havana'] #values
 We already found out that we can easily convert between different types. Dictionary is also a data type, so we can convert these lists to dictionary just like we convert strings into integers using `str` and `int`. However, since we need to pair them, we need an additional function called `zip` to pair the keys and values.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 country = ['Costa Rica','Croatia','Cuba'] #keys
 capital_city = ['San Jose','Zagreb','Havana'] #values
 
 capitalDict = ???(zip(???,???))
 ```
-## Solution
+#### Solution
 ```python
 country = ['Costa Rica','Croatia','Cuba'] #keys
 capital_city = ['San Jose','Zagreb','Havana'] #values
@@ -152,17 +140,17 @@ capitalDict = dict(zip(country,capital_city))
 How would you print out the capital city of Croatia from `capitalDict`?
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print(???)
 ```
-## Solution
+#### Solution
 ```python
 print(capitalDict['Croatia'])
 ```
 :::
 
-## Creating a Simple Phone Book
+## A Simple Phone Book
 
 One of the simplest uses of a dictionary is as a phone book! (If you're not sure what a phone book is [here's a handy guide](https://www.youtube.com/watch?v=QtntnfgIyUg) and [here's an example of someone using one](https://www.youtube.com/watch?v=updE5LVe6tg)). 
 
@@ -176,7 +164,7 @@ So here are some useful contact numbers:
 Now, how would you create a dictionary that allowed us to look up and print out an emergency phone number based on the [two-character ISO country code](http://www.nationsonline.org/oneworld/country_code_list.htm)? It's going to look a little like this:
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 eNumbers = {
     ...
@@ -184,7 +172,7 @@ eNumbers = {
 print("The Icelandic emergency number is " + eNumbers['IS'])
 print("The American emergency number is " + eNumbers['US'])
 ```
-## Solution
+#### Solution
 ```python
 eNumbers = {
     "IS": '112', # It's not very important here whether we use single- or double-quotes
@@ -224,16 +212,16 @@ Or maybe you even need to get them as pairs:
 print(programmers.items())
 ```
 
-#### A challenge for you
+### A challenge for you
 
 Can you access all the values of `capitalDict` from the previous challenge?
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print(???)
 ```
-## Solution
+#### Solution
 ```python
 print(capitalDict.values())
 ```
@@ -307,7 +295,7 @@ print(cityData[4][3])
 print(cityData[2][0])
 ```
 
-#### A challenge for you
+### A challenge for you
 Can you retrieve and print the following from `cityData`:
 
 1. Nigeria
@@ -315,13 +303,13 @@ Can you retrieve and print the following from `cityData`:
 3. 177
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print(???)
 print(???)
 print(???) 
 ```
-## Solution
+#### Solution
 ```python
 print(cityData[3][1])
 print(cityData[0][2])
@@ -351,17 +339,17 @@ print("The " + eNumbers['US'][0] + " emergency number is " + str(eNumbers['US'][
 print("The " + eNumbers['FR'][0] + " emergency number is " + str(eNumbers['FR'][1]))
 ```
 
-#### A Challenge for you
+### A Challenge for you
 
 See if you can create the rest of the `eNumbers` dictionary and then print out the Russian and British emergency numbers.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print("The " + ??? + " emergency number is " + ???)
 print("The " + ??? + " emergency number is " + ???) 
 ```
-## Solution
+#### Solution
 ```python
 print("The " + eNumbers['RU'][0] + " emergency number is " + str(eNumbers['RU'][1]))
 print("The " + eNumbers['UK'][0] + " emergency number is " + str(eNumbers['UK'][1]))
@@ -408,12 +396,12 @@ Now, figure out how to print:
 `The population of Paris, the capital of France (FR), is 2229621.`
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print("The population of Paris, the capital of " + str(cityData2['Paris']['country']['Full']) + " " \
       + "(" + ??? + ") " + "is "+ ??? + ".")
 ```
-## Solution
+#### Solution
 ```python
 print("The population of Paris, the capital of " + str(cityData2['Paris']['country']['Full']) + " " \
       + "(" + str(cityData2['Paris']['country']['ISO2']) + ") " + "is "+ str(cityData2['Paris']['population']) + ".")
@@ -425,11 +413,11 @@ And print `It has a density of 21153.899 persons per square km.`
 **Hint**: to calculate density, divide population with area.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print("It has a density of " + ???)
 ```
-## Solution
+#### Solution
 ```python
 #| solution2: hidden
 print("It has a density of " + str(cityData2['Paris']['population'] / cityData2['Paris']['area'] ))
@@ -439,11 +427,11 @@ print("It has a density of " + str(cityData2['Paris']['population'] / cityData2[
 Do the same for London.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 print(???)
 ```
-## Solution
+#### Solution
 ```python
 # Note that we can tweak the formatting a bit: Python is smart 
 # enough to understand that if you have a '+' on the end of a
@@ -466,7 +454,7 @@ print("The population of " + c + ", the capital of " +
 ```
 :::
 
-# Code (Applied Geo-example)
+## Applied Geo-example
 
 Let's continue our trips around the world! This time though, we'll do things better, and instead of using a simple URL, we are going to use a real-word geographic data type, that you can use on a web-map or in your favourite GIS software.
 

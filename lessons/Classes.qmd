@@ -1,21 +1,19 @@
 ---
 jupyter: python3
+title: Inheritance and Classes
 ---
 
-# Inheritance and Classes
+The concept of **inheritance** is something we've held off from mentioning until now, but it's definitely worth understanding if you are serious about learning how to code. In effect, it's common to find Python classes that _import_ a 'base class' and then _extend_ it with additional functionality. 
 
-# A (Semi-Brief) Discourse on Families & Inheritance
-
-GeoPandas objects are deliberately designed to resemble Pandas objects. There are two good reasons for this: 
-
-1. Since Pandas is well-known, this makes it easier to learn how to use GeoPandas.
-2. GeoPandas _inherits_ functionality from Pandas. 
-
-The concept of **inheritance** is something we've held off from mentioning until now, but it's definitely worth understanding if you are serious about learning how to code. In effect, geopandas '_imports_' pandas and then _extends_ it so that the more basic class (pandas in this case) learns how to work with geodata... pandas doesn't know how to read shapefiles or make maps, but geopandas does. Same for GeoJSON.
+The two main libraries for working with small to medium-sized data sets in Python are `pandas` and `geopandas`. The creators of `pandas` were't interested in spatial data analysis, so they didn't implement any functionality for reading/writing/analysing spatial data. Along come some developers who *are* interested in spatial problems and `geopandas` as born! But they don't want to have to copy+paste lots of code from `pandas` just to implement the *same* functionality that pandas already provides (calculating the mean, reading an Excel file, handling time series data...) so they *extend* pandas by importing it and adding *only* the new bits that are needed to deal with geography: in this way 'pandas' learns how to work with geodata... 
 
 ## The 'Tree of Life'
 
-Here's a simple way to think about inheritance: think of the 'evolutionary trees' you might have seen charting the evolution of organisms over time. At the bottom of the tree is the single-celled animal, and at the other end are humans, whales, wildebeest, etc. We all _inherit_ some basic functionality from that original, simple cell. In between us and that primitive, however, are a whole series of branches: different bits of the tree evolved in different directions and developed different 'functionality'. Some of us have bones. Some have  cartilege. Some are vegetarian, and some are carnivorous. And so on. When you get to the primates we all share certain common 'features' (binocular vision, grasping hands, etc.), but we are _still_ more similar to gorillas than we are to macaques. So gorillas and humans _extend_ the primitive 'primate functionality' with some bonus features (bigger brains, greater strength, etc.) that are useful, while macaques extend it with a slightly different set of features (tails, etc.).
+Here's a simple way to think about inheritance: think of the 'evolutionary trees' you might have seen charting the evolution of organisms over time. At the bottom of the tree is the single-celled animal, and at the other end are humans, whales, wildebeest, etc. We all _inherit_ some basic functionality from that original, simple cell. 
+
+In between us and that primitive, however, are a whole series of branches: different bits of the tree evolved in different directions and developed different 'functionality'. Some of us have bones. Some have  cartilege. Some are vegetarian, and some are carnivorous. And so on. 
+
+When you get to the primates we all share certain common 'features' (binocular vision, grasping hands, etc.), but we are _still_ more similar to gorillas than we are to macaques. So gorillas and humans _extend_ the primitive 'primate functionality' with some bonus features (bigger brains, greater strength, etc.) that are useful, while macaques extend it with a slightly different set of features (tails, etc.).
 
 ![Tree of Life](http://palaeos.com/systematics/tree/images/treeolif.jpg)
 
