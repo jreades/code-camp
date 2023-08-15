@@ -51,7 +51,7 @@ sequencing = [
   [str(time(0,45,0)), 'The Basics: Variables, Operators & Precedence'],
   [str(time(0,40,0)), 'Exceptions: What to Do When Things Go Wrong'],
   [str(time(0,20,0)), 'Writing Code: A Matter of Style'],
-  [str(time(0,45,0)), 'Boolean Logic: Comparisons, Conditions & George Boole'],
+  [str(time(0,75,0)), 'Boolean Logic: Comparisons, Conditions & George Boole'],
   [str(time(0,45,0)), 'Recap 1'],
   [str(time(0,45,0)), 'Lists: Making a List (and Checking it Twice)'],
   [str(time(0,45,0)), 'Dicts: Look it up in the Dictionary'],

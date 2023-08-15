@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code Camp – the_basics</title>
+<title>Code Camp - The Basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -352,14 +352,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#simple-operations" id="toc-simple-operations" class="nav-link active" data-scroll-target="#simple-operations">Simple Operations</a>
-  <ul class="collapse">
-  <li><a href="#numeric-operations" id="toc-numeric-operations" class="nav-link" data-scroll-target="#numeric-operations">Numeric Operations</a></li>
-  <li><a href="#string-operations" id="toc-string-operations" class="nav-link" data-scroll-target="#string-operations">String Operations</a></li>
-  <li><a href="#what-is-a-variable" id="toc-what-is-a-variable" class="nav-link" data-scroll-target="#what-is-a-variable">What is a variable?</a></li>
-  <li><a href="#code-general-excercises" id="toc-code-general-excercises" class="nav-link" data-scroll-target="#code-general-excercises">Code (general excercises)</a></li>
-  </ul></li>
-  <li><a href="#code-applied-geo-example" id="toc-code-applied-geo-example" class="nav-link" data-scroll-target="#code-applied-geo-example">Code (Applied Geo-example)</a></li>
+  <li><a href="#numbers" id="toc-numbers" class="nav-link active" data-scroll-target="#numbers">Numbers</a></li>
+  <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text">Text</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
+  <li><a href="#coding-excercises" id="toc-coding-excercises" class="nav-link" data-scroll-target="#coding-excercises">Coding Excercises</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -396,19 +392,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>We’re not expecting you to master the fourth level at this stage; in fact, some of the examples might be challenging even after a full year of classes. However, we think it’s important to try to show you where we’re trying to go as well as the steps involved in how we get there. It’s like trying to follow directions from someone who only tells you ‘turn left’, ‘turn right’, ‘go straight’ – it’s a lot easier to fill in the gaps and to understand what’s going on if they say “We’re headed to London” first!</p>
 </section>
-<section id="simple-operations" class="level1">
-<h1>Simple Operations</h1>
-<section id="numeric-operations" class="level2">
-<h2 class="anchored" data-anchor-id="numeric-operations">Numeric Operations</h2>
+<section id="numbers" class="level2">
+<h2 class="anchored" data-anchor-id="numbers">Numbers</h2>
 <p>You already saw a really simple example of calculating the mean in the first lesson, but let’s recall that you can easily use Python to like a calculator. Run the code already present in the code cells and make sure you understand the output. To do this, just click on the clipboard icon to copy the code and paste it in your working environment (either <a href="../setup/install.html">locally</a> or <a href="../setup/no_install.html">online</a>)</p>
 <section id="basic-arithmetic" class="level3">
 <h3 class="anchored" data-anchor-id="basic-arithmetic">Basic Arithmetic</h3>
 <section id="addition-and-subtraction" class="level4">
-<h4 class="anchored" data-anchor-id="addition-and-subtraction"><strong>Addition</strong> and <strong>Subtraction</strong></h4>
+<h4 class="anchored" data-anchor-id="addition-and-subtraction">Addition and Subtraction</h4>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">-</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="multiplication-and-division" class="level4">
-<h4 class="anchored" data-anchor-id="multiplication-and-division"><strong>Multiplication</strong> and <strong>Division</strong></h4>
+<h4 class="anchored" data-anchor-id="multiplication-and-division">Multiplication and Division</h4>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">*</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="op">/</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -530,13 +524,19 @@ Operator &amp; Description \\ \hline
 <p><em>Note:</em> there are a lot of different ways that you could write this formula as <em>code</em> and still get the right answer. Getting the right answer is 50% of the job. The remaining 50% is about doing it in a way that is elegant and easy to read… as get further into the term we’ll point out how elegance and legibility (also: commenting) matter.</p>
 </section>
 </section>
-<section id="string-operations" class="level2">
-<h2 class="anchored" data-anchor-id="string-operations">String Operations</h2>
+<section id="text" class="level2">
+<h2 class="anchored" data-anchor-id="text">Text</h2>
 <p>OK, so that’s the basics of numbers. What about text?</p>
 <section id="how-long-is-a-piece-of-string" class="level3">
 <h3 class="anchored" data-anchor-id="how-long-is-a-piece-of-string">How long is a piece of string?</h3>
-<p>In most programming languages, text and words are called <em>strings</em>, which is really a fancy word to say a <em>sequence of characters</em> enclosed in single- or double-quotes (’ or “). This might seem like stating the bleedin’ obvious but this is a really, really important idea… &gt;”235op!u$nlkgfd8 wp8ty fgdoy8p waklj ag9up0”</p>
-<p>is a string. So is: &gt; “If music be the food of love, play on; Give me excess of it, that, surfeiting, The appetite may sicken, and so die.” (<em>Twelfth Night</em>, Act 1, Scene 1, 1–3)</p>
+<p>In most programming languages, text and words are called <em>strings</em>, which is really a fancy word to say a <em>sequence of characters</em> enclosed in single- or double-quotes (’ or “). This might seem like stating the bleedin’ obvious but this is a really, really important idea…</p>
+<blockquote class="blockquote">
+<p><code>"235op\!u\$nlkgfd8 wp8ty fgdoy8p waklj ag9up0"</code></p>
+</blockquote>
+<p>is a string. So is:</p>
+<blockquote class="blockquote">
+<p><code>"If music be the food of love, play on; Give me excess of it, that, surfeiting, The appetite may sicken, and so die."</code> (<em>Twelfth Night</em>, Act 1, Scene 1, 1–3)</p>
+</blockquote>
 <p>The thing is that computers can’t automatically distinguish between Shakespeare and the work of a monkey hitting keys at random. As long as they are both marked out by single- or double-quotes then as far as the computer is concerned they are strings. So even to ask the computer how many words there in the first 3 lines of <em>Twelfth Night</em> means we have to ‘teach’ the computer what a word is by giving it rules to recognise the start or end of one, and even how to recognise the start and end of a line so that it can find the first three of them!</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"I'm a string of text!"</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Me too! *&amp;($£(£_@~</span><span class="sc">{}</span><span class="st">|?&lt;&gt;$)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -552,10 +552,14 @@ Operator &amp; Description \\ \hline
 <section id="escape-club" class="level3">
 <h3 class="anchored" data-anchor-id="escape-club">Escape Club</h3>
 <p>What do you do if your string contains double-quotes <em>and</em> single-quotes? That’s where the ‘backslash’ (<code>\</code>, a kind of ‘reverse division’ symbol) comes in handy. The backslash is how we ‘escape’ characters so that we can do ‘special’ things with them when they should <em>normally</em> do something else.</p>
-<p>In the example below, the backslash in front of the apostrophe in “I’m” says “Don’t treat this as ‘normal’ single-quote that means the end of the string, treat it as a literal single-quote in the middle of a longer string marked out by single-quotes.</p>
+<p>In the example below, the backslash in front of the apostrophe in <code>I'm</code> says “Don’t treat this as ‘normal’ single-quote that means the end of the string, treat it as a literal single-quote in the middle of a longer string marked out by single-quotes.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'I</span><span class="ch">\'</span><span class="st">m using the backslash.'</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'I</span><span class="ch">\'</span><span class="st">m also using the backslash </span><span class="ch">\'\\\'</span><span class="st"> to escape the error normally caused by having single-quotes.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Let’s look at this a little more closely: * The first line is easy: the backslash in front of the single-quote in “I’m” allows us to use single-quotes to mark the start and end of the string. This is a silly example since we could also have written <code>"I'm using the backslash"</code> but you get the point. * The second line gets a little more complicated: you’ll see that we’ve now escaped <em>three</em> single-quotes (there are three occurences of <code>"\'"</code>). But what’s happening with <code>"\\"</code>? Well, we need an extra backslash in front of the backslash so that the computer knows to print a literal backslash (we are ‘escaping’ the normal function of a backslash to escape the character immediately after it) instead of reading it as escaping the one in front of the single-quote.</p>
+<p>Let’s look at this a little more closely:</p>
+<ul>
+<li>The first line is easy: the backslash in front of the single-quote in “I’m” allows us to use single-quotes to mark the start and end of the string. This is a silly example since we could also have written <code>"I'm using the backslash"</code> but you get the point.</li>
+<li>The second line gets a little more complicated: you’ll see that we’ve now escaped <em>three</em> single-quotes (there are three occurences of <code>"\'"</code>). But what’s happening with <code>"\\"</code>? Well, we need an extra backslash in front of the backslash so that the computer knows to print a literal backslash (we are ‘escaping’ the normal function of a backslash to escape the character immediately after it) instead of reading it as escaping the one in front of the single-quote.</li>
+</ul>
 <p>That’s pretty weird, but just to show you what’s happening here it is without that extra backslash:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'I</span><span class="ch">\'</span><span class="st">m also using the backslash </span><span class="ch">\'\\</span><span class="st">'</span> to escape the error normally caused by having single<span class="op">-</span>quotes.<span class="st">')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you run the code above, you’ll see another error! Also notice that in the two lines of code, in the first the whole line is in one colour (meaning the computer can see that it’s all <em>one</em> string), but in the broken example right before this the text changes colour once we get to “to escape the error…” (meaning that the computer doesn’t see it all as one string).</p>
@@ -565,14 +569,14 @@ Operator &amp; Description \\ \hline
 <p>See how that wraps the text on the <code>\n</code>? Also note that the computer is printing <em>exactly</em> what we told it to do: I kept a space between the <code>\n</code> and the start of the next line. If you squint, then you can see that lines 2 and 3 are indented by the width of one space character. There’s also an extra space after ‘surfeiting’ before the comma.</p>
 <section id="why-details-matters" class="level4">
 <h4 class="anchored" data-anchor-id="why-details-matters">Why details matters</h4>
-<p>We say this a lot later too, but you might as well start learning this fact now: spaces in a string <em>matter</em>. To a computer <code>" A string"</code> and <code>"A string"</code> are <em>not</em> the same. Notice that there is a single space in front of the ‘A’. As a human being we tend to just skip over that space (especially if it’s hard to see), but to a computer one string starts with ‘A’ and the other with ’ ’, so they are <em>completely different</em>.</p>
+<p>We say this a lot later too, but you might as well start learning this fact now: spaces in a string <em>matter</em>. To a computer <code>" A string"</code> and <code>"A string"</code> are <em>not</em> the same. Notice that there is a single space in front of the first ‘A’. As human beings we tend to just skip over that space (especially if it’s hard to see), but to a computer one string starts with ‘A’ and the other with ’ ’, so they are <em>completely different</em>.</p>
 <p>Further, numbers and strings are <em>not</em> the interachangeable: <code>"2016"</code> is <em>not</em> the same as <code>2016</code>. The first is a string that happens to contain the characters 2, 0, 1, and 6. The second is an integer number one larger than 2015.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"2016"</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2016</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>As you can see from running the code above, it’s a bit annoying that they look the same when we print them. But if you run the next lines of code (<em>after</em> thinking about what they might do), you’ll see how Python tries to be helpful with its errors:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2015</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">"2015"</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>See how the first line of code prints <code>2016</code>, but the second line of code (which tries to add together a string <code>"2015"</code> and the number <code>1</code>) gives you an error that lazily tells you about a problem with <code>str</code> (i.e.&nbsp;string) and <code>int</code> (i.e.&nbsp;integer) ‘concatentation’. More on concatenation in a minute.</p>
+<p>See how the first line of code prints <code>2016</code>, but the second line of code (which tries to add together a string <code>"2015"</code> and the number <code>1</code>) gives you an error about a problem with <code>str</code> (i.e.&nbsp;string) and <code>int</code> (i.e.&nbsp;integer) ‘concatentation’. More on concatenation in a minute.</p>
 </section>
 <section id="advanced-laziness" class="level4">
 <h4 class="anchored" data-anchor-id="advanced-laziness">Advanced laziness</h4>
@@ -594,11 +598,13 @@ Operator &amp; Description \\ \hline
 <h4 class="anchored" data-anchor-id="a-challenge-for-you-3">A challenge for you!</h4>
 <p>Replace the questions marks “???” in the following exercise with the appropriate code to make it work</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"This is code "</span> ??? <span class="st">" camp's lesson is "</span>  ??? <span class="st">" number "</span> <span class="op">+</span> <span class="st">"2."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>###&nbsp;Multiplication</p>
+</section>
+</section>
+<section id="multiplication" class="level3">
+<h3 class="anchored" data-anchor-id="multiplication">Multiplication</h3>
 <p>If you use the <em>multiplication</em> operator (<code>*</code>) on a string then you will multiply the string by the value of the multiplier.</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"I like Python a lot"</span> <span class="op">+</span> <span class="st">"!"</span> <span class="op">*</span> <span class="dv">3</span>)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Foo "</span> <span class="op">*</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
 <section id="a-challenge-for-you-4" class="level4">
 <h4 class="anchored" data-anchor-id="a-challenge-for-you-4">A challenge for you!</h4>
 <p>What do you think will be the output of this code? (Work out your answer <em>before</em> running the code)</p>
@@ -608,29 +614,28 @@ Operator &amp; Description \\ \hline
 </section>
 </section>
 </section>
-<section id="what-is-a-variable" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-a-variable">What is a variable?</h2>
+<section id="variables" class="level2">
+<h2 class="anchored" data-anchor-id="variables">Variables</h2>
 <hr>
-<p>So far, everything we’ve done was about performing some kind of calculation on an integer, float, or string, and then showing the result. Given that a lot of programming doesn’t involve solving everything in one easy line, how do you save an answer so that you can re-use it later? Let’s start with the first true programming concept: the <strong>variable</strong>.</p>
-<p>If you have studied other programming languages before then the concept of the variable will be so familiar to you that it’s hard to remember even having to learn it! Some people think of a <a href="https://www.youtube.com/watch?v=V0aBwgLRNXI">variable simply as “a box”</a> that contains <em>values</em> that we want to store and retrieve in the future. However, we think it might be more useful to think of a variable as the <em>label</em> of a box in which we put something: for programmers, the label is how we remember what we put in the box and where we put it.</p>
-<p>Let me try to explain: if you <a href="https://www.youtube.com/watch?v=AkFi90lZmXA">watched</a> the introductory <a href="https://www.youtube.com/watch?v=VBDoT8o4q00">videos</a> in the previous lessons, then you’ll remember that the computer stores ‘information’ in lots of places (in memory, on the hard drive, etc.), but it doesn’t use an addressing system that you or I would be able to read. Instead, it will use a long, complicated number that tells the computer “Go look in this place for what to do when the mouse is clicked” or “Go look what to do when someone asks you to add together 1 and 5”. In the same way that Python translates between what we humans can deal with and what the computer can deal with, it also translates between the ‘labels’ that we use to refer to different boxes storing different things and how the computer finds what we <em>actually</em> put there.</p>
+<p>So far, everything we’ve done was about performing some kind of calculation on an integer, float, or string, and then showing the result. Given that a lot of programming doesn’t involve solving everything in one line of code, how do you save an answer so that you can (re)use it later? Let’s start with the first true programming concept: the <strong>variable</strong>.</p>
+<p>If you have studied other programming languages before then the concept of the variable will be so familiar to you that it’s hard to remember even having to learn it! Some people think of a variable <a href="https://www.youtube.com/watch?v=V0aBwgLRNXI">as “a box”</a> that contains <em>values</em> that we want to store and retrieve in the future. For the novice, however, we think it <em>might</em> be more useful (though less technically correct) to think of a variable as the <em>label</em> of the box: the label is how we remember what we put in the box and where we put it.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/_sVtcPgHAjI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Let me try to explain: the computer stores ‘information’ in lots of places (in memory, on the hard drive, etc.), but it doesn’t use an addressing system that you or I would be able to understand. Memory addresses look something like <code>140302757291280</code> or <code>'0x7f9ac8026510'</code>. Those numbers tell the computer “Go look in this place for what to do when the mouse is clicked” or “Go look up in that place what to do when someone asks you to add together 1 and 5”. Variable <em>names</em> are like the human-readable postal addresses on the outside of the box that the computer uses to deliver/return contents (what we put <em>inside</em> the box).</p>
 <p>Here’s an example:</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="op">-</span><span class="dv">2</span> <span class="op">*</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Hmmmm, nothing printed out this time…</p>
-<p>That’s because this time we gave Python a bax with the label “result” in which to put the result of multiplying -2 and 10.</p>
+<p>That’s because this time we gave Python a box with the label “result” into which to put the result of multiplying -2 and 10.</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="op">-</span><span class="dv">2</span> <span class="op">*</span> <span class="dv">10</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"I'm wasting space..."</span>)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Can you check the data type of your variable <strong>result</strong> and switch it to float?</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, we need to check the data type of our variable using a function called "type"</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="op">-</span><span class="dv">2</span> <span class="op">*</span> <span class="dv">10</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(result))</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rewrite the existing variable or put it as a new variable:</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="bu">float</span>(result) <span class="co"># or result_float = float(result_float)</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(result))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(result))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can change the <em>type</em> of <code>result</code> to a float:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="op">-</span><span class="dv">2</span> <span class="op">*</span> <span class="dv">10</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Rewrite the existing variable</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="bu">float</span>(result) </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(result))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Check it out! We <em>assigned</em> the outcome of <code>-2 * 10</code> to a variable called <code>result</code>; then we did something else (printed out a string); and <em>then</em> we printed out the value of the variable <em>and</em> the computer remembered!</p>
-<p>This video may help you to further understand the concept of a ‘variable’:</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/_sVtcPgHAjI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="copying-variables" class="level3">
 <h3 class="anchored" data-anchor-id="copying-variables">Copying variables</h3>
 <p>And variables can be copied using the <code>=</code> operator in the same way that the result of the maths operation above could be <em>assigned</em> to a new variable called <code>result</code>.</p>
@@ -639,13 +644,12 @@ Operator &amp; Description \\ \hline
 <div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>mySecondVariable <span class="op">=</span> myFirstVariable</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mySecondVariable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Cool, both variables have the same value! We <em>assigned</em> the result of <code>1 * 5</code> to a variable named <code>myFirstVariable</code> and then we assigned this value to a <em>second</em> variable called <code>mySecondVariable</code>.</p>
-<p>But why is this called assignment (or, in plain English, copying)? Well what happens when I change the first variable <code>myFirstVariable</code>? Will the second change as well?</p>
+<p>But why is this called assignment (or, in plain English, copying)? Well what happens when I change the<em>value</em> stored in <code>myFirstVariable</code>? Will the second change as well?</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>myFirstVariable <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myFirstVariable)</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mySecondVariable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Whoa! <code>mySecondVariable</code> didn’t change and still remembers what we <em>assigned</em> to in the first time. Basically, we took the <code>myFirstVariable</code> label and attached it to a different box.</p>
-<p>As the <a href="https://en.wikibooks.org/wiki/Python_Programming/Data_Types">Python Programming Wikibook explains</a>, when you assign a variable you are just pointing this variable to an object (a value) which is stored somewhere in the memory.</p>
-<p>Python variables are a kind of ‘label’ (as the YouTube video above illustrates – watch it!). So when assigning new values to already <em>declared</em> variables (i.e.&nbsp;variables that already exist in your code) you are not overwriting the old values but simply “moving” the label from one value to another.</p>
+<p>As the <a href="https://en.wikibooks.org/wiki/Python_Programming/Data_Types">Python Programming Wikibook explains</a>, when you assign a variable you are associating a variable (a label) to an object (a box) which is stored somewhere in the memory. So when you assign a new value to a variables you are not overwriting the old values but simply “moving” the label from one box to another. By analogy, we peeled the <code>myFirstVariable</code> off of the box containing the value <code>5</code> and attached it to a box containing the value <code>2</code>. But <code>mySecondVariable</code> was completely unaffected; it’s still attached to the box containing <code>5</code>.</p>
 <p>That’s why in Python variables have a <code>name</code>, a <code>data-type</code> and a <code>value</code>.</p>
 <table class="table">
 <thead>
@@ -666,35 +670,38 @@ Operator &amp; Description \\ \hline
 </section>
 <section id="a-challenge-for-you-5" class="level3">
 <h3 class="anchored" data-anchor-id="a-challenge-for-you-5">A challenge for you!</h3>
-<p>In the code cell below: a) define a variable called “name” and assign it a value of your choice, then b) print it with the “print” command</p>
-<p>For example:</p>
-<p><code>name = "Peter"</code></p>
-<p><code>print(name)</code></p>
-<p>Replace the questions marks <code>???</code> in the following lines of code with the appropriate code to make it work (i.e.&nbsp;not produce an error).</p>
+<p>Change the code below by replacing the question marks <code>???</code> to make it work (i.e.&nbsp;not produce an error). So we want to:</p>
+<ul>
+<li>Define a variable called “namee” and assign it a value, then</li>
+<li>Define a variable called “cheers” that combines the value of “name” with the text “is awesome”</li>
+<li>Print out cheers with the “print” command</li>
+</ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>cheers ??? name ??? <span class="st">" is awesome!"</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cheers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>??? <span class="op">=</span> <span class="st">"Peter"</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>cheers ??? name ??? <span class="st">" is awesome!"</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cheers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="sourceCode" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>cheers <span class="op">=</span> name <span class="op">+</span> <span class="st">" is awesome!"</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cheers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">"Peter"</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>cheers <span class="op">=</span> name <span class="op">+</span> <span class="st">" is awesome!"</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cheers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="naming-variables" class="level3">
 <h3 class="anchored" data-anchor-id="naming-variables">Naming variables</h3>
-<p>How do you choose a variable name (i.e.&nbsp;label) in Python?</p>
-<p>Here’s a short list of the conventions:</p>
+<p>How do you choose a variable name (i.e.&nbsp;address label) in Python?</p>
+<p>Here’s a short list of the rules:</p>
 <ul>
 <li>names may contain letters and/or numbers (e.g.&nbsp;<code>myVar2</code>)</li>
 <li>names cannot begin with a number (e.g.&nbsp;<code>2myVar</code>)</li>
 <li>names may contain an underscore (“_”) (e.g.&nbsp;<code>my_var_2</code>)</li>
 <li>names can be of any length (e.g.&nbsp;<code>m2</code> or <code>mySecondVariableIsReallyLong</code>)</li>
-<li>you cannot use Python keywords (e.g.&nbsp;<code>print</code>)</li>
+<li>you cannot use Python keywords (e.g.&nbsp;<code>print</code>) or, rather, you can but you will start to get really strange problems in your code because you just changes what that variable/function does.</li>
 </ul>
 <p>So this block of code below will run:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>famous_geographer <span class="op">=</span> <span class="st">"Mercator"</span></span>
@@ -706,11 +713,11 @@ Operator &amp; Description \\ \hline
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="st">to ability to represent lines of constant course (loxodromes)"""</span></span>
 <span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span><span class="er">st_geographic_projection</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Notice how the notebook has coloured the text so that the ‘1’ in what we wanted to make the variable name stands out? Again, that’s Python trying to help us figure out what is going wrong, but it requires that you look closely at the output of the error message.</p>
+<p>Notice how the code has been coloured the text so that the ‘1’ in what we wanted to make the variable name stands out? Again, that’s Python trying to help us figure out what is going wrong, but it requires that you look closely at the output of the error message.</p>
 </section>
 <section id="a-final-warning" class="level3">
 <h3 class="anchored" data-anchor-id="a-final-warning">A final warning</h3>
-<p>Remember that we said the string <code>" Some text"</code> and the string <code>"Some text"</code> are different because the space at the start of the string changes everything? The same sort of <em>strict</em> checking is true for variables: in short, Python is case-sensitive!</p>
+<p>Remember that we said the string <code>" Some text"</code> and the string <code>"Some text"</code> are different because the space at the start of the string changes everything? The same sort of <em>strict</em> checking is true for variable names: in short, Python is case-sensitive!</p>
 <p>This means that <code>this_var</code> and <code>This_var</code> are two different variables and can refer to two different boxes:</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>this_var <span class="op">=</span> <span class="st">"Mercator"</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>This_var <span class="op">=</span> <span class="st">"Galileo"</span></span>
@@ -721,8 +728,8 @@ Operator &amp; Description \\ \hline
 <p>For more examples of Python variables check out also <a href="http://opentechschool.github.io/python-beginners/en/variables.html">OpenTechSchool’s intro to Python</a></p>
 </section>
 </section>
-<section id="code-general-excercises" class="level2">
-<h2 class="anchored" data-anchor-id="code-general-excercises">Code (general excercises)</h2>
+<section id="coding-excercises" class="level2">
+<h2 class="anchored" data-anchor-id="coding-excercises">Coding Excercises</h2>
 <p>Now that we’ve had a taste of the fantastic Python programming world, let’s solidify our newly acquired skills with a final round of excercises.</p>
 <section id="code-from-scratch" class="level3">
 <h3 class="anchored" data-anchor-id="code-from-scratch">Code from scratch</h3>
@@ -823,9 +830,10 @@ Operator &amp; Description \\ \hline
 </div>
 </div>
 </section>
-<section id="broken-code" class="level4">
-<h4 class="anchored" data-anchor-id="broken-code">Broken code</h4>
-<p>mmh..something’s broken in the following line of code; can you spot the error(s)? Hint: remember what we said about different data types…</p>
+</section>
+<section id="broken-code" class="level3">
+<h3 class="anchored" data-anchor-id="broken-code">Broken code</h3>
+<p>Hmmmm… something’s broken in the following line of code; can you spot the error(s)? Hint: remember what we said about different data types…</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
@@ -851,11 +859,8 @@ Operator &amp; Description \\ \hline
 </div>
 </div>
 </section>
-</section>
-</section>
-</section>
-<section id="code-applied-geo-example" class="level1">
-<h1>Code (Applied Geo-example)</h1>
+<section id="applied-geo-example" class="level3">
+<h3 class="anchored" data-anchor-id="applied-geo-example">Applied Geo-example</h3>
 <p>In this excercise you’ll dip a toe in the wonderful world of web maps!</p>
 <p>We are going to create a <em>geographic marker</em> (a pin on the map!) on top of <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap (OSM)</a> to visualise UCL CASA location.</p>
 <p>To do so we’ll have to create a string representing a web <code>URL</code> (that’s the <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Locator">address you type in your browser</a> when your surf the web) pointing to OSM website.</p>
@@ -897,7 +902,8 @@ Operator &amp; Description \\ \hline
 </div>
 </div>
 </div>
-<p>Now click on the outputed string (or copy and paste it into your browser) and behold! You’ll be flying to CASA.</p>
+<p>Click on the output (or copy and paste it into your browser) and behold! You’ll be flying to CASA.</p>
+</section>
 <section id="further-references" class="level3">
 <h3 class="anchored" data-anchor-id="further-references">Further references:</h3>
 <p>For the most curious among you.</p>

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code Camp – exceptions</title>
+<title>Code Camp - Dealing with Errors</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -350,13 +350,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#introduction-to-errors" id="toc-introduction-to-errors" class="nav-link active" data-scroll-target="#introduction-to-errors">Introduction to errors</a>
-  <ul class="collapse">
-  <li><a href="#syntax-errors" id="toc-syntax-errors" class="nav-link" data-scroll-target="#syntax-errors">Syntax Errors</a></li>
-  <li><a href="#exceptions" id="toc-exceptions" class="nav-link" data-scroll-target="#exceptions">Exceptions</a></li>
-  </ul></li>
-  <li><a href="#how-to-read-errors" id="toc-how-to-read-errors" class="nav-link" data-scroll-target="#how-to-read-errors">How to read errors</a></li>
-  <li><a href="#learn-to-find-help" id="toc-learn-to-find-help" class="nav-link" data-scroll-target="#learn-to-find-help">Learn to find help</a></li>
+  <li><a href="#things-go-wrong" id="toc-things-go-wrong" class="nav-link active" data-scroll-target="#things-go-wrong">Things Go Wrong</a></li>
+  <li><a href="#how-to-read-errors" id="toc-how-to-read-errors" class="nav-link" data-scroll-target="#how-to-read-errors">How to Read Errors</a></li>
+  <li><a href="#finding-help" id="toc-finding-help" class="nav-link" data-scroll-target="#finding-help">Finding Help</a></li>
   <li><a href="#code-applied-geo-example" id="toc-code-applied-geo-example" class="nav-link" data-scroll-target="#code-applied-geo-example">Code (Applied Geo-example)</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -366,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Dealing with Errors &amp; Debugging</h1>
+<h1 class="title">Dealing with Errors</h1>
 </div>
 
 
@@ -381,22 +377,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="lesson-topics" class="level4">
-<h4 class="anchored" data-anchor-id="lesson-topics">Lesson Topics:</h4>
-<ul>
-<li>Introduction to errors
-<ul>
-<li>Syntax Errors</li>
-<li>Exceptions</li>
-</ul></li>
-<li>How to read errors</li>
-<li>Learn to find help</li>
-</ul>
-<p>This lesson is all about learning to deal with the (unavoidable) errors that you wil encounter when programming in Ptyhon. Most programmers spend <em>most</em> of their day dealing with errors of one sort or another: sometimes they are easy to solve (e.g.&nbsp;you mis-typed a variable name), other times they are very, very hard (e.g.&nbsp;you are writing a cloud computing platform and have to deal with competition for resources). Either way, learning how to find, diagnose, and resolve errors, as well as how to minimize their consequences, is thus a crucial skill for programmers.</p>
-<p><em>DISCLAIMER: This lesson is heavily based on the <a href="https://docs.python.org/3/tutorial/errors.html">official Python Documentation</a> about Errors and Exceptions. Check it out for further examples.</em></p>
-</section>
-<section id="introduction-to-errors" class="level1">
-<h1>Introduction to errors</h1>
+<p>We all make mistakes. Even very experienced programmers. So this lesson is all about learning to deal with the (unavoidable) errors that you will encounter when programming in Ptyhon. Indeed, most programmers spend <em>most</em> of their day dealing with errors of one sort or another: sometimes they are easy to solve (e.g.&nbsp;you mis-typed a variable name), other times they are very, very hard (e.g.&nbsp;you are writing a cloud computing platform and have to deal with competition for resources). Either way, learning how to find, diagnose, and resolve errors, as well as how to minimize their consequences, is thus a crucial skill for programmers.</p>
+<p><em>Note: This lesson is heavily based on the <a href="https://docs.python.org/3/tutorial/errors.html">official Python Documentation</a> about Errors and Exceptions. Check it out for further examples.</em></p>
+<section id="things-go-wrong" class="level2">
+<h2 class="anchored" data-anchor-id="things-go-wrong">Things Go Wrong</h2>
 <p>In the preceding lessons we’ve already pointed out a few simple errors and made some suggestions about how to read them, but as you have seen when there’s something wrong Python stops whatever it’s doing and prints out an error message.</p>
 <p>Run the next code cell and examine the error message:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> <span class="st">"Ouch!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -406,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="op">^</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="pp">SyntaxError</span>: Missing parentheses <span class="kw">in</span> call to <span class="st">'print'</span>. Did you mean <span class="bu">print</span>(<span class="st">"Ouch!"</span>)?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In this case it even tells you what the most <em>likely</em> resolution is: <code>print("Ouch!")</code>! Not all errors are as easy to diagnose, but by carefully reviewing the output it is often possible to get a pretty good <em>sense</em> of where things are going wrong.</p>
-<p>And here’s another, our familiar “division by zero” example:</p>
+<p>And here’s another example:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">45</span> <span class="op">/</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This error also gives you a helpful clue: You can’t divide by zero!</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">ZeroDivisionError</span>                         Traceback (most recent call last)</span>
@@ -414,23 +398,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">----&gt;</span> <span class="dv">1</span> <span class="dv">45</span> <span class="op">/</span> <span class="dv">0</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="pp">ZeroDivisionError</span>: division by zero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>As you can see, depending on what just broke we see different error messages fromy the Python interpreter. Although it’s not the most crucial distinction, there are roughly two main kinds of errors: <strong>Syntax Errors</strong> and <strong>Exceptions</strong>.</p>
-<section id="syntax-errors" class="level2">
-<h2 class="anchored" data-anchor-id="syntax-errors">Syntax Errors</h2>
+<p>As you can see, depending on what just broke we see different error messages from the Python interpreter. Although it’s not the most crucial distinction, there are roughly two main kinds of errors: <strong>Syntax Errors</strong> and <strong>Exceptions</strong>.</p>
+<section id="syntax-errors" class="level3">
+<h3 class="anchored" data-anchor-id="syntax-errors">Syntax Errors</h3>
 <p>A Syntax Error is likely to the be the most frequent error you encounter when you’re getting started. Syntax errors occur when the Python interpreter has trouble <em><a href="https://en.wikipedia.org/wiki/Parsing">parsing</a></em> your code. In other words, it can read what you’ve typed but it doesn’t quite make sense.</p>
 <p>It’s a bit like when someone who doesn’t speak your language fluently makes a mistake that to you seems funny, but to them is quite natural because they’re extrapolating from what they know in a different language. Many English-speakers who are ‘embarassed’ by their level of Spanish are also apparently happy to inform Spanish-speakers that they are pregnant (‘embarazada’)! Or perhaps you think that the opposite of ‘regardless’ is ‘irregardless’? These are natural mistakes, but they are ‘errors’ nonetheless. It’s just that human beings – being smart – can figure out what you meant, while computers – being almost irredeemably stupid – cannot.</p>
-<section id="a-simple-typo" class="level3">
-<h3 class="anchored" data-anchor-id="a-simple-typo">A simple typo</h3>
+<section id="a-simple-typo" class="level4">
+<h4 class="anchored" data-anchor-id="a-simple-typo">A simple typo</h4>
 <p>In the first example for instance, the error consists in a <code>print</code> command missing its parentheses (needed in Python3, if not Python 2):</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  File <span class="st">"&lt;ipython-input-4-cecc6fbed5db&gt;"</span>, line <span class="dv">1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span> <span class="st">"Ouch!"</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                <span class="op">^</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="pp">SyntaxError</span>: Missing parentheses <span class="kw">in</span> call to <span class="st">'print'</span>. Did you mean <span class="bu">print</span>(<span class="st">"Ouch!"</span>)?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Let’s read the error message together, from top-to-bottom: - First, the interpreter prints out the file name and the line number where it thinks the error can be found. In our simple case that’s not a big deal since we only have one line of code anyway, but if you had thousands of lines of code spread across dozens of separate files this could be a life-saver! - In addition, Python also prints the <em>actual</em> line where it threw up its hands and said “I can’t read this!” - It has even added a little ‘caret’ ( ‸ ) to try to point out where on that line it <em>thinks</em> the error is. We wouldn’t recommend that you study <em>only</em> that bit of code (it pointed to ‘Ouch!’ after all, not to <code>print</code>) but it’s not a bad place to start.. - Lastly, Python prints out very clearly that the error is something to do with the syntax and in this case <em>even</em> suggests the solution! (because this is a common error when people move from writing code for Python2 vs Python 3).</p>
+<p>Let’s read the error message together, from top-to-bottom:</p>
+<ul>
+<li>First, the interpreter prints out the file name and the line number where it thinks the error can be found. In our simple case that’s not a big deal since we only have one line of code anyway, but if you had thousands of lines of code spread across dozens of separate files this could be a life-saver!</li>
+<li>In addition, Python also prints the <em>actual</em> line where it threw up its hands and said “I can’t read this!”</li>
+<li>It has even added a little ‘caret’ (<code>‸</code>) to try to point out where on that line it <em>thinks</em> the error is. We wouldn’t recommend that you study <em>only</em> that bit of code (it pointed to ‘Ouch!’ after all, not to <code>print</code>) but it’s not a bad place to start.</li>
+<li>Lastly, Python prints out very clearly that the error is something to do with the syntax and in this case <em>even</em> suggests the solution! (because this is a common error when people move from writing code for Python2 vs Python 3).</li>
+</ul>
 <p>It really can’t get better than this. Let’s try to see if you can fix some bits of broken code by reading the errors and spotting the place where I’ve made some mistakes.</p>
 </section>
-<section id="a-challenge-for-you" class="level3">
-<h3 class="anchored" data-anchor-id="a-challenge-for-you">A Challenge for You!</h3>
+<section id="a-challenge-for-you" class="level4">
+<h4 class="anchored" data-anchor-id="a-challenge-for-you">A Challenge for You!</h4>
 <p>Run the next two code cells and use the error messages to see if you can fix the following problems:</p>
 <p><em>Hint:</em> remember to look at what is happening <em>before</em> the caret!</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -462,8 +452,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="exceptions" class="level2">
-<h2 class="anchored" data-anchor-id="exceptions">Exceptions</h2>
+<section id="exceptions" class="level3">
+<h3 class="anchored" data-anchor-id="exceptions">Exceptions</h3>
 <p>Even if your code is syntatically exemplary (i.e.&nbsp;it’s all perfectly written before you hit ‘run’), errors might still occur for a wide variety of reasons: your computer is freaking out, you’re not online, you haven’t defined a variable yet… Obviously, these aren’t syntax errors because your code would ordinarly work fine, it’s just that something is missing and we think this is… <em>exceptional</em>.</p>
 <p>To help you find out which of the problems you’ve just hit, Python has the concept of exceptions and a huge taxonomy of specific errors (<a href="https://docs.python.org/3/library/exceptions.html">here’s a list</a>). That way, when something exceptional happens we know whether to restart the computer, check the Internet connection, or look for the place where the variable was supposedly defined.</p>
 <p>Let’s start by considering these two <em>exception</em> examples (run each and examine the error message returned):</p>
@@ -474,11 +464,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We’ve seen this error before: remember that programmers don’t like to write ‘string’ when they could write ‘str’, and that ‘float’ means ‘floating point number’.</p>
 <p>And now let’s reconsider the “Division By Zero” Exception:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="op">/</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>First of all we can see that every exception displays a specific message in the last line which gives you useful information about what just went wrong. That’s because* exceptions* are different from plain <em>syntax errors</em> because they come in different types which are recognized by Python and printed accordingly. In our three examples above the <em>Exceptions</em> were: <code>NameError</code>, <code>TypeError</code>and <code>ZeroDivisionError</code>. These are the <em>exception types</em>.</p>
+<p>First of all we can see that every exception displays a specific message in the last line which gives you useful information about what just went wrong. That’s because <em>exceptions</em> are different from plain old <em>syntax errors</em>: they come in different types which are recognized by Python and printed accordingly. In our three examples above the <em>Exceptions</em> were: <code>NameError</code>, <code>TypeError</code>and <code>ZeroDivisionError</code>. These are the <em>exception types</em>.</p>
 <p>As with the <em>syntax errors</em>, the remaining part of the error message gives us useful pointers to how to go about fixing the code:</p>
 <ul>
-<li><p>Once again Python starts with the location. This time though, it doesn’t immediately point to a specific line but rather it explicits the <em>stack traceback</em><a href="https://en.wikipedia.org/wiki/Stack_trace">1</a>,<a href="https://en.wikipedia.org/wiki/Call_stack#STACK-FRAME">2</a> level (i.e.&nbsp;<strong>very roughly speaking</strong> the list of operations active in your code) where some mischief happened.</p></li>
-<li><p>Luckly, there’s a line reference in the following line (see the purple arrow (—&gt;) pointing at line 1)</p></li>
+<li>Once again Python starts with the location. This time though, it doesn’t immediately point to a specific line, rather it shows the <em>stack trace</em> (<a href="https://en.wikipedia.org/wiki/Stack_trace">more about this</a>, and <a href="https://en.wikipedia.org/wiki/Call_stack#STACK-FRAME">even more</a>) of the operations being performed by your code when the exception occurred.</li>
+<li>Luckily, there’s even an arrow (<code>---&gt;</code>) pointing at the line of code where Python realised there was a problem.</li>
 </ul>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>ipython<span class="op">-</span><span class="bu">input</span><span class="op">-</span><span class="dv">10</span><span class="op">-</span><span class="dv">8</span><span class="er">cad47596d70</span><span class="op">&gt;</span> <span class="kw">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span>()</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">----&gt;</span> <span class="dv">1</span> <span class="bu">print</span>(<span class="st">"london has an approx. popoulation of "</span><span class="op">+</span> popn <span class="op">+</span> <span class="st">" million people "</span>)</span>
@@ -493,10 +483,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>In other words, you can’t know in advance whether your application will always have Internet access, so rather than just having your program ‘blow up’ or say “Can’t run, sorry!”, wouldn’t it be better if it printed a helpful message to the user saying “Hey, I don’t seem to be online. Can you check the network connection?” So in Python, one part of the application can ‘throw’ an exception (“Hey, I’m not online”) when it tries to download a file and then it’s up to the application to <em>catch</em> that problem and print a warning to the user.</p>
 <p>If you see any of the following commands <code>TRY/EXCEPT/FINALLY</code> then that means a programmer is trying to limit the damage that could be caused by an exception.</p>
+</section>
 <section id="a-challenge-for-you-1" class="level3">
 <h3 class="anchored" data-anchor-id="a-challenge-for-you-1">A Challenge for You!</h3>
 <p>Run the next code cells and use the error messages to see if you can fix the following problems:</p>
-<p>HINT: Think about the <em>type</em> of data that <code>london_population</code> holds <em>and</em> how to convert a number into a string with the appropriate function</p>
+<p><em>Hint</em>: Think about the <em>type</em> of data that <code>london_population</code> holds <em>and</em> how to convert a number into a string with the appropriate function</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
@@ -511,8 +502,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Now we want to know the ration between London and Paris populations:</p>
-<p>HINT: Define a new variable with the amount of people living in the French capital (2.2 million)</p>
-<p>HINT: Think about the data type the result of the calculation needs to be</p>
+<ul>
+<li>Define a new variable with the amount of people living in the French capital (2.2 million)</li>
+<li>Think about the data type the result of the calculation needs to be</li>
+</ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
@@ -529,9 +522,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-</section>
-<section id="how-to-read-errors" class="level1">
-<h1>How to read errors</h1>
+<section id="how-to-read-errors" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-read-errors">How to Read Errors</h2>
 <p>Here’s a “rule of thumb” list of actions to take when Python throws an error at you:</p>
 <ul>
 <li><em>Don’t Panic!</em></li>
@@ -543,21 +535,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><em>No, really. Don’t Panic!</em></li>
 </ul>
 </section>
-<section id="learn-to-find-help" class="level1">
-<h1>Learn to find help</h1>
-<p>We can’t say this enough: <a href="http://lmgtfy.com/?q=%22Learning+what+questions+to+ask+is+a+skill+in+itself%22+-Somebody+smart">Google is your friend!</a>. And we really mean it.</p>
+<section id="finding-help" class="level2">
+<h2 class="anchored" data-anchor-id="finding-help">Finding Help</h2>
+<p>We can’t say this enough: <a href="http://lmgtfy.com/?q=%22Learning+what+questions+to+ask+is+a+skill+in+itself%22+-Somebody+smart">Google is your friend</a>! And we really mean it.</p>
 <p>If learning how to interpret error messages is the first step to fixing broken code, the <em>second</em> one (before you think about asking for help) is doing your ‘homework’. And since you’re not the first students to learn to program, there’s a pretty good chance that someone has had your problem – or one very similar to it – before.</p>
-<p>The largest website/community/forum online that programmers from all over the world use on a daily basis is <strong>StackOverflow</strong>. The name itself is a nerdy inside joke referring to a <em>bad</em> situation in programming:</p>
+<p>The largest website/community/forum online that programmers from all over the world use on a daily basis is <strong><a href="https://stackoverflow.com">Stack Overflow</a></strong>. The name itself is something of an inside joke referring to a <em>bad</em> situation in programming:</p>
 <blockquote class="blockquote">
 <p>When a program attempts to use more space than is available on the call stack… the stack is said to overflow, typically resulting in a program crash. (source: <a href="https://en.wikipedia.org/wiki/Stack_overflow">Wikipedia</a> )</p>
 </blockquote>
 <p>As the name implies, it’s often the first resource that you want to consult if your program is not behaving as expected. For a quick overview of it’s features refer directly to <a href="http://stackoverflow.com/tour">StackOverflow’s intro section</a>.</p>
-<p>Often, you don’t end up even needing to ask a question at all because the answer is already somewhere on Stack Overflow. But if, after carefully checking the site, you still can’t find an answer to your problem then it’s time to start thinking about asking your own question.</p>
+<p>Often, you don’t even need to ask your question at all because the answer is already <em>somewhere</em> on Stack Overflow. So search the web site carefully for relevant answers before posting your question. But if, after carefully checking the site, you still can’t find an answer to your problem then it’s time to start thinking about asking your own question.</p>
 <p>In order to maximise your chances of success (and to avoid flooding the board with unclear and repetitive questions) read thoroughly the <a href="http://stackoverflow.com/help/how-to-ask">How do I ask a good question?</a> section and always refer to the <a href="http://stackoverflow.com/help/asking">Help Center</a>.</p>
-<p>This is not meant to put you off in any way, but rather to let you know from the first moment what is the appropriate ‘Netiquette’ and accetable code of conduct that will make you stand out as competent programmer, even when you are asking for help.</p>
+<p>This is not meant to put you off in any way, but rather to let you know the appropriate ‘netiquette’ and accetable code of conduct. Through ‘SO’, you have access to thousands of knowledgeable programmers, so it’s important to make sure you’re not wasting their time (or they <em>can</em> be quite short with you).</p>
 </section>
-<section id="code-applied-geo-example" class="level1">
-<h1>Code (Applied Geo-example)</h1>
+<section id="code-applied-geo-example" class="level2">
+<h2 class="anchored" data-anchor-id="code-applied-geo-example">Code (Applied Geo-example)</h2>
 <p>If in the previous lessons we didn’t even leave the U.K., this time we’ll fly to the far away magical <a href="https://en.wikipedia.org/wiki/Null_Island">Null Island</a>.</p>
 <p>From its official government’s <a href="http://www.nullisland.com/">touristic office</a>:</p>
 <blockquote class="blockquote">

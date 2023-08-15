@@ -1,37 +1,16 @@
 ---
 jupyter: python3
+title: Truth & Conditions
 ---
-
-# Truth & Conditions
-
-### Lesson Content 
-
-- Comparisons
-    - Booleans
-    - "Not equal" operator
-    - "< > <= >=" operators
-- Conditions pt.1
-    - IF       
-    - ELSE 
-    - ELIF
-- Boolean Logic
-    - AND
-    - OR
-    - NOT
 
 In this lesson we'll learn how to compare stuff (like numerical quantities but also words and strings) via *Comparison Operators*. 
 
 We'll also see how to express logical concepts like: " `if` this condition is `True`, then do something...". These concepts will enable your code account for different possibilities and let it run to accordingly. They will also serve to perform assertions and to test if certain conditions have been met or not.
 
-# Comparisons
-----
-
-
 ## Booleans
-
 The most basic form of comparison is to test if something is `True` of `False`. To do so we'll have to quickly introduce another *data type*, the **boolean**. 
 
-Booleans are different from the numerical (*floats* and *integers*) or textual (*strings*) types we have seen so far because they have only two possible values once they are set: `True` or `False`.
+Booleans are different from the numerical (*floats* and *integers*) or textual (*strings*) data types that we have seen so far because they have only two possible values: `True` or `False`.
 
 ```python
 myBoolean = True
@@ -39,30 +18,39 @@ print(myBoolean)
 print("This statement is: '" + str(myBoolean) + "'")
 ```
 
-Note: did you see the `str()` around the `myBoolean` variable on the second `print` line? That's so that we can print out its value as part of a string.
+::: {.callout-tip}
 
-## Comparison Operators
+Did you see the `str()` around the `myBoolean` variable on the second `print` line? That's so that we can print out its value as part of a string. If you just tried `print("This statement is: " + myBoolean)` you'd get a `TypeError` because you can't concatentate (join together with a `+`) a string and a boolean. For more on errors see the lesson on [exceptions](Exceptions.qmd).
 
-How do we use booleans? Well, what is the 'answer' if I ask you "Is it true or false than an elephant is bigger than a mouse?" And remember too that in an early lesson we looked at how a computer 'thinks' -- it's all in terms of things being `True` or `False`. 
+:::
+
+## Comparisons
+
+How do we use booleans? Well, what if I ask you "Is it true or false that an elephant is bigger than a mouse?" So we use booleans why making some kind of *comparison* between two things: is it bigger? is it smaller? is the same?
+
+::: {.callout-note}
 
 Note: just so that you know, sometimes people will use `1` and `0` in place of `True` and `False` because that's what's actually happening behind the scenes. It's the same thing _logically_ , but Python views sees `True` and `False` differently from `1` and `0` because the latter are numbers, while the former are _boolean_ data type.
+
+:::
 
 You will need these set of operators:
 
 | Operator  | Meaning            | Example                                                        |
 |:----------|:-------------------|:---------------------------------------------------------------|
-| `>`        | Greater Than       | `A>B` This returns `True` if value in `A` is larger than value in `B` |
-| `<`         | Less Than          | `A<B` This returns `True` if value in `A` is smaller than value in `B`|
-| `>=`        | Greater Equal Than | `A>=B` This returns `True` if value in `A` is larger than or equal to value in `B` |
-| `<=`        | Less Equal Than    | `A<=B` This returns `True` if avlue in `A` is smaller than or equal to value in `B`  |
+| `>`        | Greater Than       | `A>B` returns `True` if value of `A` is larger than value of `B` |
+| `<`         | Less Than          | `A<B` returns `True` if value of `A` is smaller than value of `B` |
+| `>=`        | Greater Equal Than | `A>=B` returns `True` if value of `A` is larger than or equal to value of `B` |
+| `<=`        | Less Equal Than    | `A<=B` returns `True` if value of `A` is smaller than or equal to value of `B` |
+| == | Equal To | `A==B` returns `True` if value of `A` is exactly equal to value of `B` |
 
-Here's an initial example (without a print statement)
+Here's an initial example (without a print statement):
 
 ```python
-25 >  7
+25 > 7
 ```
 
-And further examples (with print statements)
+And further examples (with print statements):
 
 ```python
 print(7  >= 7)
@@ -80,25 +68,25 @@ Numerical comparisons are fairly straightforward, and you'll see that Python aut
 But here are some slightly more complicated examples involving _string_ comparisons:
 
 ```python
-print("simple comparison:")
+print("A 'simple' string comparison:")
 print("A" > "B")
 print("B" > "A")
 
-print("something slightly trickier")
+print("Something slightly trickier:")
 print("A" >  "a")
 print("A" >= "a")
 print("A" <  "a")
 
-print("trickier again")
+print("And trickier again:")
 print("ab" < "abc")
 
 print("hmmmm...")
 print("James" < "Jane")
 ```
 
-_Why does Python think 'A' is less than 'a', and 'Aardvark' is less than 'Ant'?_
+Why does Python think 'A' is less than 'a', and 'Aardvark' is less than 'Ant'?
 
-When comparing `str` objects, Python uses character _unicodes_. [Unicode](https://www.unicode.org/) is a specification that aims to list every character used by human languages and give each character its own unique code. In Python, these codes are of type `int`. 
+When comparing `str` objects, Python uses character _unicodes_. [Unicode](https://www.unicode.org/) is a specification that aims to list every character used by human languages and give each character its own unique 'number'. In Python, these codes are of type `int`. 
 
 To see this in action, we can use the `ord` function to get Python to show us the unicode for a single character:
 
@@ -107,7 +95,7 @@ print(ord("A"))
 print(ord("a"))
 ```
 
-Hopefully this output helps you to see why `print("A" >  "a")` returns `False`
+Hopefully this output helps you to see why `print("A" > "a")` returns `False`
 
 When there are multiple characters in a `string` object, Python compares each character in order. Suppose, as we do above, we have `str1` as "James"  and `str2` as "Jane". The first two characters from `str1`  and `str2` (J and J) are compared. Because they are equal, the second two characters are compared. Because they are also equal, the third two characters (m and n) are compared. And because m has smaller unicode value than n, `str1` is less than `str2`.
 
@@ -115,38 +103,38 @@ When there are multiple characters in a `string` object, Python compares each ch
 str1 = "James"
 str2 = "Jane"
 
-#compare
+# compare
 print(str1 < str2)
 
-#proof
+# proof
 print(ord("m"))
 print(ord("n"))
 ```
 
 Hopefully this helps you to see why `print("James" < "Jane")` returns `True`
 
-#### A challenge for you!
+### A challenge for you!
 
 In the next two challenges, we've deliberately left out or broken some code that _you_ need to fix!
 
 Fix this code so that it returns `True`
 
 ::: {.panel-tabset}
-## Exercise
+### Exercise
 ```python
 first_variable = 87.0
 second_variable = 9
 
 print(first_variable % 80 ??? second_variable)
 ```
-## Solution
+### Solution
 ```python
 first_variable = 87.0
 second_variable = 9
 
 print(first_variable % 80 < second_variable)
 
-#proof
+# proof
 print(first_variable % 80)
 print(second_variable)
 ```
@@ -155,11 +143,11 @@ print(second_variable)
 Fix this code so that it returns `False`
 
 ::: {.panel-tabset}
-## Exercise
+### Exercise
 ```python
 print("Aardvark" ??? "Ant")
 ```
-## Solution
+### Solution
 ```python
 print("Aardvark" > "Ant")
 
@@ -169,7 +157,7 @@ print(ord("n"))
 ```
 :::
 
-## Testing for Equality
+## Equality
 
 So we've seen the comparison operators that you probably still remember from high-school maths. But sometimes we don't want to test for _difference_, we want to test if two things are _the same_. In your maths class you probably just wrote $$x = y$$ and moved on to the next problem, but remember: one equals sign is already being used to assign values to variables! As in:
 
@@ -177,9 +165,9 @@ So we've seen the comparison operators that you probably still remember from hig
 my_var = 1
 ```
 
-To test if something is exactly equal we can use the *equality comparison operator*, which is two equals signs together (*==*). This equality comparison returns `True` if the contents of two variables/results of two calculations are equal. That's a bit of a mouthful, but all we're saying is that we compare the left-hand side (LHS) of the equality operator (`==`) with the right-hand side (RHS) to see if they evaluate to the same answer.
+To test if something is exactly equal we use the *equality comparison operator*, which is two equals signs together ($==$). This equality comparison returns `True` if the contents of two variables/results of two calculations are equal. That's a bit of a mouthful, but all we're saying is that we compare the left-hand side (LHS) of the equality operator ($==$) with the right-hand side (RHS) to see if they evaluate to the same answer.
 
-A _lot_ of new programmers make th mistake of writing `=` in their code when they wanted `==`, and it can be hard to track this one down. So always ask yourself: am I comparing two things, or assigning one to the other?
+A _lot_ of new programmers make the mistake of writing `=` in their code when they wanted `==`, and it can be hard to track this one down. So always ask yourself: am I comparing two things, or assigning one to the other?
 
 Run the following code and check you understand why the output produced is as it is.
 
@@ -196,7 +184,7 @@ british_capital = french_capital
 print(british_capital)
 ```
 
-#### A challenge for you!
+### A challenge for you!
 
 Before you run the code in each cell, try to think through what _you_ expect each one to print out!
 
@@ -221,12 +209,12 @@ Before you run the code in each cell, try to think through what _you_ expect eac
 ```
 
 ::: {.panel-tabset}
-## Exercise
+### Exercise
 ```python
 # And this?
 10 % 3 == 3 / 3
 ```
-## Hint
+### Hint
 ```python
 # This may help interpret the result here
 print(10 % 3)
@@ -234,9 +222,9 @@ print(3 / 3)
 ```
 :::
 
-## Testing for Inequality
+### Inequality
 
-What if you want to check if two things are *different* rather than equal? Well then you'll need to use the *Not Equal (!=)* operator, which returns `True` when there's no equality between the conditons you are comparing. 
+What if you want to check if two things are *different* rather than equal? Well then you'll need to use the *Not Equal* ($!=$) operator, which returns `True` when there's no equality between the conditons you are comparing. 
 
 Check you understand the output when running the following code
 
@@ -261,7 +249,7 @@ To check a condition you will need to use a *statement* (i.e. [everything that m
 
 Let's see that in action!
 
-## IF condition
+### If...
 
 Let's start with a basic `if` statement. In Python you write it:
 
@@ -324,9 +312,15 @@ if london_population > paris_population:
 
 Note: Other languages such as C/C++ use curly braces `{...}` around a block, just in case you find other languages in examples when Googling for help.
 
-Sidenote: How much should you indent? Although the [official specification](https://www.python.org/dev/peps/pep-0008/#tabs-or-spaces) specifies *4 spaces*, quite a few people indent using *one tab* instead. Technically, there is no difference _as long as you are consistent_ (See [this discussion](http://stackoverflow.com/questions/1125653/python-4-whitespaces-indention-why)). This apparently trivial issue is the sort of thing that leads to all kinds of heated argument (like whether you prefer Mac OSX or Windows; OSX is better, obviously). It's such a famous aspect of the programming world that it even featured in an episode of the sit-com [Silicon Valley](https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)): 
+::: {.callout-warning}
+
+#### Indents vs. Tabs
+
+How much should you indent? Although the [official specification](https://www.python.org/dev/peps/pep-0008/#tabs-or-spaces) specifies *4 spaces*, quite a few people indent using *one tab* instead. Technically, there is no difference _as long as you are consistent_ (See [this discussion](http://stackoverflow.com/questions/1125653/python-4-whitespaces-indention-why)). This apparently trivial issue is the sort of thing that leads to all kinds of heated argument (like whether you prefer Mac OSX or Windows; OSX is better, obviously). It's such a famous aspect of the programming world that it even featured in an episode of the sit-com [Silicon Valley](https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)): 
 
 {{< video https://youtu.be/cowtgmZuai0 >}}
+
+:::
 
 #### A challenge for you!
 
@@ -345,19 +339,19 @@ if london_population < 10000000:
 Complete the missing code, while also fixing the broken bits (_HINT:_ Remember the position of colons and indentation is important in Python!):
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 if (london_population % 8000000) == 600000 ???
 print("Good job")
 ```
-## Solution
+#### Solution
 ```python
 if (london_population % 8000000) == 600000:
     print("Good job")
 ```
 :::
 
-## ELSE condition
+### Else...
 
 Of course, only being able to use _if_ would be pretty limiting. Wouldn't it be handy to be able to say "_if_ x is True: do one thing; otherwise do something else". Well you can! When you want to run a different block of code depending on whether something is True or not, then you can use the `else` statement (_only_ following a first `if`).
 
@@ -391,7 +385,7 @@ The `if: else:` statement is like a fork in the road: you can take one road, or 
 Fix the code below so that it prints out `London's population is above my threshold`.
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 mythreshold = 1000000
 if london_population <= mythreshold ???
@@ -399,7 +393,7 @@ if london_population <= mythreshold ???
 ???:
     print("London's popuation is above my threshold")
 ```
-## Solution
+#### Solution
 ```python
 mythreshold = 1000000
 if london_population <= mythreshold:
@@ -409,7 +403,7 @@ else:
 ```
 :::
 
-## ELIF condition
+### Elif...
 
 Once again: so far, so good. But what if you need to have multiple forks? Well, then you can use a sequence of *statements* that sounds like "IF this happens do this, ELSE IF this second condition holds do that, ELSE IF a third condition is true perform this other ELSE do finally this..."
 
@@ -450,7 +444,7 @@ This a tricky one: the _first_ thing that evaluates to `True` (that London is be
 Complete the missing bits so that the logically correct print statement is output:
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 london_population = 10
 ??? london_population <= 9:
@@ -463,7 +457,7 @@ london_population = 10
 
 print("And now back to normal code execution.")
 ```
-## Solution
+#### Solution
 ```python
 london_population = 10
 if london_population <= 9:
@@ -480,26 +474,24 @@ print("And now back to normal code execution.")
 
 ## Boolean Logic
 
-The very logical Prof. George Boole, circa 1860:
+Boolean logic and [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra) have to do with _set theory_ but also lie at the heart of the modern computer! A computer works by combining `AND`, `OR`, `XOR` and `NAND` circuits to produce ever more complex calculations (see [this video](https://youtu.be/AkFi90lZmXA) and [this one](https://youtu.be/VBDoT8o4q00) if you'd appreciate an introduction to/refresher on computer hardware). Naturally, we also use this same concept a lot in programming computers!
 
-![Photo of Boole](https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg){fit-alt="George Boole" width=50%}
-
-Boolean logic and [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra) have to do with _set theory_ but also lie at the heart of the modern computer! Remember that in lesson 1 we saw that a computer works by combining `AND`, `OR`, `XOR` and `NAND` circuits to produce ever more complex calculations? Well, we also use this a lot in programming!
+![The very logical Prof. George Boole, circa 1860](https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg){fit-alt="George Boole" width=50%}
 
 In Python there are [three boolean logic opertors](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not), these are (in ascending order of priority): `or`, `and`, and `not`.
 
 We'll look at these in more detail in a second, but here's the 'cheat sheet':
 - OR: _if either A OR B are True_ then run the following code block...
 - AND: _if A AND B are True_ then run the following code block...
-- NOT: _if NOT(A) is True_ (where A is _False_) then run the following code block...
+- NOT: _if NOT(A) is True_ (because A is _False_) then run the following code block...
 
-It might help you to take a look at these Venn diagrams (source: [Wikimedia Commons](https://en.wikipedia.org/wiki/File:Vennandornot.svg)) that express the same three operations in graphical form. Imagine that _x_ and _y_ are both `conditions-to-test`... The left one is _AND_ because it is only the combination of _x AND y_ that is red; the centre one is _OR_ because it represents any combination of _x OR y_ being red; the rightmost is _NOT_ because it is the opposite of _x_ that iss red.
+It might help you to take a look at these Venn diagrams (source: [Wikimedia Commons](https://en.wikipedia.org/wiki/File:Vennandornot.svg)) that express the same three operations in graphical form. Imagine that _x_ and _y_ are both `conditions-to-test`... The left one is _AND_ because it is only the combination of _x AND y_ that is red; the centre one is _OR_ because it represents any combination of _x OR y_ being red; the rightmost is _NOT_ because it is the opposite of _x_ that is red.
 
 ![Venn](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Vennandornot.svg/640px-Vennandornot.svg.png "Venn Diagram")
 
 OK, let's look at it in Python.
 
-## AND 
+### AND 
 
 The `and` operator (just like in plain English!) is used when two conditions must both be True at the same time. So it has _two_ arguments and returns `True` if, and only if, both of them are `True`. Otherwise it returns `False`.
 
@@ -518,7 +510,7 @@ else:
     print("2. Mmm... something's wrong!")
 ```
 
-## OR 
+### OR 
 
 The `or` operator is used when we don't care which condition is True, as long as one of them is! So if *either* (or *both*!) conditions are `True`, then the operator returns `True`. Only if _both_ are `False` does it evalute to  `False`.
 
@@ -537,12 +529,12 @@ else:
     print("2. Mmm... something's wrong!")
 ```
 
-#### A challenge for you!
+### A challenge for you!
 
 Try to change the values of conditions and see the different outcomes, but first you'll need to fix the Syntax Errors and the Exceptions!
 
 ::: {.panel-tabset}
-## Exercise
+#### Exercise
 ```python
 condition1 = 2 < 4
 condition2 ??? (6/3) != 2
@@ -552,7 +544,7 @@ if (condition1) ??? (condition2):
 elif:
 print("mmh..they must both be false"")
 ```
-## Solution
+#### Solution
 ```python
 condition1 = 2 < 4
 condition2 = (6/3) != 2
@@ -564,7 +556,7 @@ else:
 ```
 :::
 
-## NOT 
+### NOT 
 
 Lastly, the `not` operator allows you to reverse (or invert, if you prefer) the value of a Boolean. So it turns a `True` into a `False` and vice-versa.
 
@@ -591,9 +583,7 @@ else:
    print("99" == str(99)+1)
 ```
 
-# Code (Applied Geo-Example)
----
-
+## Applied Geo-Example
 The aim of the excercise is to build a program that allows a user to choose a given London borough from a list, and get in return both its total population and a link to a OpenStreetMap that pin points its location.
 
 We are going to introduce a function called `input` that, as the name implies, takes an input from the user (interactively, that is!). We'll use it to interact with the user of our program. The input is going to be saved in a variable called `user_input`.
@@ -603,7 +593,7 @@ I've provided a basic scaffolding of the code. It covers the case where the user
 HINT: You will need to use `elif` statements to check for the various cases that use user might input.
 
 ::: {.panel-tabset}
-## Exercise
+### Exercise
 ```python
 # variable with the City borough's total population (in thousands)
 city_of_London = 7.375
@@ -644,7 +634,7 @@ if (user_input == '1'):
 else:
     print("That's not in my system. Please try again!")
 ```
-## Solution
+### Solution
 ```python
 # variable with the City borough's total population (in thousands)
 city_of_London = 7.375

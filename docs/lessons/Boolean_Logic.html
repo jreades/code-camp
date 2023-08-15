@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code Camp – boolean_logic</title>
+<title>Code Camp - Truth &amp; Conditions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -352,20 +352,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#comparisons" id="toc-comparisons" class="nav-link active" data-scroll-target="#comparisons"># Comparisons</a></li>
-  <li><a href="#booleans" id="toc-booleans" class="nav-link" data-scroll-target="#booleans">Booleans</a></li>
-  <li><a href="#comparison-operators" id="toc-comparison-operators" class="nav-link" data-scroll-target="#comparison-operators">Comparison Operators</a></li>
-  <li><a href="#testing-for-equality" id="toc-testing-for-equality" class="nav-link" data-scroll-target="#testing-for-equality">Testing for Equality</a></li>
-  <li><a href="#testing-for-inequality" id="toc-testing-for-inequality" class="nav-link" data-scroll-target="#testing-for-inequality">Testing for Inequality</a></li>
+  <li><a href="#booleans" id="toc-booleans" class="nav-link active" data-scroll-target="#booleans">Booleans</a></li>
+  <li><a href="#comparisons" id="toc-comparisons" class="nav-link" data-scroll-target="#comparisons">Comparisons</a></li>
+  <li><a href="#equality" id="toc-equality" class="nav-link" data-scroll-target="#equality">Equality</a></li>
   <li><a href="#conditions" id="toc-conditions" class="nav-link" data-scroll-target="#conditions">Conditions</a></li>
-  <li><a href="#if-condition" id="toc-if-condition" class="nav-link" data-scroll-target="#if-condition">IF condition</a></li>
-  <li><a href="#else-condition" id="toc-else-condition" class="nav-link" data-scroll-target="#else-condition">ELSE condition</a></li>
-  <li><a href="#elif-condition" id="toc-elif-condition" class="nav-link" data-scroll-target="#elif-condition">ELIF condition</a></li>
   <li><a href="#boolean-logic" id="toc-boolean-logic" class="nav-link" data-scroll-target="#boolean-logic">Boolean Logic</a></li>
-  <li><a href="#and" id="toc-and" class="nav-link" data-scroll-target="#and">AND</a></li>
-  <li><a href="#or" id="toc-or" class="nav-link" data-scroll-target="#or">OR</a></li>
-  <li><a href="#not" id="toc-not" class="nav-link" data-scroll-target="#not">NOT</a></li>
-  <li><a href="#code-applied-geo-example" id="toc-code-applied-geo-example" class="nav-link" data-scroll-target="#code-applied-geo-example">Code (Applied Geo-Example)</a></li>
+  <li><a href="#applied-geo-example" id="toc-applied-geo-example" class="nav-link" data-scroll-target="#applied-geo-example">Applied Geo-Example</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -389,48 +381,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="lesson-content" class="level3">
-<h3 class="anchored" data-anchor-id="lesson-content">Lesson Content</h3>
-<ul>
-<li>Comparisons
-<ul>
-<li>Booleans</li>
-<li>“Not equal” operator</li>
-<li>“&lt; &gt; &lt;= &gt;=” operators</li>
-</ul></li>
-<li>Conditions pt.1
-<ul>
-<li>IF<br>
-</li>
-<li>ELSE</li>
-<li>ELIF</li>
-</ul></li>
-<li>Boolean Logic
-<ul>
-<li>AND</li>
-<li>OR</li>
-<li>NOT</li>
-</ul></li>
-</ul>
 <p>In this lesson we’ll learn how to compare stuff (like numerical quantities but also words and strings) via <em>Comparison Operators</em>.</p>
 <p>We’ll also see how to express logical concepts like: ” <code>if</code> this condition is <code>True</code>, then do something…“. These concepts will enable your code account for different possibilities and let it run to accordingly. They will also serve to perform assertions and to test if certain conditions have been met or not.</p>
-</section>
-<section id="comparisons" class="level2">
-<h2 class="anchored" data-anchor-id="comparisons"># Comparisons</h2>
-</section>
 <section id="booleans" class="level2">
 <h2 class="anchored" data-anchor-id="booleans">Booleans</h2>
 <p>The most basic form of comparison is to test if something is <code>True</code> of <code>False</code>. To do so we’ll have to quickly introduce another <em>data type</em>, the <strong>boolean</strong>.</p>
-<p>Booleans are different from the numerical (<em>floats</em> and <em>integers</em>) or textual (<em>strings</em>) types we have seen so far because they have only two possible values once they are set: <code>True</code> or <code>False</code>.</p>
+<p>Booleans are different from the numerical (<em>floats</em> and <em>integers</em>) or textual (<em>strings</em>) data types that we have seen so far because they have only two possible values: <code>True</code> or <code>False</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>myBoolean <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myBoolean)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"This statement is: '"</span> <span class="op">+</span> <span class="bu">str</span>(myBoolean) <span class="op">+</span> <span class="st">"'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Note: did you see the <code>str()</code> around the <code>myBoolean</code> variable on the second <code>print</code> line? That’s so that we can print out its value as part of a string.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Did you see the <code>str()</code> around the <code>myBoolean</code> variable on the second <code>print</code> line? That’s so that we can print out its value as part of a string. If you just tried <code>print("This statement is: " + myBoolean)</code> you’d get a <code>TypeError</code> because you can’t concatentate (join together with a <code>+</code>) a string and a boolean. For more on errors see the lesson on <a href="../lessons/Exceptions.html">exceptions</a>.</p>
+</div>
+</div>
 </section>
-<section id="comparison-operators" class="level2">
-<h2 class="anchored" data-anchor-id="comparison-operators">Comparison Operators</h2>
-<p>How do we use booleans? Well, what is the ‘answer’ if I ask you “Is it true or false than an elephant is bigger than a mouse?” And remember too that in an early lesson we looked at how a computer ‘thinks’ – it’s all in terms of things being <code>True</code> or <code>False</code>.</p>
+<section id="comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons">Comparisons</h2>
+<p>How do we use booleans? Well, what if I ask you “Is it true or false that an elephant is bigger than a mouse?” So we use booleans why making some kind of <em>comparison</em> between two things: is it bigger? is it smaller? is the same?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Note: just so that you know, sometimes people will use <code>1</code> and <code>0</code> in place of <code>True</code> and <code>False</code> because that’s what’s actually happening behind the scenes. It’s the same thing <em>logically</em> , but Python views sees <code>True</code> and <code>False</code> differently from <code>1</code> and <code>0</code> because the latter are numbers, while the former are <em>boolean</em> data type.</p>
+</div>
+</div>
 <p>You will need these set of operators:</p>
 <table class="table">
 <colgroup>
@@ -449,28 +438,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td style="text-align: left;"><code>&gt;</code></td>
 <td style="text-align: left;">Greater Than</td>
-<td style="text-align: left;"><code>A&gt;B</code> This returns <code>True</code> if value in <code>A</code> is larger than value in <code>B</code></td>
+<td style="text-align: left;"><code>A&gt;B</code> returns <code>True</code> if value of <code>A</code> is larger than value of <code>B</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>&lt;</code></td>
 <td style="text-align: left;">Less Than</td>
-<td style="text-align: left;"><code>A&lt;B</code> This returns <code>True</code> if value in <code>A</code> is smaller than value in <code>B</code></td>
+<td style="text-align: left;"><code>A&lt;B</code> returns <code>True</code> if value of <code>A</code> is smaller than value of <code>B</code></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>&gt;=</code></td>
 <td style="text-align: left;">Greater Equal Than</td>
-<td style="text-align: left;"><code>A&gt;=B</code> This returns <code>True</code> if value in <code>A</code> is larger than or equal to value in <code>B</code></td>
+<td style="text-align: left;"><code>A&gt;=B</code> returns <code>True</code> if value of <code>A</code> is larger than or equal to value of <code>B</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>&lt;=</code></td>
 <td style="text-align: left;">Less Equal Than</td>
-<td style="text-align: left;"><code>A&lt;=B</code> This returns <code>True</code> if avlue in <code>A</code> is smaller than or equal to value in <code>B</code></td>
+<td style="text-align: left;"><code>A&lt;=B</code> returns <code>True</code> if value of <code>A</code> is smaller than or equal to value of <code>B</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">==</td>
+<td style="text-align: left;">Equal To</td>
+<td style="text-align: left;"><code>A==B</code> returns <code>True</code> if value of <code>A</code> is exactly equal to value of <code>B</code></td>
 </tr>
 </tbody>
 </table>
-<p>Here’s an initial example (without a print statement)</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">25</span> <span class="op">&gt;</span>  <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>And further examples (with print statements)</p>
+<p>Here’s an initial example (without a print statement):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">25</span> <span class="op">&gt;</span> <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And further examples (with print statements):</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">7</span>  <span class="op">&gt;=</span> <span class="dv">7</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">7</span>  <span class="op">&gt;</span>  <span class="dv">7</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">25</span> <span class="op">&lt;=</span> <span class="dv">7</span>)</span>
@@ -479,39 +473,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">25</span> <span class="op">&lt;</span>  <span class="fl">25.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Numerical comparisons are fairly straightforward, and you’ll see that Python automatically does fairly sensible things: - Because it converts automatically between integers and floats, <code>25</code> and <code>25.0</code> are evaluated properly - As are 25 and 25.1 because the ‘casting’ of integers to floats turns <code>25</code> into <code>25.0</code> automatically</p>
 <p>But here are some slightly more complicated examples involving <em>string</em> comparisons:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"simple comparison:"</span>)</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A 'simple' string comparison:"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A"</span> <span class="op">&gt;</span> <span class="st">"B"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"B"</span> <span class="op">&gt;</span> <span class="st">"A"</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"something slightly trickier"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Something slightly trickier:"</span>)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A"</span> <span class="op">&gt;</span>  <span class="st">"a"</span>)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A"</span> <span class="op">&gt;=</span> <span class="st">"a"</span>)</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A"</span> <span class="op">&lt;</span>  <span class="st">"a"</span>)</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"trickier again"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"And trickier again:"</span>)</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ab"</span> <span class="op">&lt;</span> <span class="st">"abc"</span>)</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"hmmmm..."</span>)</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"James"</span> <span class="op">&lt;</span> <span class="st">"Jane"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>Why does Python think ‘A’ is less than ‘a’, and ‘Aardvark’ is less than ‘Ant’?</em></p>
-<p>When comparing <code>str</code> objects, Python uses character <em>unicodes</em>. <a href="https://www.unicode.org/">Unicode</a> is a specification that aims to list every character used by human languages and give each character its own unique code. In Python, these codes are of type <code>int</code>.</p>
+<p>Why does Python think ‘A’ is less than ‘a’, and ‘Aardvark’ is less than ‘Ant’?</p>
+<p>When comparing <code>str</code> objects, Python uses character <em>unicodes</em>. <a href="https://www.unicode.org/">Unicode</a> is a specification that aims to list every character used by human languages and give each character its own unique ‘number’. In Python, these codes are of type <code>int</code>.</p>
 <p>To see this in action, we can use the <code>ord</code> function to get Python to show us the unicode for a single character:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"A"</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"a"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Hopefully this output helps you to see why <code>print("A" &gt;  "a")</code> returns <code>False</code></p>
+<p>Hopefully this output helps you to see why <code>print("A" &gt; "a")</code> returns <code>False</code></p>
 <p>When there are multiple characters in a <code>string</code> object, Python compares each character in order. Suppose, as we do above, we have <code>str1</code> as “James” and <code>str2</code> as “Jane”. The first two characters from <code>str1</code> and <code>str2</code> (J and J) are compared. Because they are equal, the second two characters are compared. Because they are also equal, the third two characters (m and n) are compared. And because m has smaller unicode value than n, <code>str1</code> is less than <code>str2</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>str1 <span class="op">=</span> <span class="st">"James"</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>str2 <span class="op">=</span> <span class="st">"Jane"</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#compare</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># compare</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(str1 <span class="op">&lt;</span> str2)</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#proof</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># proof</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"m"</span>))</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">ord</span>(<span class="st">"n"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Hopefully this helps you to see why <code>print("James" &lt; "Jane")</code> returns <code>True</code></p>
-<section id="a-challenge-for-you" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you">A challenge for you!</h4>
+<section id="a-challenge-for-you" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you">A challenge for you!</h3>
 <p>In the next two challenges, we’ve deliberately left out or broken some code that <em>you</em> need to fix!</p>
 <p>Fix this code so that it returns <code>True</code></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -529,7 +523,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(first_variable <span class="op">%</span> <span class="dv">80</span> <span class="op">&lt;</span> second_variable)</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#proof</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># proof</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(first_variable <span class="op">%</span> <span class="dv">80</span>)</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(second_variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -553,12 +547,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="testing-for-equality" class="level2">
-<h2 class="anchored" data-anchor-id="testing-for-equality">Testing for Equality</h2>
+<section id="equality" class="level2">
+<h2 class="anchored" data-anchor-id="equality">Equality</h2>
 <p>So we’ve seen the comparison operators that you probably still remember from high-school maths. But sometimes we don’t want to test for <em>difference</em>, we want to test if two things are <em>the same</em>. In your maths class you probably just wrote <span class="math display">\[x = y\]</span> and moved on to the next problem, but remember: one equals sign is already being used to assign values to variables! As in:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>my_var <span class="op">=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To test if something is exactly equal we can use the <em>equality comparison operator</em>, which is two equals signs together (<em>==</em>). This equality comparison returns <code>True</code> if the contents of two variables/results of two calculations are equal. That’s a bit of a mouthful, but all we’re saying is that we compare the left-hand side (LHS) of the equality operator (<code>==</code>) with the right-hand side (RHS) to see if they evaluate to the same answer.</p>
-<p>A <em>lot</em> of new programmers make th mistake of writing <code>=</code> in their code when they wanted <code>==</code>, and it can be hard to track this one down. So always ask yourself: am I comparing two things, or assigning one to the other?</p>
+<p>To test if something is exactly equal we use the <em>equality comparison operator</em>, which is two equals signs together (<span class="math inline">\(==\)</span>). This equality comparison returns <code>True</code> if the contents of two variables/results of two calculations are equal. That’s a bit of a mouthful, but all we’re saying is that we compare the left-hand side (LHS) of the equality operator (<span class="math inline">\(==\)</span>) with the right-hand side (RHS) to see if they evaluate to the same answer.</p>
+<p>A <em>lot</em> of new programmers make the mistake of writing <code>=</code> in their code when they wanted <code>==</code>, and it can be hard to track this one down. So always ask yourself: am I comparing two things, or assigning one to the other?</p>
 <p>Run the following code and check you understand why the output produced is as it is.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This (=) assigns a value to a variable</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>british_capital <span class="op">=</span> <span class="st">"London"</span></span>
@@ -570,8 +564,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># This is probably a mistake</span></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>british_capital <span class="op">=</span> french_capital</span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(british_capital)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="a-challenge-for-you-1" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-1">A challenge for you!</h4>
+<section id="a-challenge-for-you-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-1">A challenge for you!</h3>
 <p>Before you run the code in each cell, try to think through what <em>you</em> expect each one to print out!</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Is this True?</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">==</span> <span class="dv">34</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -596,10 +590,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-</section>
-<section id="testing-for-inequality" class="level2">
-<h2 class="anchored" data-anchor-id="testing-for-inequality">Testing for Inequality</h2>
-<p>What if you want to check if two things are <em>different</em> rather than equal? Well then you’ll need to use the <em>Not Equal (!=)</em> operator, which returns <code>True</code> when there’s no equality between the conditons you are comparing.</p>
+<section id="inequality" class="level3">
+<h3 class="anchored" data-anchor-id="inequality">Inequality</h3>
+<p>What if you want to check if two things are <em>different</em> rather than equal? Well then you’ll need to use the <em>Not Equal</em> (<span class="math inline">\(!=\)</span>) operator, which returns <code>True</code> when there’s no equality between the conditons you are comparing.</p>
 <p>Check you understand the output when running the following code</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset the variables to their 'defaults'</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>british_capital <span class="op">=</span> <span class="st">"London"</span></span>
@@ -610,15 +603,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># using the Not Equal operator!</span></span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(british_capital <span class="op">!=</span> french_capital)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+</section>
 <section id="conditions" class="level2">
 <h2 class="anchored" data-anchor-id="conditions">Conditions</h2>
 <p>OK, so now we’ve seen comparisons and booleans, but why? Where are we going with this? Think back to the first lesson and the example of what is happening inside a computer: <em>if</em> the user has clicked on the mouse <em>then</em> we need to do something (e.g.&nbsp;change the colour of the button, open the web link, etc.). Everything that we’ve done up until now basically happened on a single line: <em>set</em> this variable, <em>set</em> that variable, print out the result of the <em>comparison</em>.</p>
 <p>Now we’re going to step it up a level.</p>
 <p>To check a condition you will need to use a <em>statement</em> (i.e.&nbsp;<a href="https://stackoverflow.com/questions/4728073/what-is-the-difference-between-an-expression-and-a-statement-in-python">everything that makes up one or more lines of code line</a> ) to see <code>if</code> that condition is True/False, in which case do one thing, or <code>else</code> do something else…</p>
 <p>Let’s see that in action!</p>
-</section>
-<section id="if-condition" class="level2">
-<h2 class="anchored" data-anchor-id="if-condition">IF condition</h2>
+<section id="if" class="level3">
+<h3 class="anchored" data-anchor-id="if">If…</h3>
 <p>Let’s start with a basic <code>if</code> statement. In Python you write it:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> conditon<span class="op">-</span>to<span class="op">-</span>check:</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>   statement</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -663,8 +656,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> london_population <span class="op">&gt;</span> paris_population:</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"London is larger than Paris"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note: Other languages such as C/C++ use curly braces <code>{...}</code> around a block, just in case you find other languages in examples when Googling for help.</p>
-<p>Sidenote: How much should you indent? Although the <a href="https://www.python.org/dev/peps/pep-0008/#tabs-or-spaces">official specification</a> specifies <em>4 spaces</em>, quite a few people indent using <em>one tab</em> instead. Technically, there is no difference <em>as long as you are consistent</em> (See <a href="http://stackoverflow.com/questions/1125653/python-4-whitespaces-indention-why">this discussion</a>). This apparently trivial issue is the sort of thing that leads to all kinds of heated argument (like whether you prefer Mac OSX or Windows; OSX is better, obviously). It’s such a famous aspect of the programming world that it even featured in an episode of the sit-com <a href="https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)">Silicon Valley</a>:</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Indents vs.&nbsp;Tabs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How much should you indent? Although the <a href="https://www.python.org/dev/peps/pep-0008/#tabs-or-spaces">official specification</a> specifies <em>4 spaces</em>, quite a few people indent using <em>one tab</em> instead. Technically, there is no difference <em>as long as you are consistent</em> (See <a href="http://stackoverflow.com/questions/1125653/python-4-whitespaces-indention-why">this discussion</a>). This apparently trivial issue is the sort of thing that leads to all kinds of heated argument (like whether you prefer Mac OSX or Windows; OSX is better, obviously). It’s such a famous aspect of the programming world that it even featured in an episode of the sit-com <a href="https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)">Silicon Valley</a>:</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/cowtgmZuai0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+</div>
 <section id="a-challenge-for-you-2" class="level4">
 <h4 class="anchored" data-anchor-id="a-challenge-for-you-2">A challenge for you!</h4>
 <p>Think about what the following code will print, <em>before</em> running it:</p>
@@ -691,8 +696,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="else-condition" class="level2">
-<h2 class="anchored" data-anchor-id="else-condition">ELSE condition</h2>
+<section id="else" class="level3">
+<h3 class="anchored" data-anchor-id="else">Else…</h3>
 <p>Of course, only being able to use <em>if</em> would be pretty limiting. Wouldn’t it be handy to be able to say “<em>if</em> x is True: do one thing; otherwise do something else”. Well you can! When you want to run a different block of code depending on whether something is True or not, then you can use the <code>else</code> statement (<em>only</em> following a first <code>if</code>).</p>
 <p>Here’s an example:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>newyork_population <span class="op">=</span> <span class="dv">8400000</span> </span>
@@ -732,8 +737,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="elif-condition" class="level2">
-<h2 class="anchored" data-anchor-id="elif-condition">ELIF condition</h2>
+<section id="elif" class="level3">
+<h3 class="anchored" data-anchor-id="elif">Elif…</h3>
 <p>Once again: so far, so good. But what if you need to have multiple forks? Well, then you can use a sequence of <em>statements</em> that sounds like “IF this happens do this, ELSE IF this second condition holds do that, ELSE IF a third condition is true perform this other ELSE do finally this…”</p>
 <p>The operator we are going to use is <code>elif</code>, the lazy version of <code>ELSE IF</code>.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Like so:</span></span>
@@ -794,19 +799,19 @@ And now back to normal code execution.
 </div>
 </section>
 </section>
+</section>
 <section id="boolean-logic" class="level2">
 <h2 class="anchored" data-anchor-id="boolean-logic">Boolean Logic</h2>
-<p>The very logical Prof.&nbsp;George Boole, circa 1860:</p>
+<p>Boolean logic and <a href="https://en.wikipedia.org/wiki/Boolean_algebra">Boolean algebra</a> have to do with <em>set theory</em> but also lie at the heart of the modern computer! A computer works by combining <code>AND</code>, <code>OR</code>, <code>XOR</code> and <code>NAND</code> circuits to produce ever more complex calculations (see <a href="https://youtu.be/AkFi90lZmXA">this video</a> and <a href="https://youtu.be/VBDoT8o4q00">this one</a> if you’d appreciate an introduction to/refresher on computer hardware). Naturally, we also use this same concept a lot in programming computers!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg" class="img-fluid figure-img" style="width:50.0%" data-fit-alt="George Boole"></p>
-<figcaption class="figure-caption">Photo of Boole</figcaption>
+<figcaption class="figure-caption">The very logical Prof.&nbsp;George Boole, circa 1860</figcaption>
 </figure>
 </div>
-<p>Boolean logic and <a href="https://en.wikipedia.org/wiki/Boolean_algebra">Boolean algebra</a> have to do with <em>set theory</em> but also lie at the heart of the modern computer! Remember that in lesson 1 we saw that a computer works by combining <code>AND</code>, <code>OR</code>, <code>XOR</code> and <code>NAND</code> circuits to produce ever more complex calculations? Well, we also use this a lot in programming!</p>
 <p>In Python there are <a href="https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not">three boolean logic opertors</a>, these are (in ascending order of priority): <code>or</code>, <code>and</code>, and <code>not</code>.</p>
-<p>We’ll look at these in more detail in a second, but here’s the ‘cheat sheet’: - OR: <em>if either A OR B are True</em> then run the following code block… - AND: <em>if A AND B are True</em> then run the following code block… - NOT: <em>if NOT(A) is True</em> (where A is <em>False</em>) then run the following code block…</p>
-<p>It might help you to take a look at these Venn diagrams (source: <a href="https://en.wikipedia.org/wiki/File:Vennandornot.svg">Wikimedia Commons</a>) that express the same three operations in graphical form. Imagine that <em>x</em> and <em>y</em> are both <code>conditions-to-test</code>… The left one is <em>AND</em> because it is only the combination of <em>x AND y</em> that is red; the centre one is <em>OR</em> because it represents any combination of <em>x OR y</em> being red; the rightmost is <em>NOT</em> because it is the opposite of <em>x</em> that iss red.</p>
+<p>We’ll look at these in more detail in a second, but here’s the ‘cheat sheet’: - OR: <em>if either A OR B are True</em> then run the following code block… - AND: <em>if A AND B are True</em> then run the following code block… - NOT: <em>if NOT(A) is True</em> (because A is <em>False</em>) then run the following code block…</p>
+<p>It might help you to take a look at these Venn diagrams (source: <a href="https://en.wikipedia.org/wiki/File:Vennandornot.svg">Wikimedia Commons</a>) that express the same three operations in graphical form. Imagine that <em>x</em> and <em>y</em> are both <code>conditions-to-test</code>… The left one is <em>AND</em> because it is only the combination of <em>x AND y</em> that is red; the centre one is <em>OR</em> because it represents any combination of <em>x OR y</em> being red; the rightmost is <em>NOT</em> because it is the opposite of <em>x</em> that is red.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Vennandornot.svg/640px-Vennandornot.svg.png" title="Venn Diagram" class="img-fluid figure-img"></p>
@@ -814,9 +819,8 @@ And now back to normal code execution.
 </figure>
 </div>
 <p>OK, let’s look at it in Python.</p>
-</section>
-<section id="and" class="level2">
-<h2 class="anchored" data-anchor-id="and">AND</h2>
+<section id="and" class="level3">
+<h3 class="anchored" data-anchor-id="and">AND</h3>
 <p>The <code>and</code> operator (just like in plain English!) is used when two conditions must both be True at the same time. So it has <em>two</em> arguments and returns <code>True</code> if, and only if, both of them are <code>True</code>. Otherwise it returns <code>False</code>.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>condition1 <span class="op">=</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">4</span> <span class="co"># True</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>condition2 <span class="op">=</span> (<span class="dv">6</span><span class="op">/</span><span class="dv">3</span>) <span class="op">==</span> <span class="dv">2</span> <span class="co"># Also True</span></span>
@@ -831,8 +835,8 @@ And now back to normal code execution.
 <span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"2. Mmm... something's wrong!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="or" class="level2">
-<h2 class="anchored" data-anchor-id="or">OR</h2>
+<section id="or" class="level3">
+<h3 class="anchored" data-anchor-id="or">OR</h3>
 <p>The <code>or</code> operator is used when we don’t care which condition is True, as long as one of them is! So if <em>either</em> (or <em>both</em>!) conditions are <code>True</code>, then the operator returns <code>True</code>. Only if <em>both</em> are <code>False</code> does it evalute to <code>False</code>.</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>condition1 <span class="op">=</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">4</span> <span class="co"># True</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>condition2 <span class="op">=</span> (<span class="dv">6</span><span class="op">/</span><span class="dv">3</span>) <span class="op">!=</span> <span class="dv">2</span> <span class="co"># False</span></span>
@@ -846,8 +850,9 @@ And now back to normal code execution.
 <span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"2. Both conditions are true!"</span>)</span>
 <span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"2. Mmm... something's wrong!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="a-challenge-for-you-5" class="level4">
-<h4 class="anchored" data-anchor-id="a-challenge-for-you-5">A challenge for you!</h4>
+</section>
+<section id="a-challenge-for-you-5" class="level3">
+<h3 class="anchored" data-anchor-id="a-challenge-for-you-5">A challenge for you!</h3>
 <p>Try to change the values of conditions and see the different outcomes, but first you’ll need to fix the Syntax Errors and the Exceptions!</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Solution</a></li></ul>
@@ -873,9 +878,8 @@ And now back to normal code execution.
 </div>
 </div>
 </section>
-</section>
-<section id="not" class="level2">
-<h2 class="anchored" data-anchor-id="not">NOT</h2>
+<section id="not" class="level3">
+<h3 class="anchored" data-anchor-id="not">NOT</h3>
 <p>Lastly, the <code>not</code> operator allows you to reverse (or invert, if you prefer) the value of a Boolean. So it turns a <code>True</code> into a <code>False</code> and vice-versa.</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Like so:</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>conditionInverted <span class="op">=</span> <span class="kw">not</span> (<span class="dv">2</span> <span class="op">==</span> <span class="dv">2</span>) <span class="co"># not turns True into False</span></span>
@@ -895,9 +899,9 @@ And now back to normal code execution.
 <span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">"99"</span> <span class="op">==</span> <span class="bu">str</span>(<span class="dv">99</span>)<span class="op">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="code-applied-geo-example" class="level1">
-<h1>Code (Applied Geo-Example)</h1>
-<hr>
+</section>
+<section id="applied-geo-example" class="level2">
+<h2 class="anchored" data-anchor-id="applied-geo-example">Applied Geo-Example</h2>
 <p>The aim of the excercise is to build a program that allows a user to choose a given London borough from a list, and get in return both its total population and a link to a OpenStreetMap that pin points its location.</p>
 <p>We are going to introduce a function called <code>input</code> that, as the name implies, takes an input from the user (interactively, that is!). We’ll use it to interact with the user of our program. The input is going to be saved in a variable called <code>user_input</code>.</p>
 <p>I’ve provided a basic scaffolding of the code. It covers the case where the user choses the City borough, or provides an invalid input. Complete the script so that the three other boroughs can be found by the user.</p>
