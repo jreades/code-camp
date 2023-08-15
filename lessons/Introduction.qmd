@@ -1,8 +1,7 @@
 ---
-title: "Doing Urban Spatial Science"
 jupyter: python3
+title: "Doing Urban Spatial Science"
 ---
-
 
 In [Why the Future of Geography is Cheap](https://www.rgs.org/schools/teaching-resources/why-the-future-of-geography-is-cheap/) we suggested that:
 

@@ -1,8 +1,7 @@
 ---
 jupyter: python3
+title: The Basics
 ---
-
-# The Basics
 
 In this first _proper_ programming lesson we are going to use the Python interpreter to perform simple operations, like numeric calculations that you would normally do on a calculator and slightly more advanced operations on words. The interpreter is what reads your code and converts that into the binary instructions that the computer can understand – think of it as translator between you and the low-level components (operating system, file system, network, display, etc.) of your machine. The interpreter operates in the background and runs when you click the 'Run' button in your working envirnment (in future we'll see how we can use the Python interpreter with scripts of many lines of code).  
 
@@ -19,21 +18,19 @@ Lastly, a few words on the excercises; in every lesson we've tried to develop a 
 
 We're not expecting you to master the fourth level at this stage; in fact, some of the examples might be challenging even after a full year of classes. However, we think it's important to try to show you where we're trying to go as well as the steps involved in how we get there. It's like trying to follow directions from someone who only tells you 'turn left', 'turn right', 'go straight' – it's a lot easier to fill in the gaps and to understand what's going on if they say "We're headed to London" first!
 
-# Simple Operations
-
-## Numeric Operations
+## Numbers
 
 You already saw a really simple example of calculating the mean in the first lesson, but let's recall that you can easily use Python to like a calculator. Run the code already present in the code cells and make sure you understand the output. To do this, just click on the clipboard icon to copy the code and paste it in your working environment (either [locally](../setup/install.qmd) or [online](../setup/no_install.qmd))
 
 ### Basic Arithmetic
 
-#### **Addition** and **Subtraction**
+#### Addition and Subtraction
 
 ```python
 3 - 2 + 10
 ```
 
-#### **Multiplication** and **Division**
+#### Multiplication and Division
 
 ```python
 2 * 5
@@ -247,17 +244,19 @@ _Also:_ remember that you're going to need to work with decimal numbers, not who
 
 _Note:_ there are a lot of different ways that you could write this formula as _code_ and still get the right answer. Getting the right answer is 50% of the job. The remaining 50% is about doing it in a way that is elegant and easy to read... as get further into the term we'll point out how elegance and legibility (also: commenting) matter.
 
-## String Operations
+## Text
 
 OK, so that's the basics of numbers. What about text?
 
 ### How long is a piece of string?
 
 In most programming languages, text and words are called *strings*, which is really a fancy word to say a *sequence of characters* enclosed in single- or double-quotes (' or "). This might seem like stating the bleedin' obvious but this is a really, really important idea... 
-> "235op\!u\$nlkgfd8 wp8ty fgdoy8p waklj ag9up0" 
+
+> `"235op\!u\$nlkgfd8 wp8ty fgdoy8p waklj ag9up0"`
 
 is a string. So is: 
-> "If music be the food of love, play on; Give me excess of it, that, surfeiting, The appetite may sicken, and so die." (_Twelfth Night_, Act 1, Scene 1, 1–3) 
+
+> `"If music be the food of love, play on; Give me excess of it, that, surfeiting, The appetite may sicken, and so die."` (_Twelfth Night_, Act 1, Scene 1, 1–3) 
 
 The thing is that computers can't automatically distinguish between Shakespeare and the work of a monkey hitting keys at random. As long as they are both marked out by single- or double-quotes then as far as the computer is concerned they are strings. So even to ask the computer how many words there in the first 3 lines of _Twelfth Night_ means we have to 'teach' the computer what a word is by giving it rules to recognise the start or end of one, and even how to recognise the start and end of a line so that it can find the first three of them!
 
@@ -286,7 +285,7 @@ Notice the helpful error message after running the code above? We'll come back t
 
 What do you do if your string contains double-quotes _and_ single-quotes? That's where the 'backslash' (`\`, a kind of 'reverse division' symbol) comes in handy. The backslash is how we 'escape' characters so that we can do 'special' things with them when they should _normally_ do something else.
 
-In the example below, the backslash in front of the apostrophe in "I'm" says "Don't treat this as 'normal' single-quote that means the end of the string, treat it as a literal single-quote in the middle of a longer string marked out by single-quotes.
+In the example below, the backslash in front of the apostrophe in `I'm` says "Don't treat this as 'normal' single-quote that means the end of the string, treat it as a literal single-quote in the middle of a longer string marked out by single-quotes.
 
 ```python
 print('I\'m using the backslash.')
@@ -294,8 +293,9 @@ print('I\'m also using the backslash \'\\\' to escape the error normally caused 
 ```
 
 Let's look at this a little more closely:
-* The first line is easy: the backslash in front of the single-quote in "I'm" allows us to use single-quotes to mark the start and end of the string. This is a silly example since we could also have written `"I'm using the backslash"` but you get the point.
-* The second line gets a little more complicated: you'll see that we've now escaped _three_ single-quotes (there are three occurences of `"\'"`). But what's happening with `"\\"`? Well, we need an extra backslash in front of the backslash so that the computer knows to print a literal backslash (we are 'escaping' the normal function of a backslash to escape the character immediately after it) instead of reading it as escaping the one in front of the single-quote.
+
+- The first line is easy: the backslash in front of the single-quote in "I'm" allows us to use single-quotes to mark the start and end of the string. This is a silly example since we could also have written `"I'm using the backslash"` but you get the point.
+- The second line gets a little more complicated: you'll see that we've now escaped _three_ single-quotes (there are three occurences of `"\'"`). But what's happening with `"\\"`? Well, we need an extra backslash in front of the backslash so that the computer knows to print a literal backslash (we are 'escaping' the normal function of a backslash to escape the character immediately after it) instead of reading it as escaping the one in front of the single-quote.
 
 That's pretty weird, but just to show you what's happening here it is without that extra backslash:
 
@@ -317,7 +317,7 @@ See how that wraps the text on the `\n`? Also note that the computer is printing
 
 #### Why details matters
 
-We say this a lot later too, but you might as well start learning this fact now: spaces in a string _matter_. To a computer `" A string"` and `"A string"` are _not_ the same. Notice that there is a single space in front of the 'A'. As a human being we tend to just skip over that space (especially if it's hard to see), but to a computer one string starts with 'A' and the other with ' ', so they are _completely different_.
+We say this a lot later too, but you might as well start learning this fact now: spaces in a string _matter_. To a computer `" A string"` and `"A string"` are _not_ the same. Notice that there is a single space in front of the first 'A'. As human beings we tend to just skip over that space (especially if it's hard to see), but to a computer one string starts with 'A' and the other with ' ', so they are _completely different_.
 
 Further, numbers and strings are _not_ the interachangeable: `"2016"` is _not_ the same as `2016`. The first is a string that happens to contain the characters 2, 0, 1, and 6. The second is an integer number one larger than 2015.
 
@@ -336,7 +336,7 @@ As you can see from running the code above, it's a bit annoying that they look t
 "2015" + 1
 ```
 
-See how the first line of code prints `2016`, but the second line of code (which tries to add together a string `"2015"` and the number `1`) gives you an error that lazily tells you about a problem with `str` (i.e. string) and `int` (i.e. integer) 'concatentation'. More on concatenation in a minute.
+See how the first line of code prints `2016`, but the second line of code (which tries to add together a string `"2015"` and the number `1`) gives you an error about a problem with `str` (i.e. string) and `int` (i.e. integer) 'concatentation'. More on concatenation in a minute.
 
 #### Advanced laziness
 
@@ -363,13 +363,14 @@ So just like you would do to add two numbers together, we can add "String1" and 
 And just like we can add together a whole set of numbers, we can add together a whole set of strings as in the second line beginning "Hey, looks like..."
 
 #### A challenge for you!
+
 Replace the questions marks "???"  in the following exercise with the appropriate code to make it work
 
 ```python
 print("This is code " ??? " camp's lesson is "  ??? " number " + "2.")
 ```
 
-### Multiplication
+### Multiplication
 
 If you use the *multiplication* operator (`*`) on a string then you will multiply the string by the value of the multiplier.
 
@@ -391,14 +392,16 @@ Now, why do you think the next example below doesn't work? (_Read the error outp
 print("5" * "2")
 ```
 
-## What is a variable?
+## Variables
 ---
 
-So far, everything we've done was about performing some kind of calculation on an integer, float, or string, and then showing the result. Given that a lot of programming doesn't involve solving everything in one easy line, how do you save an answer so that you can re-use it later? Let's start with the first true programming concept: the   **variable**.
+So far, everything we've done was about performing some kind of calculation on an integer, float, or string, and then showing the result. Given that a lot of programming doesn't involve solving everything in one line of code, how do you save an answer so that you can (re)use it later? Let's start with the first true programming concept: the **variable**.
 
-If you have studied other programming languages before then the concept of the variable will be so familiar to you that it's hard to remember even having to learn it! Some people think of a [variable simply as "a box"](https://www.youtube.com/watch?v=V0aBwgLRNXI) that contains _values_ that we want to store and retrieve in the future. However, we think it might be more useful to think of a variable as the _label_ of a box in which we put something: for programmers, the label is how we remember what we put in the box and where we put it. 
+If you have studied other programming languages before then the concept of the variable will be so familiar to you that it's hard to remember even having to learn it! Some people think of a variable [as "a box"](https://www.youtube.com/watch?v=V0aBwgLRNXI) that contains _values_ that we want to store and retrieve in the future. For the novice, however, we think it *might* be more useful (though less technically correct) to think of a variable as the _label_ of the box: the label is how we remember what we put in the box and where we put it. 
 
-Let me try to explain: if you [watched](https://www.youtube.com/watch?v=AkFi90lZmXA) the introductory [videos](https://www.youtube.com/watch?v=VBDoT8o4q00) in the previous lessons, then you'll remember that the computer stores 'information' in lots of places (in memory, on the hard drive, etc.), but it doesn't use an addressing system that you or I would be able to read. Instead, it will use a long, complicated number that tells the computer "Go look in this place for what to do when the mouse is clicked" or "Go look what to do when someone asks you to add together 1 and 5". In the same way that Python translates between what we humans can deal with and what the computer can deal with, it also translates between the 'labels' that we use to refer to different boxes storing different things and how the computer finds what we _actually_ put there.
+{{< video https://youtu.be/_sVtcPgHAjI >}}
+
+Let me try to explain: the computer stores 'information' in lots of places (in memory, on the hard drive, etc.), but it doesn't use an addressing system that you or I would be able to understand. Memory addresses look something like `140302757291280` or `'0x7f9ac8026510'`. Those numbers tell the computer "Go look in this place for what to do when the mouse is clicked" or "Go look up in that place what to do when someone asks you to add together 1 and 5". Variable *names* are like the human-readable postal addresses on the outside of the box that the computer uses to deliver/return contents (what we put *inside* the box).
 
 Here's an example:
 
@@ -408,30 +411,26 @@ result = -2 * 10
 
 Hmmmm, nothing printed out this time... 
 
-That's because this time we gave Python a bax with the label "result" in which to put the result of multiplying -2 and 10.
+That's because this time we gave Python a box with the label "result" into which to put the result of multiplying -2 and 10.
 
 ```python
 result = -2 * 10
 print("I'm wasting space...")
 print(result)
+print(type(result))
 ```
 
-Can you check the data type of your variable **result** and switch it to float?
+You can change the *type* of `result` to a float:
 
 ```python
-# First, we need to check the data type of our variable using a function called "type"
 result = -2 * 10
-print(type(result))
-# Rewrite the existing variable or put it as a new variable:
-result = float(result) # or result_float = float(result_float)
+# Rewrite the existing variable
+result = float(result) 
+print(result)
 print(type(result))
 ```
 
 Check it out! We _assigned_ the outcome of `-2 * 10` to a variable called `result`; then we did something else (printed out a string); and _then_ we printed out the value of the variable _and_ the computer remembered! 
-
-This video may help you to further understand the concept of a 'variable':
-
-{{< video https://youtu.be/_sVtcPgHAjI >}}
 
 ### Copying variables
 
@@ -449,7 +448,7 @@ print(mySecondVariable)
 
 Cool, both variables have the same value! We _assigned_ the result of `1 * 5` to a variable named `myFirstVariable` and then we assigned this value to a _second_ variable called `mySecondVariable`. 
 
-But why is this called assignment (or, in plain English, copying)? Well what happens when I change the first variable `myFirstVariable`? Will the second change as well? 
+But why is this called assignment (or, in plain English, copying)? Well what happens when I change the*value* stored in `myFirstVariable`? Will the second change as well? 
 
 ```python
 myFirstVariable = 2
@@ -460,9 +459,7 @@ print(mySecondVariable)
 Whoa! `mySecondVariable` didn't change and still remembers what we _assigned_ to in the first time. 
 Basically, we took the `myFirstVariable` label and attached it to a different box.
 
-As the [Python Programming Wikibook explains](https://en.wikibooks.org/wiki/Python_Programming/Data_Types), when you assign a variable you are just pointing this variable to an object (a value) which is stored somewhere in the memory.
-
-Python variables are a kind of 'label' (as the YouTube video above illustrates – watch it!). So when assigning new values to already *declared* variables (i.e. variables that already exist in your code) you are not overwriting the old values but simply "moving" the label from one value to another.
+As the [Python Programming Wikibook explains](https://en.wikibooks.org/wiki/Python_Programming/Data_Types), when you assign a variable you are associating a variable (a label) to an object (a box) which is stored somewhere in the memory. So when you assign a new value to a variables you are not overwriting the old values but simply "moving" the label from one box to another. By analogy, we peeled the `myFirstVariable` off of the box containing the value `5` and attached it to a box containing the value `2`. But `mySecondVariable` was completely unaffected; it's still attached to the box containing `5`.
 
 That's why in Python variables have a `name`, a `data-type` and a `value`.
 
@@ -472,28 +469,25 @@ That's why in Python variables have a `name`, a `data-type` and a `value`.
 
 ### A challenge for you!
 
-In the code cell below:
-a) define a variable called "name" and assign it a value of your choice, then 
-b) print it with the "print" command
+Change the code below by replacing the question marks `???` to make it work (i.e. not produce an error). So we want to:
 
-For example:
-
-`name = "Peter"`
-
-`print(name)`
-
-
-Replace the questions marks `???` in the following lines of code with the appropriate code to make it work (i.e. not produce an error).
+- Define a variable called "namee" and assign it a value, then 
+- Define a variable called "cheers" that combines the value of "name" with the text "is awesome"
+- Print out cheers with the "print" command
 
 ::: {.panel-tabset}
-
 ## Exercise
+
 ```python
+??? = "Peter"
 cheers ??? name ??? " is awesome!"
 print(cheers)
 ```
+
 ## Solution
+
 ```python
+name = "Peter"
 cheers = name + " is awesome!"
 print(cheers)
 ```
@@ -501,15 +495,15 @@ print(cheers)
 
 ### Naming variables
 
-How do you choose a variable name (i.e. label) in Python?  
+How do you choose a variable name (i.e. address label) in Python?  
 
-Here's a short list of the conventions:
+Here's a short list of the rules:
 
-* names may contain letters and/or numbers (e.g. `myVar2`)
-* names cannot begin with a number (e.g. `2myVar`)
-* names may contain an underscore ("\_") (e.g. `my_var_2`)
-* names can be of any length (e.g. `m2` or `mySecondVariableIsReallyLong`)
-* you cannot use Python keywords (e.g. `print`)
+- names may contain letters and/or numbers (e.g. `myVar2`)
+- names cannot begin with a number (e.g. `2myVar`)
+- names may contain an underscore ("\_") (e.g. `my_var_2`)
+- names can be of any length (e.g. `m2` or `mySecondVariableIsReallyLong`)
+- you cannot use Python keywords (e.g. `print`) or, rather, you can but you will start to get really strange problems in your code because you just changes what that variable/function does.
 
 So this block of code below will run:
 
@@ -529,11 +523,11 @@ to ability to represent lines of constant course (loxodromes)"""
 print(1st_geographic_projection)
 ```
 
-Notice how the notebook has coloured the text so that the '1' in what we wanted to make the variable name stands out? Again, that's Python trying to help us figure out what is going wrong, but it requires that you look closely at the output of the error message.
+Notice how the code has been coloured the text so that the '1' in what we wanted to make the variable name stands out? Again, that's Python trying to help us figure out what is going wrong, but it requires that you look closely at the output of the error message.
 
 ### A final warning
 
-Remember that we said the string `" Some text"` and the string `"Some text"` are different because the space at the start of the string changes everything? The same sort of _strict_ checking is true for variables: in short, Python is case-sensitive! 
+Remember that we said the string `" Some text"` and the string `"Some text"` are different because the space at the start of the string changes everything? The same sort of _strict_ checking is true for variable names: in short, Python is case-sensitive! 
 
 This means that `this_var` and `This_var` are two different variables and can refer to two different boxes:
 
@@ -549,7 +543,7 @@ As for many issues related to Python's *style*, it is good practice to always re
 
 For more examples of Python variables check out also [OpenTechSchool's intro to Python](http://opentechschool.github.io/python-beginners/en/variables.html)
 
-## Code (general excercises)
+## Coding Excercises
 
 Now that we've had a taste of the fantastic Python programming world, let's solidify our newly acquired skills with a final round of excercises.
 
@@ -660,9 +654,9 @@ print(volume)
 ```
 :::
 
-#### Broken code
+### Broken code
 
-mmh..something's broken in the following line of code; can you spot the error(s)? Hint: remember what we said about different data types...
+Hmmmm... something's broken in the following line of code; can you spot the error(s)? Hint: remember what we said about different data types...
 
 ::: {.panel-tabset}
 ## Exercise
@@ -688,7 +682,7 @@ which band captures light in the wavelength from "+
 ```
 :::
 
-# Code (Applied Geo-example)
+### Applied Geo-example
 
 In this excercise you'll dip a toe in the wonderful world of web maps!
 
@@ -738,7 +732,7 @@ print(CASA_position)
 ```
 :::
 
-Now click on the outputed string (or copy and paste it into your browser) and behold! You'll be flying to CASA.
+Click on the output (or copy and paste it into your browser) and behold! You'll be flying to CASA.
 
 ### Further references:
 
