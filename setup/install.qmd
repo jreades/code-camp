@@ -67,3 +67,11 @@ Once it's installed, you just use the Terminal or Command Prompt as above in [Ac
 You would need to have 'Reference' Python installed anyway to [make the most of QGIS](https://gis.stackexchange.com/a/351290/62754), so we'd use that one. And getting used to the Terminal/Command Prompt is no bad thing since you'll be using it a lot in the future. 
 
 :::
+
+## Running Code Camp
+
+This short video shows how to copy code from the Code Camp micro-site over to VS Code (so that you can save your work), and from there into the Python 'interpreter' (what you have just installed):
+
+{{< video https://youtu.be/vKVUfU5Iikc >}}
+
+You can copy and paste multiple lines of code into the interpreter.
