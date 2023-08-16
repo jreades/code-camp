@@ -24,4 +24,4 @@ We'd recommend Google Colab on the basis that you can save your work.
 
 Here's a short video showing the process for Google Colab. We've assumed that you already have a Google account, if not you'll need to set one up first:
 
-{{< https://www.youtube.com/watch?v=TudpOWbIbSY >}}
+{{< https://youtu.be/pPGAfp0Oifg >}}
