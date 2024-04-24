@@ -117,13 +117,13 @@ We can use Python like a calculator. For example, to calculate 2 plus 2 using Py
 
 ::: {.callout-tip}
 
-Now is when you either start Python on your own computer (usually from the Terminal/Command Prompt) or mosy over to Google Collab (to run Python in the cloud). If you don't know how to do either, please visit the [install](../setup/install.qmd) and [no install](../setup/no_install.qmd) pages.
+Now is when you either start Python on your own computer (usually from the Terminal/Command Prompt) or mosey on over to Google Colab (to run Python in the cloud). If you don't know how to do either, please visit the [install](../setup/install.qmd) and [no install](../setup/no_install.qmd) pages.
 
 :::
 
 All of the rules of normal maths are respected by Python, though sometimes the syntax is a little different (as we'll see later). So the following code will also work as expected to produce 418.0:
 
-```python
+```{python}
 (2+2+1250)/3
 ```
 
@@ -135,35 +135,37 @@ Notice the 'clipboard' icon at the right-hand side of the code block above this 
 
 *Quick*, what's the average (mean) of: `1 + 2 + 3 + 4`?
 
-A little harder, huh? So type your 'formula' to calculate the mean of `1, 2, 3, 4` then click the 'play' button on the tool bar at the top of the window to run your first piece of Python code! 
+A little harder, huh? So type your 'formula' to calculate the mean of `1, 2, 3, 4` then either hit `Return` (if you're working in the Terminal) or click the 'play' button on the tool bar at the top of the window (if you're working in Google Colab) to run your first piece of Python code! 
 
+::: {.panel-tabset}
 
-*HINT*: Your equation should include the four numbers above with some `+` symbols and `(` and `)`, a `/` symbol, and another number.
+#### Hint
 
-Did you get 2 or 2.5? 
+Your equation should include the four numbers above with some `+` symbols and `(` and `)`, a `/` symbol, and another number.
 
-*HINT*: If you are totally at a loss for what to type in the code cell, just click the "show solution" button. 
+If you are totally at a loss for what to type in the code cell, just click the "show solution" tab. 
 
-Even if you typed the equation incorrectly, you may not have obtained the 'correct' answer (in Python2 the result of `(1+2+3+4)/4` is `2`, whereas in Python3 the result is `2.5`). If you got the 'right' answer (`2.5`) then pat yourself on the back, but be warned that that was mostly luck because Python3 is trying to be helpful. If you got the 'wrong' answer that does **_not_** mean that you have done something wrong: computers do exactly what you tell them to do, and many of the problems you'll encounter in Code Camp and beyond are a result of the computer mindlessly and stupidly doing exactly what you told it to do, and not what you _meant_ for it to do!
+#### Show Solution
 
-Or as some swag once put it:
-
-> Computers are tools for making very fast, accurate mistakes.
-
-```python
-# Solution 2:
+```{python}
 (1 + 2 + 3 + 4) / 4 
 ```
 
-If you are using Python version 3 (which you _should_ be), you should have got the result `2.5`
+:::
 
-If you got the result `2`, you are using Python version 2 and will need to check (and change) your installation of Python (go back to the [Python Setup page](../setup/install.qmd), or try posting a query on Slack for help).  
+::: {.callout-note collapse="true"}
+
+#### Did you get 2?
+
+If you got the result `2`, you are using Python version 2 and will need to check (and change) your installation of Python (go back to the [Python Setup page](../setup/install.qmd).
+
+:::
 
 ### Learning Languages is Hard
 
 This is really important: just because you told the computer to do something that you eventually realise was 'wrong' (you may even feel silly) **does _not_ mean that _you_ are stupid**. 
 
-Did you ever try to learn a foreign language? Did you expect to be fluent after a couple of classes? Did you [accidentally tell your host that you were 'pregnant' when you were just 'embarrassed'](https://translate.google.com/#es/en/embarazada)? Assuming that you had a realistic expectation of how far you'd get with French, Chinese, or English in your first couple of years, then you probably figured it'd be a _while_ before you could hold a conversation with someone else. 
+Did you ever try to learn a foreign language? Did you expect to be fluent after a couple of classes? Did you [accidentally tell your teacher that you were 'pregnant' when you were just 'embarrassed'](https://translate.google.com/#es/en/embarazada)? Assuming that you had a realistic expectation of how far you'd get with French, Chinese, or English in your first couple of years, then you probably figured it'd be a _while_ before you could hold a conversation with someone else. 
 
 So why would you expect to sit down at a computer and be able to hold a conversation with it (which is another way of thinking about what coding is) after reading a few pages of text and watching a YouTube video or two? You will need to give it time, you will need to get used to looking at the documentation, you will need to ask for help (this seems like a good time to introduce [Stack Overflow](http://stackoverflow.com/)), and you will need to persevere.
 
@@ -191,17 +193,15 @@ Once I've got a solution to my current problem, I can take that code and apply i
 
 Your language class (assuming that you took one) probably had a 'lab' where you practised your new language and you probably made a lot of mistakes when you were getting started. It's the same for programming: the reason you got a 'silly' answer is that we haven't taught you how to ask the right question yet! For a language like Python "`4`" is not always the same as "`4.0`"... and sometimes the way ahead is unclear, but don't worry if you can't get the right answer _yet_, how to 'talk numbers' is the main topic in the _next_ lesson and we'll show you the answer at the end of this lesson.
 
-So, we want you to remember that there are no stupid questions when it comes to programming. We have _all_ been lost at one point or another! Your lecturers and instructors _frequently_ still ask for help (often by asking Google!), it's just that we do it for harder questions. And that's only because we have had a lot more practice in the language of programming. So the _only_ silly thing you can do in this course is to assume that you can speed through the questions and don't have to practice or think through the technical aspects of coding. 
+So, we want you to remember that there are no stupid questions when it comes to programming. We have _all_ been lost at one point or another! Even skilled programmers (which doesn't, TBH, describe many academics) _frequently_ still ask for help by asking Google, it's just that we do it for harder questions. And that's only because we have had a lot more practice in the language of programming. So the _only_ silly thing you can do in this short course is to assume that you can speed through the questions and don't have to practice.
 
-We'll say it _again_: there's _one_ other silly thing that you can do, and that's not asking for help at all. If you've been banging your head against the computer for five or ten minutes trying to get something to work and it *just isn't working* then try explaining it to a friend or the instructor! Depending on the question we might: give you the answer and explain why it's the answer; give you a really annoying _partial_ answer because it's something that we want you to figure out for yourself; or say "That's a really tough question, we'll have to look up the answer". You never know until you ask.
+Actually, there's _one_ other silly thing that you can do, and that's not asking for help at all. If you've been banging your head against the computer for twenty minutes trying to get something to work and it *just isn't working* then try explaining it to a friend or even a pet or stuffed animal! Often, the process of talking something out helps you to find the answer for *yourself*.
 
-<img src="https://imgs.xkcd.com/comics/tasks.png" width="350" />
-
-There are web sites that will give you answers (in fact, we're going to point you to some of them) but if you don't expend any effort in trying to understand how the code works, or if you just copy the answer off of your friend, that's the same as assuming you'll learn a foreign language just because you're sitting next to a friend who is taking the same language course! _That_ is also silly.
+If you don't expend any effort in trying to understand how the code works, or if you just copy the answer off of your friend, that's the same as assuming you'll learn a foreign language just because you're sitting next to a friend who is taking the same language course! _That_ is also silly.
 
 ::: {.callout-warning}
 
-You will need to practice in order to progress. You don't learn French or Chinese by practising in the language lab once a week. You won't learn to program a computer by only practising during the practicals once a week.
+You will need to practice in order to progress. You don't learn French or Chinese by practising in the language lab once a week. You won't learn to program a computer by only practising once a week.
 
 :::
 
@@ -209,9 +209,9 @@ You will need to practice in order to progress. You don't learn French or Chines
 
 What makes a computer potentially _better_ than a calculator (or your brain) is that a computer isn't daunted by having to count lots of numbers and it doesn't need you to input each number individually! The computer can also do things like: 
 
-- find out the amount of rain that fell in London, Manchester, and Edinburgh yesterday from an online weather service;
-- work out the average rainfall for these three cities; and then 
-- work out the standard deviation for rainfall.
+- Find out the amount of rain that fell in London, Manchester, and Edinburgh yesterday from an online weather service;
+- Work out the average rainfall for these three cities; and then 
+- Work out the standard deviation for rainfall.
 
 And it can do all of this in a matter of milliseconds! It can also do the same for 3,000 cities just as easily; sure, it'll take a little bit longer, but it's the *same basic code*. 
 
@@ -219,11 +219,17 @@ In other words, code is [scalable](https://en.wikipedia.org/wiki/Scalability) in
 
 Here's a trivial example of when computers start to get better and faster than brains:
 
-```python
+```{python}
 (23495.23 + 9238832.657 + 2 + 12921)/4
 ```
 
-*Remember*: copy (clicking on the clipboard icon on the right) and paste the code in the cell above in whatever Python environment you are using (either [online](../setup/no_install.qmd) or on [your machine](../setup/install.qmd)) and 'run' the code cell and get the answer.
+::: {.callout-tip}
+
+#### Remember
+
+Copy (clicking on the clipboard icon on the right) and paste the code into whatever Python environment you are using and then 'run' the code to get the answer.
+
+::: 
 
 ## Programming in Python
 
