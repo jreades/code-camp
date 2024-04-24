@@ -7,5 +7,6 @@
 *.cache
 
 /.quarto/
-
+/_site/
+/docs/
 /.luarc.json
