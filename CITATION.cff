@@ -1,0 +1,28 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Python Code Camp
+message: >-
+  A self-paced introduction to getting started with, and
+  basic programming concepts in. Python.
+type: software
+authors:
+  - given-names: Jon
+    family-names: Reades
+    email: j.reades@ucl.ac.uk
+    affiliation: University College London
+    orcid: 'https://orcid.org/0000-0002-1443-9263'
+repository-code: 'https://github.com/jreades/code-camp/'
+url: 'https://jreades.github.io/code-camp/'
+repository: 'https://jreades.github.io/fsds/'
+abstract: >-
+  This is a short, very practical self-paced introduction to
+  programming in Python. The repository covers foundational
+  concepts such as variables, lists, and dictionaries in
+  order to preapare students for a class or module during
+  term-time.
+keywords:
+  - python
+  - programming
+license: CC-BY-NC-4.0
