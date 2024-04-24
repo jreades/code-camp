@@ -1,58 +1,26 @@
 # Getting Help
 
-We *all* need help from time to time---and that's what we're here to provide---but the best way to 'get help' will always be taking steps to 'help yourself' first!
+We *all* need help from time to time---and we are happy to provide what can to people who enrolled on our programme (if you've just stumbled across Code Camp then our options are a little more constrained)---but the best way to 'get help' will always be taking steps to 'help yourself' first!
 
 ## Important!
 
-When you are first learning to code there is ***no such thing* as a stupid question**. From time to time we all have lazy questions, which is what happens when we are frustrated and just want to know 'the answer' without putting in the work to clarify the problem. However, if any time you find yourself stuck on a particular problem there is a 100% chance that someone else in the class is having the same problem as well but hasn't quite worked up the courage to ask. So please: **ask**.
+When you are first learning to code there is ***no such thing* as a stupid question**. From time to time we all have lazy questions, which is what happens when we are frustrated and just want to know 'the answer' without putting in the work to clarify the problem. However, if any time you find yourself stuck on a particular problem there is a 100% chance that someone else trying Code Camp has had (or is having) the same problem. You are not alone.
 
 ## Helping Yourself
 
-Here are four things that you can do to 'help yourself' *first*:
+Here are four things that you can do to 'help yourself':
 
-1. Use Google--this is one course where saying "I googled it..." will be taken as a good sign! Probably the biggest difference between a good programmer and a new programmer is that the good one knows which terms to type into Google to get the answer that they need right away.
-2. Use Stack Overflow--as you become a better programmer you'll start to understand how to frame your question in ways that produce the answer you need in the first couple of search results, but whether you're a beginner or an expert Stack Overflow is your friend. *True story*: I have sometimes found answers that *I* provided (but didn't remember giving) when trying to solve a problem.
-3. Use the work of others--beyond the readings that we've assigned to support the module's learning outcomes there is a world of knowledge out there on which you can build! Use Google Scholar, Medium, and dedicated tutorial-type sites like [Towards Data Science](https://towardsdatascience.com), [Software Carpentry](https://swcarpentry.github.io/python-novice-inflammation/), and [Programming Historian](https://programminghistorian.org) to see if you can find others who have had similar challenges.
+1. Use Google--when learning to code saying "I googled it..." will be taken as a good sign! Probably the biggest difference between a good programmer and a new programmer is that the good one knows which terms to type into Google to get the answer that they need right away.
+2. Use [Stack Overflow](https://stackoverflow.com/questions/tagged/python)--as you become a better programmer you'll start to understand how to frame your question in ways that produce the answer you need in the first couple of search results, but whether you're a beginner or an expert Stack Overflow is your friend. *True story*: I have sometimes found answers that *I* provided (but didn't remember giving) when trying to solve a problem. Note that you are unlikely to need to *ask* a question: most likely at *this* stage your question will have been asked and answered multiple times.
+3. Use the work of others--there is a world of knowledge out there on which you can build! Code Academy, Khan Academy, Medium, and dedicated tutorial-type sites like [Towards Data Science](https://towardsdatascience.com), [Software Carpentry](https://swcarpentry.github.io/python-novice-inflammation/), and [Programming Historian](https://programminghistorian.org) all take different approaches to teaching you some of the basics. See if you can find others who have had similar challenges.
 
 Yes, this is a lot of things to do when you want to know the answer to what feels like a simple question, but it's an investment. If we just 'give' you the answer then chances are you'll forget it as soon as your code starts running again; however, if you've had to invest your time and energy in sorting through a whole range of answers (some useful, some not) then you have found it *for yourself* in a way that you'll not soon forget. In fact, you've learned something about both how to *frame questions* and how to *identify useful answers*. That, frankly, is a much more valuable skill!
 
 ## Creating Opportunities
 
-Learning to code is like learning a language: you need to practice! Set yourself little problems or tasks and see if you can apply what you've learned in class to a problem in a *different* class, or to a friend's problem, or just something you're curious about! In the same way that practicing your Chinese or French with native speakers will help you to learn those languages, so will practicing your Python.
+Learning to code is like learning a language: you need to practice! Set yourself little problems or tasks and see if you can apply what you've learned to a *different* problem, even if it seems like a really basic one! In the same way that practicing your Chinese or French with native speakers will help you to learn those languages, so will practicing your Python.
 
 ## How to Ask for Help
 
-However tired you are, don't send a stream of consciousness late-night email saying little more than "Hey, I'm stuck on this problem can you solve it?" Go to bed. Sleep on it. And if you're still stuck in the morning it's time for the email.
-
-What does a *useful* email look like? You might want to follow this overview of [how to get a busy person to respond to your email](https://byrslf.co/how-to-get-a-busy-person-to-respond-to-your-email-52e5d4d69671):
-
-- Keep it short.
-- Format it for readability and clarity.
-- Make it clear what you want me to do.
-- Be reasonable with your request.
-- Show me why I should take the time to help you.
-
-That last point isn't quite as rude as it sounds! If you've gone through steps 1--4 above, then it's actually easy to explain what you've done, what you've found, why you think things aren't working, and whether you have any ideas for solving your issue! If you've done all this then your question will *never* be a result of laziness, so that suggests there's something for *us* to learn about how we teach!
-
-In academia there are a few more things I'd add:
-
-- What module are you emailing me about? (*Hint*: Code Camp)
-- Are you enrolled on our MSc programme or did you find us some other way?
-- Is the question about a specific technical problem?
-
-And here is some additional insight into [how to email your professor (without being annoying AF)](https://medium.com/@lportwoodstacer/how-to-email-your-professor-without-being-annoying-af-cf64ae0e4087):
-
-- *Salutation*: should I use "Dear", "Hello" or "Hi"?
-- *Honourific*: should I use "Mr", "Ms", "Dr" or "Professor"? *Hint:* don't *ever* use Mr/Mrs/Ms.
-- *Name*: please try not to get this wrong.
-- *Exceptions*: always look at how your Prof or TA responds to *you* for cues about how to respond to *them*.
-- *Be nice*: treat us like human beings please! We take holiday. We get sick. So do our children. If we don't reply right away there might be a reason.
-- *Remind me who you are*: anything that allows me to place you and your question in context will help me to give you effective help.
-- *The reason*: tell me *as precisely as possible* why you are emailing me and what you want/hope to achieve by doing so.
-- *Do the legwork*: show me that you've *tried* to answer your question yourself and give me a sense of what you've already tried. For instance, if your problem is technical then "I couldn't install the software and it didn't work" tells me *nothing* about your actual problem (see also [information on asking a good tech question](https://www.propublica.org/nerds/how-to-ask-programming-questions)).
-- *Wrap-up and Sign-off*: is there a deadline (e.g. for a recommendation) or some other issue that I need to factor into my plans? Some recognition of thanks never goes amiss.
-
-### The Follow-Up!
-
-If we don't reply to you ***then send a reminder***! The trick is to send the reminder at the right time: if you are about to fail an assessment or are three weeks into the course and still can't run the programming environment **then your problem is urgent** and you can send a reminder much sooner than if you're wondering 'if X would be a good topic for the final assessment'. As the Medium blogger puts it: "If it can wait a week, let it wait a week" (before following up).
+If you have really exhausted all options, feel free to reach out with your question. We will try to help! 
 
