@@ -1,4 +1,6 @@
-# https://quarto.org/docs/books/book-output.html
+execute:
+  freeze: auto
+
 project:
   type: website
   output-dir: docs
