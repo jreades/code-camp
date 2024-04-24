@@ -1,16 +1,18 @@
 ---
-title: "No Install Options"
+title: "Running Python Remotely"
 ---
 
-The following options will allow you to run Python code without installing _anything_ at all on your computer. You will be running code 'in the cloud' and so need an internet-connected device to write and run code. Also, your code may not be saved if you log out or don't run any code for a long period of time.
+When we say running Python ‘remotely’, we mean running a version of Python and executing code somewhere besides *your* computer. There are many other ways to run Python, and that includes '[locally](install.qmd)' on your computer. But this way is a great 'try before you buy' option, and in our [Foundations of Spatial Data Science module](https://jreades.github.io/fsds/) you'll see another way to run Python..
+
+Anyway, the following options will allow you to run Python code without installing _anything_ at all on your computer. You will be running code 'in the cloud' and so will need an internet-connected device to write and run code. Also, note that in the cloud your code may not be saved if you log out or don't run any code for a long period of time.
 
 ## Google Colab
 
-Google's [Colaboratory](https://colab.research.google.com/?) will require a Google login, but offers a few benefits: you can save your code, search for other 'notebooks' (the way you will run code), and add notebooks from [GitHub](https://github.com) where Code Camp is saved. As long as you don't mind having a Google account, it's probably the best way to get started.
+Google's [Colaboratory](https://colab.research.google.com/?) will require a Google login, but offers a few benefits: you can save your code or search for and add other 'notebooks' (the way you will run code in Colab). As long as you don't mind having a Google account, it's probably the best way to get started.
 
 ## Binder
 
-[MyBinder](https://mybinder.org/) works in a similar way to Colab, but no login is required and you can only use the notebooks from our GitHub repository. You'll also lose your notebooks when you log out/don't run any code for a while _unless_ you download and save the notebook on your computer first.
+[MyBinder](https://mybinder.org/) works in a similar way to Colab, but no login is required and you can't save your work except by downloading it. So you'll also lose your notebooks when you log out/don't run any code for a while.
 
 ::: {.callout-tip}
 
@@ -22,7 +24,7 @@ We'd recommend Google Colab on the basis that you can save your work.
 
 ### Action
 
-Here's a short video showing the process for Google Colab. We've assumed that you already have a Google account, if not you'll need to set one up first:
+Since there's nothing to install, here's a short video showing the process for running code in Google Colab. We've assumed that you already have a Google account, if not you'll need to set one up first:
 
 {{< video https://youtu.be/pPGAfp0Oifg >}}
 

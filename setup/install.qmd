@@ -1,12 +1,14 @@
 ---
-title: "Installing Python"
+title: "Running Python Locally"
 ---
 
-Installing Python or R is fairly straightforward nowdays, but be warned: what you will see _after_ installing them ain't pretty. By default, Python and R code is simply the black-and-white text output of an 'interpreter' (something that processes lines of code by 'interpreting' our code into instructions to the computer, and back). People who code all the time will _always_ install an [IDE](../lessons/Tools_of_the_Trade.qmd) like RStudio or VSCode because it 'prettifies' the code that they run, making it easier to spot mistakes and track links between files containing code that interact. 
+When we say running Python 'locally', we mean installing a version of Python (or using a version already) and executing code on *your* computer. There are many other ways to run Python, and one of the more convenient options is [in the cloud](no_install.qmd).
 
-You can complete a _lot_ of Code Camp using just the basic Python interpreter, but you might find it _easier_ to look at the [no install options](./no_install.qmd) since these automatically include tools for beautifying your Python code. However, if you're sure that you want to install Python on your computer then here's what you do... 
+Installing Python or R is fairly straightforward nowdays, but be warned: what you will see _after_ installing them ain't pretty. By default, Python and R code is simply the black-and-white text output of an 'interpreter' (something that processes lines of code by 'interpreting' our code into instructions to the computer, and back). People who code all the time will _always_ install an IDE (short for: [Integrated Development Environment](https://www.codecademy.com/article/what-is-an-ide)) like RStudio or [VSCode](https://code.visualstudio.com/) because it 'prettifies' the code that they run, making it easier to spot mistakes and track links between files containing code that interact. 
 
-## 'System' Python
+You can complete Code Camp using just the basic Python interpreter, but you might find it _easier_ to look at the [no install options](./no_install.qmd) since these automatically include some basic tools for beautifying your Python code. However, if you're sure that you want to install Python on your computer then here's what you do... 
+
+## Checking for 'System' Python
 
 Many computers (especially Macs and Linux systems) will come with Python pre-installed. To find out if you have Python installed:
 
@@ -32,7 +34,7 @@ In both cases, if Python is already installed then you will see something like t
 Python 3.8.16
 ```
 
-If you see this kind output then, congratulations, you have Python installed!
+If you see this kind output then, congratulations, you have Python installed! If you're unsure what all this was about watch the video below.
 
 ::: {.callout-note}
 
@@ -54,9 +56,9 @@ Don't worry too much about what version of Python you see listed (in the example
 
 :::
 
-## 'Reference' Python
+## Installing 'Reference' Python
 
-The 'reference' version of Python is the one produced by the Python Software Foundation. Whatever operating system you're using, you should start from the [downloads page](https://www.python.org/downloads/) and follow the instructions from there. You will want a **Stable Release**, _not_ a Pre-release version of Python.
+If you *don't* have Python installed, then the 'reference' version of Python is the one to use since it's produced by the Python Software Foundation and is required by QGIS anyway. Whatever operating system you're using, you should start from the [downloads page](https://www.python.org/downloads/) and follow the instructions from there. You will want a **Stable Release**, _not_ a Pre-release version of Python.
 
 Once it's installed, you just use the Terminal or Command Prompt as above in [Action](#action).
 
@@ -70,7 +72,7 @@ You would need to have 'Reference' Python installed anyway to [make the most of 
 
 ## Running Code Camp
 
-This short video shows how to copy code from the Code Camp micro-site over to VS Code (so that you can save your work), and from there into the Python 'interpreter' (what you have just installed):
+This short video shows how to copy code from the Code Camp micro-site over to [VSCode](https://code.visualstudio.com/) (so that you can save your work), and from there into the Python 'interpreter' (what you have just installed):
 
 {{< video https://youtu.be/vKVUfU5Iikc >}}
 

@@ -49,11 +49,11 @@ website:
       contents:
         - text: "Getting Started"
           href: setup/index.qmd
-        - text: "Health Check"
+        - text: "Computer Health Check"
           href: setup/health.qmd
-        - text: "Installing Python"
+        - text: "Python on your Computer"
           href: setup/install.qmd
-        - text: "No Install Options"
+        - text: "Python in the Cloud"
           href: setup/no_install.qmd
         - text: "Getting Help"
           href: help.qmd
