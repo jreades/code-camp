@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code Camp - Installing Python</title>
+<title>Code Camp - Running Python Locally</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -82,7 +82,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,6 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -104,9 +111,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-md navbar-dark ">
+    <nav class="navbar navbar-expand-md " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../img/CASA_Logo_no_text.png" alt="" class="navbar-logo">
     </a>
@@ -121,133 +128,133 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">Welcome</span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Welcome</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-setting-up" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-setting-up" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Setting Up</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-setting-up">    
         <li>
-    <a class="dropdown-item" href="../setup/index.html" rel="" target="">
+    <a class="dropdown-item" href="../setup/index.html">
  <span class="dropdown-text">Getting Started</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../setup/health.html" rel="" target="">
- <span class="dropdown-text">Health Check</span></a>
+    <a class="dropdown-item" href="../setup/health.html">
+ <span class="dropdown-text">Computer Health Check</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../setup/install.html" rel="" target="">
- <span class="dropdown-text">Installing Python</span></a>
+    <a class="dropdown-item" href="../setup/install.html">
+ <span class="dropdown-text">Python on your Computer</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../setup/no_install.html" rel="" target="">
- <span class="dropdown-text">No Install Options</span></a>
+    <a class="dropdown-item" href="../setup/no_install.html">
+ <span class="dropdown-text">Python in the Cloud</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../help.html" rel="" target="">
+    <a class="dropdown-item" href="../help.html">
  <span class="dropdown-text">Getting Help</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lessons" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lessons" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lessons</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lessons">    
         <li>
-    <a class="dropdown-item" href="../lessons/Introduction.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Introduction.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Background.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Background.html">
  <span class="dropdown-text">Background</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/The_Basics.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/The_Basics.html">
  <span class="dropdown-text">The Basics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Exceptions.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Exceptions.html">
  <span class="dropdown-text">Exceptions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Writing_Code.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Writing_Code.html">
  <span class="dropdown-text">Writing Code</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Boolean_Logic.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Boolean_Logic.html">
  <span class="dropdown-text">Boolean Logic</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Recap_1.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Recap_1.html">
  <span class="dropdown-text">Recap 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Lists.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Lists.html">
  <span class="dropdown-text">Lists</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Dicts.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Dicts.html">
  <span class="dropdown-text">Dictionaries</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Loops.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Loops.html">
  <span class="dropdown-text">Loops</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Recap_2.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Recap_2.html">
  <span class="dropdown-text">Recap 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Functions.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Functions.html">
  <span class="dropdown-text">Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Packages.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Packages.html">
  <span class="dropdown-text">Packages</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/Classes.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/Classes.html">
  <span class="dropdown-text">Classes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../lessons/The_Terminal.html" rel="" target="">
+    <a class="dropdown-item" href="../lessons/The_Terminal.html">
  <span class="dropdown-text">The Terminal</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../setup/install.html">Installing Python</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../setup/install.html">Python on your Computer</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -259,19 +266,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../setup/health.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Health Check</span></a>
+ <span class="menu-text">Computer Health Check</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../setup/install.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Installing Python</span></a>
+ <span class="menu-text">Python on your Computer</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../setup/no_install.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">No Install Options</span></a>
+ <span class="menu-text">Python in the Cloud</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -283,25 +290,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#system-python" id="toc-system-python" class="nav-link active" data-scroll-target="#system-python">‘System’ Python</a></li>
-  <li><a href="#reference-python" id="toc-reference-python" class="nav-link" data-scroll-target="#reference-python">‘Reference’ Python</a></li>
+  <li><a href="#checking-for-system-python" id="toc-checking-for-system-python" class="nav-link active" data-scroll-target="#checking-for-system-python">Checking for ‘System’ Python</a></li>
+  <li><a href="#installing-reference-python" id="toc-installing-reference-python" class="nav-link" data-scroll-target="#installing-reference-python">Installing ‘Reference’ Python</a></li>
   <li><a href="#running-code-camp" id="toc-running-code-camp" class="nav-link" data-scroll-target="#running-code-camp">Running Code Camp</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Installing Python</h1>
+<h1 class="title">Running Python Locally</h1>
 </div>
 
 
@@ -314,12 +321,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
 
-<p>Installing Python or R is fairly straightforward nowdays, but be warned: what you will see <em>after</em> installing them ain’t pretty. By default, Python and R code is simply the black-and-white text output of an ‘interpreter’ (something that processes lines of code by ‘interpreting’ our code into instructions to the computer, and back). People who code all the time will <em>always</em> install an <a href="../lessons/Tools_of_the_Trade.html">IDE</a> like RStudio or VSCode because it ‘prettifies’ the code that they run, making it easier to spot mistakes and track links between files containing code that interact.</p>
-<p>You can complete a <em>lot</em> of Code Camp using just the basic Python interpreter, but you might find it <em>easier</em> to look at the <a href="../setup/no_install.html">no install options</a> since these automatically include tools for beautifying your Python code. However, if you’re sure that you want to install Python on your computer then here’s what you do…</p>
-<section id="system-python" class="level2">
-<h2 class="anchored" data-anchor-id="system-python">‘System’ Python</h2>
+
+<p>When we say running Python ‘locally’, we mean installing a version of Python (or using a version already) and executing code on <em>your</em> computer. There are many other ways to run Python, and one of the more convenient options is <a href="../setup/no_install.html">in the cloud</a>.</p>
+<p>Installing Python or R is fairly straightforward nowdays, but be warned: what you will see <em>after</em> installing them ain’t pretty. By default, Python and R code is simply the black-and-white text output of an ‘interpreter’ (something that processes lines of code by ‘interpreting’ our code into instructions to the computer, and back). People who code all the time will <em>always</em> install an IDE (short for: <a href="https://www.codecademy.com/article/what-is-an-ide">Integrated Development Environment</a>) like RStudio or <a href="https://code.visualstudio.com/">VSCode</a> because it ‘prettifies’ the code that they run, making it easier to spot mistakes and track links between files containing code that interact.</p>
+<p>You can complete Code Camp using just the basic Python interpreter, but you might find it <em>easier</em> to look at the <a href="../setup/no_install.html">no install options</a> since these automatically include some basic tools for beautifying your Python code. However, if you’re sure that you want to install Python on your computer then here’s what you do…</p>
+<section id="checking-for-system-python" class="level2">
+<h2 class="anchored" data-anchor-id="checking-for-system-python">Checking for ‘System’ Python</h2>
 <p>Many computers (especially Macs and Linux systems) will come with Python pre-installed. To find out if you have Python installed:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Windows</a></li></ul>
@@ -347,7 +357,7 @@ Tip
 </div>
 <p>In both cases, if Python is already installed then you will see something like the following (your exact version may differ):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Python</span> 3.8.16</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If you see this kind output then, congratulations, you have Python installed!</p>
+<p>If you see this kind output then, congratulations, you have Python installed! If you’re unsure what all this was about watch the video below.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -380,9 +390,9 @@ Versions
 </div>
 </section>
 </section>
-<section id="reference-python" class="level2">
-<h2 class="anchored" data-anchor-id="reference-python">‘Reference’ Python</h2>
-<p>The ‘reference’ version of Python is the one produced by the Python Software Foundation. Whatever operating system you’re using, you should start from the <a href="https://www.python.org/downloads/">downloads page</a> and follow the instructions from there. You will want a <strong>Stable Release</strong>, <em>not</em> a Pre-release version of Python.</p>
+<section id="installing-reference-python" class="level2">
+<h2 class="anchored" data-anchor-id="installing-reference-python">Installing ‘Reference’ Python</h2>
+<p>If you <em>don’t</em> have Python installed, then the ‘reference’ version of Python is the one to use since it’s produced by the Python Software Foundation and is required by QGIS anyway. Whatever operating system you’re using, you should start from the <a href="https://www.python.org/downloads/">downloads page</a> and follow the instructions from there. You will want a <strong>Stable Release</strong>, <em>not</em> a Pre-release version of Python.</p>
 <p>Once it’s installed, you just use the Terminal or Command Prompt as above in <a href="#action">Action</a>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -400,7 +410,7 @@ Our Recommendation
 </section>
 <section id="running-code-camp" class="level2">
 <h2 class="anchored" data-anchor-id="running-code-camp">Running Code Camp</h2>
-<p>This short video shows how to copy code from the Code Camp micro-site over to VS Code (so that you can save your work), and from there into the Python ‘interpreter’ (what you have just installed):</p>
+<p>This short video shows how to copy code from the Code Camp micro-site over to <a href="https://code.visualstudio.com/">VSCode</a> (so that you can save your work), and from there into the Python ‘interpreter’ (what you have just installed):</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/vKVUfU5Iikc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>You can copy and paste multiple lines of code into the interpreter.</p>
 
@@ -487,10 +497,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -500,8 +527,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -513,7 +549,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -557,6 +716,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -582,6 +742,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -643,21 +829,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../setup/health.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Health Check</span>
+      <a href="../setup/health.html" class="pagination-link" aria-label="Computer Health Check">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Computer Health Check</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../setup/no_install.html" class="pagination-link">
-        <span class="nav-page-text">No Install Options</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../setup/no_install.html" class="pagination-link" aria-label="Python in the Cloud">
+        <span class="nav-page-text">Python in the Cloud</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 2022, J. Reades, F. Lopane, Z. Shabrina, J. Millington &amp; M. Ferretti</div>   
-    <div class="nav-footer-center"><img src="../img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp</div>
+    <div class="nav-footer-left">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 2022, J. Reades, F. Lopane, Z. Shabrina, J. Millington &amp; M. Ferretti</p>
+</div>   
+    <div class="nav-footer-center">
+<p><img src="../img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -676,6 +866,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 
