@@ -117,7 +117,7 @@ We can use Python like a calculator. For example, to calculate 2 plus 2 using Py
 
 ::: {.callout-tip}
 
-Now is when you either start Python on your own computer (usually from the Terminal/Command Promp) or mosy over to Google Collab (to run Python in the cloud). If you don't know how to do either, please visit the [install](../setup/install.qmd) and [no install](../setup/no_install.qmd) pages.
+Now is when you either start Python on your own computer (usually from the Terminal/Command Prompt) or mosy over to Google Collab (to run Python in the cloud). If you don't know how to do either, please visit the [install](../setup/install.qmd) and [no install](../setup/no_install.qmd) pages.
 
 :::
 
