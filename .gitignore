@@ -5,6 +5,7 @@
 .DS_Store
 *.geojson
 *.cache
+*.workspace
 
 /.quarto/
 /_site/

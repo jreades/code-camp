@@ -18,6 +18,9 @@ website:
   repo-url: https://github.com/jreades/code-camp/
   repo-actions: [issue]
   favicon: "/img/favicon.ico"
+  open-graph: 
+    locale: en_GB
+    site-name: "Code Camp"
   page-navigation: true
   reader-mode: true
   page-footer: 

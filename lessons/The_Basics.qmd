@@ -12,9 +12,9 @@ As we progress through the excercises we'll encounter a range of new programming
 Lastly, a few words on the excercises; in every lesson we've tried to develop a mix of exercises and examples to show you how Python works. There are four 'levels' of exercise:
 
 1. **Code from Scratch**: using examples already encountered in the lesson as a starting point, you will write some _very simple_ code (1-3 lines at most) into a blank code cell. 
-2. **Supported Code**: using examples and exercises already encountered in the lesson, you will fill in somes 'gaps' in the lines of code where we've replaced some critical bits with (*???*) in order to make it work successfully.
+2. **Supported Code**: using examples and exercises already encountered in the lesson, you will fill in somes 'gaps' in the lines of code where we've replaced some critical bits with (`???`) in order to make it work successfully.
 3. **Broken Code**: here we have deliberately broken something (sometimes, more than one thing) in the code and you will need to fix these before it will run successfully. Being able to _debug_ code is an integral part of being a programmer, and this will also require you to have an eye for detail because tiny typos and simple sloppiness are enough to break a computer program.
-4. **Applied Geo-Example**: this will be a much more advanced bit of code that will (we hope) run successfully right from the start. The point of these examples is to demonstrate a real-world _application_ of a concept covered in the lesson and we are asking you to spend some time puzzling over the code and adding comments about what you think is going on. Being able to read someone else's code and to make sense of what is going on is another crucial skill for a programmer. 
+4. **Applied Geo-Example**: this will be a more advanced bit of code that will (we hope) run successfully right from the start. The point of these examples is to demonstrate a real-world _application_ of a concept covered in the lesson and we are asking you to spend some time puzzling over the code and adding comments about what you think is going on. Being able to read someone else's code and to make sense of what is going on is another crucial skill for a programmer. 
 
 We're not expecting you to master the fourth level at this stage; in fact, some of the examples might be challenging even after a full year of classes. However, we think it's important to try to show you where we're trying to go as well as the steps involved in how we get there. It's like trying to follow directions from someone who only tells you 'turn left', 'turn right', 'go straight' – it's a lot easier to fill in the gaps and to understand what's going on if they say "We're headed to London" first!
 
@@ -26,22 +26,26 @@ You already saw a really simple example of calculating the mean in the first les
 
 #### Addition and Subtraction
 
-```python
+```{python}
 3 - 2 + 10
 ```
 
 #### Multiplication and Division
 
-```python
+```{python}
 2 * 5
 ```
 
-```python
+```{python}
 10 / 5
 ```
 
 #### A challenge for you!
 Do you think the results of these two operations will be identical? If not, why? **Decide what you think the answer is _before_ running the code!**
+
+::: {.panel-tabset}
+
+#### Question
 
 ```python
 # Operation 1:
@@ -50,17 +54,40 @@ print(4 * (2 - 8) + 2)
 print(4 * 2 - 8 + 2)
 ```
 
-The results are different due to the order in which Python runs the operations. Anyway, remember the importance of **parentheses** in determining 'precedence' – which operations get done first.
+#### Answer
 
-You'll see that the code above encompases each formula in `print()` command on each line; this simply allows us to print out the results of both calculations when the code runs. We'll come back to this later.
+As you might expect, Python follows *operator precedence* rules when performing calculations, so the first example evaluates to `4 * -6` (-24) and then `+2` (-22). The second evaluates to `8 - 8 + 2` (2).
 
-```python
+```{python}
+# Operation 1:
+print(4 * (2 - 8) + 2)
+# Operation 2:
+print(4 * 2 - 8 + 2)
+```
+
+:::
+
+::: {.callout-tip}
+
+Always remember the importance of **parentheses** in determining 'precedence' – which operations get done first.
+
+:::
+
+::: {.callout-note}
+
+You might have also psotted that the code above wraps each formula in a `print()` command; this allows us to print out the results of both calculations when the code runs. Without the `print` we'd only see the results of the *last* (i.e. second) operation. We'll come back to this later.
+
+:::
+
+Anyway, even if it's been a long time since you've tried to do any maths, hopefully it's coming back to you that:
+
+```{python}
 (3 * 2) - 10
 ```
 
 is not the same as:
 
-```python
+```{python}
 3 * (2 - 10)
 ```
 
@@ -70,13 +97,13 @@ is not the same as:
 
 If you use two asterisks instead of one then you'll be performing an **exponentiation**:
 
-```python
+```{python}
 2 ** 4
 ```
 
 That's the same as: 
 
-```python
+```{python}
 2 * 2 * 2 * 2
 ```
 
@@ -84,23 +111,29 @@ So `2**4` is how we get 2-to-the-power-of-4 (the same as multiplying 2 together 
 
 #### Roots
 
-So `2**4` is 2-to-the-power-of-4, but how do we get the square root (or fourth root) of a number? Right now, with what we've taught you so far, the best way is to remember that a square root is the same as an exponent of one-half. The fourth root is an exponent of one-quarter. Etc.
+So `2**4` is 2-to-the-power-of-4, but how do we get the square root (or fourth root) of a number? Right now, with what we've taught you so far, the best way is to remember that a square root is the same as an exponent of one-half. The fourth root is an exponent of one-quarter. So... 
 
-```python
-print(2**8)           # 2-to-the-8
-print(256**(1.0/8.0)) # 256-to-the-one-eighth
+```{python}
+print(2**8)       # 2-to-the-8
+print(256**(1/8)) # 256-to-the-one-eighth
 ```
+
+Notice that even though the answer to the second operation is a whole number we're getting back a decimal. This is your first introduction to the idea that variables might have *types* and that integers are different from non-integers. There's *lots* more about this to come. But let's start with...
 
 #### Floating Point numbers
 
-Warning: the following two equations are not _always_ the same!
+::: {.callout-warning}
 
-```python
+The following two equations are not _always_ the same!
+
+```{python}
 print(1/8)
 print(1.0/8.0)
 ```
 
-Many programming languages (Python _used_ to be one of them) treat whole numbers (1, 8) differently from floating point numbers (1.0, 8.000000000001). In those cases, we get the answer `0` to the first equation because when we use whole numbers in our calculations we got whole numbers back. So `1/8` is obviously not `0`, but that's the nearest whole number to `0.125`! This is what we mean about computers doing _exactly_ what you tell them: sometimes you want 1/8 to equal 0, other times 0.125, and the computer doesn't know which answer you need unless you are very clear about what you want!
+:::
+
+Many programming languages (Python _used_ to be one of them) treat whole numbers (`1`, `8`) differently from floating point numbers (`1.0`, `8.000000000001`). In those cases, we get the counterintuitive answer of `0` to the first equation because, when we use whole numbers in our calculations, we got whole numbers back. `1/8` is obviously not `0`, but that's the nearest whole number to `0.125`! This is what we mean about computers doing _exactly_ what you tell them: sometimes you *want* `1/8` to equal `0`, other times you'd want `0.125`, and the computer doesn't know which answer you need unless you are very clear about what you want!
 
 #### Modulo
 
@@ -110,75 +143,138 @@ While we're on the topic of division, how do you get the 'remainder' of 9/2 – 
 
 Using the modulo operator will thus return the remainder:
 
-```python
-print(9/2)
-print(9%2)  
+```{python}
+print(9 / 2)
+print(9 % 2)  
 ```
 
 Just to make this clear: 2 goes into 9 exactly 4 times and then you have 1 left over. So: `(4 * 2) + 1 = 9`.
 
 For division which yields no remainder the operation will return a value of 0.
 
-```python
-8%2
+```{python}
+print(8 % 2)
 ```
 
 #### A challenge for you!
 
 What do you think will be the result of this operation? Work out your answer **before** running the code. 
 
+::: {.panel-tabset}
+
+#### Question
+
 ```python
 print( (2*3) ** 2 )
 ```
 
-The answer is 36 as Python would do the multiplication inside the parenthesis first.
+#### Answer
+
+```{python}
+print( (2*3) ** 2 )
+```
+
+This because the parentheses force `2*3` to be calculated *before* `**2` (squared).
+
+:::
 
 Now what do you think this will give you? Again, work out your answer **before** running the code. 
+
+::: {.panel-tabset}
+
+#### Question
 
 ```python
 print( (2*3) ** 2 / (12 % 5) )
 ```
 
-In the code below replace the question marks `???` with the appropriate code to produce a remainder of 6. You may need a calculator to help you. Run the code to check your answer (you can change your answer and run the code multiple times to get the right answer).
+#### Answer
+
+```{python}
+print( (2*3) ** 2 / (12 % 5) )
+```
+
+This is a bit trickier since it depends on [operator precedence](https://docs.python.org/3/reference/expressions.html#operator-precedence). So parentheses are first: 1) `2*3` and 2) `12 % 5`. Then it's the exponent `** 2`. Last is the division operation (`/`). So the answer is `{python} (2*3) ** 2 / (12 % 5)`.
+
+:::
+
+In the code below replace the question marks `???` with the appropriate code to produce a remainder of 6. You may need a calculator to help you. Run the code to check your answer; you can change your answer and run the code multiple times until you get the right answer.
+
+::: {.panel-tabset}
+
+#### Question
 
 ```python
 (2+4) ** 2 % (120 / ???)
 ```
 
+#### Answer
+
+```{python}
+(2+4) ** 2 % (120 / 12) # Or 4, there might be other solutions
+```
+
+It's pretty straightforward to work out that the left half of this equation produces `36`. So to get a remainder of `6` we need the right half to evaluate to `10` (`36 % 10 == 6`; technically, `30` is another solution so that would allow `4` as an answer too).
+
+:::
+
 ### Operator Precedence
 
-The _operators_ +, -, \*, \*\*, /, %, etc., and the parentheses are all evaluated (i.e. calculated) according to a set of rules that establish _precedence_, which is just a fancy way of saying: which calculations do we do first? There's a full list [here](http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/op_precedence.html) but since that also lists a lot of operators we've not yet encountered it's easiest to summarise this in a table as follows:
+The mathematical operations (`+`, `-`, `*`, `**`, `/`, `%`, etc., and the parentheses) are all evaluated (i.e. calculated) according to a set of rules that establish their _precedence_. This is just a fancy way of saying: which calculations do we do first? There's a full list [here](https://docs.python.org/3/reference/expressions.html#operator-precedence) but since that also lists a lot of operators we've not yet encountered it's easiest to summarise this in a table as follows:
 
-\begin{array}{cl} \hline
-Operator & Description \\ \hline
-(\ldots) & Parentheses \\ 
-** & Exponentiation \\ 
-+x, -x & Positive, Negative \\ 
-*, /, \% & Multiplication, Division, Remainder \\ 
-+, - & Addition, Subtraction \\ \hline
-\end{array}
+| Operator | Description |
+| -------- | :---------- |
+| `($\ldots$)` | Parentheses |
+| `**` | Exponentiation |
+| `+x`, `-x` | Positive, Negative | 
+| `*`, `/`, `%` | Multiplication, Division, Remainder | 
+| `+`, `-` | Addition, Subtraction |
 
-So parentheses trump everything else, then exponents (so `2**5.0/2` is not the same as `2**(5.0/2)`), then positive/negative, and then multiplication/division before we finally get to addition and subtraction.
+So parentheses trump everything else, so `2**5.0/2` (`{python} 2**5.0/2`) is not the same as `2**(5.0/2)` (`{python} 2**(5.0/2)`) and that can require some careful thought at times!
 
 ### Division by Zero
 
 Also pay attention when *dividing by zero*. Python won't be able to compute any value and will return an *error* (which is sometimes also called an *exception*):
 
-```python
-(30 + 2 ) / 0
+```{python}
+try:
+    (30 + 2 ) / 0
+except ZeroDivisionError as e:
+    print(e)
 ```
+
+::: {.callout-note}
+
+Notice that we have something new here: `try: ... except: ...`. This is how we stop Python from breaking at the point where an *expected* error occurs. Without that try/except code at this point everything would come to a griding halt. We'll cover exceptions in more detail later in Code Camp.
+
+:::
 
 #### A challenge for you!
 
 Replace the questions marks `???` in the following exercise with the appropriate code to purposufully cause a `ZeroDivisionError` exception (again, feel free to use a calculator and you can run the code multiple times).
 
+::: {.panel-tabset}
+
+#### Question
+
 ```python
 (1345 - 20 )  / ((- 3) ** 2  -  ???)
 ```
 
-_Note:_ the *error message* is Python's way of telling you what went wrong in the operation. We'll get to these in more detail in a later lesson, but you'll notice that Python _always_ tries to tell you what it thinks went wrong and this is the starting point for all _debugging_. When something goes wrong in a program this error is like the first clue that puts you on the trail of the wrongdoer: sometimes one clue will lead to another, and another, and another... sometimes one clue is all you need. 
+#### Answer
 
-But regardless, **if you ignore these clues and just put up your hand and say "It doesn't work!" then we're not going to be very impressed**. We expect you to be able to explain the problem to us before we will help you with it. More on this later.
+```{python}
+try:
+   (1345 - 20 )  / ((- 3) ** 2  -  9)
+except ZeroDivisionError as e:
+   print(e)
+```
+
+:::
+
+Python _always_ tries to tell you what it thinks went wrong and this is the starting point for all _debugging_. When something goes wrong in a program this error is like the first clue that puts you on the trail of the 'wrongdoer': sometimes one clue will lead to another, and another, and another... sometimes one clue is all you need. 
+
+But regardless, **if you ignore these clues and just put up your hand and say "It doesn't work!" then we're not going to be very impressed**.
 
 ### More about Ints and Floats
 
@@ -186,32 +282,36 @@ So we've seen some examples above of maths with *integers* (i.e. "whole" numbers
 
 Any operation involving a mix of *floats* and *integers* will always yeld a *float*. For example, compare the output for the code below, but note how the resulting data type varies with the operation.
 
-```python
+```{python}
 print(7 * 4)
 print(7 * 4.0)
 ```
 
-```python
+```{python}
 print(20 / 5)
 print(20.0 / 5)
 ```
 
-```python
+```{python}
 print(22 / 7)
 print(22.0 / 7)
 print( int(22.0/7) )
 ```
 
-Notice that last ticky bit: we'll get to what `int(...)` means later, but if you remember that programmers are lazy then you might realise that it must be short for _integer_.
+Notice that last tricky bit: we'll get to what `int(...)` means later, but if you remember that programmers are lazy then you might realise that it must be short for _integer_ and those parentheses must be telling Python to *do* something with the answer to change it from `3.14...` to `3`.
 
-```python
+```{python}
 print(6 + 3)
 print(6.0 + 3)
 ```
 
-The reason for this is that Python is *implicitly* converting (sometimes called *casting*) the numbers between the two different *data types*. This conversion doesn't happen with more complex bits of Python code, but for simple numbers Python tries to be helpful and save you the time and effort.
+The reason for these slightly different answers is that Python is *implicitly* converting (sometimes called *casting*) the numbers between the two different *data types*. This conversion doesn't happen with more complex bits of Python code, but for simple numbers Python tries to be helpful and save you the time and effort.
 
-_Note:_ the integer-to-float conversion might seem a bit of a pedantic distinction, but imagine if you were programming a banking application: you would definitely pay attention to all those decimals!
+::: {.callout-warning}
+
+The integer-to-float conversion might seem a bit of a pedantic distinction, but imagine if you were programming a banking application: you would definitely pay attention to all those decimals!
+
+:::
 
 ### Some final maths questions...
 
@@ -219,19 +319,36 @@ Let's start with calculating the area of a triangle. Here's the equation for the
 
 So lets work out for a triangle that has sides of length 10 and 20! If you type the maths correctly into the empty block below you should get the answer: 100
 
-```python
+```{python}
 (10 * 20)/2
+```
+
+```{python}
+#| echo: false
+l = f"{(10**2 + 20**2)**0.5:0.1f}"
 ```
 
 Now let's work out the length of the hypotenuse of a right-angle triangle with the same side lengths as above: $$l = \sqrt{x^2 + y^2}$$
 
-You might remember this as the Pythagorean Theorem, and you should get an answer of about 22.4.
+You might remember this as the Pythagorean Theorem, and you should get an answer of about `{python} l`.
 
+```{python}
+#| echo: false
+import math
+rad = 6
+a = f"{math.pi * rad**2:0.1f}"
+```
 
-Let's move on to two _last_ harder ones. Write a line of code to [work out the area of a circle](https://www.khanacademy.org/math/basic-geo/basic-geo-area-perimeter/basic-geo-area-circumference/v/area-of-a-circle) of radius 6. Here's the formula: $$A = \pi r^2$$ and you should get something around 113.1 as the area. Use 3.1412 for the constant pi.
+Let's move on to two _last_ harder ones. Write a line of code to [work out the area of a circle](https://www.khanacademy.org/math/basic-geo/basic-geo-area-perimeter/basic-geo-area-circumference/v/area-of-a-circle) of radius `{python} rad`. Here's the formula: $$A = \pi r^2$$ and you should get something around `{python} a` as the area. Use 3.1412 for the constant pi.
 
+```{python}
+#| echo: false
+import math
+vol = 85
+r = f"{((vol * 0.75) / math.pi)**(1/3):0.1f}"
+```
 
-Now work out the _approximate_ [radius of a sphere](https://www.khanacademy.org/math/basic-geo/basic-geo-volume-surface-area/basic-geo-volumes/v/volume-of-a-sphere) whose volume is 85. To do this, you'll need to work backwards from the formula to calculate a volume... this might seem a little rough at first, but remembering how to rearrange a formula is really helpful for computational thinking!
+Now work out the _approximate_ [radius of a sphere](https://www.khanacademy.org/math/basic-geo/basic-geo-volume-surface-area/basic-geo-volumes/v/volume-of-a-sphere) whose volume is `{python} vol`. To do this, you'll need to work backwards from the formula to calculate a volume... this might seem a little rough at first, but remembering how to rearrange a formula is really helpful for computational thinking!
 
 So what do you have to do to this formula: 
 $$V = \frac{4}{3} \pi r^3$$
@@ -239,10 +356,13 @@ $$V = \frac{4}{3} \pi r^3$$
 Here's a hint to get you started:
 $$ r^3 = \frac{3}{4 \pi} V $$
 
-_Also:_ remember that you're going to need to work with decimal numbers, not whole numbers and write your code accordingly! You should get a final answer of about 2.7.
+_Also:_ remember that you're going to need to work with decimal numbers, not whole numbers and write your code accordingly! You should get a final answer of about `{python} r`.
 
+::: {.callout-note} 
 
-_Note:_ there are a lot of different ways that you could write this formula as _code_ and still get the right answer. Getting the right answer is 50% of the job. The remaining 50% is about doing it in a way that is elegant and easy to read... as get further into the term we'll point out how elegance and legibility (also: commenting) matter.
+There are a lot of different ways that you could write this formula as _code_ and still get the right answer. Getting the right answer is 50% of the job. The remaining 50% is about doing it in a way that is elegant and easy to read... as get further into the term we'll point out how elegance and legibility (also: commenting) matter.
+
+:::
 
 ## Text
 
@@ -260,26 +380,36 @@ is a string. So is:
 
 The thing is that computers can't automatically distinguish between Shakespeare and the work of a monkey hitting keys at random. As long as they are both marked out by single- or double-quotes then as far as the computer is concerned they are strings. So even to ask the computer how many words there in the first 3 lines of _Twelfth Night_ means we have to 'teach' the computer what a word is by giving it rules to recognise the start or end of one, and even how to recognise the start and end of a line so that it can find the first three of them!
 
-```python
-print("I'm a string of text!")
-print('Me too! *&($£(£_@~{}|?<>$)')
+```{python}
+t1 = "I'm a string of text!"
+t2 = 'Me too! *&($£(£_@~{}|?<>$)'
+print(t1)
+print(type(t1))
+print(t2)
+print(type(t2))
 ```
 
-_Note:_ As before, we'll be using the `print()` command on many lines of code; that is just a way to tell the Python interpreter to output somthing for us to see.
+::: {.callout-note} 
+
+As before, we're using the `print()` command here to show *each* of the outputs. Without print-ing the output we'd only see the results of the last line of code (`print(type(t2))`).
+
+:::
+
+Notice that now we've got two commands and that they are 'nested' one inside the other? So we are asking to tell us the type of `t1` (using `type(t1)`) and then we ask it to `print` the results of that type command. This confirms that `t1` and `t2` are strings.
 
 ### Single- or Double-Quotes?
 
 Although you can technically use either type of quote (`'` or `"`), it is generally better to use double-quotes as a way to prevent errors if a single-quote is contained in your string:
 
-```python
-print("I'm contained within double quotes. I'll be fine.")
+```{python}
+print("I'm a single quote contained within double quotes. I'll be fine.")
 ```
 
 ```python
-print('I'm sourrounded by single-quotes and I contain a single-quote so there may be trouble ahead...')
+print('I'm surrounded by single-quotes and I contain a single-quote so there may be trouble ahead...')
 ```
 
-Notice the helpful error message after running the code above? We'll come back to how to read errors like these in more detail in the next lesson, but again Python is giving us hints about where we might have made a mistake.
+If you try to run the code above you'll get a 'syntax error' message. Notice also that the colour-coding of the string looks... odd: some bits are blue, some bits are green, some are grey, unlike the double-quoted example above. We'll come back to how to read errors like these in more detail in the next lesson, but again Python is giving us hints about where we might have made a mistake.
 
 ### Escape Club
 
@@ -287,7 +417,7 @@ What do you do if your string contains double-quotes _and_ single-quotes? That's
 
 In the example below, the backslash in front of the apostrophe in `I'm` says "Don't treat this as 'normal' single-quote that means the end of the string, treat it as a literal single-quote in the middle of a longer string marked out by single-quotes.
 
-```python
+```{python}
 print('I\'m using the backslash.')
 print('I\'m also using the backslash \'\\\' to escape the error normally caused by having single-quotes.')
 ```
@@ -309,8 +439,8 @@ The escape symbol crops up in a lot of other circumstances. For example, what if
 
 Remember that programmers are always lazy when given half a chance and so they figured out that the easiest way to mark a newline was `\n`. They used 'n' because it is fairly easy to remember that that means '*n*ewline', and the backslash 'escapes' us from the simple world where an 'n' is the letter 'n' into the computer's world where '`n`' is 'n', but `\n` is a newline:
 
-```python
-print("If music be the food of love, play on;\n Give me excess of it, that, surfeiting ,\n The appetite may sicken, and so die.")
+```{python}
+print("If music be the food of love, play on;\n Give me excess of it, that, surfeiting,\n The appetite may sicken, and so die.")
 ```
 
 See how that wraps the text on the `\n`? Also note that the computer is printing _exactly_ what we told it to do: I kept a space between the `\n` and the start of the next line. If you squint, then you can see that lines 2 and 3 are indented by the width of one space character. There's also an extra space after 'surfeiting' before the comma.
@@ -321,19 +451,22 @@ We say this a lot later too, but you might as well start learning this fact now:
 
 Further, numbers and strings are _not_ the interachangeable: `"2016"` is _not_ the same as `2016`. The first is a string that happens to contain the characters 2, 0, 1, and 6. The second is an integer number one larger than 2015.
 
-```python
+```{python}
 print("2016")
 print(2016)
 ```
 
 As you can see from running the code above, it's a bit annoying that they look the same when we print them. But if you run the next lines of code (_after_ thinking about what they might do), you'll see how Python tries to be helpful with its errors:
 
-```python
+```{python}
 2015 + 1
 ```
 
-```python
-"2015" + 1
+```{python}
+try:
+  "2015" + 1
+except TypeError as e:
+  print(e)
 ```
 
 See how the first line of code prints `2016`, but the second line of code (which tries to add together a string `"2015"` and the number `1`) gives you an error about a problem with `str` (i.e. string) and `int` (i.e. integer) 'concatentation'. More on concatenation in a minute.
@@ -342,7 +475,7 @@ See how the first line of code prints `2016`, but the second line of code (which
 
 Obviously, having a _lot_ of `\n` markers would be hard to read and a potential problem if you wanted to copy and paste the text into a different application. If you have a long block of text then you can avoid the whole issue by putting your text inside *triple-quotes*:
 
-```python
+```{python}
 print("""Hi there,
 this time, 
 I won't need those annoying newline characters.
@@ -353,7 +486,7 @@ I also don't have problems with "quotes" or 'quotes'! """)
 
 As with *numbers*, there are many things that you can do with strings. The simplest, however, is like addition (which is why it uses a `+`): when you add strings together you get a new, longer string that contains the characters of the original strings. This is usually called **concatenation**:
 
-```python
+```{python}
 print("String1" + "String2")
 print("Hey, looks like" + " I'm " + "adding "+ "6" +" strings" + " together")
 ```
