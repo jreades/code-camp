@@ -27,9 +27,10 @@ So here are some common styles for variable names:
 Commenting code that they've written is something that programmers normally hate doing, because it's not _doing_ work after all... until you have to try to understand what you've done and why two days or two months later. You'd be surprised how quickly your memory of _why_ you did something one way, and not another, will fade and, with it, the risks that you were trying to avoid. 
 
 ::: {.callout-important}
+
 ## True Story
 
-At least *one* (maybe more?) of your teachers briefly took out the company web site on at *least* two occassions because of poor commenting practice: there was some sloppy-looking code whose function was profoundly unclear so your teacher thought "What was I thinking? I don't need this!" ... 20 seconds later: "Why is the web site down? Ooooooooooooooooooooh!" This is the kind of mistake *not* make more than once or twice, though very nearly every experienced programmer probably *has* done it.
+At least *one* (maybe more?) of your teachers briefly took out the company web site on at *least* two occassions because of poor commenting practice: there was some sloppy-looking code whose function was profoundly unclear so your teacher thought "What was I thinking? I don't need this!" ... 20 seconds later: "Why is the web site down? Ooooooooooooooooooooh!" This is the kind of mistake *not* to make more than once or twice, though very nearly every experienced programmer probably *has* done it once or twice at least.
 
 :::
 

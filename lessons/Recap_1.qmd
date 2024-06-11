@@ -24,7 +24,8 @@ Fun fact: the [origin of the term bug](https://en.wikipedia.org/wiki/Software_bu
 
 :::
 
-Bugs today are rarely of the insectile variety, and we now distinguish between three general types of error: 
+Bugs today are rarely of the insectile variety, and we now distinguish between three general types of error:
+
 1. **Syntax errors** are when the ‘grammar’ rules of Python (known as the syntax) have been violated, making it impossible for the code to be parsed (i.e. understood by Python); 
 2. **Logic errors** have good syntax but there is an error in the order of statements or how they relate to one another;
 3. **Semantic errors** make programs do something other than what the programmer intended.
@@ -48,6 +49,10 @@ Many sites don't even discuss the concept of a semantic error or treat it as the
 
 Without running the code below, calculate what the values of `x`, `y` and `z` would be after all lines of code in the code block have been executed.
 
+:::: {.panel-tabset}
+
+#### Question
+
 ```python
 x = 12
 y = 10
@@ -57,11 +62,34 @@ x = x + y
 y = z + y
 ```
 
+#### Answer
+
+:::{.to-pyodide}
+```{python}
+x = 12
+y = 10
+
+z = x + y
+x = x + y
+y = z + y
+
+print(z)
+print(x)
+print(y)
+```
+:::
+
+::::
+
 Once you have calculated what you think `x`, `y` and `z` are, add print statements to the code above and run it to check. Make sure you understand the results you find. 
 
 ### 1.2 Operator Precedence
 
 Without running the code below, calculate what the values of `x`, `y` and `z` would be after all lines of code in the code block have been executed.
+
+:::: {.panel-tabset}
+
+#### Question
 
 ```python
 x = 1 + 2 * 3 / 4
@@ -73,6 +101,22 @@ print(y)
 print(z)
 ```
 
+#### Answer
+
+:::{.to-pyodide}
+```{python}
+x = 1 + 2 * 3 / 4
+y = (1 + 2) * (3 / 4)
+z = 1 + 2 * (3 / 4)
+
+print(x)
+print(y)
+print(z)
+```
+:::
+
+::::
+
 Once you have calculated what you think `x`, `y` and `z` are, add print statements to the code above and run it to check.
 
 ### 1.3 Thinking Abstractly
@@ -81,36 +125,51 @@ Once you have calculated what you think `x`, `y` and `z` are, add print statemen
 
 Given a sphere of diameter 12cm, calculate its volume (use Google to find the formula for this):
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
 # Calculate the volume of a sphere of diameter 12cm
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 pi = 3.141592653589793
 r = 12 / 2
 vol = (4/3) * pi * (r**3)
 print(vol)
 ```
-:::
+
+::::
 
 Given a sphere of volume 14,137cm3 calculate its radius to the closest **whole number** (this will involve rearranging the formula and you may need to good how to find a cube root with python):
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
 # Calculate the radius of a shpere of volume 14,137cm3
 # Approximate it to the closest whole number
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 vol=14137
 r3 = vol / ((4/3) * pi)
 r = r3**(1/3)
 print(round(r))
 ```
 :::
+
+::::
 
 ## 2. Logic (Part 1)
 
@@ -124,24 +183,31 @@ Using the code below as a starting point, add two lines of code so that your out
 2. Code prints `Hours are greater than zero` _and_ `Hours are less than 10` when `hours=2` 
 3. Code prints `Hours are less than 10` when `hours=0`
 
-::: {.panel-tabset}
-#### Exercise
-```python
-hours=10
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
+hours = 10
 
 if hours > 0:
     print(" ")
 ```
-#### Solution
-```python
-hours=2
+:::
+
+#### Answer
+
+```{python}
+hours = 2
 
 if hours > 0:
     print("Hours are greater than zero")
 if hours < 10:
     print("Hours are less than 10")
 ```
-:::
+
+::::
 
 ### 2.2 Flow Control
 
@@ -152,13 +218,19 @@ Write a code to execute the flow chart shown in the image below. You will need t
 
 ![Flow Chart of Logic](https://kingsgeocomputation.files.wordpress.com/2016/09/geocompweek2_task3_3.jpg){width=600}
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
 # Execute the flow chart shown in the image
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 a = 1
 b = 2
 
@@ -169,7 +241,8 @@ if x == b:
     print("inside 3")
 print("after condition")
 ```
-:::
+
+::::
 
 ## 3. Logic (Part 2)
 
@@ -191,10 +264,10 @@ if not(x > 0):
 
 Assume that the code executes for a given value of `x` and answer the following questions. Only test the code **AFTER** you have worked out the answers and typed them below.
 
-::: {.panel-tabset}
-#### Exercise
-```python
-'''
+:::: {.panel-tabset}
+
+#### Question
+
 1.	What names are name(s) are printed when `x = 5`?
 
 2.	What value(s) can `x` be when the names `Joe` and `Aled` are printed?
@@ -202,11 +275,9 @@ Assume that the code executes for a given value of `x` and answer the following 
 3.	What name(s) are printed when `x = -1`?
 
 4.	Is there any value for which all three names will be printed?
-'''
-```
-#### Solution
-```python
-'''
+
+#### Answer
+
 1. Aled
 
 2. 1, 2, 3, 4
@@ -214,9 +285,8 @@ Assume that the code executes for a given value of `x` and answer the following 
 3. Aled, Sarah
 
 4. No
-'''
-```
-:::
+
+::::
 
 ### 3.2 Logic (Cont'd)
 
@@ -226,14 +296,21 @@ Study the flow chart below.
 
 In the cell below, use the for loop already set up to execute the alternative execution shown by the flow chart for values of `x` between 0 and 9. Check your code works. Also check you understand why the Modulo `%` allows us to find odd vs even numbers. 
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
 for x in range(0,9):
     # ... do something ...
+    pass
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 for x in range(0,9):
     print(x)
     if(x%2 == 0):
@@ -242,13 +319,15 @@ for x in range(0,9):
         print("x is odd")
     print(x)
 ```
-:::
+
+::::
 
 ### 3.3 Nested Conditions
 
 Conditional statements can be nested within one another. That is, once one conditional statement has been evaluated others may subsequently be evaluated (or not) depending on the result of the initial conditional statement. The code below shows an example of this. 
 
-```python
+::: {.to-pyodide}
+```{python}
 if x != y:                                 #line 1
     print("x is not equal to y")
     
@@ -261,26 +340,28 @@ if x != y:                                 #line 1
 else:
     print("insert conclusion here")
 ```
+:::
 
 Note how the indentation makes it easier to work out which ‘level’ the code is operating on. In the code above, lines 4 and 7 are at the same indentation meaning that both will be skipped if the initial condition (on line 1) is `False`. 
 
 To check you understand how the code above works:
+
 1. Change `insert conclusion here` in the code above to a string that helps to explain the condition of `x` and `y`
 2. **Before running the code** for `x = 2` and `y = 3`, type below what line(s) will be output 
 
-Output for `x = 2` and `y = 3` is:
+Output for `x = 2` and `y = 3` is: ....
 
-::: {.panel-tabset}
-#### Exercise
-```python
-'''
+:::: {.panel-tabset}
+
+#### Question
+
 1. Change insert conclusion here in the code above to a string that helps to explain the condition of x and y
 
 2. Before running the code for x = 2 and y = 3, type below what line(s) will be output
-'''
-```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 x = 2
 y = 3
 if x != y:                                 #line 1
@@ -295,22 +376,29 @@ if x != y:                                 #line 1
 else:
     print("x is equal to y")
 ```
-:::
+
+::::
 
 ## 4. Flow
 
 ### 4.1. Alterative Execution
 In the code cell below, enter code that reports whether person A is older than person B or not. Whole numbers should be used as ages in years and these ages should be specified on the first two lines of code. Either “Person A is older than Person B” or “Person A is not older than Person B” should be reported to the user.
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pydodide}
+```{python}
 '''
 Enter code that reports whether person A is older than person B or not.
 '''
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 ageA = 20
 ageB = 19
 
@@ -319,7 +407,8 @@ if ageA > ageB:
 else:
     print("Person A is not older than Person B")
 ```
-:::
+
+::::
 
 ### 4.2. Conditional Execution
 Copy your final code from the previous exercise into the code block below. Now build on this code to check if Person A is older than Person B, but also whether they are the same age. One of following three responses should be reported to the user:
@@ -328,15 +417,21 @@ Copy your final code from the previous exercise into the code block below. Now b
 2.	“Person B is older than Person A”
 3.	“Person A and Person B are the same age”
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
 '''
 Build on the previous code to check if Person A is older than Person B, but also whether they are the same age.
 '''
 ```
+::: 
+
 #### Solution
-```python
+
+```{python}
 ageA = 20
 ageB = 20
 
@@ -347,9 +442,11 @@ elif ageA < ageB:
 else:
     print("Person A and Person B are the same age")
 ```
-:::
+
+::::
 
 ### 4.3. Nested Execution
+
 Copy your final code from the previous exercise into the code block below. Build on this code with a nested execution structure to report if Person A is much younger, a little younger, the same age, a little older or much older than Person B. Write your code with a nested structure so that first it evaluates whether one person is older than the other, and then, if so, whether there is a large difference in age or a small difference in age. You should create a variable to specify what the number of years is that indicates a ‘large difference’ in age. One of the following five responses should be reported to the user:
 
 1.	“Person A is much younger than Person B” [if age difference > ‘large difference’]
@@ -358,15 +455,21 @@ Copy your final code from the previous exercise into the code block below. Build
 4.	“Person A is a little older than Person B” [if age difference <= ‘large difference’]
 5.	“Person A is a much older than Person B” [if age difference > ‘large difference’]
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
 '''
 Build on the previous code with a nested execution structure to report if Person A is much younger, a little younger, the same age, a little older or much older than Person B.
 '''
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 ageA = 25
 ageB = 30
 largeD = 20
@@ -384,7 +487,8 @@ elif diff >= (largeD * 1):
 elif diff > 0 and diff < (largeD * 1):  
     print("Person A is a little older than Person B")
 ```
-:::
+
+::::
 
 ### 4.4 Managing Errors
 
@@ -392,15 +496,21 @@ Python provides tools to 'handle exceptions' (i.e. manage errors). For example, 
 
 Read the link above (and maybe Google yourself for some other examples) and use the information gained to handle an exception in which the user an age as a `string` rather than a integer (e.g. print "Invalid Input" if `diff` cannot be calculated):
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+:::{.to-pyodide}
+```{python}
 '''
 Use the previous code and handle an exception in which the user an age as a string rather than a integer
 '''
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 ageA = "five"
 ageB = 30
 largeD = 20
@@ -423,7 +533,8 @@ else:
     
 #read more at https://docs.python.org/3/tutorial/errors.html#handling-exceptions
 ```
-:::
+
+::::
 
 ### 4.5 More Errors
 
@@ -431,15 +542,21 @@ Another way to trap errors is by 'raising exceptions'. [This requires](https://d
 
 Read the link above (and maybe Google yourself for some other examples) and use the information gained to raise an exception if the user provides a negative age (outputing "Invalid Age" in the error mmessage):
 
-::: {.panel-tabset}
+:::: {.panel-tabset}
+
 #### Exercise
-```python
+
+::: {.to-pyodide}
+```{python}
 '''
 Use the previous code and raise an exception if the user provides a negative age (outputing “Invalid Age” in the error mmessage)
 '''
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 ageA = -1
 ageB = 30
 largeD = 20
@@ -447,7 +564,10 @@ largeD = 20
 diff = ageA - ageB
 
 if ageA < 0 or ageB < 0:
-    raise Exception("Invalid Age") 
+    # This is how we create our own exception
+    #raise Exception("Invalid Age") 
+    # But to enable replication here we just...
+    pass
 else:    
     if diff <= (largeD * -1):
         print("Person A is much younger than Person B")
@@ -462,7 +582,8 @@ else:
         
 #read more at https://docs.python.org/3/tutorial/errors.html#raising-exceptions
 ```
-:::
+
+::::
 
 ### Credits!
 
