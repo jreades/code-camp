@@ -1,5 +1,8 @@
 ---
-jupyter: python3
+format: html
+filters:
+- panelize
+- pyodide
 title: The Basics
 ---
 
@@ -26,19 +29,25 @@ You already saw a really simple example of calculating the mean in the first les
 
 #### Addition and Subtraction
 
+:::{.to-pyodide}
 ```{python}
 3 - 2 + 10
 ```
+:::
 
 #### Multiplication and Division
 
+:::{.to-pyodide}
 ```{python}
 2 * 5
 ```
+:::
 
+:::{.to-pyodide}
 ```{python}
 10 / 5
 ```
+:::
 
 #### A challenge for you!
 Do you think the results of these two operations will be identical? If not, why? **Decide what you think the answer is _before_ running the code!**
@@ -81,15 +90,19 @@ You might have also psotted that the code above wraps each formula in a `print()
 
 Anyway, even if it's been a long time since you've tried to do any maths, hopefully it's coming back to you that:
 
+:::{.to-pyodide}
 ```{python}
 (3 * 2) - 10
 ```
+:::
 
 is not the same as:
 
+:::{.to-pyodide}
 ```{python}
 3 * (2 - 10)
 ```
+:::
 
 ### Exponents 
 
@@ -97,15 +110,19 @@ is not the same as:
 
 If you use two asterisks instead of one then you'll be performing an **exponentiation**:
 
+:::{.to-pyodide}
 ```{python}
 2 ** 4
 ```
+:::
 
 That's the same as: 
 
+:::{.to-pyodide}
 ```{python}
 2 * 2 * 2 * 2
 ```
+:::
 
 So `2**4` is how we get 2-to-the-power-of-4 (the same as multiplying 2 together 4 times). Hopefully this all kind of rings a bell even if you've not studied any maths in a while.
 
@@ -113,10 +130,12 @@ So `2**4` is how we get 2-to-the-power-of-4 (the same as multiplying 2 together 
 
 So `2**4` is 2-to-the-power-of-4, but how do we get the square root (or fourth root) of a number? Right now, with what we've taught you so far, the best way is to remember that a square root is the same as an exponent of one-half. The fourth root is an exponent of one-quarter. So... 
 
+:::{.to-pyodide}
 ```{python}
 print(2**8)       # 2-to-the-8
 print(256**(1/8)) # 256-to-the-one-eighth
 ```
+:::
 
 Notice that even though the answer to the second operation is a whole number we're getting back a decimal. This is your first introduction to the idea that variables might have *types* and that integers are different from non-integers. There's *lots* more about this to come. But let's start with...
 
@@ -143,18 +162,22 @@ While we're on the topic of division, how do you get the 'remainder' of 9/2 – 
 
 Using the modulo operator will thus return the remainder:
 
+:::{.to-pyodide}
 ```{python}
 print(9 / 2)
 print(9 % 2)  
 ```
+:::
 
 Just to make this clear: 2 goes into 9 exactly 4 times and then you have 1 left over. So: `(4 * 2) + 1 = 9`.
 
 For division which yields no remainder the operation will return a value of 0.
 
+:::{.to-pyodide}
 ```{python}
 print(8 % 2)
 ```
+:::
 
 #### A challenge for you!
 
@@ -236,12 +259,14 @@ So parentheses trump everything else, so `2**5.0/2` (`{python} 2**5.0/2`) is not
 
 Also pay attention when *dividing by zero*. Python won't be able to compute any value and will return an *error* (which is sometimes also called an *exception*):
 
+:::{.to-pyodide}
 ```{python}
 try:
     (30 + 2 ) / 0
 except ZeroDivisionError as e:
     print(e)
 ```
+:::
 
 ::: {.callout-note}
 
@@ -282,28 +307,36 @@ So we've seen some examples above of maths with *integers* (i.e. "whole" numbers
 
 Any operation involving a mix of *floats* and *integers* will always yeld a *float*. For example, compare the output for the code below, but note how the resulting data type varies with the operation.
 
+:::{.to-pyodide}
 ```{python}
 print(7 * 4)
 print(7 * 4.0)
 ```
+:::
 
+:::{.to-pyodide}
 ```{python}
 print(20 / 5)
 print(20.0 / 5)
 ```
+:::
 
+:::{.to-pyodide}
 ```{python}
 print(22 / 7)
 print(22.0 / 7)
 print( int(22.0/7) )
 ```
+:::
 
 Notice that last tricky bit: we'll get to what `int(...)` means later, but if you remember that programmers are lazy then you might realise that it must be short for _integer_ and those parentheses must be telling Python to *do* something with the answer to change it from `3.14...` to `3`.
 
+:::{.to-pyodide}
 ```{python}
 print(6 + 3)
 print(6.0 + 3)
 ```
+:::
 
 The reason for these slightly different answers is that Python is *implicitly* converting (sometimes called *casting*) the numbers between the two different *data types*. This conversion doesn't happen with more complex bits of Python code, but for simple numbers Python tries to be helpful and save you the time and effort.
 
@@ -319,9 +352,11 @@ Let's start with calculating the area of a triangle. Here's the equation for the
 
 So lets work out for a triangle that has sides of length 10 and 20! If you type the maths correctly into the empty block below you should get the answer: 100
 
+:::{.to-pyodide}
 ```{python}
 (10 * 20)/2
 ```
+:::
 
 ```{python}
 #| echo: false
@@ -351,7 +386,7 @@ r = f"{((vol * 0.75) / math.pi)**(1/3):0.1f}"
 Now work out the _approximate_ [radius of a sphere](https://www.khanacademy.org/math/basic-geo/basic-geo-volume-surface-area/basic-geo-volumes/v/volume-of-a-sphere) whose volume is `{python} vol`. To do this, you'll need to work backwards from the formula to calculate a volume... this might seem a little rough at first, but remembering how to rearrange a formula is really helpful for computational thinking!
 
 So what do you have to do to this formula: 
-$$V = \frac{4}{3} \pi r^3$$
+$$ V = \frac{4}{3} \pi r^3 $$
 
 Here's a hint to get you started:
 $$ r^3 = \frac{3}{4 \pi} V $$
@@ -380,6 +415,7 @@ is a string. So is:
 
 The thing is that computers can't automatically distinguish between Shakespeare and the work of a monkey hitting keys at random. As long as they are both marked out by single- or double-quotes then as far as the computer is concerned they are strings. So even to ask the computer how many words there in the first 3 lines of _Twelfth Night_ means we have to 'teach' the computer what a word is by giving it rules to recognise the start or end of one, and even how to recognise the start and end of a line so that it can find the first three of them!
 
+:::{.to-pyodide}
 ```{python}
 t1 = "I'm a string of text!"
 t2 = 'Me too! *&($£(£_@~{}|?<>$)'
@@ -388,6 +424,7 @@ print(type(t1))
 print(t2)
 print(type(t2))
 ```
+:::
 
 ::: {.callout-note} 
 
@@ -401,9 +438,11 @@ Notice that now we've got two commands and that they are 'nested' one inside the
 
 Although you can technically use either type of quote (`'` or `"`), it is generally better to use double-quotes as a way to prevent errors if a single-quote is contained in your string:
 
+:::{.to-pyodide}
 ```{python}
 print("I'm a single quote contained within double quotes. I'll be fine.")
 ```
+:::
 
 ```python
 print('I'm surrounded by single-quotes and I contain a single-quote so there may be trouble ahead...')
@@ -417,10 +456,12 @@ What do you do if your string contains double-quotes _and_ single-quotes? That's
 
 In the example below, the backslash in front of the apostrophe in `I'm` says "Don't treat this as 'normal' single-quote that means the end of the string, treat it as a literal single-quote in the middle of a longer string marked out by single-quotes.
 
+:::{.to-pyodide}
 ```{python}
 print('I\'m using the backslash.')
 print('I\'m also using the backslash \'\\\' to escape the error normally caused by having single-quotes.')
 ```
+:::
 
 Let's look at this a little more closely:
 
@@ -439,9 +480,11 @@ The escape symbol crops up in a lot of other circumstances. For example, what if
 
 Remember that programmers are always lazy when given half a chance and so they figured out that the easiest way to mark a newline was `\n`. They used 'n' because it is fairly easy to remember that that means '*n*ewline', and the backslash 'escapes' us from the simple world where an 'n' is the letter 'n' into the computer's world where '`n`' is 'n', but `\n` is a newline:
 
+:::{.to-pyodide}
 ```{python}
 print("If music be the food of love, play on;\n Give me excess of it, that, surfeiting,\n The appetite may sicken, and so die.")
 ```
+:::
 
 See how that wraps the text on the `\n`? Also note that the computer is printing _exactly_ what we told it to do: I kept a space between the `\n` and the start of the next line. If you squint, then you can see that lines 2 and 3 are indented by the width of one space character. There's also an extra space after 'surfeiting' before the comma.
 
@@ -451,23 +494,29 @@ We say this a lot later too, but you might as well start learning this fact now:
 
 Further, numbers and strings are _not_ the interachangeable: `"2016"` is _not_ the same as `2016`. The first is a string that happens to contain the characters 2, 0, 1, and 6. The second is an integer number one larger than 2015.
 
+:::{.to-pyodide}
 ```{python}
 print("2016")
 print(2016)
 ```
+:::
 
 As you can see from running the code above, it's a bit annoying that they look the same when we print them. But if you run the next lines of code (_after_ thinking about what they might do), you'll see how Python tries to be helpful with its errors:
 
+:::{.to-pyodide}
 ```{python}
 2015 + 1
 ```
+:::
 
+:::{.to-pyodide}
 ```{python}
 try:
   "2015" + 1
 except TypeError as e:
   print(e)
 ```
+:::
 
 See how the first line of code prints `2016`, but the second line of code (which tries to add together a string `"2015"` and the number `1`) gives you an error about a problem with `str` (i.e. string) and `int` (i.e. integer) 'concatentation'. More on concatenation in a minute.
 
@@ -475,49 +524,49 @@ See how the first line of code prints `2016`, but the second line of code (which
 
 Obviously, having a _lot_ of `\n` markers would be hard to read and a potential problem if you wanted to copy and paste the text into a different application. If you have a long block of text then you can avoid the whole issue by putting your text inside *triple-quotes*:
 
+:::{.to-pyodide}
 ```{python}
 print("""Hi there,
 this time, 
 I won't need those annoying newline characters.
 I also don't have problems with "quotes" or 'quotes'! """)
 ```
+:::
 
 ### Adding with strings (concatenation)
 
 As with *numbers*, there are many things that you can do with strings. The simplest, however, is like addition (which is why it uses a `+`): when you add strings together you get a new, longer string that contains the characters of the original strings. This is usually called **concatenation**:
 
+:::{.to-pyodide}
 ```{python}
 print("String1" + "String2")
-print("Hey, looks like" + " I'm " + "adding "+ "6" +" strings" + " together")
+print("Hey, looks like" + " I'm " + "adding "+ "6" + " strings" + " together")
 ```
+:::
 
 So just like you would do to add two numbers together, we can add "String1" and "String2" together to get "String1String2". But notice that the `+` operator doesn't insert whitespace (i.e. a ' ' character) or anything else. It just sticks the two strings together _exactly_ as they are.
 
 And just like we can add together a whole set of numbers, we can add together a whole set of strings as in the second line beginning "Hey, looks like..."
 
-#### A challenge for you!
-
-Replace the questions marks "???"  in the following exercise with the appropriate code to make it work
-
-```python
-print("This is code " ??? " camp's lesson is "  ??? " number " + "2.")
-```
-
 ### Multiplication
 
 If you use the *multiplication* operator (`*`) on a string then you will multiply the string by the value of the multiplier.
 
-```python
+:::{.to-pyodide}
+```{python}
 print("I like Python a lot" + "!" * 3)
 print("Foo " * 25)
 ```
+:::
 
 #### A challenge for you!
 What do you think will be the output of this code? (Work out your answer _before_ running the code)
 
-```python
-20 * '5'
+:::{.to-pyodide}
+```{python}
+print('5' * 20)
 ```
+:::
 
 Now, why do you think the next example below doesn't work? (_Read the error output if you're not sure what's going on._)
 
@@ -538,30 +587,36 @@ Let me try to explain: the computer stores 'information' in lots of places (in m
 
 Here's an example:
 
-```python
+:::{.to-pyodide}
+```{python}
 result = -2 * 10
 ```
+:::
 
 Hmmmm, nothing printed out this time... 
 
 That's because this time we gave Python a box with the label "result" into which to put the result of multiplying -2 and 10.
 
-```python
+:::{.to-pyodide}
+```{python}
 result = -2 * 10
 print("I'm wasting space...")
 print(result)
 print(type(result))
 ```
+:::
 
 You can change the *type* of `result` to a float:
 
-```python
+:::{.to-pyodide}
+```{python}
 result = -2 * 10
 # Rewrite the existing variable
 result = float(result) 
 print(result)
 print(type(result))
 ```
+:::
 
 Check it out! We _assigned_ the outcome of `-2 * 10` to a variable called `result`; then we did something else (printed out a string); and _then_ we printed out the value of the variable _and_ the computer remembered! 
 
@@ -569,28 +624,33 @@ Check it out! We _assigned_ the outcome of `-2 * 10` to a variable called `resul
 
 And variables can be copied using the `=` operator in the same way that the result of the maths operation above could be _assigned_ to a new variable called `result`.
 
-```python
+:::{.to-pyodide}
+```{python}
 myFirstVariable = 1 * 5
 print(myFirstVariable)
 ```
+:::
 
-```python
+:::{.to-pyodide}
+```{python}
 mySecondVariable = myFirstVariable
 print(mySecondVariable)
 ```
+:::
 
 Cool, both variables have the same value! We _assigned_ the result of `1 * 5` to a variable named `myFirstVariable` and then we assigned this value to a _second_ variable called `mySecondVariable`. 
 
-But why is this called assignment (or, in plain English, copying)? Well what happens when I change the*value* stored in `myFirstVariable`? Will the second change as well? 
+But why is this called assignment (or, in plain English, copying)? Well what happens when I change the *value* stored in `myFirstVariable`? Will the second change as well? 
 
-```python
+:::{.to-pyodide}
+```{python}
 myFirstVariable = 2
 print(myFirstVariable)
 print(mySecondVariable)
 ```
+:::
 
-Whoa! `mySecondVariable` didn't change and still remembers what we _assigned_ to in the first time. 
-Basically, we took the `myFirstVariable` label and attached it to a different box.
+Whoa! `mySecondVariable` didn't change and still remembers what we _assigned_ to in the first time. Basically, we took the `myFirstVariable` label and attached it to a different box.
 
 As the [Python Programming Wikibook explains](https://en.wikibooks.org/wiki/Python_Programming/Data_Types), when you assign a variable you are associating a variable (a label) to an object (a box) which is stored somewhere in the memory. So when you assign a new value to a variables you are not overwriting the old values but simply "moving" the label from one box to another. By analogy, we peeled the `myFirstVariable` off of the box containing the value `5` and attached it to a box containing the value `2`. But `mySecondVariable` was completely unaffected; it's still attached to the box containing `5`.
 
@@ -609,7 +669,7 @@ Change the code below by replacing the question marks `???` to make it work (i.e
 - Print out cheers with the "print" command
 
 ::: {.panel-tabset}
-## Exercise
+#### Question
 
 ```python
 ??? = "Peter"
@@ -617,9 +677,9 @@ cheers ??? name ??? " is awesome!"
 print(cheers)
 ```
 
-## Solution
+#### Answer
 
-```python
+```{python}
 name = "Peter"
 cheers = name + " is awesome!"
 print(cheers)
@@ -640,7 +700,7 @@ Here's a short list of the rules:
 
 So this block of code below will run:
 
-```python
+```{python}
 famous_geographer = "Mercator"
 print(famous_geographer)
 ```
@@ -664,7 +724,7 @@ Remember that we said the string `" Some text"` and the string `"Some text"` are
 
 This means that `this_var` and `This_var` are two different variables and can refer to two different boxes:
 
-```python
+```{python}
 this_var = "Mercator"
 This_var = "Galileo"
 
@@ -682,45 +742,55 @@ Now that we've had a taste of the fantastic Python programming world, let's soli
 
 ### Code from scratch
 
+```{python}
+#| echo: false
+old_satellite = 'Sputnik 1'
+new_satellite = 'Landsat'
+```
 
 #### Exercise 1 
 
 Look at the following example (and its output):
 
-```python
+:::{.to-pyodide}
+```{python}
 old_satellite = 'Sputnik 1'
 old_satellite_description = " was the first artificial Earth satellite, launched from the Soviet Union on the 4th of October, 1957."
 print("Здравствуйте! My name is " + old_satellite)
 print(old_satellite + old_satellite_description)
 ```
+:::
 
 Similar to the example above, in the code cell below:
 
 ::: {.panel-tabset}
-## Exercises
-```python
-'''
+
+#### Question
+
 Exercise 1-A:
-* define a variable named `new_satellite` with value `landsat`
-* try to print its name
+
+1. define a variable named `new_satellite` with value `Landsat`
+2. try to print its name
 
 Exercise 1-B:
-* then try to concatenate its name with another variable description of your choice, 
-* and print them.
-'''
-```
-## Solution 1-A
-```python
+
+1. then try to concatenate its name with another variable description of your choice, 
+2. print them.
+
+#### Answer 1-A
+
+```{python}
 new_satellite = 'Landsat'
 print(new_satellite)
 ```
-## Solution 1-B
-```python
+
+#### Answer 1-B
+
+```{python}
 print("The new satellite is " + new_satellite + " and the old satellite is " + old_satellite)
 ```
+
 :::
-
-
 
 ### Supported code
 
@@ -731,35 +801,44 @@ Replace the questions marks `???`  in the following exercise with the appropriat
 Landsat is a bit generic, the correct name is Landsat 8. How would you put together these two different Data Types? Remember what we've seen about casting? Edit the code below to make it work. 
 
 ::: {.panel-tabset}
-## Exercise
+
+#### Question
+
 ```python
 pr???nt("Hello there " + ???(new_satellite) )
 ```
-## Solution
-```python
+#### Answer
+
+```{python}
 print("Hello there " + new_satellite + " 8" )
 ```
+
 :::
 
-#### Excercise 3
+#### Exercise 3
 
 According to its Wikipedia page Sputnik 1 was a 58 cm diameter polished metal sphere. If a cm = 0.393700787 inches what was its diameter in inches? Edit the code below to make it work.
 
 ::: {.panel-tabset}
-## Exercise
+
+#### Question
+
 ```python
 diameter_cm = 58
 cm2inches = 0.393700787
 diameter_inches = diameter_cm ??? cm2inches
 print(diameter_inches)
 ```
-## Solution
-```python
+
+#### Answer
+
+```{python}
 diameter_cm = 58
 cm2inches = 0.393700787
 diameter_inches = diameter_cm * cm2inches
 print(diameter_inches)
 ```
+
 :::
 
 #### Exercise 4
@@ -767,7 +846,9 @@ print(diameter_inches)
 Wat was its volume (in cubic cm)? # NOTE: the first line below we are "importing" the `math` module and assigning to a variable `PI` the value of pi (3.14...). Edit the code to make it work. 
 
 ::: {.panel-tabset}
-## Exercise
+
+#### Question
+
 ```python
 import math
 PI = math.pi
@@ -776,8 +857,9 @@ radius_cm = diameter_cm/2
 volume =  (4/3) ??? PI ??? (radius_cm  ??? 3 )
 print(volume)
 ```
-## Solution
-```python
+#### Answer
+
+```{python}
 import math
 PI = math.pi
 
@@ -785,6 +867,7 @@ radius_cm = diameter_cm/2
 volume =  (4/3) * PI * (radius_cm  ** 3 )
 print(volume)
 ```
+
 :::
 
 ### Broken code
@@ -792,7 +875,9 @@ print(volume)
 Hmmmm... something's broken in the following line of code; can you spot the error(s)? Hint: remember what we said about different data types...
 
 ::: {.panel-tabset}
-## Exercise
+
+#### Question
+
 ```python
 print(new_satellite + "has a Near Infrared (NI), \
 which band captures light in the wavelength from "+
@@ -801,8 +886,10 @@ which band captures light in the wavelength from "+
       900 +
       " nanometers." )
 ```
-## Solution
-```python
+
+## Answer
+
+```{python}
 # The error message indicates a type error, as we can only concatenate string
 # The code should work by including "" to the numbers
 
@@ -813,6 +900,7 @@ which band captures light in the wavelength from "+
       "900" +
       " nanometers." )
 ```
+
 :::
 
 ### Applied Geo-example
@@ -830,7 +918,9 @@ Now, as you can see there are two variables containing CASA's Longitute/Latitude
 Replace the `???` in the code below to make it work.
 
 ::: {.panel-tabset}
-## Exercise
+
+#### Question
+
 ```python
 # UCL CASA coordinates
 # What format are they in? Does it seem appropriate?
@@ -847,8 +937,9 @@ CASA_position = "https://www.openstreetmap.org/?mlat="+lat+"8&mlon="+lon+"#map=1
 print(CASA_position)
 ```
 
-## Solution
-```python
+#### Answer
+
+```{python}
 # UCL CASA coordinates
 # What format are they in? Does it seem appropriate?
 longitude = -0.13604732328636063
@@ -863,6 +954,7 @@ CASA_position = "https://www.openstreetmap.org/?mlat="+lat+"8&mlon="+lon+"#map=1
           
 print(CASA_position)
 ```
+
 :::
 
 Click on the output (or copy and paste it into your browser) and behold! You'll be flying to CASA.

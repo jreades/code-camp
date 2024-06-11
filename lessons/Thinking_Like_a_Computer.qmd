@@ -1,6 +1,6 @@
 ---
 title: "Thinking Like a Computer"
-jupyter: python3
+format: html
 ---
 
 In order to understand how to _program_ a computer, it helps to learn how to _think_ like a computer. At least a little bit. A lot of what we do in programming strips back the veneer of point-and-click friendliness of OSX or Windows so that we can interact with the computer in ways that require much less human input. The world will seem a bit less friendly in the short term, but you will gain the ability to work much more quickly and powerfully with the computer through code.

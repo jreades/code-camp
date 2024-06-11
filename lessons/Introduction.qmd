@@ -1,5 +1,5 @@
 ---
-jupyter: python3
+format: html
 title: "Doing Urban Spatial Science"
 ---
 

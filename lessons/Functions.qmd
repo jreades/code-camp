@@ -1,5 +1,8 @@
 ---
-jupyter: python3
+format: html
+filters:
+- panelize
+- pyodide
 title: Introduction to Functions
 ---
 

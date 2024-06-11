@@ -15,7 +15,7 @@ authors:
     orcid: 'https://orcid.org/0000-0002-1443-9263'
 repository-code: 'https://github.com/jreades/code-camp/'
 url: 'https://jreades.github.io/code-camp/'
-repository: 'https://jreades.github.io/fsds/'
+repository: 'https://jreades.github.io/code-camp/'
 abstract: >-
   This is a short, very practical self-paced introduction to
   programming in Python. The repository covers foundational

@@ -1,5 +1,8 @@
 ---
-jupyter: python3
+format: html
+filters:
+- panelize
+- pyodide
 title: Dealing with Errors
 ---
 
@@ -11,19 +14,21 @@ We all make mistakes. Even very experienced programmers. So this lesson is all a
 
 In the preceding lessons we've already pointed out a few simple errors and made some suggestions about how to read them, but as you have seen when there's something wrong Python stops whatever it's doing and prints out an error message.
 
-Run the next code cell and examine the error message:
+Trying to run the next bit of code will produce an error message:
 
 ```python
 print "Ouch!"
 ```
 
 The error gives you a helpful clue as to what is going wrong: it's something to do with the Syntax.
+
 ```python
   File "<ipython-input-1-cecc6fbed5db>", line 1
     print "Ouch!"
                 ^
 SyntaxError: Missing parentheses in call to 'print'. Did you mean print("Ouch!")?
 ```
+
 In this case it even tells you what the most _likely_ resolution is: `print("Ouch!")`! Not all errors are as easy to diagnose, but by carefully reviewing the output it is often possible to get a pretty good _sense_ of where things are going wrong. 
 
 And here's another example:
@@ -33,6 +38,7 @@ And here's another example:
 ```
 
 This error also gives you a helpful clue: You can't divide by zero!
+
 ```python
 ZeroDivisionError                         Traceback (most recent call last)
 <ipython-input-3-8cff53279792> in <module>
@@ -71,36 +77,26 @@ It really can't get better than this. Let's try to see if you can fix some bits 
 
 #### A Challenge for You!
 
-Run the next two code cells and use the error messages to see if you can fix the following problems:
+Copy the next two code cells into a Python 'interpreter' and use the error messages to see if you can fix the following problems:
 
 *Hint:* remember to look at what is happening *before* the caret!
 
 ::: {.panel-tabset}
-## Exercise
+
+#### Question
+
 ```python
-projection="Cassini-Soldner" 
+projection = "Cassini-Soldner" 
 print("The "  projection + " projection preserves distances along the central meridian.")
 ```
-## Solution
-```python
+
+#### Answer
+
+```{python}
 projection="Cassini-Soldner" 
 print("The " + projection + " projection preserves distances along the central meridian.")
 ```
-:::
 
-*Hint:* which line is the error on?
-
-::: {.panel-tabset}
-## Exercise
-```python
-other_projection "Mollweide"
-print("In the " + other_projection + " projection, meridians are ellipses.")
-```
-## Solution
-```python
-other_projection="Mollweide"
-print("In the " + other_projection + " projection, meridians are ellipses.")
-```
 :::
 
 ### Exceptions
@@ -109,21 +105,45 @@ Even if your code is syntatically exemplary (i.e. it's all perfectly written bef
 
 To help you find out which of the problems you've just hit, Python has the concept of exceptions and a huge taxonomy of specific errors ([here's a list](https://docs.python.org/3/library/exceptions.html)). That way, when something exceptional happens we know whether to restart the computer, check the Internet connection, or look for the place where the variable was supposedly defined.
 
-Let's start by considering these two *exception* examples (run each and examine the error message returned):
+Let's start by considering these two *exception* examples:
+
+:::{.panel-tabset}
+
+#### Questions
 
 ```python
-print("london has an approx. popoulation of "+ popn + " million people ")
+print("london has an approx. popoulation of " + popn + " million people ")
 ```
 
-What do you think is going on here?
-
-And this one:
+And:
 
 ```python
-print()"london has an approx. popoulation of" + 8.5 + "million people ")
+print("london has an approx. popoulation of" + 8.5 + "million people ")
+```
+
+#### Answer
+
+These give:
+
+```python
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'popn' is not defined
+```
+
+This happens because we tried to use `popn` without having given it a value!
+
+And:
+
+```python
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can only concatenate str (not "float") to str
 ```
 
 We've seen this error before: remember that programmers don't like to write 'string' when they could write 'str', and that 'float' means 'floating point number'.
+
+:::
 
 And now let's reconsider the "Division By Zero" Exception:
 
@@ -162,36 +182,47 @@ Run the next code cells and use the error messages to see if you can fix the fol
 
 *Hint*: Think about the _type_ of data that `london_population` holds _and_ how to convert a number into a string with the appropriate function
 
-::: {.panel-tabset}
-## Exercise
+::::{.panel-tabset}
+
+#### Question
+
 ```python
 london_population = 8600000
 print("London's population is " + london_population)
 ```
-## Solution
-```python
+
+#### Answer
+
+```{python}
 london_population = 8600000
 print("London's population is " + str(london_population))
 ```
 :::
 
+::::
+
 Now we want to know the ration between London and Paris populations:
 
-- Define a new variable with the amount of people living in the French capital (2.2 million)
+- Define variables for the number of people living in the French and British capitals (2.2 million and 8.6 million)
 - Think about the data type the result of the calculation needs to be
 
 ::: {.panel-tabset}
-## Exercise
+
+#### Question
+
 ```python
 print("The ratio of london_population to paris_population is " + london_population / paris_population)
 ```
-## Solution
-```python
+
+#### Answer
+
+```{python}
 london_population = 8600000
 paris_population = 2200000
 
 print("The ratio of london_population to paris_population is " + str(london_population / paris_population))
 ```
+
 :::
 
 ## How to Read Errors
@@ -236,7 +267,9 @@ From its official government's [touristic office](http://www.nullisland.com/):
 In order to get there, you'll have to first solve the exercise, avoiding those pesky *Syntax Errors* and *Exceptions"!
 
 ::: {.panel-tabset}
-## Exercise
+
+#### Question
+
 ```python
 longitude = ???(0.0)
 latitude ??? str(0.0)
@@ -246,8 +279,10 @@ null_island = "https://www.openstreetmap.org/?mlat="+???+"&mlon="+longitude+"#ma
           
 prnt null_island
 ```
-## Solution
-```python
+
+#### Question
+
+```{python}
 longitude = str(0.0)
 latitude = str(0.0)
 
@@ -256,6 +291,7 @@ null_island = "https://www.openstreetmap.org/?mlat="+latitude+"&mlon="+longitude
 
 print(null_island)
 ```
+
 :::
 
 To conclude: remember to always read the output, and try to understand what Python is telling you. You might learn a lot from these simple messages! 
@@ -274,7 +310,6 @@ General list or resources
 - [HitchHiker's guide to Python](http://docs.python-guide.org/en/latest/intro/learning/)
 - [Learn Python the Hard Way](http://learnpythonthehardway.org/book/)
 - [CodeAcademy](https://www.codecademy.com/learn/python)
-
 
 ### Credits!
 

@@ -1,6 +1,10 @@
 ---
 title: "Background: *Why* We Do What We Do"
-jupyter: python3
+#jupyter: python3
+format: html
+filters:
+- panelize
+- pyodide
 ---
 
 Computational approaches to understanding and managing cities -- which is to say, approaches using computers and code -- differ in important ways from the quantitative skills taught in traditional geography ‘methods’ classes: computational geography is underpinned by algorithms that employ concepts such as *iteration* and *recursion*, and we use these to tackle everything from a data processing problem to an entire research question. 
@@ -123,9 +127,12 @@ Now is when you either start Python on your own computer (usually from the Termi
 
 All of the rules of normal maths are respected by Python, though sometimes the syntax is a little different (as we'll see later). So the following code will also work as expected to produce 418.0:
 
+:::{.to-pyodide}
+:::{.to-pyodide}
 ```{python}
 (2+2+1250)/3
 ```
+:::
 
 ::: {.callout-tip}
 
@@ -147,6 +154,7 @@ If you are totally at a loss for what to type in the code cell, just click the "
 
 #### Show Solution
 
+:::{.to-pyodide}
 ```{python}
 (1 + 2 + 3 + 4) / 4 
 ```
@@ -219,6 +227,7 @@ In other words, code is [scalable](https://en.wikipedia.org/wiki/Scalability) in
 
 Here's a trivial example of when computers start to get better and faster than brains:
 
+:::{.to-pyodide}
 ```{python}
 (23495.23 + 9238832.657 + 2 + 12921)/4
 ```

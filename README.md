@@ -25,10 +25,21 @@ By the end of the course, you will have a basic understanding of:
 - How your newly acquired coding skills can help you be _effectively lazy_.
 
 ### Credits
+
 The material contained in this repository is heavily inspired by the [great work](http://darribas.org/gds15/index.html) of [Dani Aribas-Bel](https://twitter.com/darribas):
 `Arribas-Bel, D. (2016). Geographic Data Science’15. http://doi.org/{10.5281/zenodo.46313}`
 
+#### Installation
+
+To edit or extend this resource you will need a Python installation, [Quarto](https://quarto.org/docs/get-started/) and two useful extensions:
+
+```bash
+quarto add coatless-quarto/panelize
+quarto add coatless-quarto/pyodide
+```
+
 #### Contributors
+
 The following individuals have contributed to these teaching materials: 
 - [James Millington](https://github.com/jamesdamillington)
 - [Jon Reades](https://github.com/jreades)
