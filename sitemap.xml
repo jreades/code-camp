@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/The_Basics.html</loc>
-    <lastmod>2024-06-11T11:46:07.883Z</lastmod>
+    <loc>https://jreades.github.io/code-camp/lessons/Lists.html</loc>
+    <lastmod>2024-06-11T14:19:09.286Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Exceptions.html</loc>
-    <lastmod>2024-06-11T11:46:07.882Z</lastmod>
+    <loc>https://jreades.github.io/code-camp/lessons/Boolean_Logic.html</loc>
+    <lastmod>2024-06-11T13:23:04.971Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/index.html</loc>
+    <loc>https://jreades.github.io/code-camp/lessons/Background.html</loc>
     <lastmod>2024-06-11T11:46:07.881Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/The_Terminal.html</loc>
+    <loc>https://jreades.github.io/code-camp/lessons/Thinking_Like_a_Computer.html</loc>
     <lastmod>2024-06-11T11:46:07.884Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Introduction.html</loc>
-    <lastmod>2024-06-11T11:46:07.882Z</lastmod>
+    <loc>https://jreades.github.io/code-camp/setup/install.html</loc>
+    <lastmod>2024-06-11T11:46:07.886Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Recap_1.html</loc>
+    <loc>https://jreades.github.io/code-camp/lessons/Loops.html</loc>
     <lastmod>2024-06-11T11:46:07.883Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Lists.html</loc>
-    <lastmod>2024-06-11T11:46:07.882Z</lastmod>
+    <loc>https://jreades.github.io/code-camp/setup/no_install.html</loc>
+    <lastmod>2024-06-11T11:46:07.886Z</lastmod>
   </url>
   <url>
     <loc>https://jreades.github.io/code-camp/setup/index.html</loc>
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://jreades.github.io/code-camp/lessons/Writing_Code.html</loc>
-    <lastmod>2024-06-11T11:46:07.884Z</lastmod>
+    <lastmod>2024-06-11T13:00:47.591Z</lastmod>
   </url>
   <url>
     <loc>https://jreades.github.io/code-camp/lessons/Recap_2.html</loc>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://jreades.github.io/code-camp/lessons/Dicts.html</loc>
-    <lastmod>2024-06-11T11:46:07.882Z</lastmod>
+    <lastmod>2024-06-11T14:19:29.744Z</lastmod>
   </url>
   <url>
     <loc>https://jreades.github.io/code-camp/setup/env.html</loc>
@@ -81,31 +81,31 @@
     <lastmod>2024-06-11T11:46:07.886Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Boolean_Logic.html</loc>
-    <lastmod>2024-06-11T11:46:07.881Z</lastmod>
-  </url>
-  <url>
     <loc>https://jreades.github.io/code-camp/lessons/Packages.html</loc>
     <lastmod>2024-06-11T11:46:07.883Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/setup/no_install.html</loc>
-    <lastmod>2024-06-11T11:46:07.886Z</lastmod>
+    <loc>https://jreades.github.io/code-camp/lessons/Introduction.html</loc>
+    <lastmod>2024-06-11T11:46:07.882Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Loops.html</loc>
-    <lastmod>2024-06-11T11:46:07.883Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jreades.github.io/code-camp/setup/install.html</loc>
-    <lastmod>2024-06-11T11:46:07.886Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Thinking_Like_a_Computer.html</loc>
+    <loc>https://jreades.github.io/code-camp/lessons/The_Terminal.html</loc>
     <lastmod>2024-06-11T11:46:07.884Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Background.html</loc>
+    <loc>https://jreades.github.io/code-camp/index.html</loc>
     <lastmod>2024-06-11T11:46:07.881Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jreades.github.io/code-camp/lessons/Exceptions.html</loc>
+    <lastmod>2024-06-11T11:46:07.882Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jreades.github.io/code-camp/lessons/Recap_1.html</loc>
+    <lastmod>2024-06-11T13:41:38.643Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jreades.github.io/code-camp/lessons/The_Basics.html</loc>
+    <lastmod>2024-06-11T11:46:07.883Z</lastmod>
   </url>
 </urlset>
