@@ -38,7 +38,7 @@ Because lists contain multiple items, we create and use them differently from th
 
 Here is a list of 4 items assigned to a variable called `myList`:
 
-```python
+```{python}
 myList = [1,2,4,5]
 print(myList)
 ```
@@ -47,7 +47,7 @@ Lists are pretty versatile: they don't really care what kind of items you ask th
 
 Below we assign a new list to a variable called `myList` and then print it out so that you can see that it 'holds' all of these different types of data:
 
-```python
+```{python}
 myList = ['hi I am', 2312, 'mixing', 6.6, 90, 'strings, integers and floats']
 print(myList)
 ```
@@ -62,10 +62,12 @@ To access an item in a list you use an **index**. This is a new and important co
 
 The index is just the location of the item in the list that you want to access. So let's say that we want to fetch the second item, we access it via the *index notation* like so:
 
-```python
+::: {.to-pyodide}
+```{python}
 myList = ['hi', 2312, 'mixing', 6.6, 90, 'strings, integers and floats' ]
 print(myList[1])
 ```
+:::
 
 See what has happened there? We have:
 
@@ -80,7 +82,7 @@ Good catch! That's because list indexes are *zero-based*: this is a fancy way to
 
 To recap:
 
-```python
+```{python}
 myNewList = ['first', 'second', 'third']
 print("The first element is: " + myNewList[0])
 print("The third element is: " + myNewList[2])
@@ -90,7 +92,7 @@ print("The third element is: " + myNewList[2])
 
 Since programmers are lazy, they also have a short-cut for accessing the _end_ of a list. Since positive numbers count from the start of a list, negative numbers count from the end:
 
-```python
+```{python}
 myNewList = ['first', 'second', 'third']
 print(myNewList[-1])
 print(myNewList[-2])
@@ -104,18 +106,25 @@ You can remember it this way: the last item in the list is at _n-1_ (where _n_ i
 
 Edit the code so that it prints the 'second' element in the list
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+:::{.to-pyodide}
+```{python}
 myNewList = ['first', 'second', 'third']
-print("The second element is :" + myNewList[???])
+#print("The second element is :" + myNewList[???])
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 myNewList = ['first', 'second', 'third']
 print("The second element is :" + myNewList[1])
 ```
-:::
+
+::::
 
 ### Index Out of Range
 
@@ -140,7 +149,7 @@ You can see from the last line to you have an error related to your index - wher
 
 Even if you didn't realise it, you have already been working with lists in a _sense_ because *strings* are _basically_ lists! Think about it this way: strings are an ordered sequence of characters because 'hello' and 'olhel' are very different words! It turns out that characters in a string can be accessed the same way we'd access a generic list.
 
-```python
+```{python}
 myString = "ABCDEF"
 print(myString[0])
 print(myString[-1])
@@ -154,7 +163,7 @@ If you provide two numbers, Python will assume you are indicating the start and 
 
 _Note_: remember too that the error above when we tried to get the 200th element was _index out of range_. So 'range' is how Python talks about more than one list element.
 
-```python
+```{python}
 shortSentence = "Now I'll just print THIS word, between the 20th and the 25th character: "
 print(shortSentence[20:25])
 ```
@@ -163,29 +172,37 @@ print(shortSentence[20:25])
 
 Using the previous code as a guide, edit the code below so that it prints from the second to the fourth (inclusive) characters from the string:
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+:::{.to-pyodide}
+```{python}
 shortSentence2 = "A12B34c7.0"
-print(shortSentence2[???:???])
+# print(shortSentence2[???:???])
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 shortSentence2 = "A12B34c7.0"
 print(shortSentence2[1:4]) 
 ```
 :::
 
+::::
+
 To print the entirety of a list from any starting position onwards, just drop the second index value while leaving the `:` in your code:
 
-```python
+```{python}
 stringToPrint = "I will print from HERE onwards"
 print("Starting from the 17th position: " + stringToPrint[17:])
 ```
 
 Notice that there are _two_ spaces between "position:" and "HERE" in the printout above? That's because the 17th character is a space. Let's make it a little more obvious:
 
-```python
+```{python}
 print("Starting from the 17th position: '" + stringToPrint[17:] + "'")
 ```
 
@@ -202,18 +219,25 @@ You'll need to combine:
 
 There are two ways to do it, one way uses only one number, the other uses two. Both are correct. Why don't you try to figure them both out? For 'Way 2' below the `???` is a placeholder for a full slicing operation since if we gave you more of a hint it would make it too obvious.
 
-::: {.panel-tabset}
-#### Exercise
-```python
-print("Up to the 18th position (Way 1): '" + stringToPrint[???:???] + "'")
-print("Up to the 18th position (Way 2): '" + ??? + "'")
+:::: {.panel-tabset}
+
+#### Question
+
+:::{.to-pyodide}
+```{python}
+#print("Up to the 18th position (Way 1): '" + stringToPrint[???:???] + "'")
+#print("Up to the 18th position (Way 2): '" + ??? + "'")
 ```
+:::
+
 #### Solution
-```python
+
+```{python}
 print("Up to the 18th position (Way 1): '" + stringToPrint[-8:] + "'")
 print("Up to the 18th position (Way 2): '" + stringToPrint[22:30] + "'")
 ```
-:::
+
+::::
 
 Strings have also plenty of methods that might prove to be quite useful in the future; for a fuller overview check out [this reference](https://en.wikibooks.org/wiki/Python_Programming/Variables_and_Strings).
 
@@ -225,7 +249,7 @@ So far, we've only created a list, but just like a real to-do list, most lists d
 
 Here's how we replace an item in a list:
 
-```python
+```{python}
 myNewList = ['first', 'second', 'third']
 print(myNewList)
 
@@ -241,7 +265,7 @@ So if you see `list[1]` on the right side of the assignment (the "=") then we ar
 
 Here's an example for a (small) party at a friend's place:
 
-```python
+```{python}
 theParty = ['Bob','Doug','Louise','Nancy','Sarah','Jane']
 print(theParty)
 
@@ -258,7 +282,7 @@ Got it?
 
 You can also operate on entire lists at one time, rather than just on their elements individually. For instance, given two lists you might want to add them together like so:
 
-```python
+```{python}
 britishProgrammers = ["Babbage", "Lovelace"]
 nonBritishProgrammers = ["Torvald", "Knuth"]
 
@@ -268,7 +292,7 @@ print(famousProgrammers)
 
 You can even multiply them, although in this particular instance it is kind of pointless:
 
-```python
+```{python}
 print(britishProgrammers * 2)
 ```
 
@@ -276,35 +300,44 @@ print(britishProgrammers * 2)
 
 Correct the syntax in the following code to properly define a new list: 
 
-::: {.panel-tabset}
-#### Exercise
+:::: {.panel-tabset}
+
+#### Question
+
 ```python
 otherNonBritishProgrammers = ["Wozniak" ??? "Van Rossum"]
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
 ```
-:::
+
+::::
 
 Edit the following code to print out all the non british programmers:
 
-::: {.panel-tabset}
-#### Exercise
+:::: {.panel-tabset}
+#### Question
 ```python
 nonBritishProgrammers = ["Torvald", "Knuth"]
 otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
 
 print nonBritishProgrammers ??? otherNonBritishProgrammers
 ```
-#### Solution
-```python
+
+#### Answer
+
+:::{.to-pyodide}
+```{python}
 nonBritishProgrammers = ["Torvald", "Knuth"]
 otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
 
 print(nonBritishProgrammers + otherNonBritishProgrammers)
 ```
 :::
+::::
 
 ###  You're (not) in the list!
 
@@ -318,7 +351,7 @@ element in list
 
 The **in** operator will return `True` if the item is present, and `False` otherwise. This is a data type (called a Boolean) that we've seen in the [Boolean logic](./Boolean_Logic.qmd) lessons.
 
-```python
+```{python}
 print ('Lovelace' in britishProgrammers)
 print ('Lovelace' in nonBritishProgrammers)
 
@@ -331,8 +364,8 @@ _Note:_ You might also have spotted that this time there are parentheses ("(...)
 
 Anyway, if you want to check if an item does not exist in a list then you can use the **not in ** operator. Let's go back to our party:
 
-```python
-print(theParty) # You might have re-define the variable if you haven't saved it (in case, just copy and paste it before the print line)
+```{python}
+print(theParty)
 print('Bob' not in theParty)
 print('Jane' not in theParty)
 ```
@@ -343,18 +376,24 @@ So here, that 'Boolean' gives us `True` on the first `not in` because it's "true
 
 Complete the missing bits of the following code so that we print out Ada Lovelace, her full name:
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
 firstProgrammerSurnames = ["Babbage", "Lovelace"]
 firstProgrammerNames    = ["Charles", "Ada"]
 
 firstProgrammerSurnames[1] = firstProgrammerNames[1] + " " + firstProgrammerSurnames[1]
 
-print("Lady "+ ???[1] +" is considered to be the first programmer.") 
+#print("Lady "+ ???[1] +" is considered to be the first programmer.") 
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 firstProgrammerSurnames = ["Babbage", "Lovelace"]
 firstProgrammerNames    = ["Charles", "Ada"]
 
@@ -362,7 +401,7 @@ firstProgrammerSurnames[1] = firstProgrammerNames[1] + " " + firstProgrammerSurn
 
 print("Lady "+ firstProgrammerSurnames[1] +" is considered to be the first programmer.") 
 ```
-:::
+::::
 
 _Note_ : Actually, Lady Ada Lovelace is a [fascinating person](https://en.wikipedia.org/wiki/Ada_Lovelace): she isn't just the first female programmer, she was the first programmer full-stop. For many years Charles Babbage got all the credit for inventing computers simply because he was a guy and designed the clever mechanical adding machine. However, lately, we've realised that Ada was the one who actually saw that Babbage hadn't just invented a better abacus, he'd invented a general-purpose computing device! 
 
@@ -375,7 +414,8 @@ This contribution was long overlooked by the men who thought that the hard part 
 ## Extending Lists
 
 We've already seen that we can combine two lists using the `+` operator, but if you wanted to constantly add new items to your list then having to do something like this would be annoying:
-```python
+
+```{python}
 myList = [] # An empty list
 
 myList = myList + ['New item']
@@ -384,8 +424,10 @@ myList = myList + ['And another one!']
 
 print(myList)
 ```
+
 Not just annoying, but also hard to read! As with most things, because programmers are lazy there's an easier way to write this in Python:
-```python
+
+```{python}
 myList = [] # An empty list
 
 myList.append('New item')
@@ -407,10 +449,13 @@ The best thing about functions is that they are like little packages of code tha
 What did I mean just now by 'modifying the list directly'? 
 
 Notice that in the first example above we had to write:
+
 ```python
 myList = myList + ['New item']
 ```
+
 because we had to write the result of concatenating the two lists together back to the variable. The list isn't really growing, we're just overwriting what was _already_ in `myList` with the results of the list addition operation. What do you think you would get if you wrote the following code:
+
 ```python
 myList = [] # An empty list
 
@@ -420,12 +465,15 @@ myList + ['And another one!']
 
 print(myList)
 ```
+
 If you aren't sure, why don't you try typing this into the coding area above and try to figure out why the answer is: ''.
 
 Meanwhile, in the second example we could just write: 
+
 ```python 
 myList.append('New item')
 ```
+
 and the change was made to `myList` directly! So this is easier to read _and_ it is more like what we'd expect to happen: the list grows without us having to overwrite the old variable.
 
 ## Other List Functions
@@ -433,7 +481,8 @@ and the change was made to `myList` directly! So this is easier to read _and_ it
 `append()` is a function, and there are many other functions that can be applied to lists such as: `len`, `insert` and `index`. You tell Python to *execute a function* (sometimes also termed *calling a function*) by writing the function's name, followed by a set of parentheses. The parentheses will contain any optional inputs necessary for the function to do its job. Appending to a list wouldn't be very useful if you couldn't tell Python _what_ to append in the first place!
 
 The `len` function is also a good example of this:
-```python
+
+```{python}
 len(theParty)
 ```
 Here, the function `len` (lazy short-hand for _length_ ) is _passed_ `theParty` list as an input in order to do its magic.
@@ -444,10 +493,11 @@ The functions `append`, `insert` and `index` work a _little_ bit differently. Th
 
 In order to use a _list method_ you always need to 'prepend' (i.e. lead with) the name of list you want to work with, like so:
 
-```python
+```{python}
 theParty.append("New Guest")
 theParty.insert(2, "Anastasia")
-theParty.index("Sarah")
+print(theParty.index("Sarah"))
+print(theParty)
 ```
 
 The idea here is that methods are associated with specific types of things such as lists, whereas generic functions are kind of free-floating. Think about it this way: you can't append something to a number, because that _makes no sense_. Appending is something that only makes sense in the context of a list. In contrast, something like `len` works on several different types of variables: lists and string both!
@@ -456,7 +506,7 @@ The idea here is that methods are associated with specific types of things such 
 
 Reminder: here's appending...
 
-```python
+```{python}
 britishProgrammers = ['Lovelace']
 britishProgrammers.append("Turing")
 print(britishProgrammers)
@@ -468,7 +518,7 @@ That's cool, but as you noticed `append` only ever inserts the new item as the l
 
 With `insert` you can also specify a position
 
-```python
+```{python}
 print(nonBritishProgrammers)
 nonBritishProgrammers.insert(1, "Swartz")
 print(nonBritishProgrammers)
@@ -478,7 +528,7 @@ print(nonBritishProgrammers)
 
 Lastly, with the `index` method you can easily ask Python to find the position (index) of a given item:
 
-```python
+```{python}
 # Say you want to know in where "Knuth" is 
 # in the list of non-British programmers...
 print(nonBritishProgrammers.index("Knuth"))
@@ -488,20 +538,26 @@ print(nonBritishProgrammers.index("Knuth"))
 
 Add the famous [Grace Hopper](https://en.wikipedia.org/wiki/Grace_Hopper) (inventress of the first compiler!) to the list of British programmers, and then print her index position:
 
-::: {.panel-tabset}
-#### Exercise
-```python
-nonBritishProgrammers.???("Hopper") 
-print(nonBritishProgrammers.???("Hopper"))
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
+#nonBritishProgrammers.???("Hopper") 
+#print(nonBritishProgrammers.???("Hopper"))
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 nonBritishProgrammers.append("Hopper") 
 # let's check
 print(nonBritishProgrammers)
 print(nonBritishProgrammers.index("Hopper"))
 ```
-:::
+::::
 
 ### Length
 
@@ -509,40 +565,51 @@ Cool, so those were some of the *methods you can invoke on* a list. Let's focus 
 
 With the function `len` you can immediately know the `len`-gth of a given list:
 
-```python
+```{python}
 print( len(britishProgrammers) )
 ```
 
-```python
+```{python}
 length_of_list = len(nonBritishProgrammers)
 print("There are " + str(length_of_list) + " elements in the list of non-British Programmers")
 ```
 
 Did you see the `str(length_of_list)`? There's another function! We didn't draw attention to it before, we just told you to use `str(5.0)` to convert the float `5.0` to the string `"5.0"`. We can tell it's a function because it uses the format `functionName(...some input...)`. So the function name is `str` (as in _convert to string_) and the input is a number (in this case it's the length of the list `nonBritishProgrammers`). So now we can easily convert between different types of data: we took an integer (you can check this by adding the following line to the code above:
 
-::: {.panel-tabset}
-#### Exercise
+:::: {.panel-tabset}
+
+#### Question
+
 ```python
 # Fix the syntax of this line to print the length of the list:
 print length_of_list + 1
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 print(int(length_of_list) + 1)
 ```
-:::
+
+::::
 
 And then print it out as a string. So `length_of_list` is a number, and by calling `str(length_of_list)` we changed it to a string that we could print out. Given that programmers are lazy, can you guess how you'd convert the string "3" to the _integer_ 3?
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
 '''
 Convert the string "3" to the _integer_ 3
 '''
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 three = "3"
 
 # Let's check the data type
@@ -552,24 +619,32 @@ print(type(three))
 three = int(three)
 print(type(three))
 ```
-:::
+
+::::
 
 ### A challenge for you!
 
 Complete the missing bits of the following code:
 
-::: {.panel-tabset}
-#### Exercise
-```python
-length_of_brits = ???(britishProgrammers)
-print "There are " ??? " British programmers."
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
+#length_of_brits = ???(britishProgrammers)
+#print "There are " ??? " British programmers."
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 length_of_brits = len(britishProgrammers)
 print("There are " + str(length_of_brits) + " British programmers.")
 ```
-:::
+
+::::
 
 To check if the output of `range()` is a list we can use the `type()` function:
 
@@ -581,53 +656,61 @@ Go on, I'll bet you can't guess!
 
 Let's use what we know to jump to a particular point on the planet...
 
-```python
+```{python}
 # We'll see more of this package import later...
 # For now, just know that it 
 # provides access to a function called IFrame
 from IPython.display import IFrame
 
 # We want to view an OpenStreetMap map
-siteName  = "http://www.openlinkmap.org/small.php"
+siteName  = "https://www.openstreetmap.org/#map="
 
 # Specify the location and zoom level
 latitude  = 63.6314
 longitude = -19.6083
 zoomLevel = 10
-mapURL    = ['?lat=', str(latitude), '&lon=', str(longitude), '&zoom=', str(zoomLevel)]
+
+mapURL = siteName + '/'.join([str(zoomLevel), str(latitude), str(longitude)])
 
 # Show the ULR
-print(siteName + ''.join(mapURL))
+print(mapURL)
 
 # And now show us an inline map!
-IFrame(siteName + ''.join(mapURL), width='100%', height=400)
+IFrame(mapURL, width='100%', height=400)
 ```
 
 And now let's try somewhere closer to home. Try using the `KCLMapCoordinates` list below (which tells you the x/y and zoom-level) in combination with the code above. I'd suggest copying what you need from above, pasting it into the code below, and then using what you know about accessing list information so that the map shows the location of King's College London...
 
-```python
+```{python}
 # King's College coordinates
 # What format are they in? Does it seem appropriate?
 KCLMapCoordinates = [51.51130657591914, -0.11596798896789551, 15]
 ```
 
-```python
+```{python}
 # We want to view an OpenStreetMap map
-siteName  = "http://www.openlinkmap.org/small.php"
+siteName  = "https://www.openstreetmap.org/#map="
 
 # Specify the location and zoom level
 latitude  = KCLMapCoordinates[0]
 longitude = KCLMapCoordinates[1]
 zoomLevel = 15
-mapURL    = ['?lat=', str(latitude), '&lon=', str(longitude), '&zoom=', str(zoomLevel)]
 
-# Show the ULR
-print(siteName + ''.join(mapURL))
+mapURL = siteName + '/'.join([str(zoomLevel), str(latitude), str(longitude)])
+
+# Show the URL
+print(mapURL)
 
 # And now show us an inline map!
-IFrame(siteName + ''.join(mapURL), width='100%', height=400)
+map = siteName + ''.join(mapURL)
+IFrame(mapURL, width='100%', height=400)
 ```
 
+```{python}
+#| echo: false
+from IPython.display import IFrame
+display(IFrame(mapURL, width='100%', height=400))
+```
 
 ### Further references:
 
