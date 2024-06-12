@@ -128,7 +128,6 @@ Now is when you either start Python on your own computer (usually from the Termi
 All of the rules of normal maths are respected by Python, though sometimes the syntax is a little different (as we'll see later). So the following code will also work as expected to produce 418.0:
 
 :::{.to-pyodide}
-:::{.to-pyodide}
 ```{python}
 (2+2+1250)/3
 ```
@@ -144,7 +143,7 @@ Notice the 'clipboard' icon at the right-hand side of the code block above this 
 
 A little harder, huh? So type your 'formula' to calculate the mean of `1, 2, 3, 4` then either hit `Return` (if you're working in the Terminal) or click the 'play' button on the tool bar at the top of the window (if you're working in Google Colab) to run your first piece of Python code! 
 
-::: {.panel-tabset}
+:::: {.panel-tabset}
 
 #### Hint
 
@@ -152,14 +151,15 @@ Your equation should include the four numbers above with some `+` symbols and `(
 
 If you are totally at a loss for what to type in the code cell, just click the "show solution" tab. 
 
-#### Show Solution
+#### Solution
 
 :::{.to-pyodide}
 ```{python}
 (1 + 2 + 3 + 4) / 4 
 ```
-
 :::
+
+::::
 
 ::: {.callout-note collapse="true"}
 
@@ -231,6 +231,7 @@ Here's a trivial example of when computers start to get better and faster than b
 ```{python}
 (23495.23 + 9238832.657 + 2 + 12921)/4
 ```
+:::
 
 ::: {.callout-tip}
 
