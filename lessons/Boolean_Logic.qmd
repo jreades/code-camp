@@ -15,13 +15,11 @@ The most basic form of comparison is to test if something is `True` of `False`. 
 
 Booleans are different from the numerical (*floats* and *integers*) or textual (*strings*) data types that we have seen so far because they have only two possible values: `True` or `False`.
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 myBoolean = True
 print(myBoolean)
 print("This statement is: '" + str(myBoolean) + "'")
 ```
-:::
 
 ::: {.callout-tip}
 
@@ -51,11 +49,9 @@ You will need these set of operators:
 
 Here's an initial example (without a print statement):
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 25 > 7
 ```
-:::
 
 And further examples (with print statements):
 
@@ -139,12 +135,13 @@ Fix this code so that it returns `True`
 
 #### Question
 
-```python
+```{pyodide-python}
 first_variable = 87.0
 second_variable = 9
 
 print(first_variable % 80 ??? second_variable)
 ```
+
 #### Answer
 
 ```{python}
@@ -166,7 +163,7 @@ Fix this code so that it returns `False`
 
 #### Question
 
-```python
+```{pyodide-python}
 print("Aardvark" ??? "Ant")
 ```
 
@@ -175,7 +172,7 @@ print("Aardvark" ??? "Ant")
 ```{python}
 print("Aardvark" > "Ant")
 
-#proof
+# proof
 print(ord("a"))
 print(ord("n"))
 ```
@@ -219,7 +216,7 @@ Before you run the code in each cell, try to think through what _you_ expect eac
 
 #### Question 
 
-```python
+```{pyodide-python}
 # Is this True?
 2 == 34
 ```
@@ -237,7 +234,7 @@ Before you run the code in each cell, try to think through what _you_ expect eac
 
 #### Question
 
-```python
+```{pyodide-python}
 # How about this?
 7 == 7
 ```
@@ -247,7 +244,7 @@ Before you run the code in each cell, try to think through what _you_ expect eac
 7 == "7"
 ```
 
-```python
+```{pyodide-python}
 # And this?
 "Foo" == "Bar"
 ```
@@ -275,7 +272,7 @@ Before you run the code in each cell, try to think through what _you_ expect eac
 
 #### Question
 
-```python
+```{pyodide-python}
 # And this?
 10 % 3 == 3 / 3
 ```
@@ -309,6 +306,12 @@ french_capital  = "Paris"
 # slash through it, but it's typed as 
 # '!' + '=' (!=)
 print(british_capital != french_capital)
+```
+
+Try it yourself:
+
+```{pyodide-python}
+print("Foo" != "Bar")
 ```
 
 ## Conditions
@@ -418,7 +421,7 @@ Complete the missing code, while also fixing the broken bits (_HINT:_ Remember t
 
 #### Question
 
-```python
+```{pyodide-python}
 if (london_population % 8000000) == 600000 ???
 print("Good job")
 ```
@@ -466,11 +469,11 @@ The `if: else:` statement is like a fork in the road: you can take one road, or 
 
 Fix the code below so that it prints out `London's population is above my threshold`.
 
-::::{.panel-tabset}
+:::: {.panel-tabset}
 
 #### Question
 
-```python
+```{pyodide-python}
 mythreshold = 1000000
 if london_population <= mythreshold ???
     print("London's population is below my threshold")
@@ -480,7 +483,6 @@ if london_population <= mythreshold ???
 
 #### Answer
 
-:::{.to-pyodide}
 ```{python}
 mythreshold = 1000000
 if london_population <= mythreshold:
@@ -488,7 +490,6 @@ if london_population <= mythreshold:
 else:
     print("London's popuation is above my threshold")
 ```
-:::
 
 ::::
 
@@ -535,11 +536,11 @@ This a tricky one: the _first_ thing that evaluates to `True` (that London is be
 
 Complete the missing bits so that the logically correct print statement is output:
 
-::::{.panel-tabset}
+:::: {.panel-tabset}
 
 #### Question
 
-```python
+```{pyodide-python}
 london_population = 10
 ??? london_population <= 9:
     print("First case is true")
@@ -554,7 +555,6 @@ print("And now back to normal code execution.")
 
 #### Answer
 
-:::{.to-pyodide}
 ```{python}
 london_population = 10
 if london_population <= 9:
@@ -567,7 +567,7 @@ else: print("Well, looks like none of the above statements were true!")
 
 print("And now back to normal code execution.")
 ```
-:::
+
 ::::
 
 ## Boolean Logic
@@ -579,6 +579,7 @@ Boolean logic and [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebr
 In Python there are [three boolean logic opertors](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not), these are (in ascending order of priority): `or`, `and`, and `not`.
 
 We'll look at these in more detail in a second, but here's the 'cheat sheet':
+
 - OR: _if either A OR B are True_ then run the following code block...
 - AND: _if A AND B are True_ then run the following code block...
 - NOT: _if NOT(A) is True_ (because A is _False_) then run the following code block...
@@ -639,7 +640,7 @@ Try to change the values of conditions and see the different outcomes, but first
 
 #### Question
 
-```python
+```{pyodide-python}
 condition1 = 2 < 4
 condition2 ??? (6/3) != 2
 
@@ -651,7 +652,6 @@ print("mmh..they must both be false"")
 
 #### Answer
 
-:::{.to-pyodide}
 ```{python}
 condition1 = 2 < 4
 condition2 = (6/3) != 2
@@ -661,7 +661,7 @@ if (condition1) or (condition2):
 else:
     print("mmh..they must both be false")
 ```
-:::
+
 ::::
 
 ### NOT 
@@ -687,7 +687,8 @@ Can you guess the result of this code _before_ you run it?
 :::: {.panel-tabset}
 
 #### Question
-```python
+
+```{pyodide-python}
 if not conditionInverted:
    print("I'm True")
 elif not (4%3  != 1):
@@ -698,7 +699,6 @@ else:
 
 #### Answer
 
-:::{.to-pyodide}
 ```{python}
 if not conditionInverted:
    print("I'm True")
@@ -707,11 +707,11 @@ elif not (4%3  != 1):
 else:
    print("99" == str(99)+1)
 ```
-:::
 
 ::::
 
 ## Applied Geo-Example
+
 The aim of the excercise is to build a program that allows a user to choose a given London borough from a list, and get in return both its total population and a link to a OpenStreetMap that pin points its location.
 
 We are going to introduce a function called `input` that, as the name implies, takes an input from the user (interactively, that is!). We'll use it to interact with the user of our program. The input is going to be saved in a variable called `user_input`.
@@ -720,11 +720,11 @@ I've provided a basic scaffolding of the code. It covers the case where the user
 
 HINT: You will need to use `elif` statements to check for the various cases that use user might input.
 
-::::{.panel-tabset}
+:::: {.panel-tabset}
 
 #### Question
 
-```python
+```{pyodide-python}
 # variable with the City borough's total population (in thousands)
 city_of_London = 7.375
 # City borough's map marker
@@ -738,15 +738,19 @@ city_coords = "http://www.openstreetmap.org/?mlat=51.5151&mlon=-0.0933#map=14/51
 # lambeth = 303.086
 # lambeth_coords = http://www.openstreetmap.org/?mlat=51.5013&mlon=-0.1172#map=13/51.5013/-0.1172
 
-# Let's ask the user for some input
-# and store his answer
-user_input = input("""
-Choose a neighbourhood by type the corresponding number:
-1- City of London
-2- Lambeth
-3- Camden
-4- Hackney
-""")
+try:
+  # Let's ask the user for some input
+  # and store his answer
+  user_input = input("""
+  Choose a neighbourhood by type the corresponding number:
+  1- City of London
+  2- Lambeth
+  3- Camden
+  4- Hackney
+  """)
+except OSError:
+  # We're running the browser most likely
+  user_input = '1'
 
 # Arbitrarily assign case 1 to City of London borough
 
@@ -767,7 +771,6 @@ else:
 
 #### Answer
 
-:::{.to-pyodide}
 ```{python}
 # variable with the City borough's total population (in thousands)
 city_of_London = 7.375
@@ -785,14 +788,19 @@ lambeth_coords = "http://www.openstreetmap.org/?mlat=51.5013&mlon=-0.1172#map=13
 # Let's ask the user for some input
 # and store his answer -- this doesn't
 # work in a non-interactive shell
-user_input = '4' # input
-("""
-Choose a neighbourhood by type the corresponding number:
-1- City of London
-2- Lambeth
-3- Camden
-4- Hackney
-""")
+try:
+  # Let's ask the user for some input
+  # and store his answer
+  user_input = input("""
+  Choose a neighbourhood by type the corresponding number:
+  1- City of London
+  2- Lambeth
+  3- Camden
+  4- Hackney
+  """)
+except:
+  # We're running the browser most likely
+  user_input = '1'
 
 # Arbitrarily assign case 1 to City of London borough
 
@@ -832,7 +840,6 @@ elif(user_input == '4'):
 else:
     print("That's not in my system. Please try again!")
 ```
-:::
 
 ::::
 

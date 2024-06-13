@@ -127,11 +127,9 @@ Now is when you either start Python on your own computer (usually from the Termi
 
 All of the rules of normal maths are respected by Python, though sometimes the syntax is a little different (as we'll see later). So the following code will also work as expected to produce 418.0:
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 (2+2+1250)/3
 ```
-:::
 
 ::: {.callout-tip}
 
@@ -145,19 +143,21 @@ A little harder, huh? So type your 'formula' to calculate the mean of `1, 2, 3, 
 
 :::: {.panel-tabset}
 
-#### Hint
+#### Question
 
 Your equation should include the four numbers above with some `+` symbols and `(` and `)`, a `/` symbol, and another number.
 
-If you are totally at a loss for what to type in the code cell, just click the "show solution" tab. 
+```{pyodide-python}
+???
+```
 
-#### Solution
+If you are totally at a loss for what to type in the code cell, just click the "Answer" tab. 
 
-:::{.to-pyodide}
+#### Answer
+
 ```{python}
 (1 + 2 + 3 + 4) / 4 
 ```
-:::
 
 ::::
 
@@ -227,11 +227,9 @@ In other words, code is [scalable](https://en.wikipedia.org/wiki/Scalability) in
 
 Here's a trivial example of when computers start to get better and faster than brains:
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 (23495.23 + 9238832.657 + 2 + 12921)/4
 ```
-:::
 
 ::: {.callout-tip}
 

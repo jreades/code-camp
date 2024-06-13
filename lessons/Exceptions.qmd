@@ -16,7 +16,7 @@ In the preceding lessons we've already pointed out a few simple errors and made 
 
 Trying to run the next bit of code will produce an error message:
 
-```python
+```{pyodide-python}
 print "Ouch!"
 ```
 
@@ -33,7 +33,7 @@ In this case it even tells you what the most _likely_ resolution is: `print("Ouc
 
 And here's another example:
 
-```python
+```{pyodide-python}
 45 / 0
 ```
 
@@ -85,7 +85,7 @@ Copy the next two code cells into a Python 'interpreter' and use the error messa
 
 #### Question
 
-```python
+```{pyodide-python}
 projection = "Cassini-Soldner" 
 print("The "  projection + " projection preserves distances along the central meridian.")
 ```
@@ -111,13 +111,13 @@ Let's start by considering these two *exception* examples:
 
 #### Questions
 
-```python
+```{pyodide-python}
 print("london has an approx. popoulation of " + popn + " million people ")
 ```
 
 And:
 
-```python
+```{pyodide-python}
 print("london has an approx. popoulation of" + 8.5 + "million people ")
 ```
 
@@ -186,7 +186,7 @@ Run the next code cells and use the error messages to see if you can fix the fol
 
 #### Question
 
-```python
+```{pyodide-python}
 london_population = 8600000
 print("London's population is " + london_population)
 ```
@@ -197,7 +197,6 @@ print("London's population is " + london_population)
 london_population = 8600000
 print("London's population is " + str(london_population))
 ```
-:::
 
 ::::
 
@@ -210,7 +209,7 @@ Now we want to know the ration between London and Paris populations:
 
 #### Question
 
-```python
+```{pyodide-python}
 print("The ratio of london_population to paris_population is " + london_population / paris_population)
 ```
 
@@ -270,7 +269,7 @@ In order to get there, you'll have to first solve the exercise, avoiding those p
 
 #### Question
 
-```python
+```{pyodide-python}
 longitude = ???(0.0)
 latitude ??? str(0.0)
 

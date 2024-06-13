@@ -29,25 +29,19 @@ You already saw a really simple example of calculating the mean in the first les
 
 #### Addition and Subtraction
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 3 - 2 + 10
 ```
-:::
 
 #### Multiplication and Division
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 2 * 5
 ```
-:::
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 10 / 5
 ```
-:::
 
 #### A challenge for you!
 Do you think the results of these two operations will be identical? If not, why? **Decide what you think the answer is _before_ running the code!**
@@ -56,7 +50,7 @@ Do you think the results of these two operations will be identical? If not, why?
 
 #### Question
 
-```python
+```{pyodide-python}
 # Operation 1:
 print(4 * (2 - 8) + 2)
 # Operation 2:
@@ -90,19 +84,15 @@ You might have also psotted that the code above wraps each formula in a `print()
 
 Anyway, even if it's been a long time since you've tried to do any maths, hopefully it's coming back to you that:
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 (3 * 2) - 10
 ```
-:::
 
 is not the same as:
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 3 * (2 - 10)
 ```
-:::
 
 ### Exponents 
 
@@ -110,19 +100,15 @@ is not the same as:
 
 If you use two asterisks instead of one then you'll be performing an **exponentiation**:
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 2 ** 4
 ```
-:::
 
 That's the same as: 
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 2 * 2 * 2 * 2
 ```
-:::
 
 So `2**4` is how we get 2-to-the-power-of-4 (the same as multiplying 2 together 4 times). Hopefully this all kind of rings a bell even if you've not studied any maths in a while.
 
@@ -130,12 +116,10 @@ So `2**4` is how we get 2-to-the-power-of-4 (the same as multiplying 2 together 
 
 So `2**4` is 2-to-the-power-of-4, but how do we get the square root (or fourth root) of a number? Right now, with what we've taught you so far, the best way is to remember that a square root is the same as an exponent of one-half. The fourth root is an exponent of one-quarter. So... 
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 print(2**8)       # 2-to-the-8
 print(256**(1/8)) # 256-to-the-one-eighth
 ```
-:::
 
 Notice that even though the answer to the second operation is a whole number we're getting back a decimal. This is your first introduction to the idea that variables might have *types* and that integers are different from non-integers. There's *lots* more about this to come. But let's start with...
 
@@ -162,22 +146,18 @@ While we're on the topic of division, how do you get the 'remainder' of 9/2 – 
 
 Using the modulo operator will thus return the remainder:
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 print(9 / 2)
 print(9 % 2)  
 ```
-:::
 
 Just to make this clear: 2 goes into 9 exactly 4 times and then you have 1 left over. So: `(4 * 2) + 1 = 9`.
 
 For division which yields no remainder the operation will return a value of 0.
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 print(8 % 2)
 ```
-:::
 
 #### A challenge for you!
 
@@ -187,7 +167,7 @@ What do you think will be the result of this operation? Work out your answer **b
 
 #### Question
 
-```python
+```{pyodide-python}
 print( (2*3) ** 2 )
 ```
 
@@ -207,7 +187,7 @@ Now what do you think this will give you? Again, work out your answer **before**
 
 #### Question
 
-```python
+```{pyodide-python}
 print( (2*3) ** 2 / (12 % 5) )
 ```
 
@@ -227,7 +207,7 @@ In the code below replace the question marks `???` with the appropriate code to 
 
 #### Question
 
-```python
+```{pyodide-python}
 (2+4) ** 2 % (120 / ???)
 ```
 
@@ -259,14 +239,12 @@ So parentheses trump everything else, so `2**5.0/2` (`{python} 2**5.0/2`) is not
 
 Also pay attention when *dividing by zero*. Python won't be able to compute any value and will return an *error* (which is sometimes also called an *exception*):
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 try:
     (30 + 2 ) / 0
 except ZeroDivisionError as e:
     print(e)
 ```
-:::
 
 ::: {.callout-note}
 
@@ -282,7 +260,7 @@ Replace the questions marks `???` in the following exercise with the appropriate
 
 #### Question
 
-```python
+```{pyodide-python}
 (1345 - 20 )  / ((- 3) ** 2  -  ???)
 ```
 
@@ -307,36 +285,28 @@ So we've seen some examples above of maths with *integers* (i.e. "whole" numbers
 
 Any operation involving a mix of *floats* and *integers* will always yeld a *float*. For example, compare the output for the code below, but note how the resulting data type varies with the operation.
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 print(7 * 4)
 print(7 * 4.0)
 ```
-:::
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 print(20 / 5)
 print(20.0 / 5)
 ```
-:::
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 print(22 / 7)
 print(22.0 / 7)
 print( int(22.0/7) )
 ```
-:::
 
 Notice that last tricky bit: we'll get to what `int(...)` means later, but if you remember that programmers are lazy then you might realise that it must be short for _integer_ and those parentheses must be telling Python to *do* something with the answer to change it from `3.14...` to `3`.
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 print(6 + 3)
 print(6.0 + 3)
 ```
-:::
 
 The reason for these slightly different answers is that Python is *implicitly* converting (sometimes called *casting*) the numbers between the two different *data types*. This conversion doesn't happen with more complex bits of Python code, but for simple numbers Python tries to be helpful and save you the time and effort.
 
@@ -352,11 +322,9 @@ Let's start with calculating the area of a triangle. Here's the equation for the
 
 So lets work out for a triangle that has sides of length 10 and 20! If you type the maths correctly into the empty block below you should get the answer: 100
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 (10 * 20)/2
 ```
-:::
 
 ```{python}
 #| echo: false
@@ -415,8 +383,7 @@ is a string. So is:
 
 The thing is that computers can't automatically distinguish between Shakespeare and the work of a monkey hitting keys at random. As long as they are both marked out by single- or double-quotes then as far as the computer is concerned they are strings. So even to ask the computer how many words there in the first 3 lines of _Twelfth Night_ means we have to 'teach' the computer what a word is by giving it rules to recognise the start or end of one, and even how to recognise the start and end of a line so that it can find the first three of them!
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 t1 = "I'm a string of text!"
 t2 = 'Me too! *&($£(£_@~{}|?<>$)'
 print(t1)
@@ -424,7 +391,6 @@ print(type(t1))
 print(t2)
 print(type(t2))
 ```
-:::
 
 ::: {.callout-note} 
 
@@ -438,13 +404,11 @@ Notice that now we've got two commands and that they are 'nested' one inside the
 
 Although you can technically use either type of quote (`'` or `"`), it is generally better to use double-quotes as a way to prevent errors if a single-quote is contained in your string:
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 print("I'm a single quote contained within double quotes. I'll be fine.")
 ```
-:::
 
-```python
+```{pyodide-python}
 print('I'm surrounded by single-quotes and I contain a single-quote so there may be trouble ahead...')
 ```
 
@@ -456,12 +420,10 @@ What do you do if your string contains double-quotes _and_ single-quotes? That's
 
 In the example below, the backslash in front of the apostrophe in `I'm` says "Don't treat this as 'normal' single-quote that means the end of the string, treat it as a literal single-quote in the middle of a longer string marked out by single-quotes.
 
-:::{.to-pyodide}
 ```{python}
 print('I\'m using the backslash.')
 print('I\'m also using the backslash \'\\\' to escape the error normally caused by having single-quotes.')
 ```
-:::
 
 Let's look at this a little more closely:
 
@@ -470,7 +432,7 @@ Let's look at this a little more closely:
 
 That's pretty weird, but just to show you what's happening here it is without that extra backslash:
 
-```python
+```{pyodide-python}
 print('I\'m also using the backslash \'\\' to escape the error normally caused by having single-quotes.')
 ```
 
@@ -480,11 +442,9 @@ The escape symbol crops up in a lot of other circumstances. For example, what if
 
 Remember that programmers are always lazy when given half a chance and so they figured out that the easiest way to mark a newline was `\n`. They used 'n' because it is fairly easy to remember that that means '*n*ewline', and the backslash 'escapes' us from the simple world where an 'n' is the letter 'n' into the computer's world where '`n`' is 'n', but `\n` is a newline:
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 print("If music be the food of love, play on;\n Give me excess of it, that, surfeiting,\n The appetite may sicken, and so die.")
 ```
-:::
 
 See how that wraps the text on the `\n`? Also note that the computer is printing _exactly_ what we told it to do: I kept a space between the `\n` and the start of the next line. If you squint, then you can see that lines 2 and 3 are indented by the width of one space character. There's also an extra space after 'surfeiting' before the comma.
 
@@ -494,29 +454,23 @@ We say this a lot later too, but you might as well start learning this fact now:
 
 Further, numbers and strings are _not_ the interachangeable: `"2016"` is _not_ the same as `2016`. The first is a string that happens to contain the characters 2, 0, 1, and 6. The second is an integer number one larger than 2015.
 
-:::{.to-pyodide}
 ```{python}
 print("2016")
 print(2016)
 ```
-:::
 
 As you can see from running the code above, it's a bit annoying that they look the same when we print them. But if you run the next lines of code (_after_ thinking about what they might do), you'll see how Python tries to be helpful with its errors:
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 2015 + 1
 ```
-:::
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 try:
   "2015" + 1
 except TypeError as e:
   print(e)
 ```
-:::
 
 See how the first line of code prints `2016`, but the second line of code (which tries to add together a string `"2015"` and the number `1`) gives you an error about a problem with `str` (i.e. string) and `int` (i.e. integer) 'concatentation'. More on concatenation in a minute.
 
@@ -562,15 +516,13 @@ print("Foo " * 25)
 #### A challenge for you!
 What do you think will be the output of this code? (Work out your answer _before_ running the code)
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 print('5' * 20)
 ```
-:::
 
 Now, why do you think the next example below doesn't work? (_Read the error output if you're not sure what's going on._)
 
-```python
+```{pyodide-python}
 print("5" * "2")
 ```
 
@@ -656,9 +608,10 @@ As the [Python Programming Wikibook explains](https://en.wikibooks.org/wiki/Pyth
 
 That's why in Python variables have a `name`, a `data-type` and a `value`.
 
-|       Name      | Data Type | Value |
-|:---------------:|:---------:|:-----:|
-| myFirstVariable | integer   | 1     |
+|       Name       | Data Type | Value |
+|:----------------:|:---------:|:-----:|
+| myFirstVariable  | integer   | 2     |
+| mySecondVariable | integer   | 5     |
 
 ### A challenge for you!
 
@@ -671,7 +624,7 @@ Change the code below by replacing the question marks `???` to make it work (i.e
 ::: {.panel-tabset}
 #### Question
 
-```python
+```{pyodide-python}
 ??? = "Peter"
 cheers ??? name ??? " is awesome!"
 print(cheers)
@@ -700,14 +653,14 @@ Here's a short list of the rules:
 
 So this block of code below will run:
 
-```{python}
+```{pyodide-python}
 famous_geographer = "Mercator"
 print(famous_geographer)
 ```
 
 But this block of code will not:
 
-```python
+```{pyodide-python}
 1st_geographic_projection =  """ Mercator's most famous Geographic Projection 
 is a cylindrical map projection 
 that retains the ability
@@ -752,30 +705,34 @@ new_satellite = 'Landsat'
 
 Look at the following example (and its output):
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 old_satellite = 'Sputnik 1'
 old_satellite_description = " was the first artificial Earth satellite, launched from the Soviet Union on the 4th of October, 1957."
 print("Здравствуйте! My name is " + old_satellite)
 print(old_satellite + old_satellite_description)
 ```
-:::
 
 Similar to the example above, in the code cell below:
 
 ::: {.panel-tabset}
 
-#### Question
+#### Question 1-A
 
-Exercise 1-A:
+1. Define a variable named `new_satellite` with value `Landsat`
+2. Try to print its name
 
-1. define a variable named `new_satellite` with value `Landsat`
-2. try to print its name
+```{pyodide-python}
+# 1-A answer here
+```
 
-Exercise 1-B:
+#### Question 1-B
 
-1. then try to concatenate its name with another variable description of your choice, 
-2. print them.
+1. Then try to concatenate its name with another variable description of your choice, 
+2. Print them.
+
+```{pyodide-python}
+# 1-B answer here
+```
 
 #### Answer 1-A
 
@@ -804,9 +761,10 @@ Landsat is a bit generic, the correct name is Landsat 8. How would you put toget
 
 #### Question
 
-```python
+```{pyodide-python}
 pr???nt("Hello there " + ???(new_satellite) )
 ```
+
 #### Answer
 
 ```{python}
@@ -823,7 +781,7 @@ According to its Wikipedia page Sputnik 1 was a 58 cm diameter polished metal sp
 
 #### Question
 
-```python
+```{pyodide-python}
 diameter_cm = 58
 cm2inches = 0.393700787
 diameter_inches = diameter_cm ??? cm2inches
@@ -849,7 +807,7 @@ Wat was its volume (in cubic cm)? # NOTE: the first line below we are "importing
 
 #### Question
 
-```python
+```{pyodide-python}
 import math
 PI = math.pi
 
@@ -857,6 +815,7 @@ radius_cm = diameter_cm/2
 volume =  (4/3) ??? PI ??? (radius_cm  ??? 3 )
 print(volume)
 ```
+
 #### Answer
 
 ```{python}
@@ -878,7 +837,7 @@ Hmmmm... something's broken in the following line of code; can you spot the erro
 
 #### Question
 
-```python
+```{pyodide-python}
 print(new_satellite + "has a Near Infrared (NI), \
 which band captures light in the wavelength from "+
       770 +
@@ -921,7 +880,7 @@ Replace the `???` in the code below to make it work.
 
 #### Question
 
-```python
+```{pyodide-python}
 # UCL CASA coordinates
 # What format are they in? Does it seem appropriate?
 longitude = -0.13604732328636063

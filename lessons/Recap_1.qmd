@@ -53,7 +53,7 @@ Without running the code below, calculate what the values of `x`, `y` and `z` wo
 
 #### Question
 
-```python
+```{pyodide-python}
 x = 12
 y = 10
 
@@ -64,7 +64,6 @@ y = z + y
 
 #### Answer
 
-:::{.to-pyodide}
 ```{python}
 x = 12
 y = 10
@@ -77,7 +76,6 @@ print(z)
 print(x)
 print(y)
 ```
-:::
 
 ::::
 
@@ -91,7 +89,7 @@ Without running the code below, calculate what the values of `x`, `y` and `z` wo
 
 #### Question
 
-```python
+```{pyodide-python}
 x = 1 + 2 * 3 / 4
 y = (1 + 2) * (3 / 4)
 z = 1 + 2 * (3 / 4)
@@ -103,7 +101,6 @@ print(z)
 
 #### Answer
 
-:::{.to-pyodide}
 ```{python}
 x = 1 + 2 * 3 / 4
 y = (1 + 2) * (3 / 4)
@@ -113,7 +110,6 @@ print(x)
 print(y)
 print(z)
 ```
-:::
 
 ::::
 
@@ -129,11 +125,11 @@ Given a sphere of diameter 12cm, calculate its volume (use Google to find the fo
 
 #### Question
 
-::: {.to-pyodide}
-```{python}
-# Calculate the volume of a sphere of diameter 12cm
+Calculate the volume of a sphere of diameter 12cm:
+
+```{pyodide-python}
+
 ```
-:::
 
 #### Answer
 
@@ -152,12 +148,10 @@ Given a sphere of volume 14,137cm3 calculate its radius to the closest **whole n
 
 #### Question
 
-::: {.to-pyodide}
-```{python}
+```{pyodide-python}
 # Calculate the radius of a shpere of volume 14,137cm3
 # Approximate it to the closest whole number
 ```
-:::
 
 #### Answer
 
@@ -167,7 +161,6 @@ r3 = vol / ((4/3) * pi)
 r = r3**(1/3)
 print(round(r))
 ```
-:::
 
 ::::
 
@@ -187,14 +180,12 @@ Using the code below as a starting point, add two lines of code so that your out
 
 #### Question
 
-::: {.to-pyodide}
-```{python}
+```{pyodide-python}
 hours = 10
 
 if hours > 0:
     print(" ")
 ```
-:::
 
 #### Answer
 
@@ -222,11 +213,9 @@ Write a code to execute the flow chart shown in the image below. You will need t
 
 #### Question
 
-::: {.to-pyodide}
-```{python}
+```{pyodide-python}
 # Execute the flow chart shown in the image
 ```
-:::
 
 #### Answer
 
@@ -248,9 +237,9 @@ print("after condition")
 
 ### 3.1 It's All Quite Logical
 
-Read the code in the code cell below. 
+Read the code below. 
 
-```python
+```{pyodide-python}
 x = 1
 if x > 0 and x < 5:
     print("Joe")
@@ -262,7 +251,7 @@ if not(x > 0):
     print("Sarah")
 ```
 
-Assume that the code executes for a given value of `x` and answer the following questions. Only test the code **AFTER** you have worked out the answers and typed them below.
+Assume that the code executes for a given value of `x` and answer the following questions. Only test the code **AFTER** you have worked out the answers for yourself.
 
 :::: {.panel-tabset}
 
@@ -300,13 +289,11 @@ In the cell below, use the for loop already set up to execute the alternative ex
 
 #### Question
 
-::: {.to-pyodide}
-```{python}
+```{pyodide-python}
 for x in range(0,9):
     # ... do something ...
     pass
 ```
-:::
 
 #### Answer
 
@@ -346,10 +333,8 @@ Note how the indentation makes it easier to work out which ‘level’ the code 
 
 To check you understand how the code above works:
 
-1. Change `insert conclusion here` in the code above to a string that helps to explain the condition of `x` and `y`
-2. **Before running the code** for `x = 2` and `y = 3`, type below what line(s) will be output 
-
-Output for `x = 2` and `y = 3` is: ....
+1. Change `insert conclusion here` in the code above to a string that helps to explain the condition of `x` and `y`.
+2. **Before running the code** for `x = 2` and `y = 3`, note down what line(s) will be output.
 
 :::: {.panel-tabset}
 
@@ -388,13 +373,14 @@ In the code cell below, enter code that reports whether person A is older than p
 
 #### Question
 
-::: {.to-pydodide}
-```{python}
-'''
-Enter code that reports whether person A is older than person B or not.
-'''
+Write some code to check whether person A is older than person B:
+
+```{pyodide-python}
+ageA = 20
+ageB = 19
+
+
 ```
-:::
 
 #### Answer
 
@@ -421,13 +407,14 @@ Copy your final code from the previous exercise into the code block below. Now b
 
 #### Question
 
-::: {.to-pyodide}
+Build in the previous code to handle the case where person A and person B are the same age:
+
 ```{python}
-'''
-Build on the previous code to check if Person A is older than Person B, but also whether they are the same age.
-'''
-```
-::: 
+ageA = 20
+ageB = 20
+
+
+``` 
 
 #### Solution
 
@@ -459,32 +446,33 @@ Copy your final code from the previous exercise into the code block below. Build
 
 #### Question
 
-::: {.to-pyodide}
-```{python}
-'''
-Build on the previous code with a nested execution structure to report if Person A is much younger, a little younger, the same age, a little older or much older than Person B.
-'''
+Build on the previous code to report if person A is much younger, a little younger, the same age, a little older, or much older than person B. Let's say that 'much == 20'.
+
+```{pyodide-python}
+ageA = 20
+ageB = 41
+
+
 ```
-:::
 
 #### Answer
 
 ```{python}
-ageA = 25
-ageB = 30
-largeD = 20
+ageA = 20
+ageB = 41
+much = 20
 
 diff = ageA - ageB
 
-if diff <= (largeD * -1):
+if diff <= (much * -1):
     print("Person A is much younger than Person B")
-elif diff < 0 and diff > (largeD * -1):
+elif diff < 0 and diff > (much * -1):
     print("Person A is a little younger than Person B")
 elif diff == 0:
     print("Person A is the same age as Person B")
-elif diff >= (largeD * 1):
+elif diff >= (much * 1):
     print("Person A is much older than Person B")
-elif diff > 0 and diff < (largeD * 1):  
+elif diff > 0 and diff < (much * 1):  
     print("Person A is a little older than Person B")
 ```
 
@@ -500,35 +488,37 @@ Read the link above (and maybe Google yourself for some other examples) and use 
 
 #### Question
 
-:::{.to-pyodide}
-```{python}
-'''
-Use the previous code and handle an exception in which the user an age as a string rather than a integer
-'''
+Modify the code above so that you *first* handle an exception where the user has provided age as a string instead of an int:
+
+```{pyodide-python}
+ageA = "five"
+ageB = 41
+much = 20
+
+
 ```
-:::
 
 #### Answer
 
 ```{python}
 ageA = "five"
 ageB = 30
-largeD = 20
+much = 20
 
 try:
     diff = ageA - ageB
 except:
     print("Invalid Input")
 else: 
-    if diff <= (largeD * -1):
+    if diff <= (much * -1):
         print("Person A is much younger than Person B")
-    elif diff < 0 and diff > (largeD * -1):
+    elif diff < 0 and diff > (much * -1):
         print("Person A is a little younger than Person B")
     elif diff == 0:
         print("Person A is the same age as Person B")
-    elif diff >= (largeD * 1):
+    elif diff >= (much * 1):
         print("Person A is much older than Person B")
-    elif diff > 0 and diff < (largeD * 1):  
+    elif diff > 0 and diff < (much * 1):  
         print("Person A is a little older than Person B")
     
 #read more at https://docs.python.org/3/tutorial/errors.html#handling-exceptions
@@ -546,38 +536,40 @@ Read the link above (and maybe Google yourself for some other examples) and use 
 
 #### Exercise
 
-::: {.to-pyodide}
-```{python}
-'''
-Use the previous code and raise an exception if the user provides a negative age (outputing “Invalid Age” in the error mmessage)
-'''
+Modify the code avoe to raise an exception if the user provides a negative age, outputting the message "Invalide Age" as part of the exception:
+
+```{pyodide-python}
+ageA = -1
+ageB = 41
+much = 20
+
+
 ```
-:::
 
 #### Answer
 
 ```{python}
 ageA = -1
 ageB = 30
-largeD = 20
+much = 20
 
 diff = ageA - ageB
 
 if ageA < 0 or ageB < 0:
     # This is how we create our own exception
     #raise Exception("Invalid Age") 
-    # But to enable replication here we just...
+    # But to enable this web page to build here we just...
     pass
 else:    
-    if diff <= (largeD * -1):
+    if diff <= (much * -1):
         print("Person A is much younger than Person B")
-    elif diff < 0 and diff > (largeD * -1):
+    elif diff < 0 and diff > (much * -1):
         print("Person A is a little younger than Person B")
     elif diff == 0:
         print("Person A is the same age as Person B")
-    elif diff >= (largeD * 1):
+    elif diff >= (much * 1):
         print("Person A is much older than Person B")
-    elif diff > 0 and diff < (largeD * 1):  
+    elif diff > 0 and diff < (much * 1):  
         print("Person A is a little older than Person B")
         
 #read more at https://docs.python.org/3/tutorial/errors.html#raising-exceptions

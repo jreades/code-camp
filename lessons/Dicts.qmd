@@ -14,13 +14,13 @@ In this lesson, we'll continue our exploration of more advanced data structures.
 
 Python is *unusual* amongst programming languages in maintaining order in dictionaries. Most other languages make no such promise: if you use a 'hash' in Perl or 'map' in Java, then items are stored in any order the programming language sees fit to optimise the speed of retrieval. 
 
-We'd recommend *never* assuming that key/value data structures have an order as it will save you a lot of pain later.
+So even though asking for a dictionary's keys or values will return a list in *insertion order*, we'd recommend *never* assuming that key/value data structures have any kind of reliable order as it will save you a lot of pain later.
 
 :::
 
 According to the [Official Docs](https://docs.python.org/3/tutorial/datastructures.html#dictionaries):
 
-> It is best to think of a dictionary as an unordered set of key-value pairs, with the requirement that the keys are unique (within one dictionary). A pair of braces creates an empty dictionary: {}
+> It is best to think of a dictionary as a set of key: value pairs, with the requirement that the keys are unique (within one dictionary). A pair of braces creates an empty dictionary: `{}`. 
 
 ## Creating
 
@@ -34,11 +34,12 @@ theDictionary = {
     ...
 }
 ```
+
 Each key/value _pair_ is linked by a ':', and each pair is separated from other pairs by a ','. It doesn't really matter if you put everything on newlines (as we do here) or all on the same line. We're just doing it this way to make it easier to read.
 
 Here's a more useful implementation of a dictionary:
 
-```python
+```{python}
 myDict = {
     "key1": "Value 1",
     3: "3rd Value",
@@ -66,7 +67,7 @@ This doesn't work because you can't use a list (`["key1",1]`) as a key, though a
 
 Like lists, we access an element in a dictionary using a 'location' marked out by a pair of square brackets (*[...]*). The difference is that the index is no longer an integer indicating the position of the item that we want to access, but is a *key* in the *key:value* pair:
 
-```python
+```{python}
 print(myDict["key1"])
 print(myDict["Fourth Key"])
 ```
@@ -77,9 +78,12 @@ Notice how now we just jump straight to the item we want? We don't need to think
 
 How would you print out "2nd Value" from `myDict`?
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
 myDict = {
     "key1": "Value 1",
     3: "3rd Value",
@@ -87,10 +91,13 @@ myDict = {
     "Fourth Key": [4.0, 'Jon']
 }
 
-print(???)
+#print(???)
 ```
+:::
+
 #### Solution
-```python
+
+```{python}
 myDict = {
     "key1": "Value 1",
     3: "3rd Value",
@@ -100,7 +107,8 @@ myDict = {
 
 print(myDict["key2"])
 ```
-:::
+
+::::
 
 When it comes to error messages, `dict`s and `list`s behave in similar ways. If you try to access a dictionary using a key that doesn't exist then Python raises an *exception*. 
 
@@ -123,35 +131,49 @@ capital_city = ['San Jose','Zagreb','Havana'] #values
 
 We already found out that we can easily convert between different types. Dictionary is also a data type, so we can convert these lists to dictionary just like we convert strings into integers using `str` and `int`. However, since we need to pair them, we need an additional function called `zip` to pair the keys and values.
 
-::: {.panel-tabset}
-#### Exercise
-```python
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
 country = ['Costa Rica','Croatia','Cuba'] #keys
 capital_city = ['San Jose','Zagreb','Havana'] #values
 
-capitalDict = ???(zip(???,???))
+#capitalDict = ???(zip(???,???))
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 country = ['Costa Rica','Croatia','Cuba'] #keys
 capital_city = ['San Jose','Zagreb','Havana'] #values
 
 capitalDict = dict(zip(country,capital_city))
 ```
-:::
+
+::::
 
 How would you print out the capital city of Croatia from `capitalDict`?
 
-::: {.panel-tabset}
-#### Exercise
-```python
-print(???)
-```
-#### Solution
-```python
-print(capitalDict['Croatia'])
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
+#print(???)
 ```
 :::
+
+#### Answer
+
+```{python}
+print(capitalDict['Croatia'])
+```
+
+::::
 
 ## A Simple Phone Book
 
@@ -166,17 +188,27 @@ So here are some useful contact numbers:
 
 Now, how would you create a dictionary that allowed us to look up and print out an emergency phone number based on the [two-character ISO country code](http://www.nationsonline.org/oneworld/country_code_list.htm)? It's going to look a little like this:
 
-::: {.panel-tabset}
+:::: {.panel-tabset}
+
 #### Exercise
-```python
+
+::: {.to-pyodide}
+```{python}
 eNumbers = {
-    ...
+#    ...
 }
-print("The Icelandic emergency number is " + eNumbers['IS'])
-print("The American emergency number is " + eNumbers['US'])
+
+try:
+    print("The Icelandic emergency number is " + eNumbers['IS'])
+    print("The American emergency number is " + eNumbers['US'])
+except KeyError:
+    print("Couldn't find the key in eNumbers.")
 ```
-#### Solution
-```python
+:::
+
+#### Answer
+
+```{python}
 eNumbers = {
     "IS": '112', # It's not very important here whether we use single- or double-quotes
     "US": '911'
@@ -184,7 +216,8 @@ eNumbers = {
 print("The Icelandic emergency number is " + eNumbers['IS'])
 print("The American emergency number is " + eNumbers['US']) 
 ```
-:::
+
+::::
 
 ## Useful Dictionary Methods
 
@@ -192,7 +225,7 @@ We are going to see in the next couple of lessons how to systematically access v
 
 Let's say that you have forgotten what *keys* you put in your dictionary...
 
-```python
+```{python}
 programmers = {
     "Charles": "Babbage",
     "Ada": "Lovelace",
@@ -204,13 +237,13 @@ print(programmers.keys())
 
 Or maybe you just need to access all of the values without troubling to ask for each key:
 
-```python
+```{python}
 print(programmers.values())
 ```
 
 Or maybe you even need to get them as pairs:
 
-```python
+```{python}
 # Output is a list of key-value pairs!
 print(programmers.items())
 ```
@@ -219,16 +252,27 @@ print(programmers.items())
 
 Can you access all the values of `capitalDict` from the previous challenge?
 
-::: {.panel-tabset}
-#### Exercise
-```python
+```{pyodide-python}
 print(???)
 ```
-#### Solution
-```python
-print(capitalDict.values())
+
+:::: {.panel-tabset}
+
+#### Question
+
+::: {.to-pyodide}
+```{python}
+#print(???)
 ```
 :::
+
+#### Answer
+
+```{python}
+print(capitalDict.values())
+```
+
+::::
 
 ### Are You On the List? (Part 2)
 

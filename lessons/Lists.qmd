@@ -110,12 +110,10 @@ Edit the code so that it prints the 'second' element in the list
 
 #### Question
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 myNewList = ['first', 'second', 'third']
-#print("The second element is :" + myNewList[???])
+print("The second element is :" + myNewList[???])
 ```
-:::
 
 #### Answer
 
@@ -132,7 +130,7 @@ What happens when you try to access an element that doesn't exist?
 
 We know that `myList` has 3 elements, so what if we try to access the 200th element in the list? In that case Python, as usual, will inform us of the problem using an *error message* pointing to the problem:
 
-```python
+```{pyodide-python}
 myNewList = ['first', 'second', 'third']
 print(myNewList[200])
 ```
@@ -149,7 +147,7 @@ You can see from the last line to you have an error related to your index - wher
 
 Even if you didn't realise it, you have already been working with lists in a _sense_ because *strings* are _basically_ lists! Think about it this way: strings are an ordered sequence of characters because 'hello' and 'olhel' are very different words! It turns out that characters in a string can be accessed the same way we'd access a generic list.
 
-```{python}
+```{pyodide-python}
 myString = "ABCDEF"
 print(myString[0])
 print(myString[-1])
@@ -176,12 +174,10 @@ Using the previous code as a guide, edit the code below so that it prints from t
 
 #### Question
 
-:::{.to-pyodide}
-```{python}
+```{pyodide-python}
 shortSentence2 = "A12B34c7.0"
-# print(shortSentence2[???:???])
+print(shortSentence2[???:???])
 ```
-:::
 
 #### Answer
 
@@ -189,7 +185,6 @@ shortSentence2 = "A12B34c7.0"
 shortSentence2 = "A12B34c7.0"
 print(shortSentence2[1:4]) 
 ```
-:::
 
 ::::
 
@@ -223,12 +218,10 @@ There are two ways to do it, one way uses only one number, the other uses two. B
 
 #### Question
 
-:::{.to-pyodide}
-```{python}
-#print("Up to the 18th position (Way 1): '" + stringToPrint[???:???] + "'")
-#print("Up to the 18th position (Way 2): '" + ??? + "'")
+```{pyodide-python}
+print("Up to the 18th position (Way 1): '" + stringToPrint[???:???] + "'")
+print("Up to the 18th position (Way 2): '" + ??? + "'")
 ```
-:::
 
 #### Solution
 
@@ -304,14 +297,14 @@ Correct the syntax in the following code to properly define a new list:
 
 #### Question
 
-```python
+```{pyodide-python}
 otherNonBritishProgrammers = ["Wozniak" ??? "Van Rossum"]
 ```
 
 #### Answer
 
 ```{python}
-otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
+otherNonBritishProgrammers = ["Wozniak", "Van Rossum"]
 ```
 
 ::::
@@ -319,8 +312,10 @@ otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
 Edit the following code to print out all the non british programmers:
 
 :::: {.panel-tabset}
+
 #### Question
-```python
+
+```{pyodide-python}
 nonBritishProgrammers = ["Torvald", "Knuth"]
 otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
 
@@ -329,14 +324,13 @@ print nonBritishProgrammers ??? otherNonBritishProgrammers
 
 #### Answer
 
-:::{.to-pyodide}
 ```{python}
 nonBritishProgrammers = ["Torvald", "Knuth"]
 otherNonBritishProgrammers = ["Wozniak","Van Rossum"]
 
 print(nonBritishProgrammers + otherNonBritishProgrammers)
 ```
-:::
+
 ::::
 
 ###  You're (not) in the list!
@@ -380,8 +374,7 @@ Complete the missing bits of the following code so that we print out Ada Lovelac
 
 #### Question
 
-::: {.to-pyodide}
-```{python}
+```{pyodide-python}
 firstProgrammerSurnames = ["Babbage", "Lovelace"]
 firstProgrammerNames    = ["Charles", "Ada"]
 
@@ -389,7 +382,6 @@ firstProgrammerSurnames[1] = firstProgrammerNames[1] + " " + firstProgrammerSurn
 
 #print("Lady "+ ???[1] +" is considered to be the first programmer.") 
 ```
-:::
 
 #### Answer
 
@@ -401,6 +393,7 @@ firstProgrammerSurnames[1] = firstProgrammerNames[1] + " " + firstProgrammerSurn
 
 print("Lady "+ firstProgrammerSurnames[1] +" is considered to be the first programmer.") 
 ```
+
 ::::
 
 _Note_ : Actually, Lady Ada Lovelace is a [fascinating person](https://en.wikipedia.org/wiki/Ada_Lovelace): she isn't just the first female programmer, she was the first programmer full-stop. For many years Charles Babbage got all the credit for inventing computers simply because he was a guy and designed the clever mechanical adding machine. However, lately, we've realised that Ada was the one who actually saw that Babbage hadn't just invented a better abacus, he'd invented a general-purpose computing device! 
@@ -437,7 +430,7 @@ myList.append('And another one!')
 print(myList)
 ```
 
-Why don't you try typing it all in your working environment? You'll get the same answer either way, but one is faster to write and easier to read!
+You'll get the same answer either way, but one is faster to write and easier to read!
 
 Appending to a list using `append(...)` is actually using something called a _function_. We've not really seen this concept before and we're not going to go into it in enormous detail here (there's a whole other lesson to introduce you to functions). The things that you need to notice at _this_ point in time are:
 
@@ -485,6 +478,7 @@ The `len` function is also a good example of this:
 ```{python}
 len(theParty)
 ```
+
 Here, the function `len` (lazy short-hand for _length_ ) is _passed_ `theParty` list as an input in order to do its magic.
 
 The functions `append`, `insert` and `index` work a _little_ bit differently. They have to be _called_ using `theParty` list. We're at risk of joining Alice down the rabbit-hole here, so let's just leave it at: the second set of functions are of a particular _type_ known as *methods* of the *list class*. We'll stop there. 
@@ -542,12 +536,10 @@ Add the famous [Grace Hopper](https://en.wikipedia.org/wiki/Grace_Hopper) (inven
 
 #### Question
 
-::: {.to-pyodide}
-```{python}
-#nonBritishProgrammers.???("Hopper") 
-#print(nonBritishProgrammers.???("Hopper"))
+```{pyodide-python}
+nonBritishProgrammers.???("Hopper") 
+print(nonBritishProgrammers.???("Hopper"))
 ```
-:::
 
 #### Answer
 
@@ -580,7 +572,7 @@ Did you see the `str(length_of_list)`? There's another function! We didn't draw 
 
 #### Question
 
-```python
+```{pyodide-python}
 # Fix the syntax of this line to print the length of the list:
 print length_of_list + 1
 ```
@@ -599,13 +591,12 @@ And then print it out as a string. So `length_of_list` is a number, and by calli
 
 #### Question
 
-::: {.to-pyodide}
-```{python}
-'''
-Convert the string "3" to the _integer_ 3
-'''
+Convert the string "3" to the integer 3:
+
+```{pyodide-python}
+three = "3"
+
 ```
-:::
 
 #### Answer
 
@@ -630,12 +621,10 @@ Complete the missing bits of the following code:
 
 #### Question
 
-::: {.to-pyodide}
-```{python}
-#length_of_brits = ???(britishProgrammers)
-#print "There are " ??? " British programmers."
+```{pyodide-python}
+length_of_brits = ???(britishProgrammers)
+print "There are " ??? " British programmers."
 ```
-:::
 
 #### Answer
 
@@ -658,33 +647,26 @@ Let's use what we know to jump to a particular point on the planet...
 
 ```{python}
 # We'll see more of this package import later...
-# For now, just know that it 
-# provides access to a function called IFrame
-from IPython.display import IFrame
-
-# We want to view an OpenStreetMap map
-siteName  = "https://www.openstreetmap.org/#map="
+# For now, just know that it provides access to raw HTML
+from IPython.display import HTML
 
 # Specify the location and zoom level
 latitude  = 63.6314
 longitude = -19.6083
 zoomLevel = 10
 
-mapURL = siteName + '/'.join([str(zoomLevel), str(latitude), str(longitude)])
+# We want to view an OpenStreetMap map
+mapURL = f"https://www.openstreetmap.org/#map={zoomLevel}/{latitude:0.4f}/{longitude:0.4f}"
 
-# Show the ULR
-print(mapURL)
-
-# And now show us an inline map!
-IFrame(mapURL, width='100%', height=400)
+HTML('<h3>Output</h3>\n\n<p><a href="' + mapURL + '">Your map is here</a>.</p>')
 ```
 
 And now let's try somewhere closer to home. Try using the `KCLMapCoordinates` list below (which tells you the x/y and zoom-level) in combination with the code above. I'd suggest copying what you need from above, pasting it into the code below, and then using what you know about accessing list information so that the map shows the location of King's College London...
 
 ```{python}
-# King's College coordinates
+# CASA's coordinates
 # What format are they in? Does it seem appropriate?
-KCLMapCoordinates = [51.51130657591914, -0.11596798896789551, 15]
+CASAMapCoordinates = [51.5219, -0.13595, 18]
 ```
 
 ```{python}
@@ -692,24 +674,14 @@ KCLMapCoordinates = [51.51130657591914, -0.11596798896789551, 15]
 siteName  = "https://www.openstreetmap.org/#map="
 
 # Specify the location and zoom level
-latitude  = KCLMapCoordinates[0]
-longitude = KCLMapCoordinates[1]
-zoomLevel = 15
+latitude  = CASAMapCoordinates[0]
+longitude = CASAMapCoordinates[1]
+zoomLevel = CASAMapCoordinates[2]
 
-mapURL = siteName + '/'.join([str(zoomLevel), str(latitude), str(longitude)])
+# We want to view an OpenStreetMap map
+mapURL = f"https://www.openstreetmap.org/#map={zoomLevel}/{latitude:0.4f}/{longitude:0.4f}"
 
-# Show the URL
-print(mapURL)
-
-# And now show us an inline map!
-map = siteName + ''.join(mapURL)
-IFrame(mapURL, width='100%', height=400)
-```
-
-```{python}
-#| echo: false
-from IPython.display import IFrame
-display(IFrame(mapURL, width='100%', height=400))
+HTML('<h3>Output</h3>\n\n<p><a href="' + mapURL + '">Your next map is here</a>.</p>')
 ```
 
 ### Further references:
@@ -720,7 +692,6 @@ General list or resources
 - [HitchHiker's guide to Python](http://docs.python-guide.org/en/latest/intro/learning/)
 - [Learn Python the Hard Way - Lists](http://learnpythonthehardway.org/book/ex32.html)
 - [Learn Python the Hard Way - Dictionaries](http://learnpythonthehardway.org/book/ex39.html)
-
 
 ### Credits!
 
