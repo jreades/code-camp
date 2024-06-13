@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -231,7 +265,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"code":"(23495.23 + 9238832.657 + 2 + 12921)/4","options":{"context":"interactive","message":"true","read-only":"false","output":"true","out-height":"","results":"markup","comment":"","warning":"true","label":"","fig-cap":"","fig-width":7,"out-width":"700px","fig-height":5,"dpi":72,"autorun":"","classes":""}},{"id":2,"code":"(23495.23 + 9238832.657 + 2 + 12921)/4","options":{"context":"interactive","message":"true","read-only":"false","output":"true","out-height":"","results":"markup","comment":"","warning":"true","label":"","fig-cap":"","fig-width":7,"out-width":"700px","fig-height":5,"dpi":72,"autorun":"","classes":""}}];
+globalThis.qpyodideCellDetails = [{"id":1,"code":"(2+2+1250)/3","options":{"read-only":"false","fig-height":5,"label":"","comment":"","message":"true","warning":"true","context":"interactive","out-height":"","autorun":"","results":"markup","fig-cap":"","dpi":72,"output":"true","fig-width":7,"classes":"","out-width":"700px"}},{"id":2,"code":"???","options":{"read-only":"false","fig-height":5,"label":"","comment":"","message":"true","warning":"true","context":"interactive","out-height":"","autorun":"","results":"markup","fig-cap":"","dpi":72,"output":"true","fig-width":7,"classes":"","out-width":"700px"}},{"id":3,"code":"(23495.23 + 9238832.657 + 2 + 12921)/4","options":{"read-only":"false","fig-height":5,"label":"","comment":"","message":"true","warning":"true","context":"interactive","out-height":"","autorun":"","results":"markup","fig-cap":"","dpi":72,"output":"true","fig-width":7,"classes":"","out-width":"700px"}}];
 
 
 </script>
@@ -423,9 +457,9 @@ globalThis._qpyodideGetInstance = function() {
 </script>
 
 
-<meta property="og:title" content="Code Camp - Background: *Why* We Do What We Do">
-<meta property="og:description" content="Computational approaches to understanding and managing cities – which is to say, approaches using computers and code – differ in important ways from the quantitative skills taught in traditional…">
-<meta property="og:image" content="https://jreades.github.io/code-camp/lessons/img/CASA_Logo_no_text.png">
+<meta property="og:title" content="Code Camp - Background: Why We Do What We Do">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Commodore_Grace_M._Hopper%2C_USN_(covered).jpg/960px-Commodore_Grace_M._Hopper%2C_USN_(covered).jpg">
 <meta property="og:site_name" content="Code Camp">
 <meta property="og:locale" content="en_GB">
 </head>
@@ -683,6 +717,10 @@ globalThis._qpyodideGetInstance = function() {
   <li><a href="#thinking-algorithmically" id="toc-thinking-algorithmically" class="nav-link active" data-scroll-target="#thinking-algorithmically">Thinking Algorithmically</a></li>
   <li><a href="#being-a-good-programmer" id="toc-being-a-good-programmer" class="nav-link" data-scroll-target="#being-a-good-programmer">Being a ‘good’ programmer</a></li>
   <li><a href="#learning-a-new-language" id="toc-learning-a-new-language" class="nav-link" data-scroll-target="#learning-a-new-language">Learning a (New) Language</a></li>
+  <li><a href="#practice-makes-perfect" id="toc-practice-makes-perfect" class="nav-link" data-scroll-target="#practice-makes-perfect">Practice makes perfect</a></li>
+  <li><a href="#programming-in-python" id="toc-programming-in-python" class="nav-link" data-scroll-target="#programming-in-python">Programming in Python</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a></li>
+  <li><a href="#credits" id="toc-credits" class="nav-link" data-scroll-target="#credits">Credits!</a></li>
   </ul>
 <div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -832,22 +870,198 @@ Tip
 </div>
 </div>
 <p>All of the rules of normal maths are respected by Python, though sometimes the syntax is a little different (as we’ll see later). So the following code will also work as expected to produce 418.0:</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Result</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Interactive</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div id="qpyodide-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>2318812.72175</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="callout-body-container callout-body">
+<p>Notice the ‘clipboard’ icon at the right-hand side of the code block above this tip? That will copy the code to your computer’s memory, allowing you to paste it into another file/input, such as the Python interpreter or Google notebook so that you can save or run it.</p>
+</div>
+</div>
+<p><em>Quick</em>, what’s the average (mean) of: <code>1 + 2 + 3 + 4</code>?</p>
+<p>A little harder, huh? So type your ‘formula’ to calculate the mean of <code>1, 2, 3, 4</code> then either hit <code>Return</code> (if you’re working in the Terminal) or click the ‘play’ button on the tool bar at the top of the window (if you’re working in Google Colab) to run your first piece of Python code!</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Answer</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Your equation should include the four numbers above with some <code>+</code> symbols and <code>(</code> and <code>)</code>, a <code>/</code> symbol, and another number.</p>
 <div id="qpyodide-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>If you are totally at a loss for what to type in the code cell, just click the “Answer” tab.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="64a71844" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span>) <span class="op">/</span> <span class="dv">4</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>2.5</code></pre>
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Did you get 2?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you got the result <code>2</code>, you are using Python version 2 and will need to check (and change) your installation of Python (go back to the <a href="../setup/install.html">Python Setup page</a>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="learning-languages-is-hard" class="level3">
+<h3 class="anchored" data-anchor-id="learning-languages-is-hard">Learning Languages is Hard</h3>
+<p>This is really important: just because you told the computer to do something that you eventually realise was ‘wrong’ (you may even feel silly) <strong>does <em>not</em> mean that <em>you</em> are stupid</strong>.</p>
+<p>Did you ever try to learn a foreign language? Did you expect to be fluent after a couple of classes? Did you <a href="https://translate.google.com/#es/en/embarazada">accidentally tell your teacher that you were ‘pregnant’ when you were just ‘embarrassed’</a>? Assuming that you had a realistic expectation of how far you’d get with French, Chinese, or English in your first couple of years, then you probably figured it’d be a <em>while</em> before you could hold a conversation with someone else.</p>
+<p>So why would you expect to sit down at a computer and be able to hold a conversation with it (which is another way of thinking about what coding is) after reading a few pages of text and watching a YouTube video or two? You will need to give it time, you will need to get used to looking at the documentation, you will need to ask for help (this seems like a good time to introduce <a href="http://stackoverflow.com/">Stack Overflow</a>), and you will need to persevere.</p>
+<blockquote class="blockquote">
+<p>If you don’t have a reason for learning to code outside of trying making lots of money that’s not a very long term passion… but when you have an idea or a problem that you’re passionate about solving then that’s why we keep on going… but do you need to have an understanding of complex math or logic skills, the answer is no.</p>
+</blockquote>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/k7Txbdvzx90" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>So while ‘making money’ is (often) a nice outcome of learning to code, having a passion for what you want to <em>do</em> with your code is what’s going to get you through the worst parts of the learning curve. You also need to be realistic: to become a professional programmer is something that happens over many years, you probably won’t just take a couple of classes and then go out into the world saying “I’m a programmer.”</p>
+<p>And, no, you do <em>not</em> need to know advanced maths in order to learn how to code: you need to be able to think logically and to reframe your problems in ways that align <em>with</em> the computer.</p>
+</section>
+<section id="on-accessible-code" class="level3">
+<h3 class="anchored" data-anchor-id="on-accessible-code">On Accessible Code</h3>
+<p>In the early days of computing, programs weren’t even written in English (or any other human language), they were written in Assembly/Machine Code. One of the people who thought that was crazy was this rather impressive Rear Admiral:</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg/960px-Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg" width="300"></p>
+<p><a href="https://en.wikipedia.org/wiki/Grace_Hopper">Grace Hopper</a> felt that applications should be written in a way that more people could understand; this would be good for the military, but it would also be good for business and society in general. For her efforts, she is now known as the Mother of COBOL (the COmmon Business Oriented Language), a language that is still in (some) use today.</p>
+</section>
+<section id="the-open-source-ethos" class="level3">
+<h3 class="anchored" data-anchor-id="the-open-source-ethos">The Open Source Ethos</h3>
+<p>Once I’ve got a solution to my current problem, I can take that code and apply it to a new problem. Or a new case study. <em>Or</em>, I can <a href="https://github.com/kingsgeocomp">post it online</a> and let others build off of my work to tackle problems that I’ve not even considered! Giving away my code might seem like a bad idea, but think about this: in a world of exciting research questions, are you going to be able to tackle every single one? Your own work <em>already</em> builds off of code that other people gave away (the Mac OS, Linux, QGIS, Python, etc.)… perhaps you should give something back to the community? Not <em>just</em> because it’s a nice thing to do, but because people will find out about you through your code. And those people might be in a position to offer you a job, or they might approach you as a collaborator, or they might point someone else with an interesting opportunity in your direction because you have built a reputation as a ‘contributor’. It has happened to us.</p>
+</section>
+</section>
+<section id="practice-makes-perfect" class="level2">
+<h2 class="anchored" data-anchor-id="practice-makes-perfect">Practice makes perfect</h2>
+<p>Your language class (assuming that you took one) probably had a ‘lab’ where you practised your new language and you probably made a lot of mistakes when you were getting started. It’s the same for programming: the reason you got a ‘silly’ answer is that we haven’t taught you how to ask the right question yet! For a language like Python “<code>4</code>” is not always the same as “<code>4.0</code>”… and sometimes the way ahead is unclear, but don’t worry if you can’t get the right answer <em>yet</em>, how to ‘talk numbers’ is the main topic in the <em>next</em> lesson and we’ll show you the answer at the end of this lesson.</p>
+<p>So, we want you to remember that there are no stupid questions when it comes to programming. We have <em>all</em> been lost at one point or another! Even skilled programmers (which doesn’t, TBH, describe many academics) <em>frequently</em> still ask for help by asking Google, it’s just that we do it for harder questions. And that’s only because we have had a lot more practice in the language of programming. So the <em>only</em> silly thing you can do in this short course is to assume that you can speed through the questions and don’t have to practice.</p>
+<p>Actually, there’s <em>one</em> other silly thing that you can do, and that’s not asking for help at all. If you’ve been banging your head against the computer for twenty minutes trying to get something to work and it <em>just isn’t working</em> then try explaining it to a friend or even a pet or stuffed animal! Often, the process of talking something out helps you to find the answer for <em>yourself</em>.</p>
+<p>If you don’t expend any effort in trying to understand how the code works, or if you just copy the answer off of your friend, that’s the same as assuming you’ll learn a foreign language just because you’re sitting next to a friend who is taking the same language course! <em>That</em> is also silly.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will need to practice in order to progress. You don’t learn French or Chinese by practising in the language lab once a week. You won’t learn to program a computer by only practising once a week.</p>
+</div>
+</div>
+<section id="when-computers-beat-brains-or-calculators" class="level3">
+<h3 class="anchored" data-anchor-id="when-computers-beat-brains-or-calculators">When computers beat brains (or calculators)</h3>
+<p>What makes a computer potentially <em>better</em> than a calculator (or your brain) is that a computer isn’t daunted by having to count lots of numbers and it doesn’t need you to input each number individually! The computer can also do things like:</p>
+<ul>
+<li>Find out the amount of rain that fell in London, Manchester, and Edinburgh yesterday from an online weather service;</li>
+<li>Work out the average rainfall for these three cities; and then</li>
+<li>Work out the standard deviation for rainfall.</li>
+</ul>
+<p>And it can do all of this in a matter of milliseconds! It can also do the same for 3,000 cities just as easily; sure, it’ll take a little bit longer, but it’s the <em>same basic code</em>.</p>
+<p>In other words, code is <a href="https://en.wikipedia.org/wiki/Scalability">scalable</a> in a way that brains and calculators are not and that is a crucial difference.</p>
+<p>Here’s a trivial example of when computers start to get better and faster than brains:</p>
+<div id="qpyodide-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remember
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Copy (clicking on the clipboard icon on the right) and paste the code into whatever Python environment you are using and then ‘run’ the code to get the answer.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="programming-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="programming-in-python">Programming in Python</h2>
+<p>In these lessons we will be using the Python programming language. As with human languages, there are <em>many</em> <a href="https://en.wikipedia.org/wiki/List_of_programming_languages">programming languages</a> in the world, each with their own advantages and disadvantages, and each with their own vocabulary (allowed words) and grammar (syntax). We use Python.</p>
+<section id="python-vs-r" class="level3">
+<h3 class="anchored" data-anchor-id="python-vs-r">Python vs R</h3>
+<p>Alongside Python, the other language that is often mentioned by people doing data-led research is <a href="https://www.r-project.org">R</a>. It’s the <em>other</em> one that many of your lecturers and a lot of other scientists use in a lot of their work. There’s <a href="https://www.quora.com/Which-is-better-for-data-analysis-R-or-Python">a great deal of debate about the relative merits of Python and R</a>, but for our purposes, <em>both</em> Python and R can help us to undertake the geographical analysis. That is, in fact, the premise of this entire course!</p>
+<p>So why have we chosen to use Python here? Of the two languages, we think that Python has some specific advantages:</p>
+<ol type="1">
+<li>It was designed for teaching, so its syntax is easier for a human to ‘parse’ than R’s</li>
+<li>It is more <em>like</em> other languages, so it is more readily transferrable if you need to learn another language. Think of it as learning Italian, which also makes it easier to learn Spanish and French.</li>
+<li>It is the one most-used as part of a <em>geographical workflow</em> – what we mean by this is that you can find Python buried inside of ESRI’s ArcGIS and the open-source QGIS applications, and it also sits behind (or talks to) a number of other tools that allow us to work flexibly and scalably with geo-data.</li>
+<li>It is easier to operationalise – Python offers more services/tools to enable you to turn something from a ‘hack’ (<a href="https://en.wikipedia.org/wiki/Hacks_at_the_Massachusetts_Institute_of_Technology">which doesn’t mean what you think it means</a> into a ‘service’.</li>
+</ol>
+<p>However, if you have been told R is the way to go then don’t worry, the concepts covered here still translate. And many of the contributors to these lessons use both languages… it just depends on the problem.</p>
+</section>
+<section id="python-what" class="level3">
+<h3 class="anchored" data-anchor-id="python-what">Python what?</h3>
+<p>Python was invented in the late 1980s by <a href="https://en.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a>, Python’s ‘benevolent dictator’ (until he stepped down from the position on 12 July 2018), which means that he (and some other very smart people) try to ensure that the language continues to meet the basic goals of:</p>
+<ul>
+<li>Being very easy to read (syntax)</li>
+<li>Using plain-English for many functions and operators (allowed words)</li>
+<li>Has a comprehensive style guide: <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> (syntax)</li>
+<li>Has no unnecessary special formatting characters (syntax <em>and</em> allowed words)</li>
+</ul>
+<p>So while Python is not a language that enables the computer to make calculations the fastest (C and C++ are faster), nor is it the safest (you wouldn’t use it to fly a rocket to Mars), it <em>is</em> a very readable, learnable and maintainable language.</p>
+<p>So if you want to learn to code, to do ‘data science’, or build a business, Python is a great choice.</p>
+<p>The points above are also made in <a href="http://mbrochh.github.io/python-101/#/6/1">Python In A Nutshell</a> by <a href="https://github.com/mbrochh">Martin Brochhaus</a> which you may find interesting and useful to accompany your learning of Python.</p>
+</section>
+<section id="three-takes-on-python" class="level3">
+<h3 class="anchored" data-anchor-id="three-takes-on-python">Three takes on Python</h3>
+<p>The images below are links to three videos pitched in quite different ways at the advantages of Python, all of which touch on issues we’ll be dealing with later… so watch the videos (even if they’re a bit silly in places)!</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/aXKVOLwpDg8" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Hn4FbT4wMms" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/G8brQdClo9s" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further Reading</h2>
+<ul>
+<li>A <strong>must</strong> read: <a href="http://learnpythonthehardway.org/book/intro.html">The Hard Way is Easier</a></li>
+<li>Two easy and accessible videos to start wrapping your head around programming (although they are not Python-centric) <a href="https://www.youtube.com/watch?v=qUVWM2Q4vAU">1</a> and <a href="https://www.youtube.com/watch?v=AImF__7FyzM">2</a></li>
+</ul>
+</section>
+<section id="credits" class="level2">
+<h2 class="anchored" data-anchor-id="credits">Credits!</h2>
+<section id="contributors" class="level4">
+<h4 class="anchored" data-anchor-id="contributors">Contributors:</h4>
+<p>The following individuals have contributed to these teaching materials:</p>
+<ul>
+<li><a href="https://github.com/jamesdamillington">James Millington</a></li>
+<li><a href="https://github.com/jreades">Jon Reades</a></li>
+<li><a href="https://github.com/miccferr">Michele Ferretti</a></li>
+<li><a href="https://github.com/zarashabrina">Zahratu Shabrina</a></li>
+<li><a href="https://www.ucl.ac.uk/bartlett/casa/people/fulvio-lopane">Fulvio Lopane</a></li>
+</ul>
+</section>
+<section id="license" class="level4">
+<h4 class="anchored" data-anchor-id="license">License</h4>
+<p>The content and structure of this teaching project itself is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license</a>, and the contributing source code is licensed under <a href="https://opensource.org/licenses/mit-license.php">The MIT License</a>.</p>
+</section>
+<section id="acknowledgements" class="level4">
+<h4 class="anchored" data-anchor-id="acknowledgements">Acknowledgements:</h4>
+<p>Supported by the <a href="https://www.rgs.org/HomePage.htm">Royal Geographical Society</a> (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.</p>
+</section>
+<section id="potential-dependencies" class="level4">
+<h4 class="anchored" data-anchor-id="potential-dependencies">Potential Dependencies:</h4>
+<p>This lesson may depend on the following libraries: None</p>
+
+
 </section>
 </section>
 
@@ -1288,11 +1502,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      <div class="footer-contents">[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 2022, J. Reades, F. Lopane, Z. Shabrina, J. Millington &amp; M. Ferretti</div>  
-    </div>   
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 2022, J. Reades, F. Lopane, Z. Shabrina, J. Millington &amp; M. Ferretti</p>
+</div>   
     <div class="nav-footer-center">
-      <div class="footer-contents">![](/img/favicon-16x16.png){.height:10px} Code Camp</div>  
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+<p><img src="../img/favicon-16x16.png" class="height:10px img-fluid"> Code Camp</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
