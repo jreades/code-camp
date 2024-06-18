@@ -103,6 +103,358 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/editor/editor.main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+<style type="text/css">
+.monaco-editor pre {
+  background-color: unset !important;
+}
+
+.qpyodide-editor-toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.qpyodide-editor-toolbar-left-buttons, .qpyodide-editor-toolbar-right-buttons {
+  display: flex;
+}
+
+.qpyodide-non-interactive-loading-container.qpyodide-cell-needs-evaluation, .qpyodide-non-interactive-loading-container.qpyodide-cell-evaluated {
+  justify-content: center;
+  display: flex;
+  background-color: rgba(250, 250, 250, 0.65);
+  border: 1px solid rgba(233, 236, 239, 0.65);
+  border-radius: 0.5rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.qpyodide-r-project-logo {
+  color: #2767B0; /* R Project's blue color */
+}
+
+.qpyodide-icon-status-spinner {
+  color: #7894c4;
+}
+
+.qpyodide-icon-run-code {
+  color: #0d9c29
+}
+
+.qpyodide-output-code-stdout {
+  color: #111;
+}
+
+.qpyodide-output-code-stderr {
+  color: #db4133;
+}
+
+.qpyodide-editor {
+  border: 1px solid #EEEEEE;
+}
+
+.qpyodide-editor-toolbar {
+  background-color: #EEEEEE;
+  padding: 0.2rem 0.5rem;
+}
+
+.qpyodide-button {
+  background-color: #EEEEEE;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  color: #000;
+  border-color: #dee2e6;
+  border: 1px solid rgba(0,0,0,0);
+  padding: 0.375rem 0.75rem;
+  font-size: .9rem;
+  border-radius: 0.25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.qpyodide-button:hover {
+  color: #000;
+  background-color: #d9dce0;
+  border-color: #c8ccd0;
+}
+
+.qpyodide-button:disabled,.qpyodide-button.disabled,fieldset:disabled .qpyodide-button {
+  pointer-events: none;
+  opacity: .65
+}
+
+.qpyodide-button-reset {
+  color: #696969; /*#4682b4;*/
+}
+
+.qpyodide-button-copy {
+  color: #696969;
+}
+
+
+/* Custom styling for RevealJS Presentations*/
+
+/* Reset the style of the interactive area */
+.reveal div.qpyodide-interactive-area {
+  display: block;
+  box-shadow: none;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+} 
+
+/* Provide space to entries */
+.reveal div.qpyodide-output-code-area pre div {
+  margin: 1px 2px 1px 10px;
+}
+
+/* Collapse the inside code tags to avoid extra space between line outputs */
+.reveal pre div code.qpyodide-output-code-stdout, .reveal pre div code.qpyodide-output-code-stderr {
+  padding: 0;
+  display: contents;
+}
+
+.reveal pre div code.qpyodide-output-code-stdout {
+  color: #111;
+}
+
+.reveal pre div code.qpyodide-output-code-stderr {
+  color: #db4133;
+}
+
+
+/* Create a border around console and output (does not effect graphs) */
+.reveal div.qpyodide-console-area {
+  border: 1px solid #EEEEEE;
+  box-shadow: 2px 2px 10px #EEEEEE;
+}
+
+/* Cap output height and allow text to scroll */
+/* TODO: Is there a better way to fit contents/max it parallel to the monaco editor size? */
+.reveal div.qpyodide-output-code-area pre {
+  max-height: 400px;
+  overflow: scroll;
+}
+</style>
+<script type="module">
+// Document level settings ----
+
+// Determine if we need to install python packages
+globalThis.qpyodideInstallPythonPackagesList = [''];
+
+// Check to see if we have an empty array, if we do set to skip the installation.
+globalThis.qpyodideSetupPythonPackages = !(qpyodideInstallPythonPackagesList.indexOf("") !== -1);
+
+// Display a startup message?
+globalThis.qpyodideShowStartupMessage = true;
+
+// Describe the webR settings that should be used
+globalThis.qpyodideCustomizedPyodideOptions = {
+  "indexURL": "https://cdn.jsdelivr.net/pyodide/v0.26.1/full/",
+  "env": {
+    "HOME": "/home/pyodide",
+  }, 
+  stdout: (text) => {qpyodideAddToOutputArray(text, "out");},
+  stderr: (text) => {qpyodideAddToOutputArray(text, "error");}
+}
+
+// Store cell data
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"fig-height":5,"message":"true","output":"true","autorun":"","warning":"true","results":"markup","read-only":"false","out-width":"700px","context":"interactive","fig-width":7,"dpi":72,"out-height":"","label":"","classes":"","fig-cap":"","comment":""},"code":"from urllib.request import urlopen\n\n# Given the info you were given above, what do you \n# think the value of 'url' should be? What\n# type of variable is it? int or string? \nurl = ???\n\n# Read the URL stream into variable called 'response'\n# using the function that we imported above\nresponse = ???(url)\n\n#now read from the stream, decoding so that we get actual text\ndatafile = response.read().decode('utf-8')\n\nprint(\"datafile variable is of type: '\" + datafile.__class__.__name__ + \"'.\\n\")"},{"id":2,"options":{"fig-height":5,"message":"true","output":"true","autorun":"","warning":"true","results":"markup","read-only":"false","out-width":"700px","context":"interactive","fig-width":7,"dpi":72,"out-height":"","label":"","classes":"","fig-cap":"","comment":""},"code":"if ['sup','rcalifragilisticexpialidocious']=='supercalifragilisticexpialidocious'.split(???, maxsplit=???):\n    print(\"You got it!\")\nelse:\n    print(\"Not yet!\")"},{"id":3,"options":{"fig-height":5,"message":"true","output":"true","autorun":"","warning":"true","results":"markup","read-only":"false","out-width":"700px","context":"interactive","fig-width":7,"dpi":72,"out-height":"","label":"","classes":"","fig-cap":"","comment":""},"code":"test = datafile[-1].split(???)\nprint(test)"}];
+
+
+</script>
+<script type="module">
+// Declare startupMessageqpyodide globally
+globalThis.qpyodideStartupMessage = document.createElement("p");
+
+// Function to set the button text
+globalThis.qpyodideSetInteractiveButtonState = function(buttonText, enableCodeButton = true) {
+  document.querySelectorAll(".qpyodide-button-run").forEach((btn) => {
+    btn.innerHTML = buttonText;
+    btn.disabled = !enableCodeButton;
+  });
+}
+
+// Function to update the status message in non-interactive cells
+globalThis.qpyodideUpdateStatusMessage = function(message) {
+  document.querySelectorAll(".qpyodide-status-text.qpyodide-cell-needs-evaluation").forEach((elem) => {
+    elem.innerText = message;
+  });
+}
+
+// Function to update the status message
+globalThis.qpyodideUpdateStatusHeader = function(message) {
+
+  if (!qpyodideShowStartupMessage) return;
+
+  qpyodideStartupMessage.innerHTML = message;
+}
+
+// Status header update with customized spinner message
+globalThis.qpyodideUpdateStatusHeaderSpinner = function(message) {
+
+  qpyodideUpdateStatusHeader(`
+    <i class="fa-solid fa-spinner fa-spin qpyodide-icon-status-spinner"></i>
+    <span>${message}</span>
+  `);
+}
+
+
+// Function that attaches the document status message
+function qpyodideDisplayStartupMessage(showStartupMessage) {
+  if (!showStartupMessage) {
+    return;
+  }
+
+  // Get references to header elements
+  const headerHTML = document.getElementById("title-block-header");
+  const headerRevealJS = document.getElementById("title-slide");
+
+  // Create the outermost div element for metadata
+  const quartoTitleMeta = document.createElement("div");
+  quartoTitleMeta.classList.add("quarto-title-meta");
+
+  // Create the first inner div element
+  const firstInnerDiv = document.createElement("div");
+  firstInnerDiv.setAttribute("id", "qpyodide-status-message-area");
+
+  // Create the second inner div element for "Pyodide Status" heading and contents
+  const secondInnerDiv = document.createElement("div");
+  secondInnerDiv.setAttribute("id", "qpyodide-status-message-title");
+  secondInnerDiv.classList.add("quarto-title-meta-heading");
+  secondInnerDiv.innerText = "Pyodide Status";
+
+  // Create another inner div for contents
+  const secondInnerDivContents = document.createElement("div");
+  secondInnerDivContents.setAttribute("id", "qpyodide-status-message-body");
+  secondInnerDivContents.classList.add("quarto-title-meta-contents");
+
+  // Describe the Pyodide state
+  qpyodideStartupMessage.innerText = "🟡 Loading...";
+  qpyodideStartupMessage.setAttribute("id", "qpyodide-status-message-text");
+  // Add `aria-live` to auto-announce the startup status to screen readers
+  qpyodideStartupMessage.setAttribute("aria-live", "assertive");
+
+  // Append the startup message to the contents
+  secondInnerDivContents.appendChild(qpyodideStartupMessage);
+
+  // Combine the inner divs and contents
+  firstInnerDiv.appendChild(secondInnerDiv);
+  firstInnerDiv.appendChild(secondInnerDivContents);
+  quartoTitleMeta.appendChild(firstInnerDiv);
+
+  // Determine where to insert the quartoTitleMeta element
+  if (headerHTML || headerRevealJS) {
+    // Append to the existing "title-block-header" element or "title-slide" div
+    (headerHTML || headerRevealJS).appendChild(quartoTitleMeta);
+  } else {
+    // If neither headerHTML nor headerRevealJS is found, insert after "Pyodide-monaco-editor-init" script
+    const monacoScript = document.getElementById("qpyodide-monaco-editor-init");
+    const header = document.createElement("header");
+    header.setAttribute("id", "title-block-header");
+    header.appendChild(quartoTitleMeta);
+    monacoScript.after(header);
+  }
+}
+
+qpyodideDisplayStartupMessage(qpyodideShowStartupMessage);
+</script>
+<script type="module">
+// Create a logging setup
+globalThis.qpyodideMessageArray = []
+
+// Add messages to array
+globalThis.qpyodideAddToOutputArray = function(message, type) {
+  qpyodideMessageArray.push({ message, type });
+}
+
+// Function to reset the output array
+globalThis.qpyodideResetOutputArray = function() {
+  qpyodideMessageArray = [];
+}
+
+globalThis.qpyodideRetrieveOutput = function() {
+  return qpyodideMessageArray.map(entry => entry.message).join('\n');
+}
+
+// Start a timer
+const initializePyodideTimerStart = performance.now();
+
+// Encase with a dynamic import statement
+globalThis.qpyodideInstance = await import(
+  qpyodideCustomizedPyodideOptions.indexURL + "pyodide.mjs").then(
+   async({ loadPyodide }) => {
+
+    console.log("Start loading Pyodide");
+    
+    // Populate Pyodide options with defaults or new values based on `pyodide`` meta
+    let mainPyodide = await loadPyodide(
+      qpyodideCustomizedPyodideOptions
+    );
+    
+    // Setup a namespace for global scoping
+    // await loadedPyodide.runPythonAsync("globalScope = {}"); 
+    
+    // Update status to reflect the next stage of the procedure
+    qpyodideUpdateStatusHeaderSpinner("Initializing Python Packages");
+
+    // Load the `micropip` package to allow installation of packages.
+    await mainPyodide.loadPackage("micropip");
+    await mainPyodide.runPythonAsync(`import micropip`);
+
+    // Load the `pyodide_http` package to shim uses of `requests` and `urllib3`.
+    // This allows for `pd.read_csv(url)` to work flawlessly.
+    // Details: https://github.com/coatless-quarto/pyodide/issues/9
+    await mainPyodide.loadPackage("pyodide_http");
+    await mainPyodide.runPythonAsync(`
+    import pyodide_http
+    pyodide_http.patch_all()  # Patch all libraries
+    `);
+
+    // Load the `matplotlib` package with necessary environment hook
+    await mainPyodide.loadPackage("matplotlib");
+
+    // Set the backend for matplotlib to be interactive.
+    await mainPyodide.runPythonAsync(`
+    import matplotlib
+    matplotlib.use("module://matplotlib_pyodide.html5_canvas_backend")
+    from matplotlib import pyplot as plt
+    `);
+
+    // Unlock interactive buttons
+    qpyodideSetInteractiveButtonState(
+      `<i class="fa-solid fa-play qpyodide-icon-run-code"></i> <span>Run Code</span>`, 
+      true
+    );
+
+    // Set document status to viable
+    qpyodideUpdateStatusHeader(
+      "🟢 Ready!"
+    );
+
+    // Assign Pyodide into the global environment
+    globalThis.mainPyodide = mainPyodide;
+
+    console.log("Completed loading Pyodide");
+    return mainPyodide;
+  }
+);
+
+// Stop timer
+const initializePyodideTimerEnd = performance.now();
+
+// Create a function to retrieve the promise object.
+globalThis._qpyodideGetInstance = function() {
+    return qpyodideInstance;
+}
+
+</script>
 
 
 <meta property="og:title" content="Code Camp - Introduction to Packages">
@@ -364,11 +716,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#whats-a-package" id="toc-whats-a-package" class="nav-link active" data-scroll-target="#whats-a-package">What’s a Package?</a></li>
   <li><a href="#packages-in-context" id="toc-packages-in-context" class="nav-link" data-scroll-target="#packages-in-context">Packages in Context</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   </ul>
 <div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/loader.js"></script>
+<script type="module" id="qpyodide-monaco-editor-init">
+
+  // Configure the Monaco Editor's loader
+  require.config({
+    paths: {
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs'
+    }
+  });
+</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -424,7 +787,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="import-as">Import… As…</h3>
 <p>The length and awkwardness of that last line is why you can write this:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ldn_data_store_reader <span class="im">as</span> ldn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Because the <em>alias</em> (<code>"...as ldn"</code>) lets you type <code>ldn.read_data(...)</code> and Python will know exactly which function you mean!</p>
+<p>Because the <em>alias</em> (<code>"... as ldn"</code>) lets you type <code>ldn.read_data(...)</code> and Python will know exactly which function you mean!</p>
 </section>
 </section>
 <section id="packages-in-context" class="level2">
@@ -433,14 +796,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>When you’re tackling a programming problem you break it down into separate, simpler steps, and then tick them off one by one. Doing this gets easier as you become more familiar with programming, but it remains crucial and, in many cases, good programmers in large companies spend more time on <em>design</em> than they do on actual <em>coding</em>.</p>
 <p>To a computer, reading data from a remote location (e.g.&nbsp;a web site halfway around the world) is not really any different from reading one that’s sitting on your your local hard drive (e.g.&nbsp;on your desktop). To simplify things a great deal: the computer really just needs to know the location of the file and an appropriate <em>protocol</em> for accessing that file (<em>e.g.</em> http, https, ftp, local…) and then a clever programming language like Python will typically have packages that can kind of take of the rest.</p>
 <p>In all cases – local and remote – you use the package to handle the hard bit of knowing how to actually ‘read’ data (because all files are just <code>1</code>s and <code>0</code>s of data) at the <em>device</em> level and then Python gives you back a ‘file handle’ that helps you to achieve things like ‘read a line’ or ‘close an open file’. You can think of a filehandle as something that gives you a ‘grip’ on a file-like object no matter where or what it is, and the package is the way that this magic is achieved.</p>
-<p>Let’s recall our problem: <em>download a data file that we know is hosted on a web site and then do some analysis of those data</em>.</p>
+<p>Let’s take a common problem:</p>
+<blockquote class="blockquote">
+<p>download a data file that we know is hosted on a web site and then do some analysis of those data…</p>
+</blockquote>
 <p>We need to break this seemingly hard problem down into something simpler and can do this by thinking about it as three separate steps:</p>
 <ol type="1">
-<li>First we want to read a remote file (i.e.&nbsp;a text file somewhere the planet),</li>
-<li>Then we want to turn it into a local data structure (i.e a list or a dictionary),</li>
+<li>First we want to read a remote file (e.g.&nbsp;a file somewhere the planet),</li>
+<li>Then we want to turn it into a local data structure (e.g.&nbsp;a list or a dictionary),</li>
 <li>Finally we want to perform some calculations on the data (e.g.&nbsp;calculate the mean).</li>
 </ol>
-<p>We can tackle each of those in turn, getting the first bit working, then adding the second bit, etc. It’s just like using lego to build something: you take the same pieces and assemble them in different ways to produce different things.</p>
+<p>We can tackle each of those problems in turn, getting the first bit working, then adding the second bit, etc. It’s just like using lego to build something: you take the same pieces and assemble them in different ways to produce different things.</p>
 <section id="step-1-reading-a-remote-file" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-reading-a-remote-file">Step 1: Reading a Remote File</h3>
 <p>So, as I said, in Step #1 we are going to download a file hosted on a remote web site at <a href="https://raw.githubusercontent.com/kingsgeocomp/geocomputation/master/CitiesWithWikipediaData-simple.csv">Cities from Wikipedia Data</a> (this can also be stored as a bit-link to make it easier to copy+paste and avoid <em>really</em> long lines: http://bit.ly/2vrUFKi)</p>
@@ -452,9 +818,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Of course, just knowing that you need <code>urlopen</code> doesn’t necessarily help you to actually <em>use</em> it. In addition to finding example code on StackOverflow, you can also ask the package itself for help with <code>dir</code> and <code>help</code>.</p>
 <section id="dir" class="level5">
 <h5 class="anchored" data-anchor-id="dir">dir</h5>
-<p>The ‘Dive into Python’ web site will tell you that “dir returns a list of the attributes and methods of any object”. That introduces yet another term (‘modules’) that we don’t want to get into right now, but <em>everything</em> in Python is an object and so <code>dir</code> will give you help with packages, variables, functions… you name it.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<p>The ‘Dive into Python’ web site will tell you that “dir returns a list of the attributes and methods of any object”. That introduces yet another term (‘methods’) that we don’t want to get into right now, but <em>everything</em> in Python is an object and so <code>dir</code> will give you help with packages, variables, functions… you name it.</p>
+<style type="text/css">
+.scrollable {
+    max-height: 400px;
+    overflow: visible;
+    overflow-y: scroll;
+    margin-bottom: 15px
+
+}
+</style>
+<div class="scrollable">
+<div id="a59ab8fa" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(math)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>['__doc__',
+ '__file__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ 'acos',
+ 'acosh',
+ 'asin',
+ 'asinh',
+ 'atan',
+ 'atan2',
+ 'atanh',
+ 'cbrt',
+ 'ceil',
+ 'comb',
+ 'copysign',
+ 'cos',
+ 'cosh',
+ 'degrees',
+ 'dist',
+ 'e',
+ 'erf',
+ 'erfc',
+ 'exp',
+ 'exp2',
+ 'expm1',
+ 'fabs',
+ 'factorial',
+ 'floor',
+ 'fmod',
+ 'frexp',
+ 'fsum',
+ 'gamma',
+ 'gcd',
+ 'hypot',
+ 'inf',
+ 'isclose',
+ 'isfinite',
+ 'isinf',
+ 'isnan',
+ 'isqrt',
+ 'lcm',
+ 'ldexp',
+ 'lgamma',
+ 'log',
+ 'log10',
+ 'log1p',
+ 'log2',
+ 'modf',
+ 'nan',
+ 'nextafter',
+ 'perm',
+ 'pi',
+ 'pow',
+ 'prod',
+ 'radians',
+ 'remainder',
+ 'sin',
+ 'sinh',
+ 'sqrt',
+ 'tan',
+ 'tanh',
+ 'tau',
+ 'trunc',
+ 'ulp']</code></pre>
+</div>
+</div>
+</div>
 <p>What <strong><code>dir</code></strong> gives you is information about things you can potentially do: it’s like navigating the menu of a web site – you aren’t yet looking at the information you need, you’re trying to figure out if the site even <em>has</em> what you need. So <code>dir</code> on a package will give you a list of the functions (and any variables) that the person who created the package has provided.</p>
 <p>Typically, the information given by <code>dir</code> is highly abbreviated and is really just a prelude to using <code>help</code>.</p>
 </section>
@@ -463,71 +910,176 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="help">help</h4>
 <p>The <code>help</code> function gives you the actual detail you need about how to use a particular function: what are the inputs, what are the outputs, and what will the function actually <em>do</em> ?</p>
 <p>Both of these can be used on a package, a function, or a variable that you’ve created; for example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(math.acos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d504fedc" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(math.acos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Help on built-in function acos in module math:
+
+acos(x, /)
+    Return the arc cosine (measured in radians) of x.
+    
+    The result is between 0 and pi.
+</code></pre>
+</div>
+</div>
 <p>Let’s see this in action!</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> urllib.request <span class="im">import</span> urlopen</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"dir(urlopen) returns:</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">dir</span>(urlopen))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"help(urlopen) returns:</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">help</span>(urlopen)) <span class="co"># Notice!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Note</strong>: you can also get help in Jupyter by typing <code>?urlopen</code> in a code block and then hitting ‘run’.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>?urlopen</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e3b344ed" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> urllib.request <span class="im">import</span> urlopen</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"dir(urlopen) returns:</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">dir</span>(urlopen))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>dir(urlopen) returns:
+
+['__annotations__', '__builtins__', '__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__get__', '__getattribute__', '__getstate__', '__globals__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__kwdefaults__', '__le__', '__lt__', '__module__', '__name__', '__ne__', '__new__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']</code></pre>
+</div>
+</div>
+<div class="scrollable">
+<div id="b6056531" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"help(urlopen) returns:</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">help</span>(urlopen)) <span class="co"># Notice!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>help(urlopen) returns:
+
+Help on function urlopen in module urllib.request:
+
+urlopen(url, data=None, timeout=&lt;object object at 0x1047207d0&gt;, *, cafile=None, capath=None, cadefault=False, context=None)
+    Open the URL url, which can be either a string or a Request object.
+    
+    *data* must be an object specifying additional data to be sent to
+    the server, or None if no such data is needed.  See Request for
+    details.
+    
+    urllib.request module uses HTTP/1.1 and includes a "Connection:close"
+    header in its HTTP requests.
+    
+    The optional *timeout* parameter specifies a timeout in seconds for
+    blocking operations like the connection attempt (if not specified, the
+    global default timeout setting will be used). This only works for HTTP,
+    HTTPS and FTP connections.
+    
+    If *context* is specified, it must be a ssl.SSLContext instance describing
+    the various SSL options. See HTTPSConnection for more details.
+    
+    The optional *cafile* and *capath* parameters specify a set of trusted CA
+    certificates for HTTPS requests. cafile should point to a single file
+    containing a bundle of CA certificates, whereas capath should point to a
+    directory of hashed certificate files. More information can be found in
+    ssl.SSLContext.load_verify_locations().
+    
+    The *cadefault* parameter is ignored.
+    
+    
+    This function always returns an object which can work as a
+    context manager and has the properties url, headers, and status.
+    See urllib.response.addinfourl for more detail on these properties.
+    
+    For HTTP and HTTPS URLs, this function returns a http.client.HTTPResponse
+    object slightly modified. In addition to the three new methods above, the
+    msg attribute contains the same information as the reason attribute ---
+    the reason phrase returned by the server --- instead of the response
+    headers as it is specified in the documentation for HTTPResponse.
+    
+    For FTP, file, and data URLs and requests explicitly handled by legacy
+    URLopener and FancyURLopener classes, this function returns a
+    urllib.response.addinfourl object.
+    
+    Note that None may be returned if no handler handles the request (though
+    the default installed global OpenerDirector uses UnknownHandler to ensure
+    this never happens).
+    
+    In addition, if proxy settings are detected (for example, when a *_proxy
+    environment variable like http_proxy is set), ProxyHandler is default
+    installed and makes sure the requests are handled through the proxy.
+
+None</code></pre>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="a-challenge-for-you" class="level3">
 <h3 class="anchored" data-anchor-id="a-challenge-for-you">A Challenge for you!</h3>
 <p>Fix the code to set the <code>url</code> variable, then use it with the <code>urlopen</code> function to open it.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Solution</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Answer</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> urllib.request <span class="im">import</span> urlopen</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Given the info you were given above, what do you </span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># think the value of 'url' should be? What</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># type of variable is it? int or string? </span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> ???</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the URL stream into variable called 'response'</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># using the function that we imported above</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> ???(url)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#now read from the stream, decoding so that we get actual text</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>datafile <span class="op">=</span> response.read().decode(<span class="st">'utf-8'</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"datafile variable is of type: '"</span> <span class="op">+</span> datafile.__class__.<span class="va">__name__</span> <span class="op">+</span> <span class="st">"'.</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="qpyodide-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> urllib.request <span class="im">import</span> urlopen</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"http://bit.ly/2vrUFKi"</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> urlopen(url)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>datafile <span class="op">=</span> response.read().decode(<span class="st">'utf-8'</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"datafile variable is of type: '"</span> <span class="op">+</span> datafile.__class__.<span class="va">__name__</span> <span class="op">+</span> <span class="st">"'.</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c22f2f37" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> urllib.request <span class="im">import</span> urlopen</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/kingsgeocomp/geocomputation/master/CitiesWithWikipediaData-simple.csv"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> urlopen(url)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>datafile <span class="op">=</span> response.read().decode(<span class="st">'utf-8'</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"datafile variable is of type: '"</span> <span class="op">+</span> datafile.__class__.<span class="va">__name__</span> <span class="op">+</span> <span class="st">"'.</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>datafile variable is of type: 'str'.
+</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 <p>Note that the <em>datafile</em> variable is of type <code>string</code> (because we decoded it as such). If we hadn’t decoded it, the result would have been of type <code>bytes</code> which wouldn’t be as easy for us (humans) to work with.</p>
 <p>Now that we’ve read our data as text, we can print it to check.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(datafile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="867d4a79" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(datafile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>id,Name,Rank,Longitude,Latitude,Population
+1,Greater London,1,-18162.92767,6711153.709,9787426
+2,Greater Manchester,2,-251761.802,7073067.458,2553379
+3,West Midlands,3,-210635.2396,6878950.083,2440986
+4,West Yorkshire,4,-185959.3022,7145450.207,1777934
+5,Glasgow,5,-473845.2389,7538620.144,1209143
+6,Liverpool,6,-340595.1768,7063197.083,864122
+7,South Hampshire,7,-174443.8647,6589419.084,855569
+8,Tyneside,8,-187604.3647,7356018.207,774891
+9,Nottingham,9,-131672.2399,6979298.895,729977
+10,Sheffield,10,-163545.3257,7055177.403,685368</code></pre>
+</div>
+</div>
 <p>So this is definitely text, but even though it has been nicely formatted <em>visually</em> in the script, right now it’s actually not in a very convenient format to work with in our <em>code</em>. The <code>datafile</code> <code>str</code> object is actually a single string of text that Python is interpreting as having line breaks. We can see this by printing the ‘raw’ object using the <code>repr</code> function:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">repr</span>(datafile))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0374a393" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">repr</span>(datafile))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'id,Name,Rank,Longitude,Latitude,Population\n1,Greater London,1,-18162.92767,6711153.709,9787426\n2,Greater Manchester,2,-251761.802,7073067.458,2553379\n3,West Midlands,3,-210635.2396,6878950.083,2440986\n4,West Yorkshire,4,-185959.3022,7145450.207,1777934\n5,Glasgow,5,-473845.2389,7538620.144,1209143\n6,Liverpool,6,-340595.1768,7063197.083,864122\n7,South Hampshire,7,-174443.8647,6589419.084,855569\n8,Tyneside,8,-187604.3647,7356018.207,774891\n9,Nottingham,9,-131672.2399,6979298.895,729977\n10,Sheffield,10,-163545.3257,7055177.403,685368'</code></pre>
+</div>
+</div>
 <p>Note the <code>\n</code> character that Python is using to determine when to print a <a href="https://en.wikipedia.org/wiki/Newline">new line</a> for us to read nicely.</p>
 <p>To split the text into individual lines ourselves (ready to work with in our code), we can use the handily named <code>.splitlines()</code> method (more on methods below):</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"http://bit.ly/2vrUFKi"</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> urlopen(url)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>datafile <span class="op">=</span> response.read().decode(<span class="st">'utf-8'</span>).splitlines()</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"datafile variable is of type: '"</span> <span class="op">+</span> datafile.__class__.<span class="va">__name__</span> <span class="op">+</span> <span class="st">"'.</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1c65ecf9" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/kingsgeocomp/geocomputation/master/CitiesWithWikipediaData-simple.csv"</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> urlopen(url)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>datafile <span class="op">=</span> response.read().decode(<span class="st">'utf-8'</span>).splitlines()</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"datafile variable is of type: '"</span> <span class="op">+</span> datafile.__class__.<span class="va">__name__</span> <span class="op">+</span> <span class="st">"'.</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>datafile variable is of type: 'list'.
+</code></pre>
+</div>
+</div>
 <p>Note now, that the data variable has type <code>list</code>. When we print this <code>datafile</code> <code>list</code> object (without <code>repr</code>) the <code>\n</code> characters have gone and the list elements are split where those new line characters were previously (look carefully at where the <code>'</code> are):</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(datafile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="358b20dc" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(datafile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['id,Name,Rank,Longitude,Latitude,Population', '1,Greater London,1,-18162.92767,6711153.709,9787426', '2,Greater Manchester,2,-251761.802,7073067.458,2553379', '3,West Midlands,3,-210635.2396,6878950.083,2440986', '4,West Yorkshire,4,-185959.3022,7145450.207,1777934', '5,Glasgow,5,-473845.2389,7538620.144,1209143', '6,Liverpool,6,-340595.1768,7063197.083,864122', '7,South Hampshire,7,-174443.8647,6589419.084,855569', '8,Tyneside,8,-187604.3647,7356018.207,774891', '9,Nottingham,9,-131672.2399,6979298.895,729977', '10,Sheffield,10,-163545.3257,7055177.403,685368']</code></pre>
+</div>
+</div>
 <p>We can see this more clearly if we use a for loop to print out each element of the list (each element being a row of the original online file):</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> datafile:</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e1af41b6" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> datafile[<span class="op">-</span><span class="dv">2</span>:]:</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9,Nottingham,9,-131672.2399,6979298.895,729977
+10,Sheffield,10,-163545.3257,7055177.403,685368</code></pre>
+</div>
+</div>
 <p>The last row should be <code>10,Sheffield,10,-163545.3257,7055177.403,685368</code>.</p>
 <p>If you’ve managed to get the code above to run and have received 11 rows of text in response to your <code>urlopen</code> query then, congratulations, you’ve now read a text file sitting on a server in, I think, Alberta, Canada and Python <em>didn’t care</em>.</p>
 </section>
@@ -541,84 +1093,231 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Just in case you need help pronouncing supercalifragilisticexpialidocious:</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/uZNRzc3hWvE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>Remember that you can find out what <em>methods</em> are supported by a string using <code>dir(&lt;string&gt;)</code>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(<span class="st">'supercalifragilisticexpialidocious'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="scrollable">
+<div id="e43d5ee5" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(<span class="st">'supercalifragilisticexpialidocious'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>['__add__',
+ '__class__',
+ '__contains__',
+ '__delattr__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__getitem__',
+ '__getnewargs__',
+ '__getstate__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__iter__',
+ '__le__',
+ '__len__',
+ '__lt__',
+ '__mod__',
+ '__mul__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__rmod__',
+ '__rmul__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ 'capitalize',
+ 'casefold',
+ 'center',
+ 'count',
+ 'encode',
+ 'endswith',
+ 'expandtabs',
+ 'find',
+ 'format',
+ 'format_map',
+ 'index',
+ 'isalnum',
+ 'isalpha',
+ 'isascii',
+ 'isdecimal',
+ 'isdigit',
+ 'isidentifier',
+ 'islower',
+ 'isnumeric',
+ 'isprintable',
+ 'isspace',
+ 'istitle',
+ 'isupper',
+ 'join',
+ 'ljust',
+ 'lower',
+ 'lstrip',
+ 'maketrans',
+ 'partition',
+ 'removeprefix',
+ 'removesuffix',
+ 'replace',
+ 'rfind',
+ 'rindex',
+ 'rjust',
+ 'rpartition',
+ 'rsplit',
+ 'rstrip',
+ 'split',
+ 'splitlines',
+ 'startswith',
+ 'strip',
+ 'swapcase',
+ 'title',
+ 'translate',
+ 'upper',
+ 'zfill']</code></pre>
+</div>
+</div>
+</div>
 <p>I’m going to save you some time (<em>this</em> time!) and tell you that we’re interested in the <code>split</code> method. Why not use the <code>help</code> function to figure out how to make use of it?</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="st">'supercalifragilisticexpialidocious'</span>.split)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now, using the output of the <code>help</code> command, how would you use <code>split</code> to turn that word into a list like this:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>[<span class="st">'sup'</span>,<span class="st">'rcalifragilisticexpialidocious'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If you replace the <code>???</code> with the right bits of code then running the block below will print out “You got it!”. You <em>only</em> need to change the <code>???</code> and nothing else!</p>
+<div id="08684650" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="st">'supercalifragilisticexpialidocious'</span>.split)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Help on built-in function split:
+
+split(sep=None, maxsplit=-1) method of builtins.str instance
+    Return a list of the substrings in the string, using sep as the separator string.
+    
+      sep
+        The separator used to split the string.
+    
+        When set to None (the default value), will split on any whitespace
+        character (including \\n \\r \\t \\f and spaces) and will discard
+        empty strings from the result.
+      maxsplit
+        Maximum number of splits (starting from the left).
+        -1 (the default value) means no limit.
+    
+    Note, str.split() is mainly useful for data that has been intentionally
+    delimited.  With natural text that includes punctuation, consider using
+    the regular expression module.
+</code></pre>
+</div>
+</div>
+<p>Now, using the output of the <code>help</code> command, how would you use <code>split</code> to turn that word into a list like this: <code>['sup','rcalifragilisticexpialidocious']</code>? If you replace the <code>???</code> with the right bits of code then running the block below will print out “You got it!”. You <em>only</em> need to change the <code>???</code> and nothing else!</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Solution</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Answer</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> [<span class="st">'sup'</span>,<span class="st">'rcalifragilisticexpialidocious'</span>]<span class="op">==</span><span class="st">'supercalifragilisticexpialidocious'</span>.split(???, maxsplit<span class="op">=</span>???):</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You got it!"</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Not yet!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="qpyodide-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> [<span class="st">'sup'</span>,<span class="st">'rcalifragilisticexpialidocious'</span>]<span class="op">==</span><span class="st">'supercalifragilisticexpialidocious'</span>.split(<span class="st">'e'</span>, maxsplit<span class="op">=</span><span class="dv">1</span>):</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You got it!"</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Not yet!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a41c05ed" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> [<span class="st">'sup'</span>,<span class="st">'rcalifragilisticexpialidocious'</span>]<span class="op">==</span><span class="st">'supercalifragilisticexpialidocious'</span>.split(<span class="st">'e'</span>, maxsplit<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You got it!"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Not yet!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>You got it!</code></pre>
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Some other string methods</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'supercalifragilisticexpialidocious'</span>.upper())</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'supercalifragilisticexpialidocious'</span>.title())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="bf26bfe2" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Some other string methods</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'supercalifragilisticexpialidocious'</span>.upper())</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'supercalifragilisticexpialidocious'</span>.title())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>SUPERCALIFRAGILISTICEXPIALIDOCIOUS
+Supercalifragilisticexpialidocious</code></pre>
+</div>
+</div>
 <p>OK, so you’ve tracked down the way to split a <code>string</code> using a delimiter and <em>even</em> how to limit the number of ‘words’ that come out of the split operation. And you already saw another of these methods above (i.e.&nbsp;<code>splitlines</code>). We work a lot with <code>string</code>s, so it’s handy to get to know the readily-available methods well.</p>
 <p>Let’s test <code>string</code> splitting using our sample data (the last line of the ‘simple’ CSV file) to make sure it works the way we think it does… We want to turn the <code>string</code> below into a list like this:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>[<span class="st">'10'</span>, <span class="st">'Sheffield'</span>, <span class="st">'10'</span>, <span class="st">'-163545.3257'</span>, <span class="st">'7055177.403'</span>, <span class="st">'685368'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>[<span class="st">'10'</span>, <span class="st">'Sheffield'</span>, <span class="st">'10'</span>, <span class="st">'-163545.3257'</span>, <span class="st">'7055177.403'</span>, <span class="st">'685368'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Again, we only need to change the <code>???</code>.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Exercise</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Solution</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Answer</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> datafile[<span class="op">-</span><span class="dv">1</span>].split(???)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="qpyodide-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> datafile[<span class="op">-</span><span class="dv">1</span>].split(<span class="st">','</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ea31bfdd" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> datafile[<span class="op">-</span><span class="dv">1</span>].split(<span class="st">','</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['10', 'Sheffield', '10', '-163545.3257', '7055177.403', '685368']</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
 <section id="consider" class="level4">
 <h4 class="anchored" data-anchor-id="consider">Consider</h4>
-<p>A question: why do you think that I consider a) to be data and not b)?</p>
-<ol type="a">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>[<span class="st">'10'</span>, <span class="st">'Sheffield'</span>, <span class="st">'10'</span>, <span class="st">'-163545.3257'</span>, <span class="st">'7055177.403'</span>, <span class="st">'685368'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="a">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">"10,Sheffield,10,-163545.3257,7055177.403,685368"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Decide what you think the answer is <em>before</em> clicking for the solution</strong></p>
-<p>Hopefully you can see that a) is a <code>list</code> and b) is a <code>str</code> (string). Because a) is a list we can easily access each element. For example try the following code yourself:</p>
-<p>Here’s a clue:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The population of "</span> <span class="op">+</span> myList[<span class="dv">1</span>] <span class="op">+</span> <span class="st">" is "</span> <span class="op">+</span> myList[<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A question: why do you think that I consider <code>a</code> to be data and not <code>b</code>?</p>
+<ul>
+<li><ol type="a">
+<li><code>['10', 'Sheffield', '10', '-163545.3257', '7055177.403', '685368']</code></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li><code>"10,Sheffield,10,-163545.3257,7055177.403,685368"</code></li>
+</ol></li>
+</ul>
+<p>Hopefully you can see that <code>a</code> is a <code>list</code> and <code>b</code> is a <code>str</code> (string). Because <code>a</code> is a list we can easily access each element. For example:</p>
+<div id="a309f3ea" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> datafile[<span class="op">-</span><span class="dv">1</span>].split(<span class="st">','</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The population of "</span> <span class="op">+</span> test[<span class="dv">1</span>] <span class="op">+</span> <span class="st">" is "</span> <span class="op">+</span> test[<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The population of Sheffield is 685368</code></pre>
+</div>
+</div>
 <p>It is much more difficult to access the individual pieces of information from the string…</p>
 <p>You can hopefully see how we’re breaking a complex problem down into a set of <em>increments</em> , each of which is a bit easier to write and understand.</p>
 </section>
 </section>
-<section id="step-3-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-analysis">Step 3: Analysis</h3>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx,row <span class="kw">in</span> <span class="bu">enumerate</span>(datafile):</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(idx <span class="op">&gt;</span> <span class="dv">0</span>):</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> total <span class="op">+</span> <span class="bu">int</span>(row[<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        count <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print(row)</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> total <span class="op">/</span> count </span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="step-3-example-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-example-analysis">Step 3: Example Analysis</h3>
+<p>Now that we understand why the list is a (basic) kind of data structure, we can <em>do</em> things with the list-of-lists:</p>
+<div id="e6ba5732" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx,row <span class="kw">in</span> <span class="bu">enumerate</span>(datafile):</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> row.split(<span class="st">','</span>)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(idx <span class="op">&gt;</span> <span class="dv">0</span>):</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Adding </span><span class="sc">{</span>r[<span class="op">-</span><span class="dv">1</span>]<span class="sc">}</span><span class="ss"> to total, count is now </span><span class="sc">{</span>count<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> total <span class="op">+</span> <span class="bu">int</span>(r[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>        count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> total <span class="op">/</span> count </span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The mean population of sampled UK cities is: </span><span class="sc">{</span>mean<span class="sc">:,}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Adding 9787426 to total, count is now 0
+Adding 2553379 to total, count is now 1
+Adding 2440986 to total, count is now 2
+Adding 1777934 to total, count is now 3
+Adding 1209143 to total, count is now 4
+Adding 864122 to total, count is now 5
+Adding 855569 to total, count is now 6
+Adding 774891 to total, count is now 7
+Adding 729977 to total, count is now 8
+Adding 685368 to total, count is now 9
+The mean population of sampled UK cities is: 2,167,879.5</code></pre>
+</div>
+</div>
 </section>
+</section>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<p>This session about packages (just <code>urllib</code> in this case) also took in several other concepts: how to access Python’s built-in help; how to use built-in functions (aka. methods); and how to piece together what we have covered to create a simple data processing script that reads a remote file of UK cities and calculates the mean population of those cities. There’s <em>lots</em> more ground to cover, but we’re nearly at the end of the foundational concepts and from there it will be about adding complexity and sophistication, not fundamentally new ideas.</p>
 <section id="credits" class="level3">
 <h3 class="anchored" data-anchor-id="credits">Credits!</h3>
 <section id="contributors" class="level4">
@@ -1102,6 +1801,542 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script type="module">
+/**
+ * Factory function to create different types of cells based on options.
+ * @param {Object} cellData - JSON object containing code, id, and options.
+ * @returns {BaseCell} Instance of the appropriate cell class.
+ */
+globalThis.qpyodideCreateCell = function(cellData) {
+    switch (cellData.options.context) {
+        case 'interactive':
+            return new InteractiveCell(cellData);
+        case 'output':
+            return new OutputCell(cellData);
+        case 'setup':
+            return new SetupCell(cellData);
+        default:
+            return new InteractiveCell(cellData);
+            // throw new Error('Invalid cell type specified in options.');
+    }
+}  
+
+/**
+ * CellContainer class for managing a collection of cells.
+ * @class
+ */
+class CellContainer {
+    /**
+     * Constructor for CellContainer.
+     * Initializes an empty array to store cells.
+     * @constructor
+     */
+    constructor() {
+        this.cells = [];
+    }
+
+    /**
+     * Add a cell to the container.
+     * @param {BaseCell} cell - Instance of a cell (BaseCell or its subclasses).
+     */
+    addCell(cell) {
+        this.cells.push(cell);
+    }
+
+    /**
+     * Execute all cells in the container.
+     */
+    async executeAllCells() {
+        for (const cell of this.cells) {
+            await cell.executeCode();
+        }
+    }
+
+    /**
+     * Execute all cells in the container.
+     */
+    async autoRunExecuteAllCells() {
+        for (const cell of this.cells) {
+            await cell.autoRunExecuteCode();
+        }
+    }
+}
+  
+
+/**
+ * BaseCell class for handling code execution using Pyodide.
+ * @class
+ */
+class BaseCell {
+    /**
+     * Constructor for BaseCell.
+     * @constructor
+     * @param {Object} cellData - JSON object containing code, id, and options.
+     */
+    constructor(cellData) {
+        this.code = cellData.code;
+        this.id = cellData.id;
+        this.options = cellData.options;
+        this.insertionLocation = document.getElementById(`qpyodide-insertion-location-${this.id}`);
+        this.executionLock = false;
+    }
+
+    cellOptions() {
+        // Subclass this? 
+        console.log(this.options);
+        return this.options;
+    }
+
+    /**
+     * Execute the Python code using Pyodide.
+     * @returns {*} Result of the code execution.
+     */
+    async executeCode() {
+        // Execute code using Pyodide
+        const result = getPyodide().runPython(this.code);
+        return result;
+    }
+};
+
+/**
+ * InteractiveCell class for creating editable code editor with Monaco Editor.
+ * @class
+ * @extends BaseCell
+ */
+class InteractiveCell extends BaseCell {
+
+    /**
+     * Constructor for InteractiveCell.
+     * @constructor
+     * @param {Object} cellData - JSON object containing code, id, and options.
+     */
+    constructor(cellData) {
+        super(cellData);
+        this.editor = null;
+        this.setupElement();
+        this.setupMonacoEditor();
+    }
+
+    /**
+     * Set up the interactive cell elements
+     */
+    setupElement() {
+
+        // Create main div element
+        var mainDiv = document.createElement('div');
+        mainDiv.id = `qpyodide-interactive-area-${this.id}`;
+        mainDiv.className = `qpyodide-interactive-area`;
+        if (this.options.classes) {
+            mainDiv.className += " " + this.options.classes
+        }
+
+        // Add a unique cell identifier that users can customize
+        if (this.options.label) {
+            mainDiv.setAttribute('data-id', this.options.label);
+        }
+
+        // Create toolbar div
+        var toolbarDiv = document.createElement('div');
+        toolbarDiv.className = 'qpyodide-editor-toolbar';
+        toolbarDiv.id = `qpyodide-editor-toolbar-${this.id}`;
+
+        // Create a div to hold the left buttons
+        var leftButtonsDiv = document.createElement('div');
+        leftButtonsDiv.className = 'qpyodide-editor-toolbar-left-buttons';
+
+        // Create a div to hold the right buttons
+        var rightButtonsDiv = document.createElement('div');
+        rightButtonsDiv.className = 'qpyodide-editor-toolbar-right-buttons';
+
+        // Create Run Code button
+        var runCodeButton = document.createElement('button');
+        runCodeButton.className = 'btn btn-default qpyodide-button qpyodide-button-run';
+        runCodeButton.disabled = true;
+        runCodeButton.type = 'button';
+        runCodeButton.id = `qpyodide-button-run-${this.id}`;
+        runCodeButton.textContent = '🟡 Loading Pyodide...';
+        runCodeButton.title = `Run code (Shift + Enter)`;
+
+        // Append buttons to the leftButtonsDiv
+        leftButtonsDiv.appendChild(runCodeButton);
+
+        // Create Reset button
+        var resetButton = document.createElement('button');
+        resetButton.className = 'btn btn-light btn-xs qpyodide-button qpyodide-button-reset';
+        resetButton.type = 'button';
+        resetButton.id = `qpyodide-button-reset-${this.id}`;
+        resetButton.title = 'Start over';
+        resetButton.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i>';
+
+        // Create Copy button
+        var copyButton = document.createElement('button');
+        copyButton.className = 'btn btn-light btn-xs qpyodide-button qpyodide-button-copy';
+        copyButton.type = 'button';
+        copyButton.id = `qpyodide-button-copy-${this.id}`;
+        copyButton.title = 'Copy code';
+        copyButton.innerHTML = '<i class="fa-regular fa-copy"></i>';
+
+        // Append buttons to the rightButtonsDiv
+        rightButtonsDiv.appendChild(resetButton);
+        rightButtonsDiv.appendChild(copyButton);
+
+        // Create console area div
+        var consoleAreaDiv = document.createElement('div');
+        consoleAreaDiv.id = `qpyodide-console-area-${this.id}`;
+        consoleAreaDiv.className = 'qpyodide-console-area';
+
+        // Create editor div
+        var editorDiv = document.createElement('div');
+        editorDiv.id = `qpyodide-editor-${this.id}`;
+        editorDiv.className = 'qpyodide-editor';
+
+        // Create output code area div
+        var outputCodeAreaDiv = document.createElement('div');
+        outputCodeAreaDiv.id = `qpyodide-output-code-area-${this.id}`;
+        outputCodeAreaDiv.className = 'qpyodide-output-code-area';
+        outputCodeAreaDiv.setAttribute('aria-live', 'assertive');
+
+        // Create pre element inside output code area
+        var preElement = document.createElement('pre');
+        preElement.style.visibility = 'hidden';
+        outputCodeAreaDiv.appendChild(preElement);
+
+        // Create output graph area div
+        var outputGraphAreaDiv = document.createElement('div');
+        outputGraphAreaDiv.id = `qpyodide-output-graph-area-${this.id}`;
+        outputGraphAreaDiv.className = 'qpyodide-output-graph-area';
+
+        // Append buttons to the toolbar
+        toolbarDiv.appendChild(leftButtonsDiv);
+        toolbarDiv.appendChild(rightButtonsDiv);
+
+        // Append all elements to the main div
+        mainDiv.appendChild(toolbarDiv);
+        consoleAreaDiv.appendChild(editorDiv);
+        consoleAreaDiv.appendChild(outputCodeAreaDiv);
+        mainDiv.appendChild(consoleAreaDiv);
+        mainDiv.appendChild(outputGraphAreaDiv);
+
+        // Insert the dynamically generated object at the document location.
+        this.insertionLocation.appendChild(mainDiv);
+    }
+
+    /**
+     * Set up Monaco Editor for code editing.
+     */
+    setupMonacoEditor() {
+
+        // Retrieve the previously created document elements
+        this.runButton = document.getElementById(`qpyodide-button-run-${this.id}`);
+        this.resetButton = document.getElementById(`qpyodide-button-reset-${this.id}`);
+        this.copyButton = document.getElementById(`qpyodide-button-copy-${this.id}`);
+        this.editorDiv = document.getElementById(`qpyodide-editor-${this.id}`);
+        this.outputCodeDiv = document.getElementById(`qpyodide-output-code-area-${this.id}`);
+        this.outputGraphDiv = document.getElementById(`qpyodide-output-graph-area-${this.id}`);
+        
+        // Store reference to the object
+        var thiz = this;
+
+        // Load the Monaco Editor and create an instance
+        require(['vs/editor/editor.main'], function () {
+            thiz.editor = monaco.editor.create(
+                thiz.editorDiv, {
+                    value: thiz.code,
+                    language: 'python',
+                    theme: 'vs-light',
+                    automaticLayout: true,           // Works wonderfully with RevealJS
+                    scrollBeyondLastLine: false,
+                    minimap: {
+                        enabled: false
+                    },
+                    fontSize: '17.5pt',              // Bootstrap is 1 rem
+                    renderLineHighlight: "none",     // Disable current line highlighting
+                    hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+                    readOnly: thiz.options['read-only'] ?? false
+                }
+            );
+        
+            // Store the official counter ID to be used in keyboard shortcuts
+            thiz.editor.__qpyodideCounter = thiz.id;
+        
+            // Store the official div container ID
+            thiz.editor.__qpyodideEditorId = `qpyodide-editor-${thiz.id}`;
+        
+            // Store the initial code value and options
+            thiz.editor.__qpyodideinitialCode = thiz.code;
+            thiz.editor.__qpyodideOptions = thiz.options;
+        
+            // Set at the model level the preferred end of line (EOL) character to LF.
+            // This prevent `\r\n` from being given to the Pyodide engine if the user is on Windows.
+            // See details in: https://github.com/coatless/quarto-Pyodide/issues/94
+            // Associated error text: 
+            // Error: <text>:1:7 unexpected input
+        
+            // Retrieve the underlying model
+            const model = thiz.editor.getModel();
+            // Set EOL for the model
+            model.setEOL(monaco.editor.EndOfLineSequence.LF);
+        
+            // Dynamically modify the height of the editor window if new lines are added.
+            let ignoreEvent = false;
+            const updateHeight = () => {
+            const contentHeight = thiz.editor.getContentHeight();
+            // We're avoiding a width change
+            //editorDiv.style.width = `${width}px`;
+            thiz.editorDiv.style.height = `${contentHeight}px`;
+                try {
+                    ignoreEvent = true;
+            
+                    // The key to resizing is this call
+                    thiz.editor.layout();
+                } finally {
+                    ignoreEvent = false;
+                }
+            };
+        
+            // Helper function to check if selected text is empty
+            function isEmptyCodeText(selectedCodeText) {
+                return (selectedCodeText === null || selectedCodeText === undefined || selectedCodeText === "");
+            }
+        
+            // Registry of keyboard shortcuts that should be re-added to each editor window
+            // when focus changes.
+            const addPyodideKeyboardShortCutCommands = () => {
+            // Add a keydown event listener for Shift+Enter to run all code in cell
+            thiz.editor.addCommand(monaco.KeyMod.Shift | monaco.KeyCode.Enter, () => {
+                // Retrieve all text inside the editor
+                thiz.runCode(thiz.editor.getValue());
+            });
+        
+            // Add a keydown event listener for CMD/Ctrl+Enter to run selected code
+            thiz.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
+                    // Get the selected text from the editor
+                    const selectedText = thiz.editor.getModel().getValueInRange(thiz.editor.getSelection());
+                    // Check if no code is selected
+                    if (isEmptyCodeText(selectedText)) {
+                        // Obtain the current cursor position
+                        let currentPosition = thiz.editor.getPosition();
+                        // Retrieve the current line content
+                        let currentLine = thiz.editor.getModel().getLineContent(currentPosition.lineNumber);
+                
+                        // Propose a new position to move the cursor to
+                        let newPosition = new monaco.Position(currentPosition.lineNumber + 1, 1);
+                
+                        // Check if the new position is beyond the last line of the editor
+                        if (newPosition.lineNumber > thiz.editor.getModel().getLineCount()) {
+                            // Add a new line at the end of the editor
+                            thiz.editor.executeEdits("addNewLine", [{
+                            range: new monaco.Range(newPosition.lineNumber, 1, newPosition.lineNumber, 1),
+                            text: "\n", 
+                            forceMoveMarkers: true,
+                            }]);
+                        }
+                        
+                        // Run the entire line of code.
+                        thiz.runCode(currentLine);
+                
+                        // Move cursor to new position
+                        thiz.editor.setPosition(newPosition);
+                    } else {
+                        // Code to run when Ctrl+Enter is pressed with selected code
+                        thiz.runCode(selectedText);
+                    }
+                });
+            }
+        
+            // Register an on focus event handler for when a code cell is selected to update
+            // what keyboard shortcut commands should work.
+            // This is a workaround to fix a regression that happened with multiple
+            // editor windows since Monaco 0.32.0 
+            // https://github.com/microsoft/monaco-editor/issues/2947
+            thiz.editor.onDidFocusEditorText(addPyodideKeyboardShortCutCommands);
+        
+            // Register an on change event for when new code is added to the editor window
+            thiz.editor.onDidContentSizeChange(updateHeight);
+        
+            // Manually re-update height to account for the content we inserted into the call
+            updateHeight();
+                
+        });
+
+        
+        // Add a click event listener to the run button
+        thiz.runButton.onclick = function () {
+            thiz.runCode(
+                thiz.editor.getValue()
+            );
+        };
+        
+        // Add a click event listener to the reset button
+        thiz.copyButton.onclick = function () {
+            // Retrieve current code data
+            const data = thiz.editor.getValue();
+            
+            // Write code data onto the clipboard.
+            navigator.clipboard.writeText(data || "");
+        };
+        
+        // Add a click event listener to the copy button
+        thiz.resetButton.onclick = function () {
+            thiz.editor.setValue(thiz.editor.__qpyodideinitialCode);
+        };
+    }
+
+    disableInteractiveCells() {
+        // Enable locking of execution for the cell
+        this.executionLock = true;
+
+        // Disallowing execution of other code cells
+        document.querySelectorAll(".qpyodide-button-run").forEach((btn) => {
+            btn.disabled = true;
+        });
+    }
+
+    enableInteractiveCells() {
+        // Remove locking of execution for the cell
+        this.executionLock = false;
+
+        // All execution of other code cells
+        document.querySelectorAll(".qpyodide-button-run").forEach((btn) => {
+            btn.disabled = false;
+        });
+    }
+
+    /**
+     * Execute the Python code inside the editor.
+     */
+    async runCode(code) {
+        
+        // Check if we have an execution lock
+        if (this.executeLock) return; 
+        
+        this.disableInteractiveCells();
+
+        // Force wait procedure
+        await mainPyodide;
+
+        // Clear the output stock
+        qpyodideResetOutputArray();
+
+        // Generate a new canvas element, avoid attaching until the end
+        let graphFigure = document.createElement("figure");
+        document.pyodideMplTarget = graphFigure;
+
+        console.log("Running code!");
+        // Obtain results from the base class
+        try {
+            // Always check to see if the user adds new packages
+            await mainPyodide.loadPackagesFromImports(code);
+
+            // Process result
+            const output = await mainPyodide.runPythonAsync(code);
+
+            // Add output
+            qpyodideAddToOutputArray(output, "stdout");
+        } catch (err) {
+            // Add error message
+            qpyodideAddToOutputArray(err, "stderr");
+            // TODO: There has to be a way to remove the Pyodide portion of the errors... 
+        }
+
+        const result = qpyodideRetrieveOutput();
+
+        // Nullify the output area of content
+        this.outputCodeDiv.innerHTML = "";
+        this.outputGraphDiv.innerHTML = "";        
+
+        // Design an output object for messages
+        const pre = document.createElement("pre");
+        if (/\S/.test(result)) {
+            // Display results as HTML elements to retain output styling
+            const div = document.createElement("div");
+            div.innerHTML = result;
+            pre.appendChild(div);
+        } else {
+            // If nothing is present, hide the element.
+            pre.style.visibility = "hidden";
+        }
+
+        // Add output under interactive div
+        this.outputCodeDiv.appendChild(pre);
+
+        // Place the graphics onto the page
+        if (graphFigure) {
+
+            if (this.options['fig-cap']) {
+                // Create figcaption element
+                const figcaptionElement = document.createElement('figcaption');
+                figcaptionElement.innerText = this.options['fig-cap'];
+                // Append figcaption to figure
+                graphFigure.appendChild(figcaptionElement);    
+            }
+
+            this.outputGraphDiv.appendChild(graphFigure);
+        }
+
+        // Re-enable execution
+        this.enableInteractiveCells();
+    }
+};
+
+/**
+ * OutputCell class for customizing and displaying output.
+ * @class
+ * @extends BaseCell
+ */
+class OutputCell extends BaseCell {
+    /**
+     * Constructor for OutputCell.
+     * @constructor
+     * @param {Object} cellData - JSON object containing code, id, and options.
+     */
+    constructor(cellData) {
+      super(cellData);
+    }
+  
+    /**
+     * Display customized output on the page.
+     * @param {*} output - Result to be displayed.
+     */
+    displayOutput(output) {
+        const results = this.executeCode();
+        return results;
+    }
+  }
+
+/**
+ * SetupCell class for suppressed output.
+ * @class
+ * @extends BaseCell
+ */
+class SetupCell extends BaseCell {
+    /**
+     * Constructor for SetupCell.
+     * @constructor
+     * @param {Object} cellData - JSON object containing code, id, and options.
+     */
+    constructor(cellData) {
+        super(cellData);
+    }
+
+    /**
+     * Execute the Python code without displaying the results.
+     */
+    runSetupCode() {
+        // Execute code without displaying output
+        this.executeCode();
+    }
+};
+</script>
+<script type="module">
+// Handle cell initialization initialization
+qpyodideCellDetails.map(
+    (entry) => {
+      // Handle the creation of the element
+      qpyodideCreateCell(entry);
+    }
+  );
+</script>
 
 
 

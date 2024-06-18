@@ -5,20 +5,24 @@
     <lastmod>2024-06-13T09:59:16.169Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Functions.html</loc>
-    <lastmod>2024-06-18T16:10:30.708Z</lastmod>
+    <loc>https://jreades.github.io/code-camp/lessons/Recap_2.html</loc>
+    <lastmod>2024-06-18T15:41:20.666Z</lastmod>
   </url>
   <url>
     <loc>https://jreades.github.io/code-camp/lessons/Dicts.html</loc>
     <lastmod>2024-06-17T10:15:42.211Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/The_Basics.html</loc>
-    <lastmod>2024-06-13T08:46:43.187Z</lastmod>
+    <loc>https://jreades.github.io/code-camp/lessons/Packages.html</loc>
+    <lastmod>2024-06-18T20:10:51.664Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Exceptions.html</loc>
-    <lastmod>2024-06-13T08:48:55.735Z</lastmod>
+    <loc>https://jreades.github.io/code-camp/lessons/Recap_1.html</loc>
+    <lastmod>2024-06-13T09:20:44.872Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jreades.github.io/code-camp/lessons/Classes.html</loc>
+    <lastmod>2024-06-18T20:35:53.000Z</lastmod>
   </url>
   <url>
     <loc>https://jreades.github.io/code-camp/lessons/Thinking_Like_a_Computer.html</loc>
@@ -33,16 +37,12 @@
     <lastmod>2024-06-11T11:46:07.882Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Packages.html</loc>
-    <lastmod>2024-06-11T11:46:07.883Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jreades.github.io/code-camp/setup/health.html</loc>
+    <loc>https://jreades.github.io/code-camp/setup/index.html</loc>
     <lastmod>2024-06-11T11:46:07.886Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Tools_of_the_Trade.html</loc>
-    <lastmod>2024-06-11T11:46:07.884Z</lastmod>
+    <loc>https://jreades.github.io/code-camp/lessons/Writing_Code.html</loc>
+    <lastmod>2024-06-13T08:49:56.071Z</lastmod>
   </url>
   <url>
     <loc>https://jreades.github.io/code-camp/setup/env.html</loc>
@@ -65,15 +65,11 @@
     <lastmod>2024-06-11T11:46:07.885Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Classes.html</loc>
-    <lastmod>2024-06-11T11:46:07.882Z</lastmod>
+    <loc>https://jreades.github.io/code-camp/lessons/Tools_of_the_Trade.html</loc>
+    <lastmod>2024-06-11T11:46:07.884Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Writing_Code.html</loc>
-    <lastmod>2024-06-13T08:49:56.071Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jreades.github.io/code-camp/setup/index.html</loc>
+    <loc>https://jreades.github.io/code-camp/setup/health.html</loc>
     <lastmod>2024-06-11T11:46:07.886Z</lastmod>
   </url>
   <url>
@@ -93,8 +89,12 @@
     <lastmod>2024-06-13T08:30:21.558Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Recap_1.html</loc>
-    <lastmod>2024-06-13T09:20:44.872Z</lastmod>
+    <loc>https://jreades.github.io/code-camp/lessons/Exceptions.html</loc>
+    <lastmod>2024-06-13T08:48:55.735Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jreades.github.io/code-camp/lessons/The_Basics.html</loc>
+    <lastmod>2024-06-13T08:46:43.187Z</lastmod>
   </url>
   <url>
     <loc>https://jreades.github.io/code-camp/lessons/Loops.html</loc>
@@ -105,7 +105,7 @@
     <lastmod>2024-06-13T09:08:18.144Z</lastmod>
   </url>
   <url>
-    <loc>https://jreades.github.io/code-camp/lessons/Recap_2.html</loc>
-    <lastmod>2024-06-18T15:41:20.666Z</lastmod>
+    <loc>https://jreades.github.io/code-camp/lessons/Functions.html</loc>
+    <lastmod>2024-06-18T19:36:05.345Z</lastmod>
   </url>
 </urlset>

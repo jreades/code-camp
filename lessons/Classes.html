@@ -103,6 +103,358 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/editor/editor.main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+<style type="text/css">
+.monaco-editor pre {
+  background-color: unset !important;
+}
+
+.qpyodide-editor-toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.qpyodide-editor-toolbar-left-buttons, .qpyodide-editor-toolbar-right-buttons {
+  display: flex;
+}
+
+.qpyodide-non-interactive-loading-container.qpyodide-cell-needs-evaluation, .qpyodide-non-interactive-loading-container.qpyodide-cell-evaluated {
+  justify-content: center;
+  display: flex;
+  background-color: rgba(250, 250, 250, 0.65);
+  border: 1px solid rgba(233, 236, 239, 0.65);
+  border-radius: 0.5rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.qpyodide-r-project-logo {
+  color: #2767B0; /* R Project's blue color */
+}
+
+.qpyodide-icon-status-spinner {
+  color: #7894c4;
+}
+
+.qpyodide-icon-run-code {
+  color: #0d9c29
+}
+
+.qpyodide-output-code-stdout {
+  color: #111;
+}
+
+.qpyodide-output-code-stderr {
+  color: #db4133;
+}
+
+.qpyodide-editor {
+  border: 1px solid #EEEEEE;
+}
+
+.qpyodide-editor-toolbar {
+  background-color: #EEEEEE;
+  padding: 0.2rem 0.5rem;
+}
+
+.qpyodide-button {
+  background-color: #EEEEEE;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  color: #000;
+  border-color: #dee2e6;
+  border: 1px solid rgba(0,0,0,0);
+  padding: 0.375rem 0.75rem;
+  font-size: .9rem;
+  border-radius: 0.25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.qpyodide-button:hover {
+  color: #000;
+  background-color: #d9dce0;
+  border-color: #c8ccd0;
+}
+
+.qpyodide-button:disabled,.qpyodide-button.disabled,fieldset:disabled .qpyodide-button {
+  pointer-events: none;
+  opacity: .65
+}
+
+.qpyodide-button-reset {
+  color: #696969; /*#4682b4;*/
+}
+
+.qpyodide-button-copy {
+  color: #696969;
+}
+
+
+/* Custom styling for RevealJS Presentations*/
+
+/* Reset the style of the interactive area */
+.reveal div.qpyodide-interactive-area {
+  display: block;
+  box-shadow: none;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+} 
+
+/* Provide space to entries */
+.reveal div.qpyodide-output-code-area pre div {
+  margin: 1px 2px 1px 10px;
+}
+
+/* Collapse the inside code tags to avoid extra space between line outputs */
+.reveal pre div code.qpyodide-output-code-stdout, .reveal pre div code.qpyodide-output-code-stderr {
+  padding: 0;
+  display: contents;
+}
+
+.reveal pre div code.qpyodide-output-code-stdout {
+  color: #111;
+}
+
+.reveal pre div code.qpyodide-output-code-stderr {
+  color: #db4133;
+}
+
+
+/* Create a border around console and output (does not effect graphs) */
+.reveal div.qpyodide-console-area {
+  border: 1px solid #EEEEEE;
+  box-shadow: 2px 2px 10px #EEEEEE;
+}
+
+/* Cap output height and allow text to scroll */
+/* TODO: Is there a better way to fit contents/max it parallel to the monaco editor size? */
+.reveal div.qpyodide-output-code-area pre {
+  max-height: 400px;
+  overflow: scroll;
+}
+</style>
+<script type="module">
+// Document level settings ----
+
+// Determine if we need to install python packages
+globalThis.qpyodideInstallPythonPackagesList = [''];
+
+// Check to see if we have an empty array, if we do set to skip the installation.
+globalThis.qpyodideSetupPythonPackages = !(qpyodideInstallPythonPackagesList.indexOf("") !== -1);
+
+// Display a startup message?
+globalThis.qpyodideShowStartupMessage = true;
+
+// Describe the webR settings that should be used
+globalThis.qpyodideCustomizedPyodideOptions = {
+  "indexURL": "https://cdn.jsdelivr.net/pyodide/v0.26.1/full/",
+  "env": {
+    "HOME": "/home/pyodide",
+  }, 
+  stdout: (text) => {qpyodideAddToOutputArray(text, "out");},
+  stderr: (text) => {qpyodideAddToOutputArray(text, "error");}
+}
+
+// Store cell data
+globalThis.qpyodideCellDetails = [{"code":"class shape(object): \n    def __init__(self): \n        return \n    \n    def volume(self):\n        raise Exception(\"Unimplmented method error.\")\n    \n    def diameter(self):\n        raise Exception(\"Unimplmented method error.\")\n        \n    def type(self):\n        return(self.shape_type)\n\ns = shape()\nprint(f\"I am an object of class '{type(s).__name__}'.\\n\\n\")\ns.volume()","id":1,"options":{"read-only":"false","results":"markup","message":"true","fig-width":7,"context":"interactive","label":"","warning":"true","out-height":"","fig-cap":"","dpi":72,"out-width":"700px","fig-height":5,"classes":"","output":"true","autorun":"","comment":""}},{"code":"class cube(shape): # Inherit from shape \n    def __init__(self, e):\n        self.shape_type = 'Cube'\n        self.edge = e\n        return\n    \n    def volume(self):\n        return self.edge**3\n    \n    def diameter(self):\n        return (self.edge**2 + self.edge**2)**(1/2)\n\nclass sphere(shape): # Inherit from shape \n    def __init__(self, r):\n        self.shape_type = 'Sphere'\n        self.radius = r\n        return\n    \n    def volume(self):\n        return (4/3) * pi * self.radius**3\n    \n    def diameter(self):\n        return self.radius*2","id":2,"options":{"read-only":"false","results":"markup","message":"true","fig-width":7,"context":"interactive","label":"","warning":"true","out-height":"","fig-cap":"","dpi":72,"out-width":"700px","fig-height":5,"classes":"","output":"true","autorun":"","comment":""}},{"code":"s = sphere(10)\nprint(s.type())\nprint(\"\\tVolume is: {0:5.2f}\".format(s.volume()))\nprint(\"\\tDiameter is: {0:5.2f}\".format(s.diameter()))\nprint(\"\")\n\nc = cube(10)\nprint(c.type())\nprint(\"\\tVolume is: {0:5.2f}\".format(c.volume()))\nprint(\"\\tDiameter is: {0:5.2f}\".format(c.diameter()))\nprint(\"\")","id":3,"options":{"read-only":"false","results":"markup","message":"true","fig-width":7,"context":"interactive","label":"","warning":"true","out-height":"","fig-cap":"","dpi":72,"out-width":"700px","fig-height":5,"classes":"","output":"true","autorun":"","comment":""}},{"code":"from math import pi\n\nclass shape(object): # Inherit from base class \n    def __init__(self): \n        return \n    \n    def volume(self):\n        raise Exception(\"Unimplmented method error.\")\n    \n    def diameter(self):\n        raise Exception(\"Unimplmented method error.\")\n    \n    def area(self):\n        raise Exception(\"Unimplmented method error.\")\n\n    def type(self):\n        return(self.shape_type)\n    \nclass cube(shape): # Inherit from shape \n    def __init__(self, e):\n        self.shape_type = 'Cube'\n        self.edge = e\n        return\n    \n    def volume(self):\n        return self.edge**3\n    \n    def diameter(self):\n        return (self.edge**2 + self.edge**2)**(1/2)\n    \n    def area...\n\nclass sphere(shape): # Inherit from shape \n    def __init__(self, r):\n        self.shape_type = 'Sphere'\n        self.radius = r\n        return\n    \n    def volume(self):\n        return (4/3) * pi * self.radius**3\n    \n    def diameter(self):\n        return self.radius*2\n    \n    def area...\n\nclass pyramid(shape): # Inherit from shape\n    \n    has_mummies = True # This is for *all* regular pyramids\n    \n    def __init__(self, e):\n        self.shape_type = 'Regular Pyramid'\n        self.edge       = e\n        return\n    \n    def volume...\n\n    def diameter...\n\n    def area...","id":4,"options":{"read-only":"false","results":"markup","message":"true","fig-width":7,"context":"interactive","label":"","warning":"true","out-height":"","fig-cap":"","dpi":72,"out-width":"700px","fig-height":5,"classes":"","output":"true","autorun":"","comment":""}}];
+
+
+</script>
+<script type="module">
+// Declare startupMessageqpyodide globally
+globalThis.qpyodideStartupMessage = document.createElement("p");
+
+// Function to set the button text
+globalThis.qpyodideSetInteractiveButtonState = function(buttonText, enableCodeButton = true) {
+  document.querySelectorAll(".qpyodide-button-run").forEach((btn) => {
+    btn.innerHTML = buttonText;
+    btn.disabled = !enableCodeButton;
+  });
+}
+
+// Function to update the status message in non-interactive cells
+globalThis.qpyodideUpdateStatusMessage = function(message) {
+  document.querySelectorAll(".qpyodide-status-text.qpyodide-cell-needs-evaluation").forEach((elem) => {
+    elem.innerText = message;
+  });
+}
+
+// Function to update the status message
+globalThis.qpyodideUpdateStatusHeader = function(message) {
+
+  if (!qpyodideShowStartupMessage) return;
+
+  qpyodideStartupMessage.innerHTML = message;
+}
+
+// Status header update with customized spinner message
+globalThis.qpyodideUpdateStatusHeaderSpinner = function(message) {
+
+  qpyodideUpdateStatusHeader(`
+    <i class="fa-solid fa-spinner fa-spin qpyodide-icon-status-spinner"></i>
+    <span>${message}</span>
+  `);
+}
+
+
+// Function that attaches the document status message
+function qpyodideDisplayStartupMessage(showStartupMessage) {
+  if (!showStartupMessage) {
+    return;
+  }
+
+  // Get references to header elements
+  const headerHTML = document.getElementById("title-block-header");
+  const headerRevealJS = document.getElementById("title-slide");
+
+  // Create the outermost div element for metadata
+  const quartoTitleMeta = document.createElement("div");
+  quartoTitleMeta.classList.add("quarto-title-meta");
+
+  // Create the first inner div element
+  const firstInnerDiv = document.createElement("div");
+  firstInnerDiv.setAttribute("id", "qpyodide-status-message-area");
+
+  // Create the second inner div element for "Pyodide Status" heading and contents
+  const secondInnerDiv = document.createElement("div");
+  secondInnerDiv.setAttribute("id", "qpyodide-status-message-title");
+  secondInnerDiv.classList.add("quarto-title-meta-heading");
+  secondInnerDiv.innerText = "Pyodide Status";
+
+  // Create another inner div for contents
+  const secondInnerDivContents = document.createElement("div");
+  secondInnerDivContents.setAttribute("id", "qpyodide-status-message-body");
+  secondInnerDivContents.classList.add("quarto-title-meta-contents");
+
+  // Describe the Pyodide state
+  qpyodideStartupMessage.innerText = "🟡 Loading...";
+  qpyodideStartupMessage.setAttribute("id", "qpyodide-status-message-text");
+  // Add `aria-live` to auto-announce the startup status to screen readers
+  qpyodideStartupMessage.setAttribute("aria-live", "assertive");
+
+  // Append the startup message to the contents
+  secondInnerDivContents.appendChild(qpyodideStartupMessage);
+
+  // Combine the inner divs and contents
+  firstInnerDiv.appendChild(secondInnerDiv);
+  firstInnerDiv.appendChild(secondInnerDivContents);
+  quartoTitleMeta.appendChild(firstInnerDiv);
+
+  // Determine where to insert the quartoTitleMeta element
+  if (headerHTML || headerRevealJS) {
+    // Append to the existing "title-block-header" element or "title-slide" div
+    (headerHTML || headerRevealJS).appendChild(quartoTitleMeta);
+  } else {
+    // If neither headerHTML nor headerRevealJS is found, insert after "Pyodide-monaco-editor-init" script
+    const monacoScript = document.getElementById("qpyodide-monaco-editor-init");
+    const header = document.createElement("header");
+    header.setAttribute("id", "title-block-header");
+    header.appendChild(quartoTitleMeta);
+    monacoScript.after(header);
+  }
+}
+
+qpyodideDisplayStartupMessage(qpyodideShowStartupMessage);
+</script>
+<script type="module">
+// Create a logging setup
+globalThis.qpyodideMessageArray = []
+
+// Add messages to array
+globalThis.qpyodideAddToOutputArray = function(message, type) {
+  qpyodideMessageArray.push({ message, type });
+}
+
+// Function to reset the output array
+globalThis.qpyodideResetOutputArray = function() {
+  qpyodideMessageArray = [];
+}
+
+globalThis.qpyodideRetrieveOutput = function() {
+  return qpyodideMessageArray.map(entry => entry.message).join('\n');
+}
+
+// Start a timer
+const initializePyodideTimerStart = performance.now();
+
+// Encase with a dynamic import statement
+globalThis.qpyodideInstance = await import(
+  qpyodideCustomizedPyodideOptions.indexURL + "pyodide.mjs").then(
+   async({ loadPyodide }) => {
+
+    console.log("Start loading Pyodide");
+    
+    // Populate Pyodide options with defaults or new values based on `pyodide`` meta
+    let mainPyodide = await loadPyodide(
+      qpyodideCustomizedPyodideOptions
+    );
+    
+    // Setup a namespace for global scoping
+    // await loadedPyodide.runPythonAsync("globalScope = {}"); 
+    
+    // Update status to reflect the next stage of the procedure
+    qpyodideUpdateStatusHeaderSpinner("Initializing Python Packages");
+
+    // Load the `micropip` package to allow installation of packages.
+    await mainPyodide.loadPackage("micropip");
+    await mainPyodide.runPythonAsync(`import micropip`);
+
+    // Load the `pyodide_http` package to shim uses of `requests` and `urllib3`.
+    // This allows for `pd.read_csv(url)` to work flawlessly.
+    // Details: https://github.com/coatless-quarto/pyodide/issues/9
+    await mainPyodide.loadPackage("pyodide_http");
+    await mainPyodide.runPythonAsync(`
+    import pyodide_http
+    pyodide_http.patch_all()  # Patch all libraries
+    `);
+
+    // Load the `matplotlib` package with necessary environment hook
+    await mainPyodide.loadPackage("matplotlib");
+
+    // Set the backend for matplotlib to be interactive.
+    await mainPyodide.runPythonAsync(`
+    import matplotlib
+    matplotlib.use("module://matplotlib_pyodide.html5_canvas_backend")
+    from matplotlib import pyplot as plt
+    `);
+
+    // Unlock interactive buttons
+    qpyodideSetInteractiveButtonState(
+      `<i class="fa-solid fa-play qpyodide-icon-run-code"></i> <span>Run Code</span>`, 
+      true
+    );
+
+    // Set document status to viable
+    qpyodideUpdateStatusHeader(
+      "🟢 Ready!"
+    );
+
+    // Assign Pyodide into the global environment
+    globalThis.mainPyodide = mainPyodide;
+
+    console.log("Completed loading Pyodide");
+    return mainPyodide;
+  }
+);
+
+// Stop timer
+const initializePyodideTimerEnd = performance.now();
+
+// Create a function to retrieve the promise object.
+globalThis._qpyodideGetInstance = function() {
+    return qpyodideInstance;
+}
+
+</script>
 
 
 <meta property="og:title" content="Code Camp - Inheritance and Classes">
@@ -370,6 +722,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/loader.js"></script>
+<script type="module" id="qpyodide-monaco-editor-init">
+
+  // Configure the Monaco Editor's loader
+  require.config({
+    paths: {
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs'
+    }
+  });
+</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -391,7 +753,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>The concept of <strong>inheritance</strong> is something we’ve held off from mentioning until now, but it’s definitely worth understanding if you are serious about learning how to code. In effect, it’s common to find Python classes that <em>import</em> a ‘base class’ and then <em>extend</em> it with additional functionality.</p>
-<p>The two main libraries for working with small to medium-sized data sets in Python are <code>pandas</code> and <code>geopandas</code>. The creators of <code>pandas</code> were’t interested in spatial data analysis, so they didn’t implement any functionality for reading/writing/analysing spatial data. Along come some developers who <em>are</em> interested in spatial problems and <code>geopandas</code> as born! But they don’t want to have to copy+paste lots of code from <code>pandas</code> just to implement the <em>same</em> functionality that pandas already provides (calculating the mean, reading an Excel file, handling time series data…) so they <em>extend</em> pandas by importing it and adding <em>only</em> the new bits that are needed to deal with geography: in this way ‘pandas’ learns how to work with geodata…</p>
 <section id="the-tree-of-life" class="level2">
 <h2 class="anchored" data-anchor-id="the-tree-of-life">The ‘Tree of Life’</h2>
 <p>Here’s a simple way to think about inheritance: think of the ‘evolutionary trees’ you might have seen charting the evolution of organisms over time. At the bottom of the tree is the single-celled animal, and at the other end are humans, whales, wildebeest, etc. We all <em>inherit</em> some basic functionality from that original, simple cell.</p>
@@ -406,11 +767,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="the-tree-of-classes" class="level2">
 <h2 class="anchored" data-anchor-id="the-tree-of-classes">The ‘Tree of Classes’</h2>
-<p>Inheritance in code works in a similar way: <em>all</em> Python classes (lists, pandas, plots, etc.) inherit their most basic functionality from a single primitive ‘object’ class that itself does very little except to provide a template for what an object should look like. As you move along the inheritance tree you will find more and more complex objects with increasingly advanced features: GeoPandas inherits from Pandas, Bokeh and Seaborn inherit from matplotlib, etc.</p>
+<p>Inheritance in code works in a similar way: <em>all</em> Python classes inherit their most basic functionality from a single primitive ‘object’ class that itself does very little except to provide a template for what an object should look like. As you move along the inheritance tree you will find more and more complex objects with increasingly advanced features.</p>
 <p>I can’t find an image of Python base class inheritance, but I’ve found an equally useful example of how <em>anything</em> can be modelled using this ‘family tree’ approach… consider the following:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="http://www.mkonar.org/dogus/wiki/lib/exe/fetch.php/python/vehicle.png?w=750&amp;tok=4c7ed7" class="img-fluid figure-img"></p>
+<p><img src="http://www.mkonar.org/dogus/wiki/lib/exe/fetch.php/python/vehicle.png" class="img-fluid figure-img"></p>
 <figcaption>Vehicle Inheritance</figcaption>
 </figure>
 </div>
@@ -430,12 +791,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="advantages-of-inheritance-1" class="level3">
 <h3 class="anchored" data-anchor-id="advantages-of-inheritance-1">Advantages of Inheritance #1</h3>
 <p>This also means that we are less likely to make mistakes: if we want to update our vehicle registration scheme then we don’t need to update lots of functions all over the place, we just update the base class and <em>all</em> inheriting classes automatically gain the update because they are making use of the base class’ function.</p>
-<p>So if pandas is updated with a new ‘load a zip file’ feature then geopandas automatically benefits from it! The <em>only</em> thing that doesn’t gain that benefit immediately is our ability to make use of specifically geographical data because pandas doesn’t know about that type of data, only ‘normal’ tabular data.</p>
 </section>
 <section id="advantages-of-inheritance-2" class="level3">
 <h3 class="anchored" data-anchor-id="advantages-of-inheritance-2">Advantages of Inheritance #2</h3>
 <p>Inheritance also means that you can always use an instance of a ‘more evolved’ class in place of one of its ancestors: simplifying things a <em>bit</em>, a sedan can automatically do anything that a car can do and, by extension, anything that a vehicle can do.</p>
-<p>Similarly, since geopandas inherits from pandas if you need to use a geopandas object <em>as if</em> it’s a pandas object then that will work! So everything you learned last term for pandas can still be used in geopandas. Kind of cool, right?</p>
 </section>
 <section id="designing-for-inheritance" class="level3">
 <h3 class="anchored" data-anchor-id="designing-for-inheritance">Designing for Inheritance</h3>
@@ -445,8 +804,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="classes" class="level2">
 <h2 class="anchored" data-anchor-id="classes">Classes</h2>
-<p>Here is a simple demonstration of how classes work and why they’re useful in programming. Building on last week’s ‘volume of a sphere’ question here’s how we’d create and work with a ‘shape’ class in Python:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi</span>
+<section id="a-basic-shape" class="level3">
+<h3 class="anchored" data-anchor-id="a-basic-shape">A Basic Shape</h3>
+<p>Here is a simple demonstration of how classes work and why they’re useful in programming. Let’s see how we might create and work with a ‘shape’ class in Python:</p>
+<div id="47f21f4e" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> shape(<span class="bu">object</span>): <span class="co"># Inherit from base class </span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>): </span>
@@ -459,163 +821,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">"Unimplmented method error."</span>)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="bu">type</span>(<span class="va">self</span>):</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>(<span class="va">self</span>.shape_type)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> cube(shape): <span class="co"># Inherit from shape </span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, e):</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.shape_type <span class="op">=</span> <span class="st">'Cube'</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.edge <span class="op">=</span> e</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> volume(<span class="va">self</span>):</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.edge<span class="op">**</span><span class="dv">3</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> diameter(<span class="va">self</span>):</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="va">self</span>.edge<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="va">self</span>.edge<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> sphere(shape): <span class="co"># Inherit from shape </span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, r):</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.shape_type <span class="op">=</span> <span class="st">'Sphere'</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.radius <span class="op">=</span> r</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> volume(<span class="va">self</span>):</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="dv">4</span><span class="op">/</span><span class="dv">3</span>) <span class="op">*</span> pi <span class="op">*</span> <span class="va">self</span>.radius<span class="op">**</span><span class="dv">3</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> diameter(<span class="va">self</span>):</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.radius<span class="op">*</span><span class="dv">2</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> pyramid(shape): <span class="co"># Inherit from shape</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    has_mummies <span class="op">=</span> <span class="va">True</span> <span class="co"># This is for *all* regular pyramids</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, e):</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.shape_type <span class="op">=</span> <span class="st">'Regular Pyramid'</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.edge   <span class="op">=</span> e</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  </span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> t_pyramid(pyramid): <span class="co"># Inherit from pyramid (this is a triangular pyramid)</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    has_mummies <span class="op">=</span> <span class="va">False</span> <span class="co"># This is for all triangular pyramids</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, e):</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.shape_type <span class="op">=</span> <span class="st">'Triangular Pyramid'</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.edge   <span class="op">=</span> e</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> </span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> area(<span class="va">self</span>):</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="dv">3</span><span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)<span class="op">/</span><span class="dv">4</span>) <span class="op">*</span> <span class="va">self</span>.edge<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> height(<span class="va">self</span>):</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>        <span class="co"># https://www.youtube.com/watch?v=ivF3ndmkMsE</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="dv">6</span><span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> <span class="va">self</span>.edge<span class="op">/</span><span class="dv">3</span>)</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> volume(<span class="va">self</span>):</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>        <span class="co">#  V = 1/3 * A * h</span></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>) <span class="op">*</span> <span class="va">self</span>.area() <span class="op">*</span> <span class="va">self</span>.height()</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> sphere(<span class="dv">10</span>)</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.<span class="bu">type</span>())</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Volume is: </span><span class="sc">{0:5.2f}</span><span class="st">"</span>.<span class="bu">format</span>(s.volume()))</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Diameter is: </span><span class="sc">{0:5.2f}</span><span class="st">"</span>.<span class="bu">format</span>(s.diameter()))</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">""</span>)</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> cube(<span class="dv">10</span>)</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c.<span class="bu">type</span>())</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Volume is: </span><span class="sc">{0:5.2f}</span><span class="st">"</span>.<span class="bu">format</span>(c.volume()))</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Diameter is: </span><span class="sc">{0:5.2f}</span><span class="st">"</span>.<span class="bu">format</span>(c.diameter()))</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">""</span>)</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> t_pyramid(<span class="dv">10</span>)</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p.<span class="bu">type</span>())</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Volume is: </span><span class="sc">{0:5.2f}</span><span class="st">"</span>.<span class="bu">format</span>(p.volume()))</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> p.has_mummies <span class="kw">is</span> <span class="va">True</span>:</span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Mummies? Aaaaaaaaagh!"</span>)</span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Phew, no mummies!"</span>)</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="co"># The error here is deliberate -- note that diameter</span></span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="co"># is not implemented in either triangular pyramid, pyramid, </span></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="co"># or shape, only for spheres.</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Diameter is: </span><span class="sc">{0:5.2f}</span><span class="st">"</span>.<span class="bu">format</span>(p.diameter()))</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>(<span class="va">self</span>.shape_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notice how the <code>def</code> statements are themselves indented here? What we are seeing is that a <code>class</code> is a <em>bundle</em> of functions. Our <code>shape</code> class inherits from the <code>object</code> class (which gives it some basic Python skills) and then <em>adds</em> functions for the <code>volume</code>, <code>diameter</code>, and <code>type</code>. There’s also a special function called <code>__init__</code> which is the one Python will call when it wants to create a <em>new shape</em>.</p>
+<p>But notice also that there are some odd things about those methods (<code>volume</code>, <code>diameter</code>, and <code>type</code>)? <code>volume</code> and <code>diameter</code> both throw an error (aka. raise an exception) and <code>type</code> seems to return a value that is never set! What’s going on???</p>
+<div id="qpyodide-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>The last thing to notice is that the class methods (those functions again) all have a default parameter of <code>self</code> – this is a bit confusing, but it’s just a bit of ‘magic’ so that the method can access the class of which it’s a part.</p>
+</section>
+<section id="more-advanced-shapes" class="level3">
+<h3 class="anchored" data-anchor-id="more-advanced-shapes">More Advanced Shapes</h3>
+<p>Let’s step it up a bit and create a few more basic shapes by extending our <code>shape</code> base class:</p>
+<div id="qpyodide-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>So now we’ve got sphere and cube classes that no longer raise exceptions when we try to call the <code>diameter</code> or <code>volume</code> methods but return real values. Notice that we also can’t get away with creating shapes without actual measurements: the <code>init</code> funciton now requires an ‘edge’ or ‘radius’ value.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Question</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Answer</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>See if you can create a sphere of radius 10, and a cube of edge-length 10, thhen print out the diameter and volume of each.</p>
+<div id="qpyodide-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="5ecb8ad0" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> sphere(<span class="dv">10</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.<span class="bu">type</span>())</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Volume is: </span><span class="sc">{0:5.2f}</span><span class="st">"</span>.<span class="bu">format</span>(s.volume()))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Diameter is: </span><span class="sc">{0:5.2f}</span><span class="st">"</span>.<span class="bu">format</span>(s.diameter()))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">""</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> cube(<span class="dv">10</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c.<span class="bu">type</span>())</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Volume is: </span><span class="sc">{0:5.2f}</span><span class="st">"</span>.<span class="bu">format</span>(c.volume()))</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Diameter is: </span><span class="sc">{0:5.2f}</span><span class="st">"</span>.<span class="bu">format</span>(c.diameter()))</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sphere
+    Volume is: 4188.79
+    Diameter is: 20.00
+
+Cube
+    Volume is: 1000.00
+    Diameter is: 14.14
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p><strong>Have a really good think about how this kind of behaviour is useful!</strong></p>
+</section>
 <section id="test-your-understanding" class="level3">
 <h3 class="anchored" data-anchor-id="test-your-understanding">Test Your Understanding</h3>
-<p>Based on the above examples of classes and methods, I have two challenges for you to implement in the code below:</p>
+<p>This is really hard stuff and you should <em>not</em> panic if you are struggling to work out what is going on. However, you <em>will</em> find it useful to grapple with this as best you can for as long as you can stand, because this kind of thing is fundamental to good coding and, as importantly, good debugging. So… based on the above examples of classes and methods, I have two challenges for you to implement in the code below:</p>
 <ol type="1">
-<li>Try fully-implementing the <em>regular</em> pyramid class with a square base that we skipped over above!</li>
+<li>Try implementing a <em>regular</em> pyramid class with a square base!</li>
 <li>Try adding an <code>area</code> method that returns the surface area of each shape and then add that information to the output below.</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> shape(<span class="bu">object</span>): <span class="co"># Inherit from base class </span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>): </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> volume(<span class="va">self</span>):</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">"Unimplmented method error."</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> diameter(<span class="va">self</span>):</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">"Unimplmented method error."</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="bu">type</span>(<span class="va">self</span>):</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>(<span class="va">self</span>.shape_type)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> cube(shape): <span class="co"># Inherit from shape </span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, e):</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.shape_type <span class="op">=</span> <span class="st">'Cube'</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.edge <span class="op">=</span> e</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> volume(<span class="va">self</span>):</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.edge<span class="op">**</span><span class="dv">3</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> diameter(<span class="va">self</span>):</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="va">self</span>.edge<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="va">self</span>.edge<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> sphere(shape): <span class="co"># Inherit from shape </span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, r):</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.shape_type <span class="op">=</span> <span class="st">'Sphere'</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.radius <span class="op">=</span> r</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> volume(<span class="va">self</span>):</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="dv">4</span><span class="op">/</span><span class="dv">3</span>) <span class="op">*</span> pi <span class="op">*</span> <span class="va">self</span>.radius<span class="op">**</span><span class="dv">3</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> diameter(<span class="va">self</span>):</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.radius<span class="op">*</span><span class="dv">2</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> pyramid(shape): <span class="co"># Inherit from shape</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    has_mummies <span class="op">=</span> <span class="va">True</span> <span class="co"># This is for *all* regular pyramids</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, e):</span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.shape_type <span class="op">=</span> <span class="st">'Regular Pyramid'</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.edge   <span class="op">=</span> e</span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  </span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> t_pyramid(pyramid): <span class="co"># Inherit from pyramid (this is a triangular pyramid)</span></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    has_mummies <span class="op">=</span> <span class="va">False</span> <span class="co"># This is for all triangular pyramids</span></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, e):</span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.shape_type <span class="op">=</span> <span class="st">'Triangular Pyramid'</span></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.edge   <span class="op">=</span> e</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> </span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> area(<span class="va">self</span>):</span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="dv">3</span><span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)<span class="op">/</span><span class="dv">4</span>) <span class="op">*</span> <span class="va">self</span>.edge<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> height(<span class="va">self</span>):</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>        <span class="co"># https://www.youtube.com/watch?v=ivF3ndmkMsE</span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="dv">6</span><span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> <span class="va">self</span>.edge<span class="op">/</span><span class="dv">3</span>)</span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> volume(<span class="va">self</span>):</span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>        <span class="co">#  V = 1/3 * A * h</span></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>) <span class="op">*</span> <span class="va">self</span>.area() <span class="op">*</span> <span class="va">self</span>.height()</span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="co"># How would you test these changes?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="qpyodide-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>How would you test these changes?</p>
 </section>
 <section id="credits" class="level3">
 <h3 class="anchored" data-anchor-id="credits">Credits!</h3>
@@ -1100,6 +1366,542 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script type="module">
+/**
+ * Factory function to create different types of cells based on options.
+ * @param {Object} cellData - JSON object containing code, id, and options.
+ * @returns {BaseCell} Instance of the appropriate cell class.
+ */
+globalThis.qpyodideCreateCell = function(cellData) {
+    switch (cellData.options.context) {
+        case 'interactive':
+            return new InteractiveCell(cellData);
+        case 'output':
+            return new OutputCell(cellData);
+        case 'setup':
+            return new SetupCell(cellData);
+        default:
+            return new InteractiveCell(cellData);
+            // throw new Error('Invalid cell type specified in options.');
+    }
+}  
+
+/**
+ * CellContainer class for managing a collection of cells.
+ * @class
+ */
+class CellContainer {
+    /**
+     * Constructor for CellContainer.
+     * Initializes an empty array to store cells.
+     * @constructor
+     */
+    constructor() {
+        this.cells = [];
+    }
+
+    /**
+     * Add a cell to the container.
+     * @param {BaseCell} cell - Instance of a cell (BaseCell or its subclasses).
+     */
+    addCell(cell) {
+        this.cells.push(cell);
+    }
+
+    /**
+     * Execute all cells in the container.
+     */
+    async executeAllCells() {
+        for (const cell of this.cells) {
+            await cell.executeCode();
+        }
+    }
+
+    /**
+     * Execute all cells in the container.
+     */
+    async autoRunExecuteAllCells() {
+        for (const cell of this.cells) {
+            await cell.autoRunExecuteCode();
+        }
+    }
+}
+  
+
+/**
+ * BaseCell class for handling code execution using Pyodide.
+ * @class
+ */
+class BaseCell {
+    /**
+     * Constructor for BaseCell.
+     * @constructor
+     * @param {Object} cellData - JSON object containing code, id, and options.
+     */
+    constructor(cellData) {
+        this.code = cellData.code;
+        this.id = cellData.id;
+        this.options = cellData.options;
+        this.insertionLocation = document.getElementById(`qpyodide-insertion-location-${this.id}`);
+        this.executionLock = false;
+    }
+
+    cellOptions() {
+        // Subclass this? 
+        console.log(this.options);
+        return this.options;
+    }
+
+    /**
+     * Execute the Python code using Pyodide.
+     * @returns {*} Result of the code execution.
+     */
+    async executeCode() {
+        // Execute code using Pyodide
+        const result = getPyodide().runPython(this.code);
+        return result;
+    }
+};
+
+/**
+ * InteractiveCell class for creating editable code editor with Monaco Editor.
+ * @class
+ * @extends BaseCell
+ */
+class InteractiveCell extends BaseCell {
+
+    /**
+     * Constructor for InteractiveCell.
+     * @constructor
+     * @param {Object} cellData - JSON object containing code, id, and options.
+     */
+    constructor(cellData) {
+        super(cellData);
+        this.editor = null;
+        this.setupElement();
+        this.setupMonacoEditor();
+    }
+
+    /**
+     * Set up the interactive cell elements
+     */
+    setupElement() {
+
+        // Create main div element
+        var mainDiv = document.createElement('div');
+        mainDiv.id = `qpyodide-interactive-area-${this.id}`;
+        mainDiv.className = `qpyodide-interactive-area`;
+        if (this.options.classes) {
+            mainDiv.className += " " + this.options.classes
+        }
+
+        // Add a unique cell identifier that users can customize
+        if (this.options.label) {
+            mainDiv.setAttribute('data-id', this.options.label);
+        }
+
+        // Create toolbar div
+        var toolbarDiv = document.createElement('div');
+        toolbarDiv.className = 'qpyodide-editor-toolbar';
+        toolbarDiv.id = `qpyodide-editor-toolbar-${this.id}`;
+
+        // Create a div to hold the left buttons
+        var leftButtonsDiv = document.createElement('div');
+        leftButtonsDiv.className = 'qpyodide-editor-toolbar-left-buttons';
+
+        // Create a div to hold the right buttons
+        var rightButtonsDiv = document.createElement('div');
+        rightButtonsDiv.className = 'qpyodide-editor-toolbar-right-buttons';
+
+        // Create Run Code button
+        var runCodeButton = document.createElement('button');
+        runCodeButton.className = 'btn btn-default qpyodide-button qpyodide-button-run';
+        runCodeButton.disabled = true;
+        runCodeButton.type = 'button';
+        runCodeButton.id = `qpyodide-button-run-${this.id}`;
+        runCodeButton.textContent = '🟡 Loading Pyodide...';
+        runCodeButton.title = `Run code (Shift + Enter)`;
+
+        // Append buttons to the leftButtonsDiv
+        leftButtonsDiv.appendChild(runCodeButton);
+
+        // Create Reset button
+        var resetButton = document.createElement('button');
+        resetButton.className = 'btn btn-light btn-xs qpyodide-button qpyodide-button-reset';
+        resetButton.type = 'button';
+        resetButton.id = `qpyodide-button-reset-${this.id}`;
+        resetButton.title = 'Start over';
+        resetButton.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i>';
+
+        // Create Copy button
+        var copyButton = document.createElement('button');
+        copyButton.className = 'btn btn-light btn-xs qpyodide-button qpyodide-button-copy';
+        copyButton.type = 'button';
+        copyButton.id = `qpyodide-button-copy-${this.id}`;
+        copyButton.title = 'Copy code';
+        copyButton.innerHTML = '<i class="fa-regular fa-copy"></i>';
+
+        // Append buttons to the rightButtonsDiv
+        rightButtonsDiv.appendChild(resetButton);
+        rightButtonsDiv.appendChild(copyButton);
+
+        // Create console area div
+        var consoleAreaDiv = document.createElement('div');
+        consoleAreaDiv.id = `qpyodide-console-area-${this.id}`;
+        consoleAreaDiv.className = 'qpyodide-console-area';
+
+        // Create editor div
+        var editorDiv = document.createElement('div');
+        editorDiv.id = `qpyodide-editor-${this.id}`;
+        editorDiv.className = 'qpyodide-editor';
+
+        // Create output code area div
+        var outputCodeAreaDiv = document.createElement('div');
+        outputCodeAreaDiv.id = `qpyodide-output-code-area-${this.id}`;
+        outputCodeAreaDiv.className = 'qpyodide-output-code-area';
+        outputCodeAreaDiv.setAttribute('aria-live', 'assertive');
+
+        // Create pre element inside output code area
+        var preElement = document.createElement('pre');
+        preElement.style.visibility = 'hidden';
+        outputCodeAreaDiv.appendChild(preElement);
+
+        // Create output graph area div
+        var outputGraphAreaDiv = document.createElement('div');
+        outputGraphAreaDiv.id = `qpyodide-output-graph-area-${this.id}`;
+        outputGraphAreaDiv.className = 'qpyodide-output-graph-area';
+
+        // Append buttons to the toolbar
+        toolbarDiv.appendChild(leftButtonsDiv);
+        toolbarDiv.appendChild(rightButtonsDiv);
+
+        // Append all elements to the main div
+        mainDiv.appendChild(toolbarDiv);
+        consoleAreaDiv.appendChild(editorDiv);
+        consoleAreaDiv.appendChild(outputCodeAreaDiv);
+        mainDiv.appendChild(consoleAreaDiv);
+        mainDiv.appendChild(outputGraphAreaDiv);
+
+        // Insert the dynamically generated object at the document location.
+        this.insertionLocation.appendChild(mainDiv);
+    }
+
+    /**
+     * Set up Monaco Editor for code editing.
+     */
+    setupMonacoEditor() {
+
+        // Retrieve the previously created document elements
+        this.runButton = document.getElementById(`qpyodide-button-run-${this.id}`);
+        this.resetButton = document.getElementById(`qpyodide-button-reset-${this.id}`);
+        this.copyButton = document.getElementById(`qpyodide-button-copy-${this.id}`);
+        this.editorDiv = document.getElementById(`qpyodide-editor-${this.id}`);
+        this.outputCodeDiv = document.getElementById(`qpyodide-output-code-area-${this.id}`);
+        this.outputGraphDiv = document.getElementById(`qpyodide-output-graph-area-${this.id}`);
+        
+        // Store reference to the object
+        var thiz = this;
+
+        // Load the Monaco Editor and create an instance
+        require(['vs/editor/editor.main'], function () {
+            thiz.editor = monaco.editor.create(
+                thiz.editorDiv, {
+                    value: thiz.code,
+                    language: 'python',
+                    theme: 'vs-light',
+                    automaticLayout: true,           // Works wonderfully with RevealJS
+                    scrollBeyondLastLine: false,
+                    minimap: {
+                        enabled: false
+                    },
+                    fontSize: '17.5pt',              // Bootstrap is 1 rem
+                    renderLineHighlight: "none",     // Disable current line highlighting
+                    hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+                    readOnly: thiz.options['read-only'] ?? false
+                }
+            );
+        
+            // Store the official counter ID to be used in keyboard shortcuts
+            thiz.editor.__qpyodideCounter = thiz.id;
+        
+            // Store the official div container ID
+            thiz.editor.__qpyodideEditorId = `qpyodide-editor-${thiz.id}`;
+        
+            // Store the initial code value and options
+            thiz.editor.__qpyodideinitialCode = thiz.code;
+            thiz.editor.__qpyodideOptions = thiz.options;
+        
+            // Set at the model level the preferred end of line (EOL) character to LF.
+            // This prevent `\r\n` from being given to the Pyodide engine if the user is on Windows.
+            // See details in: https://github.com/coatless/quarto-Pyodide/issues/94
+            // Associated error text: 
+            // Error: <text>:1:7 unexpected input
+        
+            // Retrieve the underlying model
+            const model = thiz.editor.getModel();
+            // Set EOL for the model
+            model.setEOL(monaco.editor.EndOfLineSequence.LF);
+        
+            // Dynamically modify the height of the editor window if new lines are added.
+            let ignoreEvent = false;
+            const updateHeight = () => {
+            const contentHeight = thiz.editor.getContentHeight();
+            // We're avoiding a width change
+            //editorDiv.style.width = `${width}px`;
+            thiz.editorDiv.style.height = `${contentHeight}px`;
+                try {
+                    ignoreEvent = true;
+            
+                    // The key to resizing is this call
+                    thiz.editor.layout();
+                } finally {
+                    ignoreEvent = false;
+                }
+            };
+        
+            // Helper function to check if selected text is empty
+            function isEmptyCodeText(selectedCodeText) {
+                return (selectedCodeText === null || selectedCodeText === undefined || selectedCodeText === "");
+            }
+        
+            // Registry of keyboard shortcuts that should be re-added to each editor window
+            // when focus changes.
+            const addPyodideKeyboardShortCutCommands = () => {
+            // Add a keydown event listener for Shift+Enter to run all code in cell
+            thiz.editor.addCommand(monaco.KeyMod.Shift | monaco.KeyCode.Enter, () => {
+                // Retrieve all text inside the editor
+                thiz.runCode(thiz.editor.getValue());
+            });
+        
+            // Add a keydown event listener for CMD/Ctrl+Enter to run selected code
+            thiz.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
+                    // Get the selected text from the editor
+                    const selectedText = thiz.editor.getModel().getValueInRange(thiz.editor.getSelection());
+                    // Check if no code is selected
+                    if (isEmptyCodeText(selectedText)) {
+                        // Obtain the current cursor position
+                        let currentPosition = thiz.editor.getPosition();
+                        // Retrieve the current line content
+                        let currentLine = thiz.editor.getModel().getLineContent(currentPosition.lineNumber);
+                
+                        // Propose a new position to move the cursor to
+                        let newPosition = new monaco.Position(currentPosition.lineNumber + 1, 1);
+                
+                        // Check if the new position is beyond the last line of the editor
+                        if (newPosition.lineNumber > thiz.editor.getModel().getLineCount()) {
+                            // Add a new line at the end of the editor
+                            thiz.editor.executeEdits("addNewLine", [{
+                            range: new monaco.Range(newPosition.lineNumber, 1, newPosition.lineNumber, 1),
+                            text: "\n", 
+                            forceMoveMarkers: true,
+                            }]);
+                        }
+                        
+                        // Run the entire line of code.
+                        thiz.runCode(currentLine);
+                
+                        // Move cursor to new position
+                        thiz.editor.setPosition(newPosition);
+                    } else {
+                        // Code to run when Ctrl+Enter is pressed with selected code
+                        thiz.runCode(selectedText);
+                    }
+                });
+            }
+        
+            // Register an on focus event handler for when a code cell is selected to update
+            // what keyboard shortcut commands should work.
+            // This is a workaround to fix a regression that happened with multiple
+            // editor windows since Monaco 0.32.0 
+            // https://github.com/microsoft/monaco-editor/issues/2947
+            thiz.editor.onDidFocusEditorText(addPyodideKeyboardShortCutCommands);
+        
+            // Register an on change event for when new code is added to the editor window
+            thiz.editor.onDidContentSizeChange(updateHeight);
+        
+            // Manually re-update height to account for the content we inserted into the call
+            updateHeight();
+                
+        });
+
+        
+        // Add a click event listener to the run button
+        thiz.runButton.onclick = function () {
+            thiz.runCode(
+                thiz.editor.getValue()
+            );
+        };
+        
+        // Add a click event listener to the reset button
+        thiz.copyButton.onclick = function () {
+            // Retrieve current code data
+            const data = thiz.editor.getValue();
+            
+            // Write code data onto the clipboard.
+            navigator.clipboard.writeText(data || "");
+        };
+        
+        // Add a click event listener to the copy button
+        thiz.resetButton.onclick = function () {
+            thiz.editor.setValue(thiz.editor.__qpyodideinitialCode);
+        };
+    }
+
+    disableInteractiveCells() {
+        // Enable locking of execution for the cell
+        this.executionLock = true;
+
+        // Disallowing execution of other code cells
+        document.querySelectorAll(".qpyodide-button-run").forEach((btn) => {
+            btn.disabled = true;
+        });
+    }
+
+    enableInteractiveCells() {
+        // Remove locking of execution for the cell
+        this.executionLock = false;
+
+        // All execution of other code cells
+        document.querySelectorAll(".qpyodide-button-run").forEach((btn) => {
+            btn.disabled = false;
+        });
+    }
+
+    /**
+     * Execute the Python code inside the editor.
+     */
+    async runCode(code) {
+        
+        // Check if we have an execution lock
+        if (this.executeLock) return; 
+        
+        this.disableInteractiveCells();
+
+        // Force wait procedure
+        await mainPyodide;
+
+        // Clear the output stock
+        qpyodideResetOutputArray();
+
+        // Generate a new canvas element, avoid attaching until the end
+        let graphFigure = document.createElement("figure");
+        document.pyodideMplTarget = graphFigure;
+
+        console.log("Running code!");
+        // Obtain results from the base class
+        try {
+            // Always check to see if the user adds new packages
+            await mainPyodide.loadPackagesFromImports(code);
+
+            // Process result
+            const output = await mainPyodide.runPythonAsync(code);
+
+            // Add output
+            qpyodideAddToOutputArray(output, "stdout");
+        } catch (err) {
+            // Add error message
+            qpyodideAddToOutputArray(err, "stderr");
+            // TODO: There has to be a way to remove the Pyodide portion of the errors... 
+        }
+
+        const result = qpyodideRetrieveOutput();
+
+        // Nullify the output area of content
+        this.outputCodeDiv.innerHTML = "";
+        this.outputGraphDiv.innerHTML = "";        
+
+        // Design an output object for messages
+        const pre = document.createElement("pre");
+        if (/\S/.test(result)) {
+            // Display results as HTML elements to retain output styling
+            const div = document.createElement("div");
+            div.innerHTML = result;
+            pre.appendChild(div);
+        } else {
+            // If nothing is present, hide the element.
+            pre.style.visibility = "hidden";
+        }
+
+        // Add output under interactive div
+        this.outputCodeDiv.appendChild(pre);
+
+        // Place the graphics onto the page
+        if (graphFigure) {
+
+            if (this.options['fig-cap']) {
+                // Create figcaption element
+                const figcaptionElement = document.createElement('figcaption');
+                figcaptionElement.innerText = this.options['fig-cap'];
+                // Append figcaption to figure
+                graphFigure.appendChild(figcaptionElement);    
+            }
+
+            this.outputGraphDiv.appendChild(graphFigure);
+        }
+
+        // Re-enable execution
+        this.enableInteractiveCells();
+    }
+};
+
+/**
+ * OutputCell class for customizing and displaying output.
+ * @class
+ * @extends BaseCell
+ */
+class OutputCell extends BaseCell {
+    /**
+     * Constructor for OutputCell.
+     * @constructor
+     * @param {Object} cellData - JSON object containing code, id, and options.
+     */
+    constructor(cellData) {
+      super(cellData);
+    }
+  
+    /**
+     * Display customized output on the page.
+     * @param {*} output - Result to be displayed.
+     */
+    displayOutput(output) {
+        const results = this.executeCode();
+        return results;
+    }
+  }
+
+/**
+ * SetupCell class for suppressed output.
+ * @class
+ * @extends BaseCell
+ */
+class SetupCell extends BaseCell {
+    /**
+     * Constructor for SetupCell.
+     * @constructor
+     * @param {Object} cellData - JSON object containing code, id, and options.
+     */
+    constructor(cellData) {
+        super(cellData);
+    }
+
+    /**
+     * Execute the Python code without displaying the results.
+     */
+    runSetupCode() {
+        // Execute code without displaying output
+        this.executeCode();
+    }
+};
+</script>
+<script type="module">
+// Handle cell initialization initialization
+qpyodideCellDetails.map(
+    (entry) => {
+      // Handle the creation of the element
+      qpyodideCreateCell(entry);
+    }
+  );
+</script>
 
 
 
