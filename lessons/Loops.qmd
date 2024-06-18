@@ -21,7 +21,6 @@ The video below is a nice (if slightly scary) intro to each of the approaches; y
 
 {{< video https://youtu.be/9AJ0uoxtdCQ >}}
 
-
 The 'right' approach you use usually depends on [what sort of data structure you are iterating over](http://stackoverflow.com/questions/920645/when-to-use-while-or-the-for-in-python) and [whether we know before we start how many times we want to repeat the commands](https://www.reddit.com/r/learnprogramming/comments/3bqzpf/python_for_loops_vs_while_loops/). That might sound a little vague at this point, but come back and have a think about it once you have a better understanding of how loops work.
 
 So let's first see how while loops work, then we'll look at actual loops in Python.
@@ -34,7 +33,7 @@ Using the `while` statement, the 'true' block is run for as long as the conditio
 
 This allows us to finally do some interesting stuff in code:
 
-```python
+```{python}
 counter = 1 # Starting condition: counter is at 1
 
 print("The while loop is ready to begin.")
@@ -49,17 +48,20 @@ print("The while loop has ended.")
 If that looks confusing, don't worry! It's perfectly normal as that's your first example of *iteration*. 
 
 Let's take a deeper look:
+
 - First, we defined a variable `counter` and we _initialised_ it with a value of 1. 
 - Then we used the `while` statement to check if the value of `counter` was less than or equal to 10. 
 - Since that condition evaluated to `True`, we printed the value of `counter` and then added 1 to the `counter`. 
 - The indendented block of code was then run again and again by Python *until* the `while` statement returned a `False` (this happened because the value of counter went all the way to 11).
 - After that Python simply continued to execute the code outside the `while` *block* (i.e. the last line of non-indented code)
 
-The fundamental idea is thus: *while this condition holds, repeat the instructions in the indented code block*.
+The fundamental idea is: 
 
-Many beginner programmers get confused by the fact that the value of `counter` is increasing without the code advancing to the point where in prints out 'The while loop has ended'. Remeber: we are starting the instruction from the beginning of the *while block*. So the first time that we hit it, `counter` has value of 1 because this is what we set it to _outside_ of the *while loop*. 
+> While this condition holds, repeat the instructions in the indented code block.
 
-But the _second_ time the while conditional is evaluted, `counter` has been incremented to 2 because the last line of the `while` block is `counter += 1`! So we increased its value while inside the *while block*. At the beginning of the third iteration it will have a value of 3, while at its end it will be incremented to 4. And so on...
+Many beginner programmers get confused by the fact that the value of `counter` is increasing without the code advancing to the point where in prints out 'The while loop has ended'. Remember: we are starting the instruction from the beginning of the *while block*. So the first time that we hit it, `counter` has a value of 1 because this is what we set it to _outside_ of the *while loop*. 
+
+But the _second_ time the while conditional is evaluted, `counter` has been incremented to 2 because the last line of the `while` block is `counter += 1`! So we increased its value 'inside' the indented *while block*. At the beginning of the third iteration it will have a value of 3, while at its end it will be incremented to 4. And so on...
 
 _CAVEAT_: pay attention to how you write your `while` *loops*! They can potentially run forever (for as long as the condition they are evaluating is `True`) maxing out your machine's memory. For example:
 
@@ -78,27 +80,32 @@ while True:
 Complete the code below to run a while loop that prints only odd numbers under 10. 
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 otherCounter = 1
 
 while ??? <= ???:
     print("This is an odd number: " + str(???))
     otherCounter += 2
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 otherCounter = 1
 
 while otherCounter <= 10:
     print("This is an odd number: " + str(otherCounter))
     otherCounter += 2
 ```
+
 :::
 
-You can also run `while` loops _decrementally_ until they meet a certain condition (run the code block to see how):
+You can also run `while` loops _decrementally_ until they meet a certain condition:
 
-```python
+```{python}
 myThirdCounter = 10
 
 while myThirdCounter >= 0:
@@ -108,9 +115,9 @@ while myThirdCounter >= 0:
 
 ## Break and Continue
 
-To prematurely interrupt the execution of a while loop (before the `while` condition become false) you can use the **`break`** statement
+To interrupt the execution of a while loop you can use the **`break`** statement
 
-```python
+```{python}
 myFourthCounter = 1
 
 while myFourthCounter < 10:
@@ -127,7 +134,7 @@ while myFourthCounter < 10:
 
 That last example shows that you can 'nest' an if (`if myFourthCounter`) inside of a `while` loop -- this approach allows us to add much more complex logic to our code than we could before. Here's an example, but see if you can figure out what it will print out (and how) _before_ you run the code block! 
 
-```python
+```{pyodide-python}
 i=0
 while True:
     i += 1
@@ -154,25 +161,29 @@ In terms of explanation:
 1. Python is going to keep running the code (`while True`) until it is told to stop by a `break` (which happens at `i == 21`). In fact, if you remove the `break` then you will crash jupyter because the computer will print out every even number to infinity (which the computer can’t handle because it runs out of memory).
 
 2. 'Inside' the `while` loop there is a _main_ `if`/`else` block:
-```if i % 2 != 0:
+```python
+if i % 2 != 0:
     ... do something with odd numbers...
 else:
     ... do something else with even numbers...
 ```
 
 3. 'Inside' the odd numbers section we now have a second `if`/`else` block:
-```if i == 9:
+```python
+if i == 9:
     ... do something if the odd number is 9...
 else:
     ... do something else if the odd number is not 9...
 ```
 
 4. And it’s a _similar_ story in the even numbers section:
-```if i % 4 == 0:
+```python
+if i % 4 == 0:
     ... do something if the even number is divisible by 4...
 elif i == 8
     ... do something else if the even number is 8...
 ```
+
 We'll not give you the answer to how to print out `WOOT` in place of 7 below, but at this point you all the clues you need. It’s the concept that is the hard part and following what’s going on when you start to nest conditions inside of conditions. We can talk this through more if anyone needs more help getting to grips with this!
 
 ## `i` and `j` in Loops
@@ -181,7 +192,7 @@ If you want to skip to the next iteration then you can _continue_ the exection o
 
 One other thing to notice is that we've switched from _looooong_ counter names like `myFourthCounter` to `i`. A common programming trick (which is well-known and so actually _increases_ the legibility of your code to others) is to use `i` and `j` for counters in loops (you can add `k` if you ever need a third level loop).
 
-```python
+```{python}
 # So use i and j as counters because 
 # this is a stylistic convention and 
 # helps you to to write more concise code
@@ -209,7 +220,7 @@ print("Done!")
 
 How would you change the code above so that it printed _only_ the odd number _or_ 'WOOT!', but not both? In other words, change the code so that it prints:
 
-`
+```
 1
 3
 5
@@ -221,17 +232,27 @@ WOOT!
 17
 19
 WOOT!
-`
+Done!
+```
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-'''
+
+#### Question
+
 Change the code above so that it printed _only_ the odd number _or_ 'WOOT!'
-'''
+
+```{pyodide-python}
+i = 0
+
+while True:
+
+    ...
+
+print("Done!")
 ```
-#### Solution
-```python
+#### Answer
+
+```{python}
 i = 0
 
 while True:
@@ -244,11 +265,12 @@ while True:
         else:
             print(i)
     
-    if i == 25:
+    if i == 22:
         break
     
 print("Done!")
 ```
+
 :::
 
 ### A challenge for you!
@@ -256,8 +278,10 @@ print("Done!")
 Now, replace the `???` in the code below and use it to print only even numbers less than 22.
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 i = 0
 while True:
     i += 1
@@ -270,8 +294,10 @@ while True:
 
 print("Done!")
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 i = 0
 while True:
     i += 1
@@ -284,13 +310,14 @@ while True:
 
 print("Done!")
 ```
+
 :::
 
 ## Iterating over a List
 
 What you just saw with the `while` statement is a way of iterating: a way of repeating a certain set of instruction until a given condition is met. We can use to our advantage not only to print stuff, but also to '_iterate over_' the elements in a list:
 
-```python
+```{python}
 # remember our friends, the british computer scientists?
 britishCompList = ["babbage", "lovelace", "turing"]
 
@@ -304,15 +331,17 @@ while counter < stoppingCondition:
     counter += 1
 ```
 
-Wow, lot of stuff in that chunk of code, eh? Well, once again, take a deep breath and go through it line by line.
+Wow, a lot going there eh? Once again, go through the code line by line until it makes sense. The important bits are:
 
-The important bits are:
-- notice that this time we used the `len` of `britishCompList` as stopping condition, instead of specifying ourselves a number.
--  we accessed the items in the list with a regular index, like we have done in the past. The difference is that this time the index was the variable `counter`, as at each iteration `counter` assumes the value of 0, 1 ... until the stopping condition is met. This is equivalent to writing :
+- Notice that we used the `len` of `britishCompList` as stopping condition, instead of specifying a number directly.
+- We accessed the items in the list with a regular index, like we have done in the past. 
+- The difference is that this time the index was the variable `counter` since, on each iteration `counter` assumes the value of 1, 2, ... until the stopping condition is met. 
+ 
+This is equivalent to writing :
 
-```python
-print(britishCompList[0])  # on the first iteration
-print(britishCompList[1])  # on the second iteration
+```{python}
+print(britishCompList[1] + " was a british computer scientist")  # on the first iteration
+print(britishCompList[2] + " was a british computer scientist")  # on the second iteration
 ```
 
 ### A challenge for you!
@@ -322,18 +351,24 @@ But wait a second... what about the great Babbage? Why isn't his name displayed?
 *Hint*: check (using `print`) the values of `counter` and `britishCompList`. What is the condition we are asking Python to use?
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 # fix the code to include Babbage
+
 ```
+
 #### Solution
-```python
+
+```{python}
 counter = 0 # To include Babbage, we need to start counter from 0
 while counter < len(britishCompList):
     print(britishCompList[counter] + " was a british computer scientist")
     # don't forget to increment the counter!!!
     counter += 1
 ```
+
 :::
 
 ## Other Overlooked Computers
@@ -347,8 +382,10 @@ If you think that being skipped over in the loop above was tough for old Babbage
 Complete the following code:
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 counter = ???
 nonBritishProgrammers = ["Torvald", "Knuth", "Swartz"]
 stoppingCondition = len(???)
@@ -358,17 +395,20 @@ while counter < stoppingCondition :
     #  always remember to increment the counter!!!
     counter += 1
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 counter = 0
 nonBritishProgrammers = ["Torvald", "Knuth", "Swartz"]
 stoppingCondition = len(nonBritishProgrammers)
 
 while counter < stoppingCondition :
-    print("This is a computer genius too: " + nonBritishProgrammers[counter])
-    #  always remember to increment the counter!!!
+    print("This is a computer pioneer too: " + nonBritishProgrammers[counter])
+    # always remember to increment the counter!!!
     counter += 1
 ```
+
 :::
 
 *CAVEAT*: An important condition to remember when iterating over a list is thus that lists are *zero-indexed*! If if you start you counter from 1 you will certainly miss the first item in the list (which has an index of 0). 
@@ -381,28 +421,26 @@ Can you guess why I needed to subtract -1 to the list's `len`?
 
 _[Hint: Check the condition again. Is the same as before? (Run the code below before continuing)]_
 
-```python
+```{pyodide-python}
 counter = 0
 nonBritishProgrammers = ["Torvald", "Knuth", "Swartz"]
-stoppingCondition = len(nonBritishProgrammers) -1
+stoppingCondition = len(nonBritishProgrammers) - 1
 
 while counter <= stoppingCondition :
-    print("These are geniuses too! " + nonBritishProgrammers[counter])
-    #  always remember to increment the counter!!!
+    print("These are pioneers too! " + nonBritishProgrammers[counter])
+    # Always remember to increment the counter!!!
     counter +=1
 ```
 
-We can see that from the code above the while condition is slightly different:
-    `while counter < stoppingCondition :` versus `while counter <= stoppingCondition`
-Because `len` counts the number of elements, if we use `<=` we will access the variable `counter` at each iteration `counter` with the value of 0, 1, 2, 3. This would result in an `indexError` since we only have three variables.
+We can see that from the code above the while condition is slightly different: `while counter < stoppingCondition :` versus `while counter <= stoppingCondition`. Because `len` counts the number of elements, if we use `<=` we will access the variable `counter` at each iteration `counter` with the value of 0, 1, 2, 3. This would result in an `indexError` since we only have three variables.
 
 ## FOR Loop
 
-We've just seen that we can use a `while` loop to iterate over a list, but it's kind of clunky and inelegant. All those counters and things makes for a lot of extra typing, especially when you consider how terse Python's language usually is! Surely there must be another way?
+We've just seen that we can use a `while` loop to iterate over a list, but it seems kind of clunky and inelegant when we already 'know' how many items are in a list. All those counters and things makes for a lot of extra typing... surely there must be another way?
 
 You guessed right, my friend! Let me introduce you to the `'for ... in:'` statement:
 
-```python
+```{python}
 for programmer in britishCompList:
     print(programmer)
 ```
@@ -417,48 +455,60 @@ So, the biggest difference between a `while` and a `for` loop is thus not _merel
 
 Let's recap with another example:
 
-```python
+```{python}
+myList = [0,1,2,3,4]
+
 # WHILE LOOP
 whileCounter = 0
-myList = [0,1,2,3,4]
 stoppingCondition = len(myList)
 while whileCounter < stoppingCondition:
     print("Element number: " + str(myList[whileCounter]))
     whileCounter +=1 
 ```
 
-```python
+```{python}
+myList = [0,1,2,3,4]
+
 # FOR LOOP
 for element in myList:
      print("Element number: " + str(element))
 ```
 
-SIDENOTE: See how the value of `myList[whileCounter]` and that of `element` in the two loops are the same? That's  because Python is doing the indexing job for you behind the scenes.
+::: {.callout-note}
+#### Sidenote
+
+See how the value of `myList[whileCounter]` and that of `element` in the two loops are the same? That's  because Python is doing the indexing job for you behind the scenes.
+:::
 
 ### A challenge for you!
 
-Print only the odd numbers in the list. HINT: remember the modulo operator?
+Print only the odd numbers in the list. *HINT*: remember the modulo operator?
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 numbers = [1,2,3,4,5,6,7,8,9,10]
 for n in numbers:
     if (???):
         print(n)
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 numbers = [1,2,3,4,5,6,7,8,9,10]
 for n in numbers:
     if (n % 2 != 0):
         print(n)
 ```
+
 :::
 
 Now, as we are *lazy* programmers, let's repeat the above example combining the `range` function with a `for` loop. It will save us the hassle of typing all those numbers!
 
-```python
+```{python}
 for i in range(10):
     if (i % 2 != 0):
         print(i)
@@ -468,7 +518,7 @@ Cool, we have seen how to iterate over a list, but what about a dictionary? Well
 
 Hence, as with lists where we iterate over the indexes, with dictionaries we are going to iterate over the keys!
 
-```python
+```{python}
 programmers = {
     "Charles": "Babbage",
     "Ada": "Lovelace",
@@ -478,13 +528,17 @@ for k in programmers:
     print(k)
 ```
 
-*NOTE:* I've used the variable `k`. This is simply an arbitrary word that I've choosen and not some kind of special variable. You could have used `anyRandomNameForWhatMatters`. 
+::: {.callout-note}
+
+I've used the variable `k`. This is simply an arbitrary word that I've choosen and not some kind of special variable. You could have used `anyRandomNameForWhatMatters`. 
+
+:::
 
 What if you want to retrieve the values? In that case you should use not only two variables, (the first for the keys and the second for the values) but also invoke the method `items()` on the dictionary, like so:
 
-```python
+```{python}
 for k,v in programmers.items():
-    print("this is the value: \'" + v + "\' for the key: \'" + k +"\'")
+    print("The value '" + v + "' has the key '" + k + "'")
 ```
 
 ### A Challenge for you!
@@ -492,9 +546,11 @@ for k,v in programmers.items():
 Iterate over the GeoJSON marker and print its "properties".
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-KCL_marker = {
+
+#### Question
+
+```{pyodide-python}
+marker = {
       "type": "Feature",
       "properties": {
         "marker-color": "#7e7e7e",
@@ -510,12 +566,14 @@ KCL_marker = {
         ]
       }
     }
-for ???,v in KCL_marker["???"].items():
-    print("KCL_marker has a property: '" + ??? + "' for the key: " + k)
+for ???,v in marker["???"].items():
+    print("Marker has property '" + ??? + "' for key " + k)
 ```
-#### Solution
-```python
-KCL_marker = {
+
+#### Answer
+
+```{python}
+marker = {
       "type": "Feature",
       "properties": {
         "marker-color": "#7e7e7e",
@@ -531,9 +589,10 @@ KCL_marker = {
         ]
       }
     }
-for k,v in KCL_marker["properties"].items():
-    print("KCL_marker has a property: '" + v + "' for the key: " + k)
+for k,v in marker["properties"].items():
+    print("Marker has property '" + v + "' for key " + k)
 ```
+
 :::
 
 Very good! Let's summarise some facts about loops:
@@ -549,22 +608,31 @@ The geo-excercise I'll give you this time is a real-world problem that you might
 
 Let's say a colleague of yours used a GPS to survey at regular intervals the dispersion of pollutants in a patch of terrain. Unfortunately, after a good start they forgot to record all the remaining points! 
 
-But that's not a terrible problem, as the transect has a perfect West-East orientation and direction, and all the points are spaced by a the same value dX (short for 'delta-X', the change in X between each point) of 0.03 degrees longitude, i.e.:
+But that's not a terrible problem, as the transect has a perfect West-East orientation and direction, and all the points are spaced by a the same value $dX$ (short for 'delta-X' or $\delta x$, the change in X between each point) of 0.03 degrees longitude, i.e.:
 
 (0.0102, 51.592)-----(X+dX,Y)-----(X+2dX,Y)-----(X+3dX,Y)--->
       
-Using what we've seen so far, try to create a `GeoJSON featureCollection` of points. To give you a head start, I've provided some *scaffolding*.
+Using what we've seen so far, we're going to try to create a `featureCollection`: that is, a group (collection) of points (features). To give you a head start, I've provided some *scaffolding*.
 
-HINT: Being the skilled geographer that you are, you immediately realise that actually you've got all the coordinates that you need, even for the missing points (i.e. the latitude values will remain constant...)
+::: {.callout-tip}
 
-```python
+Being the skilled geographer that you are, you immediately realise that actually you've got all the information that you need, even for the missing points (i.e. the latitude values will remain constant...)
+
+:::
+
+::: {.panel-tabset}
+
+#### Question
+
+```{pyodide-python}
 # define a new featureCollection: it is basically a very fancy dictionary
 # to which we are going to add new 'features' (which are points on a map
 # but represented as *data* by a dictionary). We need to add one feature
 # at a time when building our transect...
 # initial coordinate list
 init_coords = [-0.0200, 51.592]
-# dX delta 
+
+# dX / delta-X 
 dx  = 0.03
 gap = 0
 
@@ -581,12 +649,81 @@ transect = {
     }
 # -------------------------------------------------------------
 #  here is where the remaining three points have to be
-#  added using *code* and not manually
+#  added using *code* below and not manually
 # -------------------------------------------------------------
   ]
 }
 
-# new empty list where I'm going to put all the new dictionaries 
+# new empty list where we're going to put all the new dictionaries 
+# a.k.a. all the new points
+three_new_points = []
+
+for i in range(3):
+#   define a new point 
+    new_point = {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Point",
+        "coordinates": []
+
+      }
+    }
+    
+    # increment the longitude
+    gap += ???
+    
+    # create a new list with the updated coordinates
+    new_coordinates = [init_coords[???] + ???, init_coords[???]]
+
+    # assign the new coordinates to the coordinates key
+    # in the new point dictionary
+    new_point["geometry"]["coordinates"] = new_coordinates
+    new_point["properties"]["name"] = "Point " + str(i+1)
+
+    # append the new point dictionary to the list of new points
+    three_new_points.append(???)
+
+
+# append to the feature list the three new points
+# that we created
+transect["features"].extend(three_new_points)
+print(transect)
+```
+
+#### Answer
+
+```{python}
+# define a new featureCollection: it is basically a very fancy dictionary
+# to which we are going to add new 'features' (which are points on a map
+# but represented as *data* by a dictionary). We need to add one feature
+# at a time when building our transect...
+# initial coordinate list
+init_coords = [-0.0200, 51.592]
+
+# dX / delta-X 
+dx  = 0.03
+gap = 0
+
+transect = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Point",
+        "coordinates": init_coords
+      }
+    }
+# -------------------------------------------------------------
+#  here is where the remaining three points have to be
+#  added using *code* below and not manually
+# -------------------------------------------------------------
+  ]
+}
+
+# new empty list where we're going to put all the new dictionaries 
 # a.k.a. all the new points
 three_new_points = []
 
@@ -620,18 +757,21 @@ for i in range(3):
 # append to the feature list the three new points
 # that we created
 transect["features"].extend(three_new_points)
-print(transect)
 ```
 
-This output on its own makes _very_ little sense, but it's actually a real world data structure called JSON. Below we use a handy library (that you might not yet have installed on your computer) to turn that JSON into something easier to read, and _then_ we'll see how you can use it!
+::: 
 
-```python
+This output on its own makes _very_ little sense since it's so hard to read, but below we can use a handy library to turn that GeoJSON into something easier to read.
+
+```{python}
 import json 
 parsed = json.loads(str(transect).replace("\'", "\""))
-print(json.dumps(parsed, indent=4))
+print(json.dumps(parsed, indent=2))
 ```
 
-```python
+And now let's check that it did what we expected:
+
+```{python}
 from ipyleaflet import Map, GeoJSON, basemaps
 m = Map(center = (51.51, -0.10), zoom=10, min_zoom=5, max_zoom=20, 
    basemap=basemaps.OpenTopoMap)
@@ -640,18 +780,16 @@ m.add_layer(geo)
 m
 ```
 
-
 ### Further references:
 
 General list of resources
-- [Awesome list of resources](https://github.com/vinta/awesome-python)
+- [Awesome Python resources](https://github.com/vinta/awesome-python)
 - [Python Docs](https://docs.python.org/3/tutorial/introduction.html)
 - [HitchHiker's guide to Python](http://docs.python-guide.org/en/latest/intro/learning/)
 - [Python for Informatics](http://www.pythonlearn.com/book_007.pdf)
 - [Learn Python the Hard Way - Lists](http://learnpythonthehardway.org/book/ex32.html)
 - [Learn Python the Hard Way - Dictionaries](http://learnpythonthehardway.org/book/ex39.html)
 - [CodeAcademy](https://www.codecademy.com/courses/python-beginner-en-pwmb1/0/1)
-
 
 ### Credits!
 

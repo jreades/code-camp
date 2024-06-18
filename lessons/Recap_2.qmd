@@ -9,9 +9,10 @@ title: Recap 2
 Since the first recap, you've learned about lists, dictionaries and loops. Let's revise those concepts and how to use them in this lesson before continuing on to some new material. Answer the questions as best you can, working through any error messages you receive and remembering to refer back to previous lessons. 
 
 ## Lists
+
 First, here's a reminder of some useful methods (_i.e._ functions) that apply to lists:
 
-| Method                 | Action |
+| Method                 | Action                                                           |
 |------------------------|------------------------------------------------------------------|
 | list.count(`x`)        | Return the number of times x appears in the list                 |
 | list.insert(`i`, `x`)  | Insert value `x` at a given position `i`                         |
@@ -28,146 +29,222 @@ Replace `???` in the following code blocks to make the code work as instructed i
 
 **a)** The next line creates a list of city names (each element is a string) - run the code and check you understand what it is doing. 
 
-```python
+```{pyodide-python}
+cities = ["Bristol", "London", "Manchester", "Edinburgh", "Belfast", "York"]
+print(cities)
+```
+
+```{python}
+#| echo: false
 cities = ["Bristol", "London", "Manchester", "Edinburgh", "Belfast", "York"]
 ```
 
 **b)** Replace the `???` so that it prints the position of Manchester in the list
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-print("The position of Manchester in the list is: " + str(cities.???('Manchester')))
+
+#### Question
+
+```{pyodide-python}
+print("The position of Manchester in the list is: " + 
+      str(cities.???('Manchester')))
 ```
-#### Solution
-```python
-print("The position of Manchester in the list is: " + str(cities.index('Manchester')))
+
+#### Answer
+
+```{python}
+print("The position of Manchester in the list is: " + 
+      str(cities.index('Manchester')))
 ```
+
 :::
 
 **c)** Replace the `???` so that it prints Belfast
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 print(cities[2 + ???])
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 print(cities[2 + 2])
 ```
+
 :::
 
 **d)** Use a **negative** index to print *Belfast*
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 print(cities[???])
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 print(cities[-2])
 ```
+
 :::
 
 **e)** Force Python to generate a `list index out of range` error. NB: This error happens you provide an index for which a list element does not exist
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 print(cities[???])
 ```
-#### Solution
-```python
-print(cities[6]) #anything above five would do it
+
+#### Answer
+
+```{python}
+try: 
+    print(cities[6]) #anything above five would do it
+except IndexError:
+    print("Doesn't exist.")
 ```
+
 :::
 
 **f)** Think about what the next line creates, then run the code. 
 
-```python
+```{pyodide-python}
+temperatures = [15.6, 16.5, 13.4, 14.0, 15.2, 14.8]
+print(temperatures)
+```
+
+```{python}
+#| echo: false
 temperatures = [15.6, 16.5, 13.4, 14.0, 15.2, 14.8]
 ```
 
 **g)** What would you change `???` to, to return `[16.5, 13.4, 14.0]`?
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 print(temperatures[???])
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 print(temperatures[1:4])
 ```
+
 :::
 
 **h)** What are two different ways of getting `[15.2, 14.8]` from the `temperatures` list?
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 print(temperatures[???])
 print(temperatures[???])
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 print(temperatures[4:6])
 print(temperatures[-3:-1])
 ```
+
 :::
 
 **i)** Notice that the list of `temperatures` is the same length as the list of `cities`, that's because these are (roughly) average temperatures for each city! Given this, how do you print: "The average temperature in Manchester is 13.4 degrees." _without_ doing any of the following:
+
 1. Using a list index directly (*i.e.* `cities[2]` and `temperatures[2]`) or 
 2. Hard-coding the name of the city? 
 
 **To put it another way, neither of these solutions is the answer**:
+
 ```python
 print("The average temperature in Manchester is " + str(temperatures[2]) + " degrees.")
-```
-or 
-```python
 city=2
 print("The average temperature in " + cities[city] + " is " + str(temperatures[city]) + " degrees.")
 ```
 
 _Hint:_ you need to combine some of the ideas we've used above!
 
-::: {.panel-tabset}
-#### Exercise
-```python
-city="Manchester" # Use this to start the solution...
-#your code here...
+:::: {.panel-tabset}
+
+#### Question
+
+```{pyodide-python}
+city  = "Manchester" # Use this to start the solution...
+index = ???
+print("The average temperature in " ???)
 ```
-#### Solution
-```python
-city="Manchester" # Use this to get the solution...
+
+#### Answer
+
+```{python}
+city  = "Manchester"
 index = cities.index(city)
 print("The average temperature in " + cities[index] + " is " + str(temperatures[index]) + " degrees.")
 ```
+
+Notice that this could *also* be written:
+
+```{python}
+city = "Manchester"
+print("The average temperature in " + 
+      cities[cities.index(city)] + " is " + 
+      str(temperatures[cities.index(city)]) + " degrees.")
+```
+
+*If* it works for you, you can think of this as being like substitution in an equation: you can replace `index` with `cities.index(city)` because that's the value we set `index` to after all! 
+
+::: {.callout-tip}
+
+#### Substitution
+
+Many time programmers will break a more complex task down into smaller steps: it's a great general problem solving approach, but in programming you can then use it to (re)compose more complex code.
+
 :::
+
+::::
 
 Now copy+paste your code and change only **one** thing in order to print out: "The average temperature in Belfast is 15.2 degrees"
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 ???
 ```
-#### Solution
-```python
-city="Belfast"
+
+#### Answer
+
+```{python}
+city  = "Belfast"
 index = cities.index(city)
 print("The average temperature in " + cities[index] + " is " + str(temperatures[index]) + " degrees.")
 ```
+
 :::
 
 ### Manipulating Multiple Lists
 
-We'll create two lists for the next set of questions
+We'll create two lists for the next set of questions:
 
-```python
+```{python}
 list1 = [1, 2, 3]
 list2 = [4, 5, 6]
 ```
@@ -175,85 +252,117 @@ list2 = [4, 5, 6]
 **j)** How do you get Python to print: `[1, 2, 3, 4, 5, 6]`
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
 print( ??? )
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 print ( list1 + list2 )
 ```
+
 :::
 
 **k)** How to you get Python to print: `[1, 2, 3, [4, 5, 6]]`
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 print( ??? )
 ```
-#### Solution
-```python
-print( list1+[list2])
+
+#### Answer
+
+```{python}
+print(list1+[list2])
+list1.append(list2) # Alternatively...
+print(list1)
 ```
+
 :::
 
-Let's re-set the lists (run the next code block)
+Re-setting the lists now how would you...
 
-```python
+```{python}
+#| echo: false
 list1 = [1, 2, 3]
 list2 = [4, 5, 6]
 ```
 
-**l)** How would you print out: `[6, 5, 4, 3, 2, 1]` ?
+**l)** Print out: `[6, 5, 4, 3, 2, 1]` ?
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
 list3 = ???
 list3.???
 print(list3)
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 list3 = list1+list2
 list3.reverse()
 print(list3)
 ```
+
 :::
 
-**m)** How would you print out: `[3, 2, 1, 6, 5, 4]` ?
+**m)** Print out: `[3, 2, 1, 6, 5, 4]` ?
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 list1.???
 list2.???
 print( list1+list2 )
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 list1.reverse()
 list2.reverse()
 print( list1+list2 )
 ```
+
 :::
 
 **n)** How would you print out `[3, 2, 6, 5]` with a permanent change to the list (not slicing)? NB: this follows on from the previous question, so note that the order is still 'reversed'.
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 list1.???
 list2.???
 print( list1+list2 )
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 list1.remove(1)
 list2.remove(4)
 print( list1+list2 )
 ```
+
 :::
 
 ## Dictionaries
@@ -266,7 +375,17 @@ Replace `???` in the following code block to make the code work as instructed in
 
 Run the code and check you understand what the data structure that is being created (the data for each city are latitude, longitude and airport code)
 
-```python
+```{pyodide-python}
+cities = {
+    'San Francisco': [37.77, -122.43, 'SFO'],
+    'London': [51.51, -0.08, 'LDN'],
+    'Paris': [48.86,2.29, 'PAR'],
+    'Beijing': [39.92,116.40 ,'BEI'],
+}
+```
+
+```{python}
+#| echo: false
 cities = {
     'San Francisco': [37.77, -122.43, 'SFO'],
     'London': [51.51, -0.08, 'LDN'],
@@ -278,77 +397,77 @@ cities = {
 **a)** Add a record to the dictionary for Chennai ([data here](https://en.wikipedia.org/wiki/Chennai))
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-cities = ???
+
+#### Question
+
+```{pyodide-python}
+cities['Chennai'] = ???
 ```
-#### Solution
-```python
-cities = {
-    'San Francisco': [37.77, -122.43, 'SFO'],
-    'London': [51.51, -0.08, 'LDN'],
-    'Paris': [48.86,2.29, 'PAR'],
-    'Beijing': [39.92,116.40 ,'BEI'],
-    'Chennai': [13.08, 80.27,'MAA']
-}
+
+#### Answer
+```{python}
+cities['Chennai'] = [13.08, 80.27,'MAA']
 ```
+
 :::
 
 **b)** In *one* line of code, print out the airport code for Chennai
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-print(???)
+
+#### Question
+
+```{pyodide-python}
+print("The airport code for Chennai is " ???)
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 print("The airport code for Chennai is " + cities["Chennai"][2])
 ```
+
 :::
 
 **c)** Check you understand the difference between the following two blocks of code by running them, checking the output and editing them (e.g. try the code again, but replacing *Berlin* with *London*)
 
-```python
-print(cities['Berlin'])
+```{python}
+try:
+    print(cities['Berlin'])
+except KeyError:
+    print("Couldn't find key.")
 ```
 
-```python
+```{python}
 print(cities.get('Berlin'))
 ```
 
-::: {.panel-tabset}
-#### Exercise
-```python
-# What is the difference among the two methods above?
-# Compare to use using the two different methods for London
-```
-#### Solution
-```python
-#Berlin is not in the dict. 
-#The first code block above returns an error because Berlin is missing
-#The second does not because it uses the .get method which handles the error for us (returning a None value)
-#This second method is 'safer' because of how it handles this error
+::: {.callout-tip}
 
-#compare using the two different methods for London:
-print(cities['London'])
-print(cities.get('London'))
-```
+So `dict.get()` does not generate a `KeyError`, it returns `None` (or any other value we want; e.g. `cities[get('Berlin','New City')]`). Depending on how you *expect* or *want* your code to behave either approach is valid. Think of it this way: is a missing key a 'problem' that needs to be resolved, or just a situation that you expect to encounter.
+
 :::
 
-**d)** Adapting the code below, print out the city name and airport code for every city in our Atlas.
+**d)** Adapting the code below, print out the city name and airport code for *every* city in our Atlas.
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 for k, v in cities.items():
-    print(k)
+    print("The city of " + ??? + " has an airport code of " + ??? )
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 for k, v in cities.items():
+    # Technically the `str` isn't needed here, but it would be wise to 
+    # allow for something other than a string to be returned...
     print("The city of " + str(k) + " has an airport code of " + str(v[2]) )
 ```
+
 :::
 
 ## Loops
@@ -358,41 +477,55 @@ Recall from the previous lessons that loops are a way to *iterate* (or repeat) c
 ### Working with Loops
 The questions below use `for` loops. Replace `???` in the following code block to make the code work as instructed in the comments. If you need some hints and reminders, revisit the previous lessons.
 
-**a)** Print out the name and latitude of every city in the cities dictionary using a for loop
+**a)** Print out every city on a separate line using a for loop:
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-for ??? in cities.???:
-    print(??? + " is at latitude " + str(???))
-```
-#### Solution
-```python
-for city, latitude in cities.items():
-    print(city + " is at latitude " + str(latitude[0]))
-```
-:::
 
-**b)** Print out every city on a separate line using a for loop:
+#### Question
 
-::: {.panel-tabset}
-#### Exercise
-```python
+```{pyodide-python}
 for c in ???:
     print(???)
 ```
-#### Solution
-```python
-for c in cities.items():
+
+#### Answer
+
+```{python}
+for c in cities.keys():
     print(c)
 ```
+
+:::
+
+**b)** Print out the name and latitude of every city in the cities dictionary using a for loop
+
+::: {.panel-tabset}
+
+#### Question
+
+```{pyodide-python}
+for ??? in cities.???:
+    print(??? + " is at latitude " + str(???))
+```
+
+#### Answer
+
+```{python}
+for city, attrs in cities.items():
+    print(city + " is at latitude " + str(attrs[0]))
+```
+
+You could also do this using `cities.keys()` and then looking it up like this: `cities[city][0]` but in this case that's a little less clear.
+
 :::
 
 **c)** Now print using a loop this new data structure:
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 citiesB = [
     {'name':     'San Francisco',
      'position': [37.77, -122.43],
@@ -411,8 +544,10 @@ citiesB = [
 for ??? in citiesB.???:
     print(??? + " is at latitude " + str(???))
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 citiesB = [
     {'name':     'San Francisco',
      'position': [37.77, -122.43],
@@ -431,6 +566,7 @@ citiesB = [
 for city in citiesB:
     print(city['name'] + " is at latitude " + str(city['position'][0]))
 ```
+
 :::
 
 Nice work. Hopefully these questions have helped you compound your understanding. Onwards!

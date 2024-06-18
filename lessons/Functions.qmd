@@ -15,6 +15,7 @@ In other words, as we saw with the concept of *iteration*, programmers are lazy 
 Naturally, **D.R.Y.** has its opposite: **W.E.T.** (We Enjoy Typing or Write Everything Twice). Dry is nearly always better than wet.
 
 Encapsulating regularly-used bits of code in functions has several advantages:
+
 * Your code is more readable: because you only have to write a function once and can then re-use it as many times as you like, your files are shorter.
 * Your code is easier to maintain: because you only have to write a function once, if you find a mistake in your code, you also only have to fix it in one place.
 * Your can code more quickly: things that you do a _lot_ can even be stuck in a separate file that you _import_ into your code so that your most-used functions are immediately available.
@@ -25,12 +26,12 @@ Basically, a function is a way to _do_ something _to_ something in a portable, e
 
 We've already met and used some functions, especially when we dealt with lists and dictionaries:
 
-```python
+```{python}
 myList = [1,"two", False, 9.99]
 len(myList) # A function
 ```
 
-```python
+```{python}
 print(myList) # A different function!
 ```
 
@@ -39,21 +40,22 @@ print(myList) # A different function!
 As we briefly mentioned in another lesson, any 'word' followed by a set of parenthesis is a function. The 'word' is the function's *name*, and anything that you write within the parantheses are the function's inputs (also known as *parameters*). Like so:
 
 ```python
-
 function_name(optional_parameter_1, optional_parameter_2, ...)
-
 ```
 
-So how do we create (*instantiate* in programming terms) a new function? Like everything else in Python, functions have specific rules that you have to follow for the computer to understand what you want it to do. In this case there are two separate steps: the *function definition* and the *function call*.
+So how do we create a new function? Like everything else in Python, functions have specific rules that you have to follow for the computer to understand what you want it to do. In this case there are two separate steps: the *function definition* and the *function call*.
 
 ### Function Definition
 
 This is a function definition:
-```python
+
+```{python}
 def myFirstFunc():
     print("Nice to meet you!")
 ```
+
 Let's see what happened there:
+
 - We indicated that we wanted to _define_ (lazy version: `def`) a new function.
 - Right after `def` we gave the function a name: `myFirstFunc`.
 - After the new function's name there's the set of parenthesis and a colon.
@@ -66,12 +68,14 @@ The reason for the indenting is the same as for a `while` loop or an `if` condit
 Cool, now that we have defined a function how do we use it? 
 
 The same that we do with 'built-in' functions like `print` and `len`; we *call* it by just typing:
-```python
-myFirstFunct()
+
+```{python}
+myFirstFunc()
 ```
+
 Try it yourself in the code cell below!
 
-```python
+```{pyodide-python}
 # the function definition
 def myFirstFunc():
     print("Nice to meet you!")
@@ -84,14 +88,14 @@ Notice that the sequence of function **definiton** (`def`) *and then* function *
 
 It's the same as with variables: try to `print` one before you've defined it and Python will complain!
 
-```python
+```{pyodide-python}
 print(myVariable)
 myVariable = "Hallo Hallo!"
 ```
 
 Reading (out loud!) the error message hopefully makes the error obvious...  Quite explicit, isn't it? :)
 
-```python
+```{python}
 myVariable = "Hallo Hallo!"
 print(myVariable)
 ```
@@ -101,43 +105,61 @@ print(myVariable)
 Define a new function called "sunnyDay" that prints the string "What a lovely day!"
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-#your code here
+
+#### Question
+
+```{pyodide-python}
+# Your code here
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
+# Define it
 def sunnyDay():
     print("What a lovely day!")
+# And call it
+sunnyDay()
 ```
+
 :::
 
 Now define a function named "gloomyDay" that prints "I hate rainy days!" 
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-#your code here
+
+#### Question
+
+```{pyodide-python}
+# Your code here
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 def gloomyDay():
     print("I hate rainy days!")
+gloomyDay()
 ```
+
 :::
 
 Finally, call the two functions you have defined so that "I hate rainy days!" is printed before "What a lovely day!"
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-#your code here
+
+#### Question
+```{pyodide-python}
+# Your code here
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 gloomyDay()
 sunnyDay()
 ```
+
 :::
 
 ## Arguments
@@ -150,11 +172,17 @@ def myFunction( input_parameter ):
     return input_parameter
 ```
 
-```python
+```{pyodide-python}
 def printMyName( name ):
     print("Hi! My name is: " + name)
 
 printMyName("Gerardus")
+```
+
+```{python}
+#| echo: false
+def printMyName( name ):
+    print("Hi! My name is: " + name)
 ```
 
 ### A challenge for you!
@@ -162,26 +190,31 @@ printMyName("Gerardus")
 We've already defined `printMyName`, so you don't need to do that again. Just ask the function to print _your_ name!
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-#your code here
+
+#### Question
+
+```{pyodide-python}
+# Your code here
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 printMyName("James")
 ```
+
 :::
 
 A *little* more useful, right? If we had to print out name badges for a big conference, rather than typing "Hi! My name is ..." hundreds of times, if we had a list of people's names, we could just use a `for` loop to print out each one in turn using this function. The function adds the part that *is the same* for every name badge and all we need to do is pass it the input parameters. In fact, why don't we try that now?
 
-```python
-for name in ["Jon Reades", "James Millington", "Chen Zhong", "Naru Shiode"]:
+```{python}
+for name in ["Jon Reades", "James Millington", "Chen Zhong"]:
     printMyName(name)
 ```
 
 In the function `printMyName` we used just one parameter as an input, but we are not constrained to just one. We can input many parameters *separated by commas*; let's _redefine_ the `printMyName` function:
 
-```python
+```{python}
 def printMyName(name, surname):
     print("Hi! My name is "+ name + " " + surname)
 
@@ -190,7 +223,7 @@ printMyName("Gerardus", "Merkatoor")
 
 And now can pass input parameters to a function dynamically from a data structure within a loop: 
 
-```python
+```{python}
 britishProgrammers = [
     ["Babbage", "Charles"],
     ["Lovelace", "Ada"], 
@@ -210,35 +243,54 @@ See what we mean about it being like Lego? We've combined a new concept with a c
 Define and use a function that takes as input parameters a `<name>` (String) and `<age>` (Integer) and then prints out the phrase: `<name> + "is" + <age> +" years old"`
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-#your code here
+
+#### Question
+
+```{pyodide-python}
+# Your code here
+def printMyAge(name, age):
+    ??? 
+
+printMyAge('Jon',25) # Tip, not really
 ```
-#### Solution
-```python
+
+#### Answer
+```{python}
 def printMyAge(name, age):
     print(name + " is " + str(age) + " years old.")
     
 printMyAge('Jon',25)
 ```
+
 :::
 
-There's actually another way to do this that is quite helpful because it's easier to read:
+::: {.callout-tip}
+#### F-Strings
 
-```python
+There's actually *another* way to do this that is quite helpful because it's *much* easier to read:
+
+```{python}
 def printMyAge(name, age):
-    print(f"{name} is {age} years old.") # This is called a 'f-string' and we use {...} to add variables
+    print(f"{name} is {age} years old.") # This is a 'f-string'
     
 printMyAge('Jon',25)
 ```
 
+The f-string (because it's written `f"..."`) saves having to use lots of `+` and `str(x)` snippets because we just use `{variable_name}` and the `str(variable_name)` is assumed. Between the `{` and `}` we can use any variable (and even some basic code) to interpolate the result into the string. For instance:
+
+```{python}
+print(f"The result of 2 * 2 is {2*2} as {britishProgrammers[1][1]} {britishProgrammers[1][0]} could have guessed.")
+```
+
+:::
+
 ## Scoping
 
-Now I'd like you to focus on a particuarly important concept: something called 'scoping'. Notice that the names we are using for the parameters are *de facto* creating new variables that we then use in the *function body* (the indented block of code). In the example below, 'name' and 'surname' are _scoped_ to the body of the funciton. Outside of that block (outside of that scope) they don't exit!
+Now we need to focus on a particuarly important concept: something called 'scoping'. Notice that the names we are using for the parameters are *de facto* creating new variables that we then use in the *function body* (the indented block of code). In the example below, 'name' and 'surname' are _scoped_ to the body of the funciton. Outside of that block (outside of that scope) they don't exit!
 
 Here's the proof:
 
-```python
+```{python}
 def whoAmI(myname, mysurname):
     if not myname:
         myname = 'Charles'
@@ -246,24 +298,28 @@ def whoAmI(myname, mysurname):
         mysurname = 'Babbage'
     print("Hi! My name is "+ myname + " " + mysurname + "!")
 
-print(myname) # myname _only_ exists 'inside' the function definition
+try:
+    print(myname) # myname _only_ exists 'inside' the function definition
+except NameError as e:
+    print("myname doesn't exist!")
+    print(f"Error: {e}")
 ```
 
-Notice how the ErrorMessage is the same as before when we tried to `print` a variable that wasn't defined yet? It's the same concept: the variables defined as parameters exist only in the indented code block of the function (the [function *scope*](http://python-textbok.readthedocs.io/en/latest/Variables_and_Scope.html) ).
+Notice how the error message is the same as before when we tried to `print` a variable that wasn't defined yet? It's the same concept: the variables defined as parameters exist only in the indented code block of the function (the [function *scope*](http://python-textbok.readthedocs.io/en/latest/Variables_and_Scope.html) ).
 
 But notice too that if you replace `print name` with `whoAmI("Ada", "Lovelace")` then the error disappears and you will see the output: "Hi! My name is Ada Lovelace." So to reiterate: parameters to a function exist as variables **only within the function scope**.
 
-```python
+```{python}
 whoAmI('Ada','Lovelace')
 ```
 
 ## Default Parameters
 
-Let's say that your namebade printing function is a worldwide hit, and while most conferences take place in English, in some cases they might need to say 'Hello' in a different languages. In this case, we might like to have a parameter with a _default_ value ("Hi") but allow the programmer to override that with a _different_ value (e.g. "Bonjour").
+Let's say that your namebadge printing function is a worldwide hit, and while most conferences take place in English, in some cases they might need to say 'Hello' in a different languages. In this case, we might like to have a parameter with a _default_ value ("Hi") but allow the programmer to override that with a _different_ value (e.g. "Bonjour").
 
 Here's how that works:
 
-```python
+```{python}
 def printInternational(name, surname, greeting="Hi"):
     print(greeting + "! My name is "+ name + " " + surname)
 
@@ -283,7 +339,7 @@ Up to here we've only had a function that printed out whatever we told it to. Of
 
 So if you want to access a value calculated inside a function then you have to explicitely return it using the *reserved keyword* `return`:
 
-```python
+```{python}
 def sumOf(firstQuantity, secondQuantity):
     return firstQuantity + secondQuantity
 
@@ -295,32 +351,34 @@ print(sumOf(109845309234.30945098345,223098450985698054902309342.435987239009234
 
 The `return` keyword, somewhat obviously, returns whatever you tell it to so that that 'thing' become accessible outside of the function's scope. You can do whatever you want with the returned value, like assign it to a new variable:
 
-```python
+```{python}
 returnedValue = sumOf(4, 3)
 
-# Notice the casting from int to str!
+# Notice the automatic 'casting' from int to str!
 print(f"This is the returned value: {returnedValue}")
 ```
 
 One important thing to remember is that `return` always marks the end of the list of instructions in a function. So whatever code is written below `return` *and yet still indented in the function scope* won't be executed:
 
-```python
+```{python}
 def genericFunc(parameter):
     # do something to parameter
     # ...
     # do something else..
     # ...
+    print("About to return the answer...")
     return 
-    print("this line won't be ever executed! how sad!")
-    print("nope. this won't either, sorry.")
-```
+    print("This line won't be ever executed! how sad!")
+    print("Nope, this won't either, sorry.")
 
+genericFunc('Foo')
+```
 
 ### A challenge for you!
 
-Guess which will be the highest number to be printed from this function (**think about your guess _before_ you execute the code)**:
+In light of the above, guess which will be the highest number to be printed from this function (**think about your guess _before_ you execute the code)**:
 
-```python
+```{pyodide-python}
 def printNumbers():
     print(2)
     print(5)
@@ -335,7 +393,7 @@ printNumbers()
 
 Now that you have seen a bit more what is happening in a function, we can combine some concepts that we have seen in previous lessons to produce interesting bits of code. Take a look at how I've combined the `range` function, and the `for in` loop to print only the odd numbers for a given range.
 
-```python
+```{python}
 def oddNumbers(inputRange):
     """
     A function that prints only the odd numbers for a given range from 0 to inputRange.
@@ -347,14 +405,17 @@ def oddNumbers(inputRange):
 
 oddNumbers(10)
 
-print("And...")
+print("\nAnd...")
 
 oddNumbers(15)
+
+print("") # Blank line
 
 help(oddNumbers)
 ```
 
 Let's take a closer look at what's happening above...
+
 ```python
 def oddNumbers(inputRange):
     """
@@ -365,6 +426,7 @@ def oddNumbers(inputRange):
         if i%2 != 0:
             print(i)
 ```
+
 This defines a new function called `oddNumbers` which takes one parameter – it's not immediately clear what type of variable `inputRange` is, but we can guess it pretty quickly from what happens next.
 
 You'll notice that there's are some lines immediately _after_ the function definition (between the triple-quotes) that aren't printed or obviously used, but that look like documentation of some sort. We'll come back to that in a minute.
@@ -374,27 +436,25 @@ The next line is a simple `for` loop: `for i in range(inputRange)`. The `range` 
 The next line is nested inside the for loop: so we take _each_ `i` in turn and perform the modulo calculation on it: if `i%2` is `0` then `i` is divisble by 2. It's even. If it's not equal to `0` then it's not an even number, and in that case we'll print it out.
 
 Which is exactly what happens with:
+
 ```python
 oddNumbers(10)
 oddNumbers(15)
 ```
 
 The last line is something new:
+
 ```python
 help(oddNumbers)
 ```
+
 If you look at the output of this, you'll see that it prints out the content we wrote into the triple-quotes in the function definition. So if you want to give your function some documentation that others can access, this is how you do it. In fact, this is how _every_ function in Python should be documented. 
 
 Try these (and others) in the empty code block below:
-```python
+
+```{pyodide-python}
 help(len)
 help(str)
-myList = [1,2,3]
-help(myList.append)
-```
-
-```python
-help(len)
 myList = [1,2,3]
 help(myList.append)
 ```
@@ -404,12 +464,25 @@ help(myList.append)
 Now modify the oddNumbers function so that it _also_ prints "Yuck, an even number!" for every even number...
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-#your code here
+
+#### Question
+
+```{pyodide-python}
+def oddNumbers(inputRange):
+    """
+    A function that prints only the odd numbers for a given range from 0 to inputRange.
+      inputRange - an integer representing the maximum of the range
+    """
+    for i in range(inputRange):
+        if i%2 != 0:
+            print(i)
+
+oddNumbers(8)
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 def oddNumbers(inputRange):
     for i in range(inputRange):
         if i%2 != 0:
@@ -419,13 +492,14 @@ def oddNumbers(inputRange):
 
 oddNumbers(8)
 ```
+
 :::
 
 ## Functions as Parameters of Other Functions
 
 This leads us to another intersting idea: since moving around functions is so easy, what happens when we use them as inputs to other functions?
 
-```python
+```{python}
 def addTwo(param1):
     return param1 + 2
 
@@ -449,7 +523,33 @@ For the last Geo-Example, let's revisit a couple of old exercises, combining the
 
 First, let's define some variables to contain data that we will then use with the functions.
 
-```python
+```{pyodide-python}
+# London's total population
+london_pop = 7375000
+
+# list with some of London's borough. Feel free to add more! 
+london_boroughs = {
+    "City of London": {
+     "population": 8072,
+     "coordinates" : [-0.0933, 51.5151]
+    },
+    "Camden": {
+     "population": 220338,
+     "coordinates" : [-0.2252,1.5424]
+    },
+    "Hackney": {
+     "population": 220338,
+     "coordinates" : [-0.0709, 51.5432]
+    },
+    "Lambeth": {
+     "population": 303086,
+     "coordinates" : [-0.1172,51.5013]
+    }
+}
+```
+
+```{python}
+#| echo: false
 # London's total population
 london_pop = 7375000
 
@@ -477,36 +577,58 @@ london_boroughs = {
 Now, fix the code in the next cell to use the variables defined in the last cell. The `calcProportion` function should return the proportion of the population that the `boro` borough composes of London.  The `getLocation` function should return the coordinates of the `boro` borough. 
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 def calcProportion(boro,city_pop=???):
     return ???['population']/???
 
 def getLocation(???):
     return boro[???]
+
+print(calcProportion(london_boroughs['Camden']))
+print(getLocation(london_boroughs['Lambeth']))
 ```
-#### Solution
-```python
-#in this function definition we provide a default value for city_pop
-#this makes sense here because we are only dealing with london
+
+#### Answer
+
+```{python}
 def calcProportion(boro,city_pop=7375000):
+    """
+    In this function definition we provide a default value for city_pop
+    this makes sense here because we are only dealing with London
+    """
     return boro['population']/city_pop
 
 def getLocation(boro):
-    return boro['coordinates'] #returns the value for the `coordinates` key from the value for the `Lambeth` key
+    """
+    Returns the value for the `coordinates` based on the key
+    """
+    return boro['coordinates']
+
+print(calcProportion(london_boroughs['Camden']))
+print(getLocation(london_boroughs['Lambeth']))
 ```
+
 :::
 
 Write some code to print the **longitude of Lambeth**. This could be done in a single line but don't stress if you need to use more lines... 
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-#your code here
+
+#### Question
+
+```{pyodide-python}
+
+# Your code here
+
 ```
-#### Solution
-```python
-#one-liner (see if you can understand how it works)
+
+#### Answer
+
+```{python}
+# A one-liner (see if you can understand how it works)
 print(getLocation(london_boroughs['Lambeth'])[0])
 
 # A longer but possibly more user-friendly way:
@@ -514,6 +636,7 @@ coord = getLocation(london_boroughs['Lambeth'])
 long  = coord[0]
 print(long)
 ```
+
 :::
 
 Write some code to print the **proportion of the London population that lives in the City of London**. Using the function defined above, this should take only one line of code.
@@ -532,12 +655,18 @@ print(calcProportion(london_boroughs['City of London']))
 Write code to loop over the `london_boroughs` dictionary, use the `calcProportion` and `getLocation` functions to then print proportions and locations of all the boroughs. 
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-#your code here
+
+#### Question
+
+```{pyodide-python}
+#
+# Your code here
+#
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 for boro, data in london_boroughs.items():
     prop = calcProportion(data)
     location = getLocation(data)
@@ -546,12 +675,12 @@ for boro, data in london_boroughs.items():
     print(location)
     print("")
     
-    #to print more nicely you could use string formatting:
-    #print("Proportion is {0:3.3f}%".format(prop*100))
-    #print("Location of " + boro + " is " + str(location))
+    # To print more nicely you could use f-string formatting:
+    # print("Proportion is {0:3.3f}%".format(prop*100))
+    # print("Location of " + boro + " is " + str(location))
 ```
-:::
 
+:::
 
 ### Further references:
 
