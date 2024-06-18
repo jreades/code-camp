@@ -42,10 +42,12 @@ Imagine the following:
 - Because the web sites are _completely_ different the `read_data(...)` functions are _specific_ to that one web site!
 
 So, if both packages have functions callend `read_data()`, then after you have done:
+
 ```python
 import nomis_reader
 import ldn_data_store_reader
 ```
+
 How does Python know which `read_data` you want to use? 
 
 The answer is the _namespace_: you can _only_ access the NOMIS `read_data` function by typing `nomis.read_data(...)` and you can _only_ access the Data Store `read_data` function by typing `ldn_data_store_reader.read_data(...)`. 
@@ -53,10 +55,12 @@ The answer is the _namespace_: you can _only_ access the NOMIS `read_data` funct
 ### Import... As...
 
 The length and awkwardness of that last line is why you can write this:
+
 ```python
 import ldn_data_store_reader as ldn
 ```
-Because the _alias_ (`"...as ldn"`) lets you type `ldn.read_data(...)` and Python will know exactly which function you mean!
+
+Because the _alias_ (`"... as ldn"`) lets you type `ldn.read_data(...)` and Python will know exactly which function you mean!
 
 ## Packages in Context
 
@@ -68,15 +72,17 @@ To a computer, reading data from a remote location (e.g. a web site halfway arou
 
 In all cases -- local and remote -- you use the package to handle the hard bit of knowing how to actually 'read' data (because all files are just `1`s and `0`s of data) at the _device_ level and then Python gives you back a 'file handle' that helps you to achieve things like 'read a line' or 'close an open file'. You can think of a filehandle as something that gives you a 'grip' on a file-like object no matter where or what it is, and the package is the way that this magic is achieved.
 
-Let's recall our problem: _download a data file that we know is hosted on a web site and then do some analysis of those data_.
+Let's take a common problem: 
+
+> download a data file that we know is hosted on a web site and then do some analysis of those data...
 
 We need to break this seemingly hard problem down into something simpler and can do this by thinking about it as three separate steps:
 
-1. First we want to read a remote file (i.e. a text file somewhere the planet), 
-2. Then we want to turn it into a local data structure (i.e a list or a dictionary), 
+1. First we want to read a remote file (e.g. a file somewhere the planet), 
+2. Then we want to turn it into a local data structure (e.g. a list or a dictionary), 
 3. Finally we want to perform some calculations on the data (e.g. calculate the mean).
 
-We can tackle each of those in turn, getting the first bit working, then adding the second bit, etc. It's just like using lego to build something: you take the same pieces and assemble them in different ways to produce different things.
+We can tackle each of those problems in turn, getting the first bit working, then adding the second bit, etc. It's just like using lego to build something: you take the same pieces and assemble them in different ways to produce different things.
 
 ### Step 1: Reading a Remote File
 
@@ -94,12 +100,26 @@ Of course, just knowing that you need `urlopen` doesn't necessarily help you to 
 
 ##### dir
 
-The 'Dive into Python' web site will tell you that "dir returns a list of the attributes and methods of any object". That introduces yet another term ('modules') that we don't want to get into right now, but _everything_ in Python is an object and so `dir` will give you help with packages, variables, functions... you name it.
+The 'Dive into Python' web site will tell you that "dir returns a list of the attributes and methods of any object". That introduces yet another term ('methods') that we don't want to get into right now, but _everything_ in Python is an object and so `dir` will give you help with packages, variables, functions... you name it.
 
-```python
+<style type="text/css">
+.scrollable {
+    max-height: 400px;
+    overflow: visible;
+    overflow-y: scroll;
+    margin-bottom: 15px
+
+}
+</style>
+
+::: {.scrollable}
+
+```{python}
 import math
 dir(math)
 ```
+
+:::
 
 What **`dir`** gives you is information about things you can potentially do: it's like navigating the menu of a web site -- you aren't yet looking at the information you need, you're trying to figure out if the site even _has_ what you need. So `dir` on a package will give you a list of the functions (and any variables) that the person who created the package has provided.
 
@@ -110,35 +130,38 @@ Typically, the information given by `dir` is highly abbreviated and is really ju
 The `help` function gives you the actual detail you need about how to use a particular function: what are the inputs, what are the outputs, and what will the function actually _do_ ?
 
 Both of these can be used on a package, a function, or a variable that you've created; for example: 
-```python
+
+```{python}
 import math
 help(math.acos)
 ```
 
 Let's see this in action!
 
-```python
+```{python}
 from urllib.request import urlopen
 print("dir(urlopen) returns:\n")
 print(dir(urlopen))
-print("\n\n")
+```
+
+::: {.scrollable}
+
+```{python}
 print("help(urlopen) returns:\n")
 print(help(urlopen)) # Notice!
 ```
 
-**Note**: you can also get help in Jupyter by typing `?urlopen` in a code block and then hitting 'run'.
-
-```python
-?urlopen
-```
+:::
 
 ### A Challenge for you!
 
 Fix the code to set the `url` variable, then use it with the `urlopen` function to open it.
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 from urllib.request import urlopen
 
 # Given the info you were given above, what do you 
@@ -155,29 +178,32 @@ datafile = response.read().decode('utf-8')
 
 print("datafile variable is of type: '" + datafile.__class__.__name__ + "'.\n")
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 from urllib.request import urlopen
 
-url = "http://bit.ly/2vrUFKi"
+url = "https://raw.githubusercontent.com/kingsgeocomp/geocomputation/master/CitiesWithWikipediaData-simple.csv"
 response = urlopen(url)
 datafile = response.read().decode('utf-8')
 
 print("datafile variable is of type: '" + datafile.__class__.__name__ + "'.\n")
 ```
+
 :::
 
 Note that the _datafile_ variable is of type `string` (because we decoded it as such).  If we hadn't decoded it, the result would have been of type `bytes` which wouldn't be as easy for us (humans) to work with. 
 
 Now that we've read our data as text, we can print it to check. 
 
-```python
+```{python}
 print(datafile)
 ```
 
 So this is definitely text, but even though it has been nicely formatted _visually_ in the script, right now it's actually not in a very convenient format to work with in our _code_. The `datafile` `str` object is actually a single string of text that Python is interpreting as having line breaks. We can see this by printing the 'raw' object using the `repr` function:
 
-```python
+```{python}
 print(repr(datafile))
 ```
 
@@ -185,8 +211,8 @@ Note the `\n` character that Python is using to determine when to print a [new l
 
 To split the text into individual lines ourselves (ready to work with in our code), we can use the handily named `.splitlines()` method (more on methods below):
 
-```python
-url = "http://bit.ly/2vrUFKi"
+```{python}
+url = "https://raw.githubusercontent.com/kingsgeocomp/geocomputation/master/CitiesWithWikipediaData-simple.csv"
 
 response = urlopen(url)
 datafile = response.read().decode('utf-8').splitlines()
@@ -196,14 +222,14 @@ print("datafile variable is of type: '" + datafile.__class__.__name__ + "'.\n")
 
 Note now, that the data variable has type `list`. When we print this `datafile` `list` object (without `repr`) the `\n` characters have gone and the list elements are split where those new line characters were previously (look carefully at where the `'` are): 
 
-```python
+```{python}
 print(datafile)
 ```
 
 We can see this more clearly if we use a for loop to print out each element of the list (each element being a row of the original online file):
 
-```python
-for row in datafile:
+```{python}
+for row in datafile[-2:]:
     print(row)
 ```
 
@@ -226,39 +252,46 @@ Just in case you need help pronouncing supercalifragilisticexpialidocious:
 {{< video https://youtu.be/uZNRzc3hWvE >}}
 
 Remember that you can find out what _methods_ are supported by a string using `dir(<string>)`:
-```python
+
+::: {.scrollable}
+
+```{python}
 dir('supercalifragilisticexpialidocious')
 ```
+
+:::
+
 I'm going to save you some time (_this_ time!) and tell you that we're interested in the `split` method. Why not use the `help` function to figure out how to make use of it?
 
-```python
+```{python}
 help('supercalifragilisticexpialidocious'.split)
 ```
 
-Now, using the output of the `help` command, how would you use `split` to turn that word into a list like this: 
-```python
-['sup','rcalifragilisticexpialidocious']
-```
-If you replace the `???` with the right bits of code then running the block below will print out "You got it!". You *only* need to change the `???` and nothing else!
+Now, using the output of the `help` command, how would you use `split` to turn that word into a list like this: `['sup','rcalifragilisticexpialidocious']`? If you replace the `???` with the right bits of code then running the block below will print out "You got it!". You *only* need to change the `???` and nothing else!
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 if ['sup','rcalifragilisticexpialidocious']=='supercalifragilisticexpialidocious'.split(???, maxsplit=???):
     print("You got it!")
 else:
     print("Not yet!")
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 if ['sup','rcalifragilisticexpialidocious']=='supercalifragilisticexpialidocious'.split('e', maxsplit=1):
     print("You got it!")
 else:
     print("Not yet!")
 ```
+
 :::
 
-```python
+```{python}
 # Some other string methods
 print('supercalifragilisticexpialidocious'.upper())
 print('supercalifragilisticexpialidocious'.title())
@@ -267,71 +300,76 @@ print('supercalifragilisticexpialidocious'.title())
 OK, so you've tracked down the way to split a `string` using a delimiter and _even_ how to limit the number of 'words' that come out of the split operation. And you already saw another of these methods above (i.e. `splitlines`). We work a lot with `string`s, so it's handy to get to know the readily-available methods well.
 
 Let's test `string` splitting using our sample data (the last line of the 'simple' CSV file) to make sure it works the way we think it does... We want to turn the `string` below into a list like this:
+
 ```python
 ['10', 'Sheffield', '10', '-163545.3257', '7055177.403', '685368']
 ```
 Again, we only need to change the `???`.
 
 ::: {.panel-tabset}
-#### Exercise
-```python
+
+#### Question
+
+```{pyodide-python}
 test = datafile[-1].split(???)
 print(test)
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 test = datafile[-1].split(',')
 print(test)
 ```
+
 :::
 
 #### Consider
 
-A question: why do you think that I consider a) to be data and not b)? 
+A question: why do you think that I consider `a` to be data and not `b`? 
 
-a)
-```python
-['10', 'Sheffield', '10', '-163545.3257', '7055177.403', '685368']
-```
+- a. `['10', 'Sheffield', '10', '-163545.3257', '7055177.403', '685368']`
+- b. `"10,Sheffield,10,-163545.3257,7055177.403,685368"`
 
-b)
-```python
-"10,Sheffield,10,-163545.3257,7055177.403,685368"
-```
+Hopefully you can see that `a` is a `list` and `b` is a `str` (string). Because `a` is a list we can easily access each element. For example: 
 
-**Decide what you think the answer is _before_ clicking for the solution**
-
-Hopefully you can see that a) is a `list` and b) is a `str` (string). Because a) is a list we can easily access each element. For example try the following code yourself: 
-
-Here's a clue:
-```python
-print("The population of " + myList[1] + " is " + myList[5])
+```{python}
+test = datafile[-1].split(',')
+print("The population of " + test[1] + " is " + test[-1])
 ```
 
 It is much more difficult to access the individual pieces of information from the string...  
 
 You can hopefully see how we're breaking a complex problem down into a set of _increments_ , each of which is a bit easier to write and understand. 
 
-### Step 3: Analysis
+### Step 3: Example Analysis
 
-```python
+Now that we understand why the list is a (basic) kind of data structure, we can *do* things with the list-of-lists:
+
+```{python}
 total = 0
 count = 0
 
 for idx,row in enumerate(datafile):
-    
+    r = row.split(',')
     if(idx > 0):
-        total = total + int(row[-1])
+        print(f"Adding {r[-1]} to total, count is now {count}")
+        total = total + int(r[-1])
         count += 1
-    #print(row)
+
 mean = total / count 
 
-print(mean)
+print(f"The mean population of sampled UK cities is: {mean:,}")
 ```
+
+## Recap
+
+This session about packages (just `urllib` in this case) also took in several other concepts: how to access Python's built-in help; how to use built-in functions (aka. methods); and how to piece together what we have covered to create a simple data processing script that reads a remote file of UK cities and calculates the mean population of those cities. There's *lots* more ground to cover, but we're nearly at the end of the foundational concepts and from there it will be about adding complexity and sophistication, not fundamentally new ideas.
 
 ### Credits!
 
 #### Contributors:
+
 The following individuals have contributed to these teaching materials: 
 - [James Millington](https://github.com/jamesdamillington)
 - [Jon Reades](https://github.com/jreades)

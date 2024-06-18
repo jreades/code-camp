@@ -6,9 +6,7 @@ filters:
 title: Inheritance and Classes
 ---
 
-The concept of **inheritance** is something we've held off from mentioning until now, but it's definitely worth understanding if you are serious about learning how to code. In effect, it's common to find Python classes that _import_ a 'base class' and then _extend_ it with additional functionality. 
-
-The two main libraries for working with small to medium-sized data sets in Python are `pandas` and `geopandas`. The creators of `pandas` were't interested in spatial data analysis, so they didn't implement any functionality for reading/writing/analysing spatial data. Along come some developers who *are* interested in spatial problems and `geopandas` as born! But they don't want to have to copy+paste lots of code from `pandas` just to implement the *same* functionality that pandas already provides (calculating the mean, reading an Excel file, handling time series data...) so they *extend* pandas by importing it and adding *only* the new bits that are needed to deal with geography: in this way 'pandas' learns how to work with geodata... 
+The concept of **inheritance** is something we've held off from mentioning until now, but it's definitely worth understanding if you are serious about learning how to code. In effect, it's common to find Python classes that _import_ a 'base class' and then _extend_ it with additional functionality.
 
 ## The 'Tree of Life'
 
@@ -22,11 +20,11 @@ When you get to the primates we all share certain common 'features' (binocular v
 
 ## The 'Tree of Classes'
 
-Inheritance in code works in a similar way: *all* Python classes (lists, pandas, plots, etc.) inherit their most basic functionality from a single primitive 'object' class that itself does very little except to provide a template for what an object should look like. As you move along the inheritance tree you will find more and more complex objects with increasingly advanced features: GeoPandas inherits from Pandas, Bokeh and Seaborn inherit from matplotlib, etc. 
+Inheritance in code works in a similar way: *all* Python classes inherit their most basic functionality from a single primitive 'object' class that itself does very little except to provide a template for what an object should look like. As you move along the inheritance tree you will find more and more complex objects with increasingly advanced features. 
 
 I can't find an image of Python base class inheritance, but I've found an equally useful example of how _anything_ can be modelled using this 'family tree' approach... consider the following:
 
-![Vehicle Inheritance](http://www.mkonar.org/dogus/wiki/lib/exe/fetch.php/python/vehicle.png?w=750&tok=4c7ed7)
+![Vehicle Inheritance](http://www.mkonar.org/dogus/wiki/lib/exe/fetch.php/python/vehicle.png)
 
 If we were trying to implement a vehicle registration scheme in Python, we would want to start with the most basic category of all: _vehicle_. The vehicle class itself might not do much, but it gives us a template for _all_ vehicles (e.g. it must be registered, it must have a unique license number, etc.). We then _extend_ the functionality of this 'base class' with three intermediate classes: two-wheeled vehicles, cars, and trucks. These, in turn, lead to eight actual vehicle types. These might have _additional_ functionality: a bus might need have a passenger capacity associated with it, while a convertible might need to be hard- or soft-top. All of this could be expressed in Python as:
 
@@ -50,13 +48,9 @@ This way, when we create a new `sedan`, it automatically 'knows' about vehicles 
 
 This also means that we are less likely to make mistakes: if we want to update our vehicle registration scheme then we don't need to update lots of functions all over the place, we just update the base class and _all_ inheriting classes automatically gain the update because they are making use of the base class' function. 
 
-So if pandas is updated with a new 'load a zip file' feature then geopandas automatically benefits from it! The _only_ thing that doesn't gain that benefit immediately is our ability to make use of specifically geographical data because pandas doesn't know about that type of data, only 'normal' tabular data.
-
 ### Advantages of Inheritance \#2
 
 Inheritance also means that you can always use an instance of a 'more evolved' class in place of one of its ancestors: simplifying things a _bit_, a sedan can automatically do anything that a car can do and, by extension, anything that a vehicle can do. 
-
-Similarly, since geopandas inherits from pandas if you need to use a geopandas object _as if_ it's a pandas object then that will work! So everything you learned last term for pandas can still be used in geopandas. Kind of cool, right?
 
 ### Designing for Inheritance
 
@@ -66,9 +60,11 @@ OK, that's enough programming theory, let's see this in action...
 
 ## Classes
 
-Here is a simple demonstration of how classes work and why they're useful in programming. Building on last week's 'volume of a sphere' question here's how we'd create and work with a 'shape' class in Python:
+### A Basic Shape
 
-```python
+Here is a simple demonstration of how classes work and why they're useful in programming. Let's see how we might create and work with a 'shape' class in Python:
+
+```{python}
 from math import pi
 
 class shape(object): # Inherit from base class 
@@ -83,7 +79,38 @@ class shape(object): # Inherit from base class
         
     def type(self):
         return(self.shape_type)
+```
+
+Notice how the `def` statements are themselves indented here? What we are seeing is that a `class` is a *bundle* of functions. Our `shape` class inherits from the `object` class (which gives it some basic Python skills) and then *adds* functions for the `volume`, `diameter`, and `type`. There's also a special function called `__init__` which is the one Python will call when it wants to create a *new shape*.
+
+But notice also that there are some odd things about those methods (`volume`, `diameter`, and `type`)? `volume` and `diameter` both throw an error (aka. raise an exception) and `type` seems to return a value that is never set! What's going on???
+
+```{pyodide-python}
+class shape(object): 
+    def __init__(self): 
+        return 
     
+    def volume(self):
+        raise Exception("Unimplmented method error.")
+    
+    def diameter(self):
+        raise Exception("Unimplmented method error.")
+        
+    def type(self):
+        return(self.shape_type)
+
+s = shape()
+print(f"I am an object of class '{type(s).__name__}'.\n\n")
+s.volume()
+```
+
+The last thing to notice is that the class methods (those functions again) all have a default parameter of `self` -- this is a bit confusing, but it's just a bit of 'magic' so that the method can access the class of which it's a part.
+
+### More Advanced Shapes
+
+Let's step it up a bit and create a few more basic shapes by extending our `shape` base class:
+
+```{pyodide-python}
 class cube(shape): # Inherit from shape 
     def __init__(self, e):
         self.shape_type = 'Cube'
@@ -107,36 +134,45 @@ class sphere(shape): # Inherit from shape
     
     def diameter(self):
         return self.radius*2
+```
 
-class pyramid(shape): # Inherit from shape
-    
-    has_mummies = True # This is for *all* regular pyramids
-    
-    def __init__(self, e):
-        self.shape_type = 'Regular Pyramid'
-        self.edge   = e
-        return  
+```{python}
+#| echo: false
 
-class t_pyramid(pyramid): # Inherit from pyramid (this is a triangular pyramid)
-    
-    has_mummies = False # This is for all triangular pyramids
-    
+class cube(shape): # Inherit from shape 
     def __init__(self, e):
-        self.shape_type = 'Triangular Pyramid'
-        self.edge   = e
-        return 
-    
-    def area(self):
-        return (3**(1/2)/4) * self.edge**2
-    
-    def height(self):
-        # https://www.youtube.com/watch?v=ivF3ndmkMsE
-        return (6**(1/2) * self.edge/3)
+        self.shape_type = 'Cube'
+        self.edge = e
+        return
     
     def volume(self):
-        #  V = 1/3 * A * h
-        return (1/3) * self.area() * self.height()
+        return self.edge**3
+    
+    def diameter(self):
+        return (self.edge**2 + self.edge**2)**(1/2)
 
+class sphere(shape): # Inherit from shape 
+    def __init__(self, r):
+        self.shape_type = 'Sphere'
+        self.radius = r
+        return
+    
+    def volume(self):
+        return (4/3) * pi * self.radius**3
+    
+    def diameter(self):
+        return self.radius*2
+```
+
+So now we've got sphere and cube classes that no longer raise exceptions when we try to call the `diameter` or `volume` methods but return real values. Notice that we also can't get away with creating shapes without actual measurements: the `init` funciton now requires an 'edge' or 'radius' value.
+
+::: {.panel-tabset}
+
+#### Question
+
+See if you can create a sphere of radius 10, and a cube of edge-length 10, thhen print out the diameter and volume of each.
+
+```{pyodide-python}
 s = sphere(10)
 print(s.type())
 print("\tVolume is: {0:5.2f}".format(s.volume()))
@@ -148,32 +184,36 @@ print(c.type())
 print("\tVolume is: {0:5.2f}".format(c.volume()))
 print("\tDiameter is: {0:5.2f}".format(c.diameter()))
 print("")
+```
 
-p = t_pyramid(10)
-print(p.type())
-print("\tVolume is: {0:5.2f}".format(p.volume()))
-if p.has_mummies is True:
-    print("\tMummies? Aaaaaaaaagh!")
-else:
-    print("\tPhew, no mummies!")
+#### Answer
 
-# The error here is deliberate -- note that diameter
-# is not implemented in either triangular pyramid, pyramid, 
-# or shape, only for spheres.
-print("\tDiameter is: {0:5.2f}".format(p.diameter()))
+```{python}
+s = sphere(10)
+print(s.type())
+print("\tVolume is: {0:5.2f}".format(s.volume()))
+print("\tDiameter is: {0:5.2f}".format(s.diameter()))
+print("")
+
+c = cube(10)
+print(c.type())
+print("\tVolume is: {0:5.2f}".format(c.volume()))
+print("\tDiameter is: {0:5.2f}".format(c.diameter()))
 print("")
 ```
+
+::: 
 
 **Have a really good think about how this kind of behaviour is useful!**
 
 ### Test Your Understanding 
 
-Based on the above examples of classes and methods, I have two challenges for you to implement in the code below:
+This is really hard stuff and you should *not* panic if you are struggling to work out what is going on. However, you *will* find it useful to grapple with this as best you can for as long as you can stand, because this kind of thing is fundamental to good coding and, as importantly, good debugging. So... based on the above examples of classes and methods, I have two challenges for you to implement in the code below:
 
-1. Try fully-implementing the *regular* pyramid class with a square base that we skipped over above!
+1. Try implementing a *regular* pyramid class with a square base!
 2. Try adding an `area` method that returns the surface area of each shape and then add that information to the output below.
 
-```python
+```{pyodide-python}
 from math import pi
 
 class shape(object): # Inherit from base class 
@@ -185,7 +225,10 @@ class shape(object): # Inherit from base class
     
     def diameter(self):
         raise Exception("Unimplmented method error.")
-        
+    
+    def area(self):
+        raise Exception("Unimplmented method error.")
+
     def type(self):
         return(self.shape_type)
     
@@ -200,6 +243,8 @@ class cube(shape): # Inherit from shape
     
     def diameter(self):
         return (self.edge**2 + self.edge**2)**(1/2)
+    
+    def area...
 
 class sphere(shape): # Inherit from shape 
     def __init__(self, r):
@@ -212,6 +257,8 @@ class sphere(shape): # Inherit from shape
     
     def diameter(self):
         return self.radius*2
+    
+    def area...
 
 class pyramid(shape): # Inherit from shape
     
@@ -219,31 +266,17 @@ class pyramid(shape): # Inherit from shape
     
     def __init__(self, e):
         self.shape_type = 'Regular Pyramid'
-        self.edge   = e
-        return  
+        self.edge       = e
+        return
+    
+    def volume...
 
-class t_pyramid(pyramid): # Inherit from pyramid (this is a triangular pyramid)
-    
-    has_mummies = False # This is for all triangular pyramids
-    
-    def __init__(self, e):
-        self.shape_type = 'Triangular Pyramid'
-        self.edge   = e
-        return 
-    
-    def area(self):
-        return (3**(1/2)/4) * self.edge**2
-    
-    def height(self):
-        # https://www.youtube.com/watch?v=ivF3ndmkMsE
-        return (6**(1/2) * self.edge/3)
-    
-    def volume(self):
-        #  V = 1/3 * A * h
-        return (1/3) * self.area() * self.height()
+    def diameter...
 
-# How would you test these changes?
+    def area...
 ```
+
+How would you test these changes?
 
 ### Credits!
 

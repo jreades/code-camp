@@ -639,15 +639,21 @@ print(long)
 
 :::
 
-Write some code to print the **proportion of the London population that lives in the City of London**. Using the function defined above, this should take only one line of code.
+Write code to print the **proportion of the London population that lives in the City of London**. Using the function defined above, this should take only one line of code.
 
 ::: {.panel-tabset}
-#### Exercise
-```python
-#your code here
+
+#### Question
+
+```{pyodide-python}
+#
+# Your code here
+#
 ```
-#### Solution
-```python
+
+#### Answer
+
+```{python}
 print(calcProportion(london_boroughs['City of London']))
 ```
 :::
