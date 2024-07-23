@@ -1,8 +1,8 @@
 ---
-title: "No Install Python"
+title: "Python in the Cloud"
 ---
 
-If we say running Python ‘remotely’, we mean executing code without installing Python on *your* computer. There are many other ways to run Python, and that includes '[locally](install.qmd)' on your computer. But this way is a great 'try before you buy' option.
+When running code in the cloud, we are running it ‘remotely’, which means without installing anything on *your* computer. There are many other ways to run code, and that includes '[locally](install.qmd)' on your computer. But this is a great 'try before you buy' option.
 
 ::: {.callout-warning}
 
@@ -14,7 +14,9 @@ You will be running code 'in the cloud' and so *will* need an internet-connected
 
 ## In Your Browser
 
-We've migrated from @sec-colab to [Pyodide](https://pyodide.org/en/stable/) which allows you to run Python directly in the your browser. For any of the lessons where there is code to run you will see a 'PYODIDE STATUS' that starts with `Initializing Python Packages` before changing to `Ready!`. Once Pyodide is read you will have the opportunity to run code further down the page as demonstrated in this video:
+To make your life as easy as possible we use [Pyodide](https://pyodide.org/en/stable/), which allows you to run code in the your browser. For any of the lessons where there is code to run you will see a 'PYODIDE STATUS' that starts with `Initializing Python Packages` before changing to `Ready!` after a few seconds (depending on your Internet connection speed). 
+
+Once Pyodide is ready you will have the opportunity to run (and edit!) code further down the page as demonstrated in this video:
 
 {{< video https://youtu.be/nrYjHYEhCJU?si=Pn348cu8Fp7uaHln >}}
 
@@ -22,7 +24,7 @@ As far as we know Pyodide is fully compatible with any modern browser, but let u
 
 ## Google Colab {#sec-colab}
 
-Google's [Colaboratory](https://colab.research.google.com/?) will require a Google login, but offers a few benefits: you can save your code or search for and add other 'notebooks' (the way you will run code in Colab). As long as you don't mind having a Google account, it's probably the best way to get started.
+If you want to experiment further with what you've learned about Python then Google's [Colaboratory](https://colab.research.google.com/?) is the way to go. It will require a Google login, but offers a few benefits: you can save your code or search for and add other 'notebooks' (the way you will run code in Colab). As long as you don't mind having a Google account, it's probably the best way to get started.
 
 Since there's nothing to install, here's a short video showing the process for running code in Google Colab. We've assumed that you already have a Google account, if not you'll need to set one up first:
 
