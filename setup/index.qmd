@@ -10,4 +10,4 @@ Beyond finding a way to run Python code (see below), there are _no_ requirements
 
 ## Running Python
 
-You are welcome to run Code Camp code on your own computer (see: [install options](./install.qmd)), but you should also look at the [no install options](./no_install.qmd) that will allow you to learn (and run) Python anywhere and any time.
+We *recommend* that you simply run [Code Camp in your browser](./no_install.qmd) since that will allow you to learn (and run) Python anywhere and any time. However, you are welcome to run Code Camp code on your own computer (see: [install options](./install.qmd)).
