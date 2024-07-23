@@ -378,63 +378,53 @@
     "text": "Power Terminal Features\nYou might recall that we previously said that all programmers are lazy, and understanding this laziness is the key to thinking that most Terminal (and Python) commands look like the result of monkeys hitting keys at random to being able to write code without constantly having to check Google. Let’s revisit some of the commeands we’ve just seen:\n\n\n\n\n\n\n\n\nCommand\nShort For…\nWhat It Does\n\n\n\n\nls\nlist\nList the contents of the directory I’m about to give you (‘ls ~’ lists the contents of your home directory; ‘ls ..’ lists the contents of the parent directory; etc.)\n\n\ncd\nchange directory\nMove to the path I’m about to give you (‘cd ~’ moves you to your home directory; ‘cd ..’ moves you to the parent directory; etc.)\n\n\npwd\nprint working directory\nShow the path of the current current directory (i.e. where am I now?)\n\n\nhead\nGet the head of a file\nPrint the first few lines of the specified file (e.g. head somefile.csv)\n\n\ntail\nGet the tail of a file\nPrint the last few lines of the specified file (e.g. tail -n 2 somefile.csv)\n\n\nclear\nClear the Terminal\nWhen the Terminal looks really busy with junk you don’t need just type clear\n\n\nexit\nExit the Terminal\nTo close an open Terminal window\n\n\nmv\nMove a directory or file\nLike dragging things in the Finder window (e.g. mv somefile.csv ../another_dir/ to move the file somefile.csv over to a directory named another_dir that is accessible from the parent directory of this one)\n\n\ncp\nCopy a directory or file\nLike dragging things in the Finder window (e.g. cp somefile.csv ../another_dir/ to make a copy of the file somefile.csv in a directory named another_dir that is accessible from the parent directory of this one)\n\n\n\nYou can see how all of these commands are basically abbreviations/mnemonics that make it easy for programmers to be lazy, but productive: less time typing == more time thinking/doing.\n\nCredits!\n\nContributors:\nThe following individuals have contributed to these teaching materials: - James Millington - Jon Reades - Michele Ferretti - Zahratu Shabrina\n\n\nLicense\nThe content and structure of this teaching project itself is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license, and the contributing source code is licensed under The MIT License.\n\n\nAcknowledgements:\nSupported by the Royal Geographical Society (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.\n\n\nPotential Dependencies:\nThis lesson may depend on the following libraries: None"
   },
   {
-    "objectID": "setup/install.html",
-    "href": "setup/install.html",
-    "title": "Running Python Locally",
+    "objectID": "setup/no_install.html",
+    "href": "setup/no_install.html",
+    "title": "Python in the Cloud",
     "section": "",
-    "text": "When we say running Python ‘locally’, we mean installing a version of Python (or using a version already) and executing code on your computer. There are many other ways to run Python, and one of the more convenient options is in the cloud.\nInstalling Python or R is fairly straightforward nowdays, but be warned: what you will see after installing them ain’t pretty. By default, Python and R code is simply the black-and-white text output of an ‘interpreter’ (something that processes lines of code by ‘interpreting’ our code into instructions to the computer, and back). People who code all the time will always install an IDE (short for: Integrated Development Environment) like RStudio or VSCode because it ‘prettifies’ the code that they run, making it easier to spot mistakes and track links between files containing code that interact.\nYou can complete Code Camp using just the basic Python interpreter, but you might find it easier to look at the no install options since these automatically include some basic tools for beautifying your Python code. However, if you’re sure that you want to install Python on your computer then here’s what you do…",
+    "text": "When running code in the cloud, we are running it ‘remotely’, which means without installing anything on your computer. There are many other ways to run code, and that includes ‘locally’ on your computer. But this is a great ‘try before you buy’ option.",
     "crumbs": [
-      "Python on your Computer"
+      "Python in the Cloud"
     ]
   },
   {
-    "objectID": "setup/install.html#checking-for-system-python",
-    "href": "setup/install.html#checking-for-system-python",
-    "title": "Running Python Locally",
-    "section": "Checking for ‘System’ Python",
-    "text": "Checking for ‘System’ Python\nMany computers (especially Macs and Linux systems) will come with Python pre-installed. To find out if you have Python installed:\n\nMacWindows\n\n\nOpen up the Terminal (under Applications &gt; Utilities) and then type python3 --version ↩︎.\n\n\nOpen the Command Prompt (either run cmd.exe or search for Command Prompt from the Windows menu) and then type python3 --version ↩︎.\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n↩︎ means hit Enter or Return on your keyboard. Don’t try to paste the symbol into the Terminal or Command Prompt.\n\n\nIn both cases, if Python is already installed then you will see something like the following (your exact version may differ):\nPython 3.8.16\nIf you see this kind output then, congratulations, you have Python installed! If you’re unsure what all this was about watch the video below.\n\n\n\n\n\n\nNote\n\n\n\nDepending on how Python was installed, you may find that typing just python produces an error, while typing python3 is successful.\n\n\n\nAction\nJust to give you a sense of how to interact with Python from the command line, here’s a short video from a Mac showing how to start/stop Python and execute code to print out the result of 2+2. It’s just a sanity-check:\n\n\n\n\n\n\n\nVersions\n\n\n\nDon’t worry too much about what version of Python you see listed (in the example above it’s 3.8.16) as long as you have at least verion 3.8.0. You should not use Python2 (e.g. 2.7.6) or versions of Python3 earlier than 3.6.",
+    "objectID": "setup/no_install.html#in-your-browser",
+    "href": "setup/no_install.html#in-your-browser",
+    "title": "Python in the Cloud",
+    "section": "In Your Browser",
+    "text": "In Your Browser\nTo make your life as easy as possible we use Pyodide, which allows you to run code in the your browser. For any of the lessons where there is code to run you will see a ‘PYODIDE STATUS’ that starts with Initializing Python Packages before changing to Ready! after a few seconds (depending on your Internet connection speed).\nOnce Pyodide is ready you will have the opportunity to run (and edit!) code further down the page as demonstrated in this video:\n\nAs far as we know Pyodide is fully compatible with any modern browser, but let us know if you experience problems.",
     "crumbs": [
-      "Python on your Computer"
+      "Python in the Cloud"
     ]
   },
   {
-    "objectID": "setup/install.html#installing-reference-python",
-    "href": "setup/install.html#installing-reference-python",
-    "title": "Running Python Locally",
-    "section": "Installing ‘Reference’ Python",
-    "text": "Installing ‘Reference’ Python\nIf you don’t have Python installed, then the ‘reference’ version of Python is the one to use since it’s produced by the Python Software Foundation and is required by QGIS anyway. Whatever operating system you’re using, you should start from the downloads page and follow the instructions from there. You will want a Stable Release, not a Pre-release version of Python.\nOnce it’s installed, you just use the Terminal or Command Prompt as above in Action.\n\n\n\n\n\n\nOur Recommendation\n\n\n\nYou would need to have ‘Reference’ Python installed anyway to make the most of QGIS, so we’d use that one. And getting used to the Terminal/Command Prompt is no bad thing since you’ll be using it a lot in the future.",
+    "objectID": "setup/no_install.html#sec-colab",
+    "href": "setup/no_install.html#sec-colab",
+    "title": "Python in the Cloud",
+    "section": "Google Colab",
+    "text": "Google Colab\nIf you want to experiment further with what you’ve learned about Python then Google’s Colaboratory is the way to go. It will require a Google login, but offers a few benefits: you can save your code or search for and add other ‘notebooks’ (the way you will run code in Colab). As long as you don’t mind having a Google account, it’s probably the best way to get started.\nSince there’s nothing to install, here’s a short video showing the process for running code in Google Colab. We’ve assumed that you already have a Google account, if not you’ll need to set one up first:",
     "crumbs": [
-      "Python on your Computer"
+      "Python in the Cloud"
     ]
   },
   {
-    "objectID": "setup/install.html#running-code-camp",
-    "href": "setup/install.html#running-code-camp",
-    "title": "Running Python Locally",
-    "section": "Running Code Camp",
-    "text": "Running Code Camp\nThis short video shows how to copy code from the Code Camp micro-site over to VSCode (so that you can save your work), and from there into the Python ‘interpreter’ (what you have just installed):\n\nYou can copy and paste multiple lines of code into the interpreter.",
-    "crumbs": [
-      "Python on your Computer"
-    ]
-  },
-  {
-    "objectID": "lessons/Introduction.html",
-    "href": "lessons/Introduction.html",
-    "title": "Doing Urban Spatial Science",
+    "objectID": "lessons/The_Terminal.html",
+    "href": "lessons/The_Terminal.html",
+    "title": "The Terminal",
     "section": "",
-    "text": "In Why the Future of Geography is Cheap we suggested that:\nFor additional perspective there’s:\nBut if you’d prefer to watch a video instead, then here’s CARTO’s take on Spatial Data Science:\nA more individual take that explains how GIS and Spatial Data Science differ comes from Matt Forrest:",
+    "text": "At some point in your exploration of programming you will need to learn how to read/write data from elsewhere on the computer or the Internet.\nWhen you use an app on your mobile phone or on your computer it will often save your files somewhere convenient so that you can find them again, but this isn’t magic: a programmer made a choice about how to do this for you, and now that you’re learning to program you have to make that choice.\nAt this point, for anyone who learned how to use a computer after about 1995, coding can quickly come to seem very unfriendly indeed! That’s because when you are programming you will need to give the computer a lot more information about how to find, read, and write data.",
     "crumbs": [
-      "Introduction"
+      "The Terminal"
     ]
   },
   {
-    "objectID": "lessons/Introduction.html#so-what-is-urban-spatial-science",
-    "href": "lessons/Introduction.html#so-what-is-urban-spatial-science",
-    "title": "Doing Urban Spatial Science",
-    "section": "So What is Urban Spatial Science?",
-    "text": "So What is Urban Spatial Science?\nIt is for the reasons introduced above that terms like ‘geocomputation’, ‘spatial data science’, ‘geographic data science’ and, of course, ‘urban spatial science’ are back in vogue. After a period in which GIS tools like ArcMap, ArcPro, MapInfo and (our favourite) QGIS were front-and-centre for many people with an interest in spatial data, the increased availability of data and code has created a need for a ‘new’ (or old, depending on your view) type of spatial analyst able to reason through code while remaining critically aware of the limitations of the data.\nDifferent universities have settled on different terms, partly because of philosophical differences, and partly because of branding. In practice, there’s a lot of a overlap, though some authors would draw a strong distinction between, say, Geographic Data Science and Geographic Information Science.\nUltimately, we settled on Urban Spatial Science because we wanted to capture the (Spatial) Data Science aspect, the Urban focus, and the Science of Cities elements that we include in our taught modules. Plus, no one else was using that name (yet). Code Camp, however, focusses on the practical basics of programming in Python in order to support your development as someone able to investigate cities and their structures through code and data.",
+    "objectID": "lessons/The_Terminal.html#paths",
+    "href": "lessons/The_Terminal.html#paths",
+    "title": "The Terminal",
+    "section": "Paths",
+    "text": "Paths\nHave you ever thought about how and where files are stored on your computer? Probably not, unless you were very, very bored. Unfortunately, when you start programming you do need to learn a bit more about this – enough, at least, to tell Python where to find the file that you want it to read… though you can do much more than that!\nA few starting principles:\n\nDirectories (a.k.a. folders) and files all have a unique location somewhere on your hard drive.\nA directory (or folder) can contain directories and files. A simple file cannot contain a directory. Only special types of file such as a Zip archive can contain a folder.\nThe directory that sits at the bottom of the hierarchy (i.e. the one directory that is not in another directory) is known as the root directory.\nThe directory in which your settings and documents are saved (i.e. the stuff associated with your username) is known as the home directory.\nA file must be stored in a directory (there are no root files).\n\n\nPaths in the Finder\nWe’ll get to a video in a second, but on a Mac you can ‘view’ the path in the Finder simply by clicking on any finder window and typing Alt + Command + P (or selecting View &gt; Path from the menu bar). This will show the current path in a strip along the bottom of the finder window. Pay attention to the Path view in the movie below.\n\n\n\nPaths in a Terminal\nNow, sooner or later you are going to have to learn how to use the Terminal (a.k.a. Shell) because it will make certain tedious tasks go much, much faster. It is also by far the best way to install Python libraries or other ‘libraries’ that you need to develop your code. Learning to the use the Terminal is also going to help a lot in learning to fix subtle problems with your program (e.g. checking that you are reading the right data).\nSo here’s the same process of navigating from a directory called KCL Modules down to the 2017-18 Geocomputation Teaching directory as you just saw above, but using the Terminal:\n\nYou’ll notice that there were several seemingly cryptic commands – we’ll examine them in more detail below, but the important ones to note in this video are:\n\nls lists the contents of the current directory\ncd changes directory\n\nWe always say that programmers are lazy and this is a good example of that: why write list when we can write ls or change directory when we can write cd? You obviously need to learn what those bits of laziness mean, but they can help a lot in speeding up your code!\n\n\nA Challenge for you!\nNow that you have a geneal idea of what is the terminal, what is a path, and how to navigate in your computer’s folders without clicking buttons, you can take a look at this Software Carpentry exercise focussed on the Terminal.\nThis will cover the following topics and guide you in understanding how to efficiently work with the terminal:\n\nWhat is the shell?\nNavigating the filesystem\nWorking with files and directories\nAutomating the tedious with loops\nCounting and mining with the shell\nWorking with free text\n\nFor a one-page recap on everything you need to know to start working from the terminal, check out Ian Milligan & James Baker’s Introduction to the Bash Command Line. This very well structured overview covers the same topics of the previous exercise, and can serve a useful cheat sheet if in the future you might want to go back and revise these concepts (or only have a useful list of bash commands at hand).\n\n\nCredits!\n\nContributors:\nThe following individuals have contributed to these teaching materials: - James Millington - Jon Reades - Michele Ferretti - Zahratu Shabrina\n\n\nLicense\nThe content and structure of this teaching project itself is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license, and the contributing source code is licensed under The MIT License.\n\n\nAcknowledgements:\nSupported by the Royal Geographical Society (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.\n\n\nPotential Dependencies:\nThis lesson may depend on the following libraries: None",
     "crumbs": [
-      "Introduction"
+      "The Terminal"
     ]
   },
   {
@@ -462,7 +452,7 @@
     "href": "setup/index.html#running-python",
     "title": "Getting Started",
     "section": "Running Python",
-    "text": "Running Python\nYou are welcome to run Code Camp code on your own computer (see: install options), but you should also look at the no install options that will allow you to learn (and run) Python anywhere and any time.",
+    "text": "Running Python\nWe recommend that you simply run Code Camp in your browser since that will allow you to learn (and run) Python anywhere and any time. However, you are welcome to run Code Camp code on your own computer (see: install options).",
     "crumbs": [
       "Getting Started"
     ]
@@ -672,53 +662,63 @@
     ]
   },
   {
-    "objectID": "setup/no_install.html",
-    "href": "setup/no_install.html",
-    "title": "Running Python Remotely",
+    "objectID": "lessons/Introduction.html",
+    "href": "lessons/Introduction.html",
+    "title": "Doing Urban Spatial Science",
     "section": "",
-    "text": "When we say running Python ‘remotely’, we mean running a version of Python and executing code somewhere besides your computer. There are many other ways to run Python, and that includes ‘locally’ on your computer. But this way is a great ‘try before you buy’ option, and in our Foundations of Spatial Data Science module you’ll see another way to run Python..\nAnyway, the following options will allow you to run Python code without installing anything at all on your computer. You will be running code ‘in the cloud’ and so will need an internet-connected device to write and run code. Also, note that in the cloud your code may not be saved if you log out or don’t run any code for a long period of time.",
+    "text": "In Why the Future of Geography is Cheap we suggested that:\nFor additional perspective there’s:\nBut if you’d prefer to watch a video instead, then here’s CARTO’s take on Spatial Data Science:\nA more individual take that explains how GIS and Spatial Data Science differ comes from Matt Forrest:",
     "crumbs": [
-      "Python in the Cloud"
+      "Introduction"
     ]
   },
   {
-    "objectID": "setup/no_install.html#google-colab",
-    "href": "setup/no_install.html#google-colab",
-    "title": "Running Python Remotely",
-    "section": "Google Colab",
-    "text": "Google Colab\nGoogle’s Colaboratory will require a Google login, but offers a few benefits: you can save your code or search for and add other ‘notebooks’ (the way you will run code in Colab). As long as you don’t mind having a Google account, it’s probably the best way to get started.",
+    "objectID": "lessons/Introduction.html#so-what-is-urban-spatial-science",
+    "href": "lessons/Introduction.html#so-what-is-urban-spatial-science",
+    "title": "Doing Urban Spatial Science",
+    "section": "So What is Urban Spatial Science?",
+    "text": "So What is Urban Spatial Science?\nIt is for the reasons introduced above that terms like ‘geocomputation’, ‘spatial data science’, ‘geographic data science’ and, of course, ‘urban spatial science’ are back in vogue. After a period in which GIS tools like ArcMap, ArcPro, MapInfo and (our favourite) QGIS were front-and-centre for many people with an interest in spatial data, the increased availability of data and code has created a need for a ‘new’ (or old, depending on your view) type of spatial analyst able to reason through code while remaining critically aware of the limitations of the data.\nDifferent universities have settled on different terms, partly because of philosophical differences, and partly because of branding. In practice, there’s a lot of a overlap, though some authors would draw a strong distinction between, say, Geographic Data Science and Geographic Information Science.\nUltimately, we settled on Urban Spatial Science because we wanted to capture the (Spatial) Data Science aspect, the Urban focus, and the Science of Cities elements that we include in our taught modules. Plus, no one else was using that name (yet). Code Camp, however, focusses on the practical basics of programming in Python in order to support your development as someone able to investigate cities and their structures through code and data.",
     "crumbs": [
-      "Python in the Cloud"
+      "Introduction"
     ]
   },
   {
-    "objectID": "setup/no_install.html#binder",
-    "href": "setup/no_install.html#binder",
-    "title": "Running Python Remotely",
-    "section": "Binder",
-    "text": "Binder\nMyBinder works in a similar way to Colab, but no login is required and you can’t save your work except by downloading it. So you’ll also lose your notebooks when you log out/don’t run any code for a while.\n\n\n\n\n\n\nRecommendation\n\n\n\nWe’d recommend Google Colab on the basis that you can save your work.\n\n\n\nAction\nSince there’s nothing to install, here’s a short video showing the process for running code in Google Colab. We’ve assumed that you already have a Google account, if not you’ll need to set one up first:",
-    "crumbs": [
-      "Python in the Cloud"
-    ]
-  },
-  {
-    "objectID": "lessons/The_Terminal.html",
-    "href": "lessons/The_Terminal.html",
-    "title": "The Terminal",
+    "objectID": "setup/install.html",
+    "href": "setup/install.html",
+    "title": "Running Python Locally",
     "section": "",
-    "text": "At some point in your exploration of programming you will need to learn how to read/write data from elsewhere on the computer or the Internet.\nWhen you use an app on your mobile phone or on your computer it will often save your files somewhere convenient so that you can find them again, but this isn’t magic: a programmer made a choice about how to do this for you, and now that you’re learning to program you have to make that choice.\nAt this point, for anyone who learned how to use a computer after about 1995, coding can quickly come to seem very unfriendly indeed! That’s because when you are programming you will need to give the computer a lot more information about how to find, read, and write data.",
+    "text": "When we say running Python ‘locally’, we mean installing a version of Python (or using a version already) and executing code on your computer. There are many other ways to run Python, and one of the more convenient options is in the cloud.\nInstalling Python or R is fairly straightforward nowdays, but be warned: what you will see after installing them ain’t pretty. By default, Python and R code is simply the black-and-white text output of an ‘interpreter’ (something that processes lines of code by ‘interpreting’ our code into instructions to the computer, and back). People who code all the time will always install an IDE (short for: Integrated Development Environment) like RStudio or VSCode because it ‘prettifies’ the code that they run, making it easier to spot mistakes and track links between files containing code that interact.\nYou can complete Code Camp using just the basic Python interpreter, but you might find it easier to look at the no install options since these automatically include some basic tools for beautifying your Python code. However, if you’re sure that you want to install Python on your computer then here’s what you do…",
     "crumbs": [
-      "The Terminal"
+      "Python on your Computer"
     ]
   },
   {
-    "objectID": "lessons/The_Terminal.html#paths",
-    "href": "lessons/The_Terminal.html#paths",
-    "title": "The Terminal",
-    "section": "Paths",
-    "text": "Paths\nHave you ever thought about how and where files are stored on your computer? Probably not, unless you were very, very bored. Unfortunately, when you start programming you do need to learn a bit more about this – enough, at least, to tell Python where to find the file that you want it to read… though you can do much more than that!\nA few starting principles:\n\nDirectories (a.k.a. folders) and files all have a unique location somewhere on your hard drive.\nA directory (or folder) can contain directories and files. A simple file cannot contain a directory. Only special types of file such as a Zip archive can contain a folder.\nThe directory that sits at the bottom of the hierarchy (i.e. the one directory that is not in another directory) is known as the root directory.\nThe directory in which your settings and documents are saved (i.e. the stuff associated with your username) is known as the home directory.\nA file must be stored in a directory (there are no root files).\n\n\nPaths in the Finder\nWe’ll get to a video in a second, but on a Mac you can ‘view’ the path in the Finder simply by clicking on any finder window and typing Alt + Command + P (or selecting View &gt; Path from the menu bar). This will show the current path in a strip along the bottom of the finder window. Pay attention to the Path view in the movie below.\n\n\n\nPaths in a Terminal\nNow, sooner or later you are going to have to learn how to use the Terminal (a.k.a. Shell) because it will make certain tedious tasks go much, much faster. It is also by far the best way to install Python libraries or other ‘libraries’ that you need to develop your code. Learning to the use the Terminal is also going to help a lot in learning to fix subtle problems with your program (e.g. checking that you are reading the right data).\nSo here’s the same process of navigating from a directory called KCL Modules down to the 2017-18 Geocomputation Teaching directory as you just saw above, but using the Terminal:\n\nYou’ll notice that there were several seemingly cryptic commands – we’ll examine them in more detail below, but the important ones to note in this video are:\n\nls lists the contents of the current directory\ncd changes directory\n\nWe always say that programmers are lazy and this is a good example of that: why write list when we can write ls or change directory when we can write cd? You obviously need to learn what those bits of laziness mean, but they can help a lot in speeding up your code!\n\n\nA Challenge for you!\nNow that you have a geneal idea of what is the terminal, what is a path, and how to navigate in your computer’s folders without clicking buttons, you can take a look at this Software Carpentry exercise focussed on the Terminal.\nThis will cover the following topics and guide you in understanding how to efficiently work with the terminal:\n\nWhat is the shell?\nNavigating the filesystem\nWorking with files and directories\nAutomating the tedious with loops\nCounting and mining with the shell\nWorking with free text\n\nFor a one-page recap on everything you need to know to start working from the terminal, check out Ian Milligan & James Baker’s Introduction to the Bash Command Line. This very well structured overview covers the same topics of the previous exercise, and can serve a useful cheat sheet if in the future you might want to go back and revise these concepts (or only have a useful list of bash commands at hand).\n\n\nCredits!\n\nContributors:\nThe following individuals have contributed to these teaching materials: - James Millington - Jon Reades - Michele Ferretti - Zahratu Shabrina\n\n\nLicense\nThe content and structure of this teaching project itself is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 license, and the contributing source code is licensed under The MIT License.\n\n\nAcknowledgements:\nSupported by the Royal Geographical Society (with the Institute of British Geographers) with a Ray Y Gildea Jr Award.\n\n\nPotential Dependencies:\nThis lesson may depend on the following libraries: None",
+    "objectID": "setup/install.html#checking-for-system-python",
+    "href": "setup/install.html#checking-for-system-python",
+    "title": "Running Python Locally",
+    "section": "Checking for ‘System’ Python",
+    "text": "Checking for ‘System’ Python\nMany computers (especially Macs and Linux systems) will come with Python pre-installed. To find out if you have Python installed:\n\nMacWindows\n\n\nOpen up the Terminal (under Applications &gt; Utilities) and then type python3 --version ↩︎.\n\n\nOpen the Command Prompt (either run cmd.exe or search for Command Prompt from the Windows menu) and then type python3 --version ↩︎.\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n↩︎ means hit Enter or Return on your keyboard. Don’t try to paste the symbol into the Terminal or Command Prompt.\n\n\nIn both cases, if Python is already installed then you will see something like the following (your exact version may differ):\nPython 3.8.16\nIf you see this kind output then, congratulations, you have Python installed! If you’re unsure what all this was about watch the video below.\n\n\n\n\n\n\nNote\n\n\n\nDepending on how Python was installed, you may find that typing just python produces an error, while typing python3 is successful.\n\n\n\nAction\nJust to give you a sense of how to interact with Python from the command line, here’s a short video from a Mac showing how to start/stop Python and execute code to print out the result of 2+2. It’s just a sanity-check:\n\n\n\n\n\n\n\nVersions\n\n\n\nDon’t worry too much about what version of Python you see listed (in the example above it’s 3.8.16) as long as you have at least verion 3.8.0. You should not use Python2 (e.g. 2.7.6) or versions of Python3 earlier than 3.6.",
     "crumbs": [
-      "The Terminal"
+      "Python on your Computer"
+    ]
+  },
+  {
+    "objectID": "setup/install.html#installing-reference-python",
+    "href": "setup/install.html#installing-reference-python",
+    "title": "Running Python Locally",
+    "section": "Installing ‘Reference’ Python",
+    "text": "Installing ‘Reference’ Python\nIf you don’t have Python installed, then the ‘reference’ version of Python is the one to use since it’s produced by the Python Software Foundation and is required by QGIS anyway. Whatever operating system you’re using, you should start from the downloads page and follow the instructions from there. You will want a Stable Release, not a Pre-release version of Python.\nOnce it’s installed, you just use the Terminal or Command Prompt as above in Action.\n\n\n\n\n\n\nOur Recommendation\n\n\n\nYou would need to have ‘Reference’ Python installed anyway to make the most of QGIS, so we’d use that one. And getting used to the Terminal/Command Prompt is no bad thing since you’ll be using it a lot in the future.",
+    "crumbs": [
+      "Python on your Computer"
+    ]
+  },
+  {
+    "objectID": "setup/install.html#running-code-camp",
+    "href": "setup/install.html#running-code-camp",
+    "title": "Running Python Locally",
+    "section": "Running Code Camp",
+    "text": "Running Code Camp\nThis short video shows how to copy code from the Code Camp micro-site over to VSCode (so that you can save your work), and from there into the Python ‘interpreter’ (what you have just installed):\n\nYou can copy and paste multiple lines of code into the interpreter.",
+    "crumbs": [
+      "Python on your Computer"
     ]
   },
   {

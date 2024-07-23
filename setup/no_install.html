@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.43">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Code Camp – Running Python Remotely</title>
+<title>Python in the Cloud – Code Camp</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Code Camp - Running Python Remotely">
+<meta property="og:title" content="Python in the Cloud – Code Camp">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://jreades.github.io/code-camp/setup/img/CASA_Logo_no_text.png">
 <meta property="og:site_name" content="Code Camp">
@@ -268,8 +268,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#google-colab" id="toc-google-colab" class="nav-link active" data-scroll-target="#google-colab">Google Colab</a></li>
-  <li><a href="#binder" id="toc-binder" class="nav-link" data-scroll-target="#binder">Binder</a></li>
+  <li><a href="#in-your-browser" id="toc-in-your-browser" class="nav-link active" data-scroll-target="#in-your-browser">In Your Browser</a></li>
+  <li><a href="#sec-colab" id="toc-sec-colab" class="nav-link" data-scroll-target="#sec-colab">Google Colab</a></li>
   </ul>
 <div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/jreades/code-camp/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -278,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Running Python Remotely</h1>
+<h1 class="title">Python in the Cloud</h1>
 </div>
 
 
@@ -295,35 +295,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>When we say running Python ‘remotely’, we mean running a version of Python and executing code somewhere besides <em>your</em> computer. There are many other ways to run Python, and that includes ‘<a href="../setup/install.html">locally</a>’ on your computer. But this way is a great ‘try before you buy’ option, and in our <a href="https://jreades.github.io/fsds/">Foundations of Spatial Data Science module</a> you’ll see another way to run Python..</p>
-<p>Anyway, the following options will allow you to run Python code without installing <em>anything</em> at all on your computer. You will be running code ‘in the cloud’ and so will need an internet-connected device to write and run code. Also, note that in the cloud your code may not be saved if you log out or don’t run any code for a long period of time.</p>
-<section id="google-colab" class="level2">
-<h2 class="anchored" data-anchor-id="google-colab">Google Colab</h2>
-<p>Google’s <a href="https://colab.research.google.com/?">Colaboratory</a> will require a Google login, but offers a few benefits: you can save your code or search for and add other ‘notebooks’ (the way you will run code in Colab). As long as you don’t mind having a Google account, it’s probably the best way to get started.</p>
-</section>
-<section id="binder" class="level2">
-<h2 class="anchored" data-anchor-id="binder">Binder</h2>
-<p><a href="https://mybinder.org/">MyBinder</a> works in a similar way to Colab, but no login is required and you can’t save your work except by downloading it. So you’ll also lose your notebooks when you log out/don’t run any code for a while.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<p>When running code in the cloud, we are running it ‘remotely’, which means without installing anything on <em>your</em> computer. There are many other ways to run code, and that includes ‘<a href="../setup/install.html">locally</a>’ on your computer. But this is a great ‘try before you buy’ option.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Recommendation
+Internet Connectivity
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We’d recommend Google Colab on the basis that you can save your work.</p>
+<p>You will be running code ‘in the cloud’ and so <em>will</em> need an internet-connected device to run the code. Also, note that in the cloud your work is less likely to be saved, but here the tasks are fairly simple so think of it as an opportunity to check your understanding.</p>
 </div>
 </div>
-<section id="action" class="level3">
-<h3 class="anchored" data-anchor-id="action">Action</h3>
+<section id="in-your-browser" class="level2">
+<h2 class="anchored" data-anchor-id="in-your-browser">In Your Browser</h2>
+<p>To make your life as easy as possible we use <a href="https://pyodide.org/en/stable/">Pyodide</a>, which allows you to run code in the your browser. For any of the lessons where there is code to run you will see a ‘PYODIDE STATUS’ that starts with <code>Initializing Python Packages</code> before changing to <code>Ready!</code> after a few seconds (depending on your Internet connection speed).</p>
+<p>Once Pyodide is ready you will have the opportunity to run (and edit!) code further down the page as demonstrated in this video:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/nrYjHYEhCJU?si=Pn348cu8Fp7uaHln" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>As far as we know Pyodide is fully compatible with any modern browser, but let us know if you experience problems.</p>
+</section>
+<section id="sec-colab" class="level2">
+<h2 class="anchored" data-anchor-id="sec-colab">Google Colab</h2>
+<p>If you want to experiment further with what you’ve learned about Python then Google’s <a href="https://colab.research.google.com/?">Colaboratory</a> is the way to go. It will require a Google login, but offers a few benefits: you can save your code or search for and add other ‘notebooks’ (the way you will run code in Colab). As long as you don’t mind having a Google account, it’s probably the best way to get started.</p>
 <p>Since there’s nothing to install, here’s a short video showing the process for running code in Google Colab. We’ve assumed that you already have a Google account, if not you’ll need to set one up first:</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/pPGAfp0Oifg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
