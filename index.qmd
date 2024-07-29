@@ -75,3 +75,11 @@ Markdown(tabulate(
   colalign=('left','left','left','left'),
 ))
 ```
+
+## More Help
+
+It's entirely possible that Code Camp doesn't suit you: you want assessments, you want a more general introduction to Python, etc. Whatever, Code Camp is there to help you, and if it's not helping then don't worry about completing it.
+
+*Instead*, what we'd suggest is that you look for alternatives that *do* suit! There are lots of 'introduction to Python' online classes out there: [Kaggle](https://www.kaggle.com/learn/intro-to-programming), [Codcademy](https://try.codecademy.com/learn-python-3), [Codefinity](https://codefinity.com/), [Learn Python](https://www.learnpython.org/), [Coursera](https://www.coursera.org/learn/python-programming-intro), [Microsoft](https://learn.microsoft.com/en-us/training/modules/intro-to-python/), [DataCamp](https://www.datacamp.com/courses/intro-to-python-for-data-science), [Udacity](https://www.udacity.com/course/introduction-to-python--ud1110), [Software Carpentry](https://swcarpentry.github.io/python-novice-inflammation/)... and lots more! We're not going to recommend a specific online module -- you'll have to see for yourself which style suits you best -- but this hopefully makes the point that there's no excuse for *not* learning some basic Python before the start of your class. 
+
+And the real takeaway here should be this: the more you do now, the easier it'll be later. *Just* like learning a new language. Good luck!
