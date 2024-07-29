@@ -750,6 +750,13 @@
     "text": "Lessons\nThe lessons are organised to build from the general and basic, to the specific and advanced. You need to learn about variables and operators before you can learn about functions and classes. But along the way we also try to introduce other ideas and tools (such as working with the Terminal and how to write Markdown) that will support your coding skills. While there are some important differences, a lot of what makes a good programmer is the same as what makes a good anything: persistence, attention to detail, and communicating clearly and succinctly.\n\n\n\nLesson Plan {#cell-lesson-plan}\n\n\n\n\n\n\n\n\nLesson\nTime Needed\nTitle & topic\nLink\n\n\n\n\n0\n00:10:00\nIntroduction: Doing Urban Spatial Science\nLesson\n\n\n1\n00:25:00\nBackground: Why We Do What We Do\nLesson\n\n\n2\n00:45:00\nThe Basics: Variables, Operators & Precedence\nLesson\n\n\n3\n00:40:00\nExceptions: What to Do When Things Go Wrong\nLesson\n\n\n4\n00:20:00\nWriting Code: A Matter of Style\nLesson\n\n\n5\n01:15:00\nBoolean Logic: Comparisons, Conditions & George Boole\nLesson\n\n\n6\n01:35:00\nRecap 1\nLesson\n\n\n7\n01:00:00\nLists: Making a List (and Checking it Twice)\nLesson\n\n\n8\n00:40:00\nDicts: Look it up in the Dictionary\nLesson\n\n\n9\n00:50:00\nLoops: Let’s Iterate This\nLesson\n\n\n10\n00:50:00\nRecap 2\nLesson\n\n\n11\n01:25:00\nFunctions: Automate All the Things\nLesson\n\n\n12\n00:40:00\nPackages: Giving Yourself a Present\nLesson\n\n\n13\n00:55:00\nClasses: How to Objectify Things in Python\nLesson\n\n\n14\n00:35:00\nThe Terminal: No More Buttons to Press\nLesson"
   },
   {
+    "objectID": "index.html#more-help",
+    "href": "index.html#more-help",
+    "title": "Welcome",
+    "section": "More Help",
+    "text": "More Help\nIt’s entirely possible that Code Camp doesn’t suit you: you want assessments, you want a more general introduction to Python, etc. Whatever, Code Camp is there to help you, and if it’s not helping then don’t worry about completing it.\nInstead, what we’d suggest is that you look for alternatives that do suit! There are lots of ‘introduction to Python’ online classes out there: Kaggle, Codcademy, Codefinity, Learn Python, Coursera, Microsoft, DataCamp, Udacity, Software Carpentry… and lots more! We’re not going to recommend a specific online module – you’ll have to see for yourself which style suits you best – but this hopefully makes the point that there’s no excuse for not learning some basic Python before the start of your class.\nAnd the real takeaway here should be this: the more you do now, the easier it’ll be later. Just like learning a new language. Good luck!"
+  },
+  {
     "objectID": "index.html#footnotes",
     "href": "index.html#footnotes",
     "title": "Welcome",
