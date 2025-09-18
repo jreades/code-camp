@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0812a7d3ff627bcd45a5ce7d509146a1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-da5941ee1e5f8f136a1d663ab47c3e00.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -265,7 +265,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"results":"markup","fig-height":5,"output":"true","out-width":"700px","label":"","dpi":72,"context":"interactive","classes":"","out-height":"","autorun":"","warning":"true","comment":"","read-only":"false","message":"true","fig-width":7,"fig-cap":""},"code":"class shape(object): \n    def __init__(self): \n        return \n    \n    def volume(self):\n        raise Exception(\"Unimplmented method error.\")\n    \n    def diameter(self):\n        raise Exception(\"Unimplmented method error.\")\n        \n    def type(self):\n        return(self.shape_type)\n\ns = shape()\nprint(f\"I am an object of class '{type(s).__name__}'.\\n\\n\")\ns.volume()"},{"id":2,"options":{"results":"markup","fig-height":5,"output":"true","out-width":"700px","label":"","dpi":72,"context":"interactive","classes":"","out-height":"","autorun":"","warning":"true","comment":"","read-only":"false","message":"true","fig-width":7,"fig-cap":""},"code":"class cube(shape): # Inherit from shape \n    def __init__(self, e):\n        self.shape_type = 'Cube'\n        self.edge = e\n        return\n    \n    def volume(self):\n        return self.edge**3\n    \n    def diameter(self):\n        return (self.edge**2 + self.edge**2)**(1/2)\n\nclass sphere(shape): # Inherit from shape \n    def __init__(self, r):\n        self.shape_type = 'Sphere'\n        self.radius = r\n        return\n    \n    def volume(self):\n        return (4/3) * pi * self.radius**3\n    \n    def diameter(self):\n        return self.radius*2"},{"id":3,"options":{"results":"markup","fig-height":5,"output":"true","out-width":"700px","label":"","dpi":72,"context":"interactive","classes":"","out-height":"","autorun":"","warning":"true","comment":"","read-only":"false","message":"true","fig-width":7,"fig-cap":""},"code":"s = sphere(10)\nprint(s.type())\nprint(\"\\tVolume is: {0:5.2f}\".format(s.volume()))\nprint(\"\\tDiameter is: {0:5.2f}\".format(s.diameter()))\nprint(\"\")\n\nc = cube(10)\nprint(c.type())\nprint(\"\\tVolume is: {0:5.2f}\".format(c.volume()))\nprint(\"\\tDiameter is: {0:5.2f}\".format(c.diameter()))\nprint(\"\")"},{"id":4,"options":{"results":"markup","fig-height":5,"output":"true","out-width":"700px","label":"","dpi":72,"context":"interactive","classes":"","out-height":"","autorun":"","warning":"true","comment":"","read-only":"false","message":"true","fig-width":7,"fig-cap":""},"code":"from math import pi\n\nclass shape(object): # Inherit from base class \n    def __init__(self): \n        return \n    \n    def volume(self):\n        raise Exception(\"Unimplmented method error.\")\n    \n    def diameter(self):\n        raise Exception(\"Unimplmented method error.\")\n    \n    def area(self):\n        raise Exception(\"Unimplmented method error.\")\n\n    def type(self):\n        return(self.shape_type)\n    \nclass cube(shape): # Inherit from shape \n    def __init__(self, e):\n        self.shape_type = 'Cube'\n        self.edge = e\n        return\n    \n    def volume(self):\n        return self.edge**3\n    \n    def diameter(self):\n        return (self.edge**2 + self.edge**2)**(1/2)\n    \n    def area...\n\nclass sphere(shape): # Inherit from shape \n    def __init__(self, r):\n        self.shape_type = 'Sphere'\n        self.radius = r\n        return\n    \n    def volume(self):\n        return (4/3) * pi * self.radius**3\n    \n    def diameter(self):\n        return self.radius*2\n    \n    def area...\n\nclass pyramid(shape): # Inherit from shape\n    \n    has_mummies = True # This is for *all* regular pyramids\n    \n    def __init__(self, e):\n        self.shape_type = 'Regular Pyramid'\n        self.edge       = e\n        return\n    \n    def volume...\n\n    def diameter...\n\n    def area..."}];
+globalThis.qpyodideCellDetails = [{"code":"class shape(object): \n    def __init__(self): \n        return \n    \n    def volume(self):\n        raise Exception(\"Unimplmented method error.\")\n    \n    def diameter(self):\n        raise Exception(\"Unimplmented method error.\")\n        \n    def type(self):\n        return(self.shape_type)\n\ns = shape()\nprint(f\"I am an object of class '{type(s).__name__}'.\\n\\n\")\ns.volume()","id":1,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class cube(shape): # Inherit from shape \n    def __init__(self, e):\n        self.shape_type = 'Cube'\n        self.edge = e\n        return\n    \n    def volume(self):\n        return self.edge**3\n    \n    def diameter(self):\n        return (self.edge**2 + self.edge**2)**(1/2)\n\nclass sphere(shape): # Inherit from shape \n    def __init__(self, r):\n        self.shape_type = 'Sphere'\n        self.radius = r\n        return\n    \n    def volume(self):\n        return (4/3) * pi * self.radius**3\n    \n    def diameter(self):\n        return self.radius*2","id":2,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"s = sphere(10)\nprint(s.type())\nprint(\"\\tVolume is: {0:5.2f}\".format(s.volume()))\nprint(\"\\tDiameter is: {0:5.2f}\".format(s.diameter()))\nprint(\"\")\n\nc = cube(10)\nprint(c.type())\nprint(\"\\tVolume is: {0:5.2f}\".format(c.volume()))\nprint(\"\\tDiameter is: {0:5.2f}\".format(c.diameter()))\nprint(\"\")","id":3,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"from math import pi\n\nclass shape(object): # Inherit from base class \n    def __init__(self): \n        return \n    \n    def volume(self):\n        raise Exception(\"Unimplmented method error.\")\n    \n    def diameter(self):\n        raise Exception(\"Unimplmented method error.\")\n    \n    def area(self):\n        raise Exception(\"Unimplmented method error.\")\n\n    def type(self):\n        return(self.shape_type)\n    \nclass cube(shape): # Inherit from shape \n    def __init__(self, e):\n        self.shape_type = 'Cube'\n        self.edge = e\n        return\n    \n    def volume(self):\n        return self.edge**3\n    \n    def diameter(self):\n        return (self.edge**2 + self.edge**2)**(1/2)\n    \n    def area...\n\nclass sphere(shape): # Inherit from shape \n    def __init__(self, r):\n        self.shape_type = 'Sphere'\n        self.radius = r\n        return\n    \n    def volume(self):\n        return (4/3) * pi * self.radius**3\n    \n    def diameter(self):\n        return self.radius*2\n    \n    def area...\n\nclass pyramid(shape): # Inherit from shape\n    \n    has_mummies = True # This is for *all* regular pyramids\n    \n    def __init__(self, e):\n        self.shape_type = 'Regular Pyramid'\n        self.edge       = e\n        return\n    \n    def volume...\n\n    def diameter...\n\n    def area...","id":4,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
 
 </script>
@@ -459,9 +459,10 @@ globalThis._qpyodideGetInstance = function() {
 
 <meta property="og:title" content="Inheritance and Classes – Code Camp">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://jreades.github.io/code-camp/lessons/img/CASA_Logo_no_text.png">
+<meta property="og:image" content="../img/treeolif.jpg">
 <meta property="og:site_name" content="Code Camp">
 <meta property="og:locale" content="en_GB">
+<meta property="og:image:alt" content="Tree of Life">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -758,23 +759,13 @@ globalThis._qpyodideGetInstance = function() {
 <p>Here’s a simple way to think about inheritance: think of the ‘evolutionary trees’ you might have seen charting the evolution of organisms over time. At the bottom of the tree is the single-celled animal, and at the other end are humans, whales, wildebeest, etc. We all <em>inherit</em> some basic functionality from that original, simple cell.</p>
 <p>In between us and that primitive, however, are a whole series of branches: different bits of the tree evolved in different directions and developed different ‘functionality’. Some of us have bones. Some have cartilege. Some are vegetarian, and some are carnivorous. And so on.</p>
 <p>When you get to the primates we all share certain common ‘features’ (binocular vision, grasping hands, etc.), but we are <em>still</em> more similar to gorillas than we are to macaques. So gorillas and humans <em>extend</em> the primitive ‘primate functionality’ with some bonus features (bigger brains, greater strength, etc.) that are useful, while macaques extend it with a slightly different set of features (tails, etc.).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="http://palaeos.com/systematics/tree/images/treeolif.jpg" class="img-fluid figure-img"></p>
-<figcaption>Tree of Life</figcaption>
-</figure>
-</div>
+<p><img src="../img/treeolif.jpg" class="img-fluid" alt="Tree of Life"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 </section>
 <section id="the-tree-of-classes" class="level2">
 <h2 class="anchored" data-anchor-id="the-tree-of-classes">The ‘Tree of Classes’</h2>
 <p>Inheritance in code works in a similar way: <em>all</em> Python classes inherit their most basic functionality from a single primitive ‘object’ class that itself does very little except to provide a template for what an object should look like. As you move along the inheritance tree you will find more and more complex objects with increasingly advanced features.</p>
 <p>I can’t find an image of Python base class inheritance, but I’ve found an equally useful example of how <em>anything</em> can be modelled using this ‘family tree’ approach… consider the following:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="http://www.mkonar.org/dogus/wiki/lib/exe/fetch.php/python/vehicle.png" class="img-fluid figure-img"></p>
-<figcaption>Vehicle Inheritance</figcaption>
-</figure>
-</div>
+<p><img src="../img/Python-Inheritance-Illustration.png" class="img-fluid" alt="Vehicle Inheritance"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>If we were trying to implement a vehicle registration scheme in Python, we would want to start with the most basic category of all: <em>vehicle</em>. The vehicle class itself might not do much, but it gives us a template for <em>all</em> vehicles (e.g.&nbsp;it must be registered, it must have a unique license number, etc.). We then <em>extend</em> the functionality of this ‘base class’ with three intermediate classes: two-wheeled vehicles, cars, and trucks. These, in turn, lead to eight actual vehicle types. These might have <em>additional</em> functionality: a bus might need have a passenger capacity associated with it, while a convertible might need to be hard- or soft-top. All of this could be expressed in Python as:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> vehicle(<span class="bu">object</span>): <span class="co"># Inherit from base class</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
@@ -807,7 +798,7 @@ globalThis._qpyodideGetInstance = function() {
 <section id="a-basic-shape" class="level3">
 <h3 class="anchored" data-anchor-id="a-basic-shape">A Basic Shape</h3>
 <p>Here is a simple demonstration of how classes work and why they’re useful in programming. Let’s see how we might create and work with a ‘shape’ class in Python:</p>
-<div id="47f21f4e" class="cell" data-execution_count="1">
+<div id="0d47cb6b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> shape(<span class="bu">object</span>): <span class="co"># Inherit from base class </span></span>
@@ -844,7 +835,7 @@ globalThis._qpyodideGetInstance = function() {
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div id="5ecb8ad0" class="cell" data-execution_count="3">
+<div id="271a638b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> sphere(<span class="dv">10</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.<span class="bu">type</span>())</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">Volume is: </span><span class="sc">{0:5.2f}</span><span class="st">"</span>.<span class="bu">format</span>(s.volume()))</span>
@@ -906,7 +897,14 @@ Cube
 </section>
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Source: http://palaeos.com/systematics/tree/<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Source: https://www.learnbyexample.org/python-inheritance/<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -989,8 +987,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -999,7 +995,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/jreades\.github\.io\/code-camp\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1101,7 +1097,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
